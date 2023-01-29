@@ -1,3 +1,5 @@
+## Introduction to Git and Github
+
 The content of this exercise is based on the Github Classroom starter assignment, which is designed to give you a brief introduction to GitHub. The task at the end of this README.md file is designed to help you practice using Github...
 
 ## Git and GitHub
