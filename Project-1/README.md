@@ -75,18 +75,28 @@ T	T	T	T	T
   
   (b) (A→(B∨C))∨(C→¬A)
   
-  
+  (b) has no CNF because it is a tautology. 
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
-```
+  
+  (c) is a tautology
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```(a)  B(x,y) that says that x is a brother of y
+  
+  (a)  B(x,y) that says that x is a brother of y
+  possible.
+  
   (b)  A(x,y) that says that x is an aunt of y
+  possible.
+  
   (c)  C(x,y) that says that x and y are cousins 
+  possible.
+  
   (d)  O(x) that says that x is an only child
+  not possible, because being an only child cannot be fit in a unary relation function.
+  
   (e)  T(x) that says that x has exactly two brothers 
-```
+  possible.
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
