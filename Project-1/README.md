@@ -12,10 +12,51 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```(a) (¬A→B)∨((A∧¬C)→B) 
-  (b) (A→B)∧(A→¬B)
-  (c) (A→(B∨C))∨(C→¬A) 
-  (d) ((A→B)∧C)∨(A∧D) 
-```
+ 
+ - (¬A→B) means if 'not A' then B
+ - (A∧¬C)→B means if A with 'not C', then B
+ - So, (¬A→B)∨((A∧¬C)→B) means either one or both of them are true.
+ 
+ A ¬A   C ¬C  B ¬B (¬A→B)∨((A∧¬C)→B) ¬(¬A→B)∨((A∧¬C)→B)
+ T  F   T  F  F  T       F                  T  
+ T  F   F  T  T  F       T                  F
+ F  T   T  F  T  F       T                  F 
+ F  T   F  T  T  F       T                  F
+
+ - Am I doing this right?? 
+ - If I am, this is a contingent.
+  
+  ```(b) (A→B)∧(A→¬B)
+  
+ - (A→B)∧(A→¬B) means if 'A' then 'B' and if 'A' then 'not-B' are true at the same time.
+  
+ A ¬A  B ¬B  (A→B)∧(A→¬B)
+ T  F  T  F       F
+ F  T  F  T       F
+ T. F. F  T.      T
+ F. 
+ 
+ - If I am doing this right, this is a contingent.
+
+  
+  ```(c) (A→(B∨C))∨(C→¬A) 
+  
+ - (A→(B∨C)) means if 'A', then either 'B', 'C', or both.
+ - (C→¬A) means if 'C', then 'not A'.
+ - (A→(B∨C))∨(C→¬A) means either one or both of the above statements are true.
+ - Well, both of the statements cannot be true because A∧¬A is a contradiction.
+ 
+ A  B  C ¬A ¬B ¬C A→(B∨C) (C→¬A) (A→(B∨C))∨(C→¬A)
+ 
+ 
+  
+  
+ 
+  ```(d) ((A→B)∧C)∨(A∧D)
+  A B C D ¬A ¬B ¬C ¬D ((A→B)∧C)∨(A∧D)
+  
+  
+
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
@@ -43,6 +84,11 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
+
+-  ∃x∀y means the existence at least one 'x' contains all cases of 'y'. ∀x∃y means all cases of 'x' contain the existence of at least one 'y'.
+  The difference comes from potentially restricting either x or y. 
+  
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
