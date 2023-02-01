@@ -17,7 +17,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (d) ((A→B)∧C)∨(A∧D) 
 ```
 
-```Answer: 
+Answer: 
 (a) Tautology
 | A | B	| C | ¬A→B | A∧¬C | (A∧¬C)→B | (¬A→B)∨((A∧¬C)→B) |
 | ---  | --- | --- | --- | --- | --- | --- |
@@ -36,23 +36,21 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 | 0 | 1 | 1 | 1 | 0 |
 | 0 | 0 | 1 | 1 | 0 | 
 
+ssss
 
 
 
 
 
 
-
-
-```
 	
-2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
+1. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 ```
 
-3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
+1. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
   (b)  A(x,y) that says that x is an aunt of y
   (c)  C(x,y) that says that x and y are cousins 
@@ -60,7 +58,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (e)  T(x) that says that x has exactly two brothers 
 ```
 
-4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
+1. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
   (b)  A that says that x is an aunt of y
   (c)  C that says that x and y are cousins 
@@ -68,28 +66,28 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (e)  T that says that x has exactly two brothers 
 ```
 
-5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+1. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-6. Explain the difference - using natural language - between the first-order prefixes:
+2. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
 	
-7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
+1. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
 	
-8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
+1. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 ```
 	
-9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+1. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
-10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+2.  Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
