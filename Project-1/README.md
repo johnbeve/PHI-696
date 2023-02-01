@@ -22,7 +22,7 @@ T	F	T		  T
 T	T	F		  T
 T	T	T		  T
 
-(a) Tautology.
+It is a Tautology.
    
   (b) (A→B)∧(A→¬B)
   
@@ -31,7 +31,7 @@ F	F		 T
 F	T		 T
 T	F		 F
 T	T		 F
-  (b) Contigent. 
+It is Contigent. 
   
   
   (c) (A→(B∨C))∨(C→¬A) 
@@ -45,7 +45,7 @@ T	F	F		       T
 T	F	T		       T
 T	T	F		       T
 T	T	T		       T
- (c) Tautology.
+It is a Tautology.
   
   (d) ((A→B)∧C)∨(A∧D) 
   
@@ -66,7 +66,8 @@ T	T	F	F		       F
 T	T	F	T		       T
 T	T	T	F		       T
 T	T	T	T		       T
-(d) Contignet.
+It is Contignet.
+```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
