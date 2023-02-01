@@ -93,9 +93,13 @@ Answer:
 
 Answer:
 (a) B(x,y)=def. ∃u(P(u,x)∧P(u,y)∧¬F(x))
+
 (b) A(x,y)=def. ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧F(x))
+
 (c) C(x,y)=def. ∃u∃w∃z(P(u,y)∧P(w,z)∧P(w,u)∧P(z,x))
+
 (d) O(x)=def. ∃u(P(u,x)∧∀y(P(u,y)→x=y))
+
 (e) T(x)=def. ∃u(∃y∃z(¬(y=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w)→y=z∨y=w∨z=w))
 
 1. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
