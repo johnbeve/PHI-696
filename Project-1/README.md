@@ -16,6 +16,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
 ```
+
 ```Answer: 
 (a) Tautology
 | A | B	| C | ¬A→B | A∧¬C | (A∧¬C)→B | (¬A→B)∨((A∧¬C)→B) |
@@ -33,9 +34,17 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 | 1 | 1 | 1 | 1 | 0 | 
 | 1 | 0 | 0 | 1 | 1 |
 | 0 | 1 | 1 | 1 | 0 |
-| 0 | 1 | 1 | 1 | 0 | 
+| 0 | 0 | 1 | 1 | 0 | 
 
 
+
+
+
+
+
+
+
+```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
