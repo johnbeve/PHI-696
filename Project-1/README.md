@@ -18,6 +18,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 ```
 
 Answer: 
+
 (a) Tautology
 | A | B	| C | ¬A→B | A∧¬C | (A∧¬C)→B | (¬A→B)∨((A∧¬C)→B) |
 | ---  | --- | --- | --- | --- | --- | --- |
@@ -29,26 +30,60 @@ Answer:
 | 0 | 1 | 0 | 1 | 0 | 1 | 1 |
 | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-(b)
+
+(b) Contingent
 | A | B	| A→B | A→¬B | (A→B)∧(A→¬B) | 
-| 1 | 1 | 1 | 1 | 0 | 
-| 1 | 0 | 0 | 1 | 1 |
-| 0 | 1 | 1 | 1 | 0 |
-| 0 | 0 | 1 | 1 | 0 | 
+| ---  | --- | --- | --- | --- |
+| 1 | 1 | 1 | 0 | 0 | 
+| 1 | 0 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 
 
-ssss
+(c) Tautology
+| A | B	| C | B∨C | A→(B∨C) | C→¬A | (A→(B∨C))∨(C→¬A)) |
+| ---  | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 1 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 0 | 0 | 1 | 1 | 1 |
 
+(d) Contingent
+| A | B	| C | D | A→B | (A→B)∧C | A∧D | ((A→B)∧C)∨(A∧D)
+| ---  | --- | --- | --- | --- | --- | --- |--- |
+| 1  | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 1  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 1  | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
+| 1  | 0 | 1 | 1 | 0 | 0 | 1 | 1 |
+| 0  | 1 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 1  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 0  | 0 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 0 | 1 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+| 0  | 0 | 0 | 1 | 1 | 0 | 0 | 0 |
+| 0  | 0 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 0  | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
 
-
-
-
-
-	
-1. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
+2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 ```
+Answer:
+(a) CNF: (A∨C)∧(¬B∨C)
+
+(b) CNF: B∨¬A
+
+(c) CNF: B∨¬B (the CNF of a tautology is any formula of the form "p∨¬p")
+
+
 
 1. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
@@ -89,5 +124,5 @@ ssss
 	
 1. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
-2.  Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+2.   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
