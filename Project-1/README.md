@@ -87,10 +87,11 @@ F F. T. T.  T.    T.        T
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
 
--  ∃x∀y means the existence at least one 'x' means all cases of 'y' are true. ∀x∃y means all cases of 'x' show 'y' is true at least once.
+-  ∃x∀y means 'x' being true at least once means all cases of 'y' are true. ∀x∃y means all cases of 'x' show 'y' is true at least once.
 - The first prefix has all instances 'y' depend on at least one instance of x, whereas the second states at least one instance of 'y' being true depends on all cases of 'x' being true.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
+ - ∃x∀y∃z means the existence of at least one instance where 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
 	
