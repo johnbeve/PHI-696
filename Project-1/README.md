@@ -17,12 +17,12 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
  - (A∧¬C)→B means if A with 'not C', then B
  - So, (¬A→B)∨((A∧¬C)→B) means either one or both of them are true.
  
-A B C ¬A ¬B ¬C ¬A→B (A∧¬C)→B (¬A→B)∨((A∧¬C)→B)
-T T T 
-T F T      
-T T F
-F T T
-F T F
+A B C ¬A→B (A∧¬C)→B (¬A→B)∨((A∧¬C)→B)
+T T T   F     F            F
+T F T   F        
+T T F   F     T            T
+F T T   T     F            T
+F T F   
 F F T
 T F F
 F F F
@@ -45,17 +45,19 @@ F F. T. T.  T.    T.        T
  - (C→¬A) means if 'C', then 'not A'.
  - (A→(B∨C))∨(C→¬A) means either one or both of the above statements are true.
  
- A  B  C ¬A ¬B ¬C A→(B∨C) (C→¬A) (A→(B∨C))∨(C→¬A)
+A B C  A→(B∨C) (C→¬A) (A→(B∨C))∨(C→¬A)
+T T T   
+T F T           
+T T F   
+F T T  
+F T F   
+F F T
+T F F
+F F F
  
- 
- 
- 
- 
-  
-  
  
   ```(d) ((A→B)∧C)∨(A∧D)
-  A B C D ¬A ¬B ¬C ¬D ((A→B)∧C)∨(A∧D)
+  A B C D (A→B)∧C A∧D ((A→B)∧C)∨(A∧D)
   
   
 
@@ -87,12 +89,14 @@ F F. T. T.  T.    T.        T
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
 
--  ∃x∀y means 'x' being true at least once means all cases of 'y' are true. ∀x∃y means all cases of 'x' show 'y' is true at least once.
-- The first prefix has all instances 'y' depend on at least one instance of x, whereas the second states at least one instance of 'y' being true depends on all cases of 'x' being true.
+-  ∃x∀y means there exists at least one case of 'x' where all cases of 'y' are true. ∀x∃y means in all cases of 'x' there exists at least one instance where 'y' is true.
+- The first prefix has all instances 'y' depend on the existence of at least one x, whereas the second states at least one instance of 'y' necessitates all cases 'x' be true.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
- - ∃x∀y∃z means the existence of at least one instance where 
-  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  
+ - ∃x∀y∃z states the existence of at least one 'x' means all cases of 'y' also have 'z' be true at least once. ∀x∃y∀z means in all cases 'x' there exists at least one instance'y' containing all cases of 'z' being true.
+ 
+ (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
