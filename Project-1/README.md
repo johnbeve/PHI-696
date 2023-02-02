@@ -130,7 +130,7 @@ Answer:
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={$B≡Male\sqcap∃ParentOf^-.(∃ParentOf\ge2)$, 
+T-box $T_1$={$B ≡ Male\sqcap∃ParentOf^-.(∃ParentOf\ge2)$, 
 
 $O≡∃ParentOf^-.(∃ParentOf\le1)$, 
 
