@@ -47,7 +47,7 @@ Tip #4: Work together _as a team_.
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
-(a) a is a proper part of b and disjoint from e
+  (a) a is a proper part of b and disjoint from e
   (b) a overlaps c
   (c) a is part of b, b is part of f, and a is part of f
   (e) There are no parts between a and g in common
