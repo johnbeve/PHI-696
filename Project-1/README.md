@@ -12,21 +12,24 @@ Tip #4: The work we do is challenging; that should be assumed. You are smart eno
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
-  ```(a) (¬A→B)∨((A∧¬C)→B) 
+  ```
+  (a) (¬A→B)∨((A∧¬C)→B) 
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
   ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
-  ```(a) (A→B)→C
+  ```
+  (a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
   ```
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  ```(a)  B(x,y) that says that x is a brother of y  
+  ```
+  (a)  B(x,y) that says that x is a brother of y  
   (b)  A(x,y) that says that x is an aunt of y  
   (c)  C(x,y) that says that x and y are cousins   
   (d)  O(x) that says that x is an only child  
@@ -34,7 +37,8 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```(a)  B that says that x is a brother of y
+  ```
+  (a)  B that says that x is a brother of y
   (b)  A that says that x is an aunt of y
   (c)  C that says that x and y are cousins
   (d)  O that says that x is an only child  
@@ -45,7 +49,8 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
+  ```
+  (a) ∃x∀y and ∀x∃y
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
