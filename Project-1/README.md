@@ -14,12 +14,14 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   ```(a) (¬A→B)∨((A∧¬C)→B) 
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
-  (d) ((A→B)∧C)∨(A∧D) ```
+  (d) ((A→B)∧C)∨(A∧D) 
+  ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
-  (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A ```
+  (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
+  ```
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
@@ -27,14 +29,16 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (b)  A(x,y) that says that x is an aunt of y  
   (c)  C(x,y) that says that x and y are cousins   
   (d)  O(x) that says that x is an only child  
-  (e)  T(x) that says that x has exactly two brothers ```
+  (e)  T(x) that says that x has exactly two brothers 
+  ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
   (b)  A that says that x is an aunt of y
   (c)  C that says that x and y are cousins
   (d)  O that says that x is an only child  
-  (e)  T that says that x has exactly two brothers ```
+  (e)  T that says that x has exactly two brothers 
+  ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
