@@ -130,7 +130,7 @@ Answer:
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={$B≡Male\sqcap ∃ParentOf^-.(∃ParentOf\ge2)$, $O≡∃ParentOf^-.(∃ParentOf\le1)$, $GP≡∃ParentOf.(∃ParentOf.Male\sqcup ¬Male)$}
+T-box $T_1$={$B≡Male\sqcap∃ParentOf^-.(∃ParentOf\ge2)$, $O≡∃ParentOf^-.(∃ParentOf\le1)$, $GP≡∃ParentOf.(∃ParentOf.Male\sqcup ¬Male)$}
 
 A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
 
