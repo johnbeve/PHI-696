@@ -15,13 +15,59 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
-```
-	
+```  A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+(a) is a tautology.
+ A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+ (c) is a tautology.	
+ A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+ (c) is a tautology.
+   A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
+F	F	F	F	F
+F	F	F	T	F
+F	F	T	F	T
+F	F	T	T	T
+F	T	F	F	F
+F	T	F	T	F
+F	T	T	F	T
+F	T	T	T	T
+T	F	F	F	F
+T	F	F	T	T
+T	F	T	F	F
+T	F	T	T	T
+T	T	F	F	F
+T	T	F	T	T
+T	T	T	F	T
+T	T	T	T	T
+(d) is contignet.
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
-```
+``` 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
@@ -54,13 +100,23 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  ````(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-```
-	
+![proof](https://user-images.githubusercontent.com/123985147/216454220-f9b7c892-d73c-4409-a564-92250dfb8be2.png)	
+![Proof2](https://user-images.githubusercontent.com/123985147/216454252-833dd3bb-4fc4-465e-89cf-18ebeb2bc6e6.png)
+![Proof3](https://user-images.githubusercontent.com/123985147/216454294-d01f5cc1-2d68-467c-8f45-74d69fff8318.png)
+![proof](https://user-images.githubusercontent.com/123985147/216454485-9f253939-e4a4-4cea-8487-18726310b83f.png)
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+1. ∀x∀y[¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)]
+2. ∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))		1ui
+3. (¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))		2ui
+4. (Px V Qx) ^ ¬(¬Px ^ ¬Qx)		3 nc
+5. 
+6.
+7.
+8.
 
-10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
