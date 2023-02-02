@@ -62,8 +62,8 @@ F F F     T       T            T
  
   ```(d) ((A→B)∧C)∨(A∧D)
   
-A B C D ((A→B)∧C) (A∧D) ((A→B)∧C)∨(A∧D)
-F F F F	                           
+A B C D ((A→B)∧C)(A∧D) ((A→B)∧C)∨(A∧D)
+F F F F	    T.     T.          T                       
 F F F T	    
 F F T F	
 F F T T	
@@ -71,16 +71,16 @@ F T F F
 F T F T	
 F T T F	
 F T T T	
-T F F F	
-T F F T	
-T F T F	
-T F T T	
+T F F F	     
+T F F T	    T.     T.          T
+T F T F	    F.     F.          F
+T F T T	    F.     T.          T
 T T F F	    F.     F.          F
 T T F T	    F.     T.          T
 T T T F	    T.     F.          T
 T T T T     T.     T.          T
   
-  
+  - If I am correct, this is a contingent.
 
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
