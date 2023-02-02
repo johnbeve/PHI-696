@@ -18,26 +18,28 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
  - So, (¬A→B)∨((A∧¬C)→B) means either one or both of them are true.
  
 A B C ¬A→B (A∧¬C)→B (¬A→B)∨((A∧¬C)→B)
-T T T   F     F            F
-T F T   F        
-T T F   F     T            T
-F T T   T     F            T
-F T F   
-F F T
-T F F
-F F F
+T T T   T     T           T
+T F T   T     T           T
+T T F   T     T           T
+F T T   T     T           T
+F T F   T     T           T
+F F T   F     T           T
+T F F   T     T           T              
+F F F   F     T           T
+
+- If I am doing this right, this is a tautology.
   
   ```(b) (A→B)∧(A→¬B)
   
  - (A→B)∧(A→¬B) means if 'A' then 'B' and if 'A' then 'not-B' are true at the same time.
   
 A B ¬A ¬B (A→B) (A→¬B) (A→B)∧(A→¬B)
-T T  F. F.  T.    F.        F
-T F. F. T.  F.    T.        F
-F T. T  F.  F.    F         T
-F F. T. T.  T.    T.        T
+T T  F  F   T     F         F
+T F  F  T   F     T         F
+F T  T  F   T     T         T
+F F  T  T   T     T         T
 
- - If I am doing this right, this is a contingent.
+- If I am doing this right, this is a contingent.
   
   ```(c) (A→(B∨C))∨(C→¬A) 
   
@@ -46,18 +48,37 @@ F F. T. T.  T.    T.        T
  - (A→(B∨C))∨(C→¬A) means either one or both of the above statements are true.
  
 A B C  A→(B∨C) (C→¬A) (A→(B∨C))∨(C→¬A)
-T T T   
-T F T           
-T T F   
-F T T  
-F T F   
-F F T
-T F F
-F F F
+T T T     T       F            T
+T F T     T       F            T   
+T T F     T       F            T
+F T T     T       T            T
+F T F     T       T            T
+F F T     T       T            T
+T F F     F       T            T
+F F F     T       T            T
+
+- If I am doing this right, this is a tautology.
  
  
   ```(d) ((A→B)∧C)∨(A∧D)
-  A B C D (A→B)∧C A∧D ((A→B)∧C)∨(A∧D)
+  
+A B C D ((A→B)∧C) (A∧D) ((A→B)∧C)∨(A∧D)
+F F F F	                           
+F F F T	    
+F F T F	
+F F T T	
+F T F F	
+F T F T	
+F T T F	
+F T T T	
+T F F F	
+T F F T	
+T F T F	
+T F T T	
+T T F F	    F.     F.          F
+T T F T	    F.     T.          T
+T T T F	    T.     F.          T
+T T T T     T.     T.          T
   
   
 
