@@ -124,8 +124,35 @@ Answer:
 
 (e) $T ≡ (Male\sqcap ∃ParentOf^-.(\le3∃ParentOf.Male \sqcap \ge3∃ParentOf.Male))\sqcup(¬Male\sqcap∃ParentOf^-.(\le2∃ParentOf.Male \sqcap \ge2∃ParentOf.Male))$
 
-
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+Answer:
+
+$K_1 = (T_1,A_1)$ such that:
+
+T-box $T_1$={$B≡Male\sqcap ∃ParentOf^-.(∃ParentOf\ge2)$, $O≡∃ParentOf^-.(∃ParentOf\le1)$, $GP≡∃ParentOf.(∃ParentOf.Male\sqcup ¬Male)$}
+
+A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
+
+The following is a model $\Im=(\bigtriangleup^\Im,.^\Im)$ of $K_1$:
+
+$\bigtriangleup^\Im$={a,b,c}
+
+$Male^\Im$={a}
+
+$B^\Im=\emptyset$
+
+$O^\Im$={b,a}
+
+$GP^\Im$={c}
+
+$ParentOf^\Im$={(c,b),(b,a)}
+
+$Karl^\Im$={a}
+
+$Mary^\Im$={b}
+
+$Jack^\Im$={c}
 
 [6] Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
