@@ -77,6 +77,7 @@ Answer:
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 ```
 Answer:
+
 (a) CNF: (A∨C)∧(¬B∨C)
 
 (b) CNF: B∨¬A
@@ -92,15 +93,16 @@ Answer:
 ```
 
 Answer:
-(a) B(x,y)=def. ∃u(P(u,x)∧P(u,y)∧¬F(x))
 
-(b) A(x,y)=def. ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧F(x))
+(a) B(x,y)=def. ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
-(c) C(x,y)=def. ∃u∃w∃z(P(u,y)∧P(w,z)∧P(w,u)∧P(z,x))
+(b) A(x,y)=def. ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
+
+(c) C(x,y)=def. ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
 
 (d) O(x)=def. ∃u(P(u,x)∧∀y(P(u,y)→x=y))
 
-(e) T(x)=def. ∃u(∃y∃z(¬(y=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w)→y=z∨y=w∨z=w))
+(e) T(x)=def. ∃u(∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z)) ∧ ∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w) → y=z ∨ y=w ∨ z=w ∨ x=y ∨ x=z ∨ x=w))
 
 [4] Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -109,6 +111,19 @@ Answer:
   (d)  O that says that x is an only child
   (e)  T that says that x has exactly two brothers 
 ```
+
+Answer:
+
+(a) $B ≡ Male\sqcap ∃ParentOf^-.(∃ParentOf\ge2)$
+
+(b) $A ≡ ¬Male\sqcap ∃ParentOf^-.((∃ParentOf.(∃ParentOf.Male\sqcup ¬Male))\sqcap∃ParentOf\ge2)$
+
+(c) $C ≡ ∃ParentOf^-.(∃ParentOf^-.(∃ParentOf\ge2 \sqcap∃ParentOf.Male\sqcup ¬Male))$
+
+(d) $O ≡ ∃ParentOf^-.(∃ParentOf\le1)$
+
+(e) $T ≡ (Male\sqcap ∃ParentOf^-.(\le3∃ParentOf.Male \sqcap \ge3∃ParentOf.Male))\sqcup(¬Male\sqcap∃ParentOf^-.(\le2∃ParentOf.Male \sqcap \ge2∃ParentOf.Male))$
+
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
