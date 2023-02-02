@@ -12,9 +12,29 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```(a) (¬A→B)∨((A∧¬C)→B) 
+  
+  A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+
   (b) (A→B)∧(A→¬B)
+  
+  A	B	((A → B) ∧ (A → ¬B))
+F	F	T
+F	T	T
+T	F	F
+T	T	F
+  
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
+  
+  
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
