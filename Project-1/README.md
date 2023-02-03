@@ -93,7 +93,11 @@ T T T T     T.     T.          T
 - So, (A→B)→C ≡ (C∨A)∧(C∨¬B) in CNF.
 
   (b) (A→(B∨C))∨(C→¬A)
- 1. 
+ 1. A→(B∨C) ≡ ¬A∨(B∨C)
+ C→¬A ≡ ¬C∨¬A
+ A→(B∨C))∨(C→¬A) ≡ (¬A∨(B∨C))∨(¬C∨¬A)
+ 2. Not needed here
+ 3. 
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 ```
