@@ -22,7 +22,8 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
   (a) is a tautology. 
   
-  A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
+|  A |  B   |   C   |	((¬A → B) ∨ ((A ∧ ¬C) → B)) |
+| -- | ---  | ---   | ------------------------------|
 F	F	F	T
 F	F	T	T
 F	T	F	T
