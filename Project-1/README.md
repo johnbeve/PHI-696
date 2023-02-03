@@ -72,13 +72,15 @@ It is Contignet.
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
   
-  (A ∧ ¬B) ∨ C
+  (A ∨ C) ∧ (¬B ∨ C)
   
   (b) (A→(B∨C))∨(C→¬A)
   
-  
+  The calculator says it's already in CNF, though it doesn't look that way to me. I used a different calculator, and it said a CNF version of this does not exist.
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
+  
+  The calculator says this one is also already in CNF, but it also doesn't look that way. And the other calculator also said one does not exist.
 ```
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
