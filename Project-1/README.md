@@ -93,14 +93,14 @@ T T T T     T.     T.          T
 - So, (A→B)→C ≡ (C∨A)∧(C∨¬B) in CNF.
 
   (b) (A→(B∨C))∨(C→¬A)
- 1. A→(B∨C) ≡ ¬A∨(B∨C)
- C→¬A ≡ ¬C∨¬A
- A→(B∨C))∨(C→¬A) ≡ (¬A∨(B∨C))∨(¬C∨¬A)
- 2. Not needed here
- 3. 
+ 1. A→(B∨C) ≡ ¬Av(B∨C)
+C→¬A ≡ ¬C∨¬A
+ 2. This formula contains no double negations, or negations outside parentheses.
+ 3. ¬Av(B∨C) ≡ (¬A∨B)∧(¬A∨C)
+ 
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
-```
+ 1. This formula contains no conditionals or biconditionals 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
