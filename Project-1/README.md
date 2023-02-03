@@ -45,6 +45,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
  (c) is a tautology
  
 | A  |	B   |	C   |	((A → (B ∨ C)) ∨ (C → ¬A)) |
+| -- | ---  | ----  | ---------------------------- |
 | F  |	F   |	F   |   T
 | F  |	F   |	T   |	T
 | F  |	T   |	F   |	T
@@ -57,6 +58,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
  (d) is contigent.
  
 | A  |	B   |	C   |	D   |	(((A → B) ∧ C) ∨ (A ∧ D)) |
+| -- | ---- | ----- | ----- | ----------------------------|
 | F  |	F   |	F   |	F   |	F
 | F  |	F   |	F   |	T   |	F
 | F  |	F   |	T   |	F   |	T
