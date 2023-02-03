@@ -95,32 +95,49 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
   (a)  B(x,y) that says that x is a brother of y  
-  Answer: possible
+  Answer: possible. B(x,y) is a binary relation that x is a parent of y.
   
   (b)  A(x,y) that says that x is an aunt of y
-  Answer: possible
+  Answer: possible. A(x, y) is a binary relation that x is an aunt of y.
   
   (c)  C(x,y) that says that x and y are cousins  
-  Answer: possible.
+  Answer: possible. C(x, y) is a binary relation that x is a cousin of y.
   
   (d)  O(x) that says that x is an only child  
-  Answer: not possible
+  Answer: not possible. X is an only child cannot fit into a unary relation o().
   
  
   (e)  T(x) that says that x has exactly two brothers 
-  ```
+  Answer: possible. T(x) is a unary relation that x is having exactly two brothers.
+  
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
+  Answer: possible. B, as a role name, represents a binary relation that x is a brother of y.
+  
   (b)  A that says that x is an aunt of y
+  Answer: possible. A, as a role name, represents a binary relation that x is an aunt of y.
+  
   (c)  C that says that x and y are cousins
+  Answer: possible. C, as a role name, represents a bianry relation that x is a cousin of y.
+  
   (d)  O that says that x is an only child  
-  (e)  T that says that x has exactly two brothers 
-  ```
+  Answer:not possible, because that x is an only child cannot fit in a concept O that represents a unary predicate.
+  
+  (e)  T that says that x has exactly two brothers
+  Answer: possible. T, as a concept name, represents a unary predicate that x is having exactly two brothers.
+  
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+Answer: first, two formulas selected from question 4:
+        B that says that x is a brother of y
+	T that says that x has exactly two brothers
+	
+	Second, supplemental formulas:
+	
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
