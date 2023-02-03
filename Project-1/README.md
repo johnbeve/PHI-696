@@ -63,15 +63,15 @@ F F F     T       T            T
   ```(d) ((A→B)∧C)∨(A∧D)
   
 A B C D ((A→B)∧C)(A∧D) ((A→B)∧C)∨(A∧D)
-F F F F	    T.     T.          T                       
-F F F T	    
-F F T F	
-F F T T	
-F T F F	
-F T F T	
-F T T F	
-F T T T	
-T F F F	     
+F F F F	    F.     F.          F                      
+F F F T	    F.     F.          F
+F F T F	    F.     T.          T
+F F T T	    T      F           T
+F T F F	    F.     F.          F
+F T F T	    F.     F.          F
+F T T F	    T      T.          T
+F T T T	    T.     F.          T
+T F F F	    F.     F.          F     
 T F F T	    T.     T.          T
 T F T F	    F.     F.          F
 T F T T	    F.     T.          T
@@ -85,7 +85,16 @@ T T T T     T.     T.          T
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
+- I am going to try and use DeMorgan's laws here:
+1. A→B ≡ ¬A∨B
+(A→B)→C ≡ ¬(¬A∨B)∨C
+2. ¬(¬A∨B)∨C ≡ (A∧¬B)∨C
+3. (A∧¬B)∨C ≡ (C∨A)∧(C∨¬B)
+- So, (A→B)→C ≡ (C∨A)∧(C∨¬B) in CNF.
+
   (b) (A→(B∨C))∨(C→¬A)
+ 1. 
+  
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 ```
 
