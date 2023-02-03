@@ -25,8 +25,8 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 |  A |  B   |   C   |	((¬A → B) ∨ ((A ∧ ¬C) → B)) |
 | -- | ---  | ---   | ------------------------------|
 |  F |  F   | 	F   |	T                           |
-F	F    	T       T
-F	T	F	T
+|  F |	F   | 	T   |   T
+|  F |	T   |	F   |	T
 F	T	T	T
 T	F	F	T
 T	F	T	T
