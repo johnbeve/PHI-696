@@ -17,22 +17,92 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
-  ```
+  
+  Answer:
+  
+  (a) is a tautology. 
+  
+  A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+
+ (b) is contingent.
+ 
+ A	B	((A → B) ∧ (A → ¬B))
+F	F	T
+F	T	T
+T	F	F
+T	T	F
+ 
+ (c) is a tautology
+ 
+ A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+
+ (d) is contigent.
+ 
+ A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
+F	F	F	F	F
+F	F	F	T	F
+F	F	T	F	T
+F	F	T	T	T
+F	T	F	F	F
+F	T	F	T	F
+F	T	T	F	T
+F	T	T	T	T
+T	F	F	F	F
+T	F	F	T	T
+T	F	T	F	F
+T	F	T	T	T
+T	T	F	F	F
+T	T	F	T	T
+T	T	T	F	T
+T	T	T	T	T
+
+
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
-  ```
+  
   (a) (A→B)→C
   (b) (A→(B∨C))∨(C→¬A)
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
-  ```
+  
+  Answer:
+  
+  (a) the CNF: (A∨C)∧(C∨(¬B))
+  
+  (b) is a tautology, so the CNF: T
+  
+  (c) is already a CNF, also it is a tautology. 
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  ```
   (a)  B(x,y) that says that x is a brother of y  
-  (b)  A(x,y) that says that x is an aunt of y  
-  (c)  C(x,y) that says that x and y are cousins   
+  Answer: possible
+  
+  (b)  A(x,y) that says that x is an aunt of y
+  Answer: possible
+  
+  (c)  C(x,y) that says that x and y are cousins  
+  Answer: possible.
+  
   (d)  O(x) that says that x is an only child  
+  Answer: not possible
+  
+ 
   (e)  T(x) that says that x has exactly two brothers 
   ```
 
