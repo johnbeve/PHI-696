@@ -70,7 +70,8 @@ It is Contignet.
 ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
-  ```(a) (A→B)→C
+  ```
+  (a) (A→B)→C
   
   (A ∨ C) ∧ (¬B ∨ C)
   
