@@ -27,51 +27,51 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 |  F |  F   | 	F   |	T                           |
 |  F |	F   | 	T   |   T
 |  F |	T   |	F   |	T
-F	T	T	T
-T	F	F	T
-T	F	T	T
-T	T	F	T
-T	T	T	T
+|  F |	T   |	T   |	T
+|  T |	F   |	F   |	T
+|  T |	F   |	T   |	T
+|  T |	T   |	F   |	T
+|  T |	T   |	T   |	T
 
  (b) is contingent.
  
- A	B	((A → B) ∧ (A → ¬B))
-F	F	T
-F	T	T
-T	F	F
-T	T	F
+| A  |	B   |	((A → B) ∧ (A → ¬B)) |
+| F  |	F   |	T                    |
+| F  |	T   |	T
+| T  |	F   |	F
+| T  |	T   |	F
  
  (c) is a tautology
  
- A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
-F	F	F	T
-F	F	T	T
-F	T	F	T
-F	T	T	T
-T	F	F	T
-T	F	T	T
-T	T	F	T
-T	T	T	T
+| A  |	B   |	C   |	((A → (B ∨ C)) ∨ (C → ¬A)) |
+| F  |	F   |	F   |   T
+| F  |	F   |	T   |	T
+| F  |	T   |	F   |	T
+| F  |	T   |	T   |	T
+| T  |  F   |	F   |	T
+| T  |	F   |	T   |	T
+| T  |	T   |	F   |	T
+| T  |	T   |	T   |	T
 
  (d) is contigent.
  
- A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
-F	F	F	F	F
-F	F	F	T	F
-F	F	T	F	T
-F	F	T	T	T
-F	T	F	F	F
-F	T	F	T	F
-F	T	T	F	T
-F	T	T	T	T
-T	F	F	F	F
-T	F	F	T	T
-T	F	T	F	F
-T	F	T	T	T
-T	T	F	F	F
-T	T	F	T	T
-T	T	T	F	T
-T	T	T	T	T
+| A  |	B   |	C   |	D   |	(((A → B) ∧ C) ∨ (A ∧ D)) |
+| F  |	F   |	F   |	F   |	F
+| F  |	F   |	F   |	T   |	F
+| F  |	F   |	T   |	F   |	T
+| F  |	F   |	T   |	T   |	T
+| F  |	T   |   F   |	F   |	F
+| F  |	T   |	F   |	T   |	F
+| F  |	T   |	T   |	F   |	T
+| F  |	T   |	T   |	T   |	T
+| T  |	F   |	F   |	F   |	F
+| T  |	F   |	F   |	T   |	T
+| T  |	F   |	T   |	F   |	F
+| T  |	F   |	T   |	T   |	T
+| T  |	T   |	F   |	F   |	F
+| T  |	T   |	F   |	T   |	T
+| T  |	T   |	T   |	F   |	T
+| T  |	T   |	T   |	T   |	T
 
 
 	
