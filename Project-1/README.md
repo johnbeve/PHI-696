@@ -85,11 +85,17 @@ It is Contignet.
 ```
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```(a)  B(x,y) that says that x is a brother of y
+  ```
+  (a)  B(x,y) that says that x is a brother of y
+  	∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx)
   (b)  A(x,y) that says that x is an aunt of y
+  	∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx)
   (c)  C(x,y) that says that x and y are cousins 
+  	∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y))
   (d)  O(x) that says that x is an only child
+  	∃x∃y∀z(P(y,z)→z=x)
   (e)  T(x) that says that x has exactly two brothers 
+  	∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y))))
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
