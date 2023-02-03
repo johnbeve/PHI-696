@@ -118,7 +118,7 @@ Answer:
 
 (b) $A ≡ ¬Male\sqcap ∃ParentOf^-.((∃ParentOf.(∃ParentOf.Male\sqcup ¬Male))\sqcap∃ParentOf\ge2)$
 
-(c) $C ≡ ∃ParentOf^-.(∃ParentOf^-.(\ge2ParentOf.Male\sqcup ¬Male))$
+(c) $C ≡ ∃ParentOf^-.(∃ParentOf^-.(\ge2ParentOf.(ParentOf.Male\sqcup ¬Male)))$
 
 (d) $O ≡ ∃ParentOf^-.(∃ParentOf\le1)$
 
