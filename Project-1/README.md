@@ -36,6 +36,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
  (b) is contingent.
  
 | A  |	B   |	((A → B) ∧ (A → ¬B)) |
+|--- | ---  | -----------------------|
 | F  |	F   |	T                    |
 | F  |	T   |	T
 | T  |	F   |	F
