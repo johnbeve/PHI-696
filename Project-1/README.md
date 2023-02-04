@@ -214,7 +214,7 @@ Answer:
   x                        x
    
   
-  (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  (d) ∀x∀y(¬(Px ∨ Qx) → ¬(Px ∧ Qx))
  Tree proof: 
  
 	
