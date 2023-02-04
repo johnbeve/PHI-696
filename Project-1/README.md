@@ -212,12 +212,11 @@ Answer:
 
   ¬Pa (4)                 ¬Qa (4)  
   x                        x
-  
-  
-  
+   
   
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-```
+ Tree proof: 
+ 
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
