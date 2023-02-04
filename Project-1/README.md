@@ -183,7 +183,63 @@ Answer:
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 ```
-	
+
+Answer:
+
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)) is valid.
+
+flowchart TB
+
+1.¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+
+2.¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(1)
+
+3.¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(2)
+
+4.¬(Pa ∧ Qa)(3)
+
+5.¬(¬Pa ∨ ¬Qa)(3)
+
+6.¬¬Pa(5)
+
+7.¬¬Qa(5)
+
+8.Qa(7)
+
+9.Pa(6)
+
+10.¬Pa(4)
+x
+11.¬Qa(4)
+x
+
+```mermaid
+flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+```
+
+```mermaid
+flowchart TB
+    A --> C
+    A --> D
+    B --> C
+    B --> D
+```
+
+```mermaid
+flowchart TD;
+A-->B;
+A-->C;
+B-->D;
+C-->D;
+```
+
+
+
+
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
