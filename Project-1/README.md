@@ -62,10 +62,11 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  ```
+  (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-  (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  (d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
 ```
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
