@@ -114,13 +114,13 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  Answer: possible. B, as a role name, represents a binary relation that x is a brother of y.
+  Answer: possible. B, as a role name, represents a binary predicate that x is a brother of y.
   
   (b)  A that says that x is an aunt of y
-  Answer: possible. A, as a role name, represents a binary relation that x is an aunt of y.
+  Answer: possible. A, as a role name, represents a binary predicate that x is an aunt of y.
   
   (c)  C that says that x and y are cousins
-  Answer: possible. C, as a role name, represents a bianry relation that x is a cousin of y.
+  Answer: possible. C, as a role name, represents a bianry predicate that x is a cousin of y.
   
   (d)  O that says that x is an only child  
   Answer:possible. O, as a concept name, represents a unary predicate that x is not having brothers and sisters. 
@@ -132,19 +132,33 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-Answer: first, two formulas selected from question 4:
-        B that says that x is a brother of y
-	T that says that x has exactly two brothers
+Answer: 
+
+T-Box:  first, two formulas selected from question 4:
+        T ⊑ ¬ O 
+	B ⊑ ¬ O
 	
 	Second, supplemental formulas:
+	has_sister ⊑ ¬ O ⊓ ¬  T 
+	T ≡ ¬ O ⊓ ¬has_single brother ⊓ ¬ has_moreThanTwoBrother ⊓ ¬ has_sister
 	
+A-Box: T (Mike)
+       O (Julia)
+
+K ⊨ has_sister ⊓ T ⊑ ⊥
+
+		
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```
+  
   (a) ∃x∀y and ∀x∃y
+  Answer: 
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  Answer:
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-```
+  Answer: 
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
