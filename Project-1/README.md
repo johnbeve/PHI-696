@@ -97,15 +97,24 @@ T T T T     T.     T.          T
 C→¬A ≡ ¬C∨¬A
 (A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
  2. This formula contains no double negations, or negations outside parentheses.
- 3.
- (¬Av(B∨C))v(¬C∨¬A) ≡ 
-
- 
+ 3. - There are no conjunctions in the formula
+ -  so I do not know how to distribute the disjunctions and put the formula in CNF from here...
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
  1. This formula contains no conditionals or biconditionals.
  2. This formula contains no double negations, or negations outside parentheses.
- (¬A∧¬B∧C)∨(¬A∧¬C)
+ 3. (¬A∧¬B∧C)∨(¬A∧¬C)
+Since I don't know how to use DeMorgan's laws to put this formula in CNF, I'm going to use a truth table instead. I pulled the one below from Stanford's online generator:
+A	B	C	((¬A ∧ (¬B ∧ C)) ∨ (¬A ∧ ¬C))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	F
+T	F	F	F
+T	F	T	F
+T	T	F	F
+T	T	T	F
+
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
