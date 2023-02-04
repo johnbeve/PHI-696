@@ -158,11 +158,13 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
   Answer: the former means that for all y there exist a x and a z, and the latter means that for all x and y there exists a y. 
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-  Answer: 
+  Answer: the former means that for all x and all z there exist a y and a w, and the latter means that for all y and all w there exist a x and a z.
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
-```
+
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+Answer: 
+
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
 	
@@ -172,24 +174,48 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
   ¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   ¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))      (1)
   ¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)).       (2)
-  ¬(Pa ∧ Qa)                         (3)
-  ¬(¬Pa ∨ ¬Qa)                       (3)
-  ¬¬Pa                               (5)
-  ¬¬Qa                               (5)
-  Qa                                 (7)
-  Pa                                 (6)
+         ¬(Pa ∧ Qa)                  (3)
+         ¬(¬Pa ∨ ¬Qa)                (3)
+            ¬¬Pa                     (5)
+            ¬¬Qa                     (5)
+             Qa                      (7)
+             Pa                      (6)
   
   ¬Pa (4)              ¬Qa (4)
    x                   x
              
-                 
-
- 
-  
-  
-  
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+  Tree proof:
+  
+   ¬∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))  
+   ¬∀y(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))     (1)
+    ¬(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))      (2)
+           ¬(Pa ∨ Qa)                (3)
+           ¬(¬Pa ∧ ¬Qa)              (3)
+	       ¬Pa                   (4)
+               ¬Qa                   (4)
+
+¬¬Pa (5)                ¬¬Qa (5)  
+  Pa (8)                  Qa (9)
+  x                       x
+  
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  Tree proof:
+  ¬∀x∀y((¬Px ∨ ¬Qx) →  ¬(Px ∧ Qx))
+   ¬∀y(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))     (1)
+    ¬(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))      (2)
+           ¬Pa ∨  ¬Qa               (3)
+           ¬¬(Pa ∧ Qa)              (3)
+	    Pa ∧ Qa                 (5)
+	       Pa                   (6)
+               Qa                   (6)
+
+  ¬Pa (4)                 ¬Qa (4)  
+  x                        x
+  
+  
+  
+  
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 ```
 	
