@@ -163,10 +163,11 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 Answer: 
 
-∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-```
+
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
