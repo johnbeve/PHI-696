@@ -131,6 +131,22 @@ It is Contignet.
 ```
 Tex = {Brother ⊆ Male,		(Tex.1)
 	Aunt ⊆ ~Male}		(Tex.2)
+
+Aex = {Billy: Brother ∩ Male		(Aex.1)
+	Bob: Brother ∩ Male		(Aex.2)
+	Mary: Aunt			(Aex.3)
+	(Alex, Billy): parent_of	(Aex.4)
+	(Alex, Bob): parent_of}		(Aex.5)
+	
+ΔI = {w, x, y, z},
+Billy = w
+Bob = x
+Mary = y
+Alex = z
+Male = {w, x}
+Brother = {w, x}
+Aunt = {y}
+Parent_of = {(z,w), (z,x)}
 ```
 
 6. Explain the difference - using natural language - between the first-order prefixes:
