@@ -99,17 +99,39 @@ It is Contignet.
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```(a)  B that says that x is a brother of y
+  ```
+  (a)  B that says that x is a brother of y
+  
+  ΔI = {x, y, z},
+  parent_of = {(z,x), (z,y)},
+  Male = {x}.
+  
   (b)  A that says that x is an aunt of y
+  
+  ΔI = {w, x, y, z},
+  parent_of = {(w,x), (w,z), (z,y)},
+  ~Male = {x}.
+  
   (c)  C that says that x and y are cousins 
+  
+  ΔI = {v, w, x, y, z},
+  parent_of = {(v,w), (v,z), (w,x), (z,y)}.
+  
   (d)  O that says that x is an only child
+  
+   I'm not sure of a way to do this. I could say that x is a child of y, but in this system that wouldn't mean it's false of anything else.
+  
   (e)  T that says that x has exactly two brothers 
+  
+  I'm not sure of a way to say this either for the same reason as before. I can say two things are x's brother, but this wouldn't say there's only two brothers
+  
 ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
+  ```
+  (a) ∃x∀y and ∀x∃y
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
@@ -121,7 +143,8 @@ It is Contignet.
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  ```
+  (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
