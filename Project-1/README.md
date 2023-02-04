@@ -224,7 +224,7 @@ Parent_of = {(z,w), (z,x)}
 	8.Qa(6)
 9.¬Pa(4)	10.¬Qa(4)
    x                x
-   
+    
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   
   	1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
