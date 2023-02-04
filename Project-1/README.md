@@ -146,6 +146,9 @@ C→¬A ≡ ¬C∨¬A
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+ <img width="371" alt="Screen Shot 2023-02-04 at 10 39 26 AM" src="https://user-images.githubusercontent.com/119642653/216776247-96f37bcf-95b9-4e5d-bd92-0fe2a3c9d67a.png">
+
+
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
