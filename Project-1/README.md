@@ -131,6 +131,7 @@ It is Contignet.
 ```
 Tex = {Brother ⊆ Male,		(Tex.1)
 	Aunt ⊆ ~Male}		(Tex.2)
+```
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
