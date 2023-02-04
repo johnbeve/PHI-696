@@ -152,8 +152,17 @@ Parent_of = {(z,w), (z,x)}
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
+  
+  ∃x∀y means "there is an x such that, for all y...", while ∀x∃y means "for all x, there is a y such that...". For instance, if I wanted to say that there is one particular thing that everything loves, I would write: "∃x∀yL(y,x)", but if I wanted to say that everything loves something without implying they all love the same thing, I would write: "∀x∃yL(x,y)". 
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  
+  ∃x∀y∃z means "there is an x such that, for all y, there is a z such that..." while ∀x∃y∀z means "for all x, there is a y such that, for all z..."
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  
+  ∀x∃y∀z∃w means "for all x, there is a y such that, for all z, there is a w such that...", while ∃x∀y∃z∀w means "there is an x such that, for all y, there is a z such that, for all w..."
+  
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
