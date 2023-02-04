@@ -188,8 +188,6 @@ Answer:
 
 (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)) is valid.
 
-flowchart TB
-
 1.¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
 
 2.¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(1)
@@ -210,31 +208,20 @@ flowchart TB
 
 10.¬Pa(4)
 x
+
 11.¬Qa(4)
 x
 
-```mermaid
-flowchart TB
-    A --> C
-    A --> D
-    B --> C
-    B --> D
-```
+
+
+
 
 ```mermaid
 flowchart TB
-    A --> C
+    A  --> C 
     A --> D
     B --> C
     B --> D
-```
-
-```mermaid
-flowchart TD;
-A-->B;
-A-->C;
-B-->D;
-C-->D;
 ```
 
 
