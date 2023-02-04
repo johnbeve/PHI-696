@@ -95,9 +95,11 @@ T T T T     T.     T.          T
   (b) (A→(B∨C))∨(C→¬A)
  1. A→(B∨C) ≡ ¬Av(B∨C)
 C→¬A ≡ ¬C∨¬A
+(A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
  2. This formula contains no double negations, or negations outside parentheses.
- 3. ¬Av(B∨C) ≡ (¬A∨B)∧(¬A∨C)
- 
+ 3.
+ (¬Av(B∨C))v(¬C∨¬A) ≡ 
+
  
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
