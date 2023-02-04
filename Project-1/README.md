@@ -146,14 +146,18 @@ C→¬A ≡ ¬C∨¬A
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
- <img width="371" alt="Screen Shot 2023-02-04 at 10 39 26 AM" src="https://user-images.githubusercontent.com/119642653/216776247-96f37bcf-95b9-4e5d-bd92-0fe2a3c9d67a.png">
-
+ ![proof](https://user-images.githubusercontent.com/119642653/216776523-b77a92b1-7f0f-4c67-859f-432f3eed674b.png)
 
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+ ![proof (1)](https://user-images.githubusercontent.com/119642653/216776576-4dc43fa9-14ce-456e-8b14-b3c368378015.png)
+  
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+ ![proof (2)](https://user-images.githubusercontent.com/119642653/216776622-f5655fff-7687-4618-9d42-9efac487e9f2.png)
+ 
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-```
-	
+ ![proof (3)](https://user-images.githubusercontent.com/119642653/216776659-68375ce8-5e5d-4d32-ba2b-689c609e4430.png)
+
+```	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
