@@ -186,9 +186,58 @@ Parent_of = {(z,w), (z,x)}
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   ```
   (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  
+  	1.¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+ 	2.¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(1)
+ 	3.¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(2)
+  	4.¬(Pa ∧ Qa)(3)
+  	5.¬(¬Pa ∨ ¬Qa)(3)
+  	6.¬¬Pa(5)
+  	7.¬¬Qa(5)
+  	8.Qa(7)
+  	9.Pa(6)
+  10.¬Pa(4) 11.¬Qa(4)
+      x         x
+
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+  
+  	1.¬∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+	2.¬∀y(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))(1)
+	3.¬(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))(2)
+	4.¬(Pa ∨ Qa)(3)
+	5.¬(¬Pa ∧ ¬Qa)(3)
+	6.¬Pa(4)
+	7.¬Qa(4)
+8.¬¬Pa(5)	9.¬¬Qa(5)
+10.Pa(8)	11.Qa(9)
+   x               x
+
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  
+  	1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+	2.¬∀y((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(1)
+	3.¬((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(2)
+	4.¬Pa ∨ ¬Qa(3)
+	5.¬¬(Pa ∧ Qa)(3)
+	6.Pa ∧ Qa(5)
+	7.Pa(6)
+	8.Qa(6)
+9.¬Pa(4)	10.¬Qa(4)
+   x                x
+   
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  
+  	1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  	2.¬∀y((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(1)
+  	3.¬((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(2)
+  	4.¬Pa ∨ ¬Qa(3)
+  	5.¬¬(Pa ∧ Qa)(3)
+  	6.Pa ∧ Qa(5)
+  	7.Pa(6)
+  	8.Qa(6)
+9.¬Pa(4)	10.¬Qa(4)
+   x                x
+   
 ```
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
