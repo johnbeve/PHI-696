@@ -152,10 +152,10 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
 6. Explain the difference - using natural language - between the first-order prefixes:
   
   (a) ∃x∀y and ∀x∃y
-  Answer: 
+  Answer: the former means that there exists a x that for all y, and the latter means that for all x there exists a y.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
-  Answer:
+  Answer: the former means that for all y there exist a x and a z, and the latter means that for all x and y there exists a y. 
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
   Answer: 
@@ -167,7 +167,27 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  Tree proof:
+  ¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  ¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))      (1)
+  ¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)).       (2)
+  ¬(Pa ∧ Qa)                         (3)
+  ¬(¬Pa ∨ ¬Qa)                       (3)
+  ¬¬Pa                               (5)
+  ¬¬Qa                               (5)
+  Qa                                 (7)
+  Pa                                 (6)
+  
+  ¬Pa (4)              ¬Qa (4)
+   x                   x
+             
+                 
+
+ 
+  
+  
+  
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
