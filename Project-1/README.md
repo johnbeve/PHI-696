@@ -169,6 +169,18 @@ Parent_of = {(z,w), (z,x)}
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+
+	0------> 1
+       ^ |      | ^
+       |_|      |_|
+       
+       -I'm not sure how to draw a graph in this program. I'm trying to show object 0 being in a relation with itself and with 1, but 1 only being in the relation with itself.
+       U: {0, 1}
+       R: {(0,0), (0,1), (1,1)}
+	-This fits with the second statement, since there is an object that Rs everything (0), there is an object that Rs something (both 0 and 1), and it's true that everything Rs something (both 0 and 1 do, and they're the only objects)
+	-This does not fit with the first statement, since it's not true that everything Rs everything "R(x,z)" (1 does not).
+       
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
