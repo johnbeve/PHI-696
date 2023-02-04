@@ -123,7 +123,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   Answer: possible. C, as a role name, represents a bianry relation that x is a cousin of y.
   
   (d)  O that says that x is an only child  
-  Answer:not possible, because that x is an only child cannot fit in a concept O that represents a unary predicate.
+  Answer:possible. O, as a concept name, represents a unary predicate that x is not having brothers and sisters. 
   
   (e)  T that says that x has exactly two brothers
   Answer: possible. T, as a concept name, represents a unary predicate that x is having exactly two brothers.
