@@ -225,22 +225,106 @@ Parent_of = {(z,w), (z,x)}
 9.¬Pa(4)	10.¬Qa(4)
    x                x
     
-  (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  (d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
   
-  	1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-  	2.¬∀y((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(1)
-  	3.¬((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))(2)
-  	4.¬Pa ∨ ¬Qa(3)
-  	5.¬¬(Pa ∧ Qa)(3)
-  	6.Pa ∧ Qa(5)
-  	7.Pa(6)
-  	8.Qa(6)
-9.¬Pa(4)	10.¬Qa(4)
-   x                x
+  	1.¬∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+	2.¬∀y((¬Pa ∧ ¬Qa) → ¬(Pa ∨ Qa))(1)
+	3.¬((¬Pa ∧ ¬Qa) → ¬(Pa ∨ Qa))(2)
+	4.¬Pa ∧ ¬Qa(3)
+	5.¬¬(Pa ∨ Qa)(3)
+	6.Pa ∨ Qa(5)
+	7.¬Pa(4)
+	8.¬Qa(4)
+9.Pa(6)		10.Qa(6)
+  x                x
    
 ```
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+```
+
+(a)
+1. Show: ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+2. |	Show: ∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))    |
+3. |	|	Show: ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)|
+4. |	|	|¬(Px ∧ Qx)		    |||			Assumption CD
+5. |	|	|	Show: (¬Px ∨ ¬Qx)   |||
+6. |	|	|	|~(¬Px ∨ ¬Qx)	   ||||			Assumption ID
+7. |	|	|	|	Show: Px   ||||				
+8. |	|	|	|	|~Px	  |||||			Assumption ID
+9. |	|	|	|	|~Px V ~Qx|||||			8, Addition
+10.|	|	|	|	|_________|||||			6, 9, ID
+11.|	|	|	|	Show: Qx   ||||
+12.|	|	|	|	|~Qx	  |||||			Assumption ID
+13.|	|	|	|	|~Px V ~Qx|||||			12, Addition
+14.|	|	|	|	|_________|||||			6, 13, ID
+15.|	|	|	|	Px ∧ Qx	   ||||			7, 11, Adjunction
+16.|    |       |       |__________________||||                 4, 15, ID
+17.|	|	|___________________________|||		        5, CD
+18.|    |____________________________________||			3, UD
+19.|__________________________________________|			2, UD
+
+****Note, I'm not including the boxes in future derivations, since they're so tedious to make in this program
+
+(b)
+1. Show: ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+2.	Show: ∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+3. 		Show: ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)
+4. 		¬(Px ∨ Qx)					Assumption CD
+5.			Show: (¬Px ∧ ¬Qx)
+6.			~(¬Px ∧ ¬Qx)				Assumption ID
+7.				Show: ~Px
+8.				Px				Assumption ID, Double Negation
+9.				Px V Qx				8, Addition
+10.								4, 9 ID
+11. 				Show: ~Qx
+12.				Qx				Assumption ID, Double Negation
+13.				Px V Qx				12, Addition
+14.								4, 13, ID
+15.				~Px ∧ ¬Qx			7, 11, Addition
+16.								15, Direct Derivation
+17. 								5, CD
+18.								3, UD
+19.								2, UD
+
+(c)
+1. Show: ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+2. 	Show: ∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+3. 		Show: (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)
+4. 		(¬Px ∨ ¬Qx)					Assumption CD
+5. 			Show: ¬(Px ∧ Qx)
+6. 			(Px ∧ Qx)				Assumption ID, Double Negation
+7. 			Px					6, Simplification
+8.			~~Px					7, Double Negation
+9.			~Qx					4, 8, MTP
+10.			Qx					6, Simplification
+11.								9, 10, ID
+12. 								5, CD
+13. 								3, UD
+14.								2, UD
+
+(d)
+1. Show: ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+2. 	Show: ∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+3. 		Show: (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)
+4.		(¬Px ∧ ¬Qx)					Assumption CD
+5.		~Px						4, Simplification
+6.		~Qx						4, Simplification
+7.			Show: ¬(Px ∨ Qx)
+8.			(Px ∨ Qx)				Assumption ID, Double Negation
+9.			Qx					5, 8, MTP
+10.								6, 9, ID
+11.								7, CD
+12.								3, UD
+13.								2, UD
+
+```
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+```
 
+For natural deduction proofs, I mostly proved DM by showing that certain assumptions lead to contradictions. For example, to show (a), we need to show that ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx). Do do this, I need to derive (¬Px ∨ ¬Qx) from ¬(Px ∧ Qx). Instead of doing this directly, I assumed that (¬Px ∨ ¬Qx) is false and showed how this leads to a contradiction. The other proofs followed this same form, except for (b). For that one, I was able to show (¬Px ∧ ¬Qx) directly with a mixed derivation, rather than by indirect derivation.
+
+By contrast, the parsing trees appear to start off by assuming the falsity of the DeMorgan theorems, which I did not do with the natural deduction proofs. Notably, it looks like the parsing trees either used DM in the proofs, or used something very similar to it. For instance, in (a), on line 5, it uses what looks like DM. I intentionally avoided DM in my proofs, since that would be assuming what I'm trying to prove. 
+
+```
