@@ -208,41 +208,21 @@ Answer:
 
 Answer:
 
-| | | | | | | | | |
-|-
-|1 | $P\rightarrow Q$ | | | | | | $P$
-|2 | $(P\wedge S)\wedge R$ | | | | | | $P$
-|3 | $P\wedge S$ | | | | | | 2$\wedge E$
-|4 | $P$ | | | | | | 3$\wedge E$
-|5 | $Q$ | | | | | | 1,4$\rightarrow E$
+(a) 
 
+![picture 1](fitch_proof_1.png) 
 
-$\bot$ 
+(b) 
 
-$$
-\begin{align}
-  \tag{1.1}
-  V_{sphere} = \frac{4}{3}\pi r^3
-\end{align}
-$$
+![picture 1](fitch_proof_2.png) 
 
-$$
-\begin{nd}
-  \hypo {1} {\forall y \neg P(y)}
-  \open
-  \hypo {2} {\exists x P(x)}
-  \open[u]
-  \hypo {3} {P(u)}
-  \have {4} {\forall y \neg P(y)}  \r{1}
-  \have {5} {\neg P(u)}            \Ae{4}
-  \have {6} {\bot}                 \ne{3,5}
-  \close
-  \have {6a}{\bot}                 \Ee{2,3-6}
-  \close
-  \have {7} {\neg \exists x P(x)}  \ni{2-6a}
-\end{nd}
-$$
+(c) 
 
+![picture 1](fitch_proof_3.png) 
+
+(d) 
+
+![picture 1](fitch_proof_4.png) 
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
