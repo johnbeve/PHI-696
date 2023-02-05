@@ -103,8 +103,7 @@ C→¬A ≡ ¬C∨¬A
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
  1. This formula contains no conditionals or biconditionals.
  2. This formula contains no double negations, or negations outside parentheses.
- 3. (¬A∧¬B∧C)∨(¬A∧¬C)
-Since I don't know how to use DeMorgan's laws to put this formula in CNF, I'm going to use a truth table instead. I pulled the one below from Stanford's online generator:
+ 3. Since I don't know how to use DeMorgan's laws to put this formula in CNF, I'm going to use a truth table instead. I pulled the one below from Stanford's online generator:
 A	B	C	((¬A ∧ (¬B ∧ C)) ∨ (¬A ∧ ¬C))
 F	F	F	T
 F	F	T	T
@@ -118,9 +117,16 @@ T	T	T	F
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B(x,y) that says that x is a brother of y
+  
   (b)  A(x,y) that says that x is an aunt of y
+    -All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
+  ∀A(x,y)F(x)∃P(z,y)
+
   (c)  C(x,y) that says that x and y are cousins 
   (d)  O(x) that says that x is an only child
+  -So, 'There exists a parent relation with all children being only children'.
+  ∃P(x,y)∀O(x)
+  
   (e)  T(x) that says that x has exactly two brothers 
 ```
 
@@ -137,14 +143,14 @@ T	T	T	F
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
 
--  ∃x∀y means there exists at least one case of 'x' where all cases of 'y' are true. ∀x∃y means in all cases of 'x' there exists at least one instance where 'y' is true.
-- The first prefix has all instances 'y' depend on the existence of at least one x, whereas the second states at least one instance of 'y' necessitates all cases 'x' be true.
+- The first prefix ∃x∀y has the existence of x contain all instances 'y' , whereas the second prefix ∀x∃y means for all cases 'x' there exists 'y'. The first prefix guarantees itself in all instances 'y', but the second prefix only holds in at least one, but not all, cases of 'y'.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
   
- - ∃x∀y∃z states the existence of at least one 'x' means all cases of 'y' also have 'z' be true at least once. ∀x∃y∀z means in all cases 'x' there exists at least one instance'y' containing all cases of 'z' being true.
+ - ∃x∀y∃z states the existence of at least one 'x' means all cases of 'y' contain the existence of at least one case 'z'. ∀x∃y∀z means in all cases 'x' there exists at least one instance 'y' containing all cases of 'z'.
  
  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+ 
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
