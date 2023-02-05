@@ -254,4 +254,4 @@ Proof: (¬P ∨ ¬Q) ≡ ¬(P ∧ Q)
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-The tree proof is more neater and easier to follow than the natural deduction proof. 
+Answer: the tree proof is more neater and easier to follow than the natural deduction proof. 
