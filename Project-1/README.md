@@ -116,6 +116,7 @@ T	T	T	F
 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
+
   ```(a)  B(x,y) that says that x is a brother of y
   
   (b)  A(x,y) that says that x is an aunt of y
@@ -128,6 +129,8 @@ T	T	T	F
   ∃P(x,y)∀O(x)
   
   (e)  T(x) that says that x has exactly two brothers 
+  
+ - would these statements need conditionals????
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
