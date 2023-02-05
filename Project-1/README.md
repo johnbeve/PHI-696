@@ -178,56 +178,39 @@ Answer:
 ```
 	
 [8] Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
-  (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
-  (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-  (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+```
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+(b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+(c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+(d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
 ```
 
 Answer:
 
-(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)) is valid.
+(a)
 
-1.¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+![picture 1](../../images/d5329d0d1c9c12387f3253a31ca7cc579c67310540896a9af6d9ff40eabc8003.png)  
 
-2.¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(1)
+(b)
 
-3.¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))(2)
+![picture 2](../../images/7eea738238868e9909210f73cbf78a2be8c571433679708379f3c96a7715512d.png)  
 
-4.¬(Pa ∧ Qa)(3)
+(c)
 
-5.¬(¬Pa ∨ ¬Qa)(3)
+![picture 3](../../images/3aa492cecf4f869aae6dd8693a6b5d7efb98c96a2077fbb8a41a5bfc7c51db05.png)  
 
-6.¬¬Pa(5)
+(d)
 
-7.¬¬Qa(5)
-
-8.Qa(7)
-
-9.Pa(6)
-
-10.¬Pa(4)
-x
-
-11.¬Qa(4)
-x
-
-
-
-
-
-```mermaid
-flowchart TB
-    A  --> C 
-    A --> D
-    B --> C
-    B --> D
-```
-
-
-
+![picture 4](../../images/b336f0a3381d933e34c6a924a2037e0f5e6bc2480c365289cc8d5317473a3d5e.png)  
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+
+
+Answer:
+
+
+
+$\bot$ 
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
