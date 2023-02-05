@@ -216,10 +216,45 @@ Answer:
    
   
   (d) ∀x∀y(¬(Px ∨ Qx) → ¬(Px ∧ Qx))
- Tree proof: 
+ Tree proof: same as (c)
  
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+
+Proof: (¬P ∨ ¬Q) ≡ ¬(P ∧ Q)
+
+  first step: (¬P ∨ ¬Q) → ¬(P ∧ Q)
+   
+ 1. ¬P ∨ ¬Q          premise
+|2. ¬¬(P ∧ Q)        assumption
+|3. P ∧ Q            ¬E2
+|4. P                ∧E3
+|5. q                ∧E3
+|6. ⊥                ⊥I 1,4,5
+ 7. ¬¬¬(P ∧ Q).      ¬I 2-6
+ 8. ¬(P ∧ Q)
+  
+  Second step: ¬(P ∧ Q) → ¬P ∨ ¬Q
+ 
+ 1.  ¬(P ∧ Q)               premise
+|2.  ¬(¬P ∨ ¬Q)             assumption
+| |3.  ¬P                   assumption 
+| |4.  ¬P ∨ ¬Q              ∨I3
+| |5. ⊥                    ⊥I2,4
+|6. P                      ⊥I3-5
+| |7. ¬Q                    assmuption
+| |8. ¬P ∨ ¬Q               ∨I7
+| |9. ⊥                    ⊥I2,8
+|10. Q                     ⊥I 7-9
+|11. P ∧ Q                  ∧I6,10
+|12. ⊥                     ⊥I1,11
+13. ¬¬(¬P ∨ ¬Q)             ⊥I2-12         
+14. ¬P ∨ ¬Q                 ¬E13
+
+
+
+ 
+
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
