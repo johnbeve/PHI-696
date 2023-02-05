@@ -118,16 +118,19 @@ T	T	T	F
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
 
   ```(a)  B(x,y) that says that x is a brother of y
+  
   - For all relationships where x is a brother of y, x cannot be female.
     ∀B(x,y)¬F(x)
   
   (b)  A(x,y) that says that x is an aunt of y
+  
     - All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
   ∀A(x,y)F(x)∃P(z,y)
 
   (c)  C(x,y) that says that x and y are cousins 
  
   (d)  O(x) that says that x is an only child
+  
   - There exists at least one parent relation between x and y where child x is an only child
   ∃P(x,y)∧O(x)
   
