@@ -121,6 +121,8 @@ C→¬A ≡ ¬C∨¬A
   ∀A(x,y)F(x)∃P(z,y)
 
   (c)  C(x,y) that says that x and y are cousins 
+
+ - I do not know how to define this sentence.
  
   (d)  O(x) that says that x is an only child
   
