@@ -120,17 +120,18 @@ T	T	T	F
   ```(a)  B(x,y) that says that x is a brother of y
   
   (b)  A(x,y) that says that x is an aunt of y
-    -All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
+    - All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
   ∀A(x,y)F(x)∃P(z,y)
 
   (c)  C(x,y) that says that x and y are cousins 
+ 
   (d)  O(x) that says that x is an only child
-  -So, 'There exists a parent relation with all children being only children'.
-  ∃P(x,y)∀O(x)
+  - There exists at least one parent relation between x and y where child x is an only child
+  ∃P(x,y)∧O(x)
   
   (e)  T(x) that says that x has exactly two brothers 
   
- - would these statements need conditionals????
+
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
