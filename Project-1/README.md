@@ -10,35 +10,58 @@ Tip #4: The work we do is challenging; that should be assumed. You are smart eno
 ```
 
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
+Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
+
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```
   (a) (¬A→B)∨((A∧¬C)→B) 
+Tautology (see image)
   (b) (A→B)∧(A→¬B)
+Contingent (see image)
   (c) (A→(B∨C))∨(C→¬A) 
+Tautology (see image)
   (d) ((A→B)∧C)∨(A∧D) 
+Contingent (see image)
   ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```
   (a) (A→B)→C
+  ¬(¬A∨B)∨C
+  (A∧¬B)∨C
+  (A∨C)∧(¬B∨C)
   (b) (A→(B∨C))∨(C→¬A)
+  (¬A∨(B∨C))∨(¬C∨¬A)
+  ¬A∨B
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
+  (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
   ```
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
   ```
   (a)  B(x,y) that says that x is a brother of y  
+  B(x,y) := ∃z.(P(zx) ∧ P(zy)) ∧ ¬F(x)
   (b)  A(x,y) that says that x is an aunt of y  
+  A(x,y) := ∃z.P(zy) ∧ ∃w.(P(wz) ∧ P(wx)) ∧ F(x)
   (c)  C(x,y) that says that x and y are cousins   
+  C(x,y) := ∃z.P(zy) ∧ ∃w.P(wx) ∧ ∃u.(P(uz) ∧ P(uw))
   (d)  O(x) that says that x is an only child  
+  O(x) := ∃y.P(yx) ∧ ¬∃z.(∃w.P(wz) ∧ (w=y))
   (e)  T(x) that says that x has exactly two brothers 
+  T(x) := 
+
   ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
+  ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
+  parent_of
+  m
+
   (a)  B that says that x is a brother of y
+  B ≡ m ⊓ ∃parentof.
   (b)  A that says that x is an aunt of y
   (c)  C that says that x and y are cousins
   (d)  O that says that x is an only child  
