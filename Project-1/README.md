@@ -12,7 +12,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
 
-(a) (¬A→B)∨((A∧¬C)→B) 
+(a) (¬A→B)∨((A∧¬C)→B: Tatuology
   
 | A | B | C | ((¬A → B) ∨ ((A ∧ ¬C) → B)) |  
 |:---:|:---:|:---:|:-----------------------------:|
@@ -25,37 +25,114 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 | T | T | F | T                           |   
 | T | T | T | T                           |   
 
+(b) (A→B)∧(A→¬B): Contingent
+  
+| A | B | ((A → B) ∧ (A → ¬B)) |
+|:-:|:-:|:--------------------:|
+| F | F |           T          |  
+| F | T |           T          |   
+| T | F |           F          |   
+| T | T |           F          |
+  
+(c) (A→(B∨C))∨(C→¬A): Tautology
 
-  (b) (A→B)∧(A→¬B)
+| A | B | C | ((A → (B ∨ C)) ∨ (C → ¬A)) |   
+|:-:|:-:|:-:|:--------------------------:|
+| F | F | F |              T             |   
+| F | F | T |              T             |   
+| F | T | F |              T             |   
+| F | T | T |              T             |   
+| T | F | F |              T             |   
+| T | F | T |              T             |   
+| T | T | F |              T             |   
+| T | T | T |              T             |   
   
-  A	B	((A → B) ∧ (A → ¬B))
-F	F	T
-F	T	T
-T	F	F
-T	T	F
-  
-  (c) (A→(B∨C))∨(C→¬A) 
-  (d) ((A→B)∧C)∨(A∧D) 
-  
-  
+(d) ((A→B)∧C)∨(A∧D): Contingent
+
+| A | B | C | D | (((A → B) ∧ C) ∨ (A ∧ D)) |
+|:-:|:-:|:-:|:-:|:-------------------------:|
+| F | F | F | F |             F             |
+| F | F | F | T |             F             |
+| F | F | T | F |             T             |
+| F | F | T | T |             T             |
+| F | T | F | F |             F             |
+| F | T | F | T |             F             |
+| F | T | T | F |             T             |
+| F | T | T | T |             T             |
+| T | F | F | F |             F             |
+| T | F | F | T |             T             |
+| T | F | T | F |             F             |
+| T | F | T | T |             T             |
+| T | T | F | F |             F             |
+| T | T | F | T |             T             |
+| T | T | T | F |             T             |
+| T | T | T | T |             T             |
+
+
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
-  ```(a) (A→B)→C
+
+Conjunction normal form is a conjunction (^). We will use this to connect disjunctions. 
+  
+(a) (A→B)→C = (~A V B) -> C = ~(~A V B) V C = (~~A ^ ~B) V C = (A ^ ~B) V C = **(A V C) ^ (~B V C)** [Distribution rule]  
     
-  (b) (A→(B∨C))∨(C→¬A)
-    
-  (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
+(b) (A→(B∨C))∨(C→¬A) = (~A V (B V C)) V (~C V ~A) = (B V C) V (~C V ~A) = **B V ~A**
+  
+(c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A = **A V ~A**
+
+According to this truth table, this sentence is a tautology. Thus, this sentence can be reduced to A V ~A.
+
+| A | B | C | ((¬A ∧ (¬B ∧ C)) ∨ ((¬A ∧ ¬C) ∨ ((B ∧ C) ∨ A))) |
+|:-:|:-:|:-:|:-----------------------------------------------:|
+| F | F | F |                        T                        |
+| F | F | T |                        T                        |
+| F | T | F |                        T                        |
+| F | T | T |                        T                        |
+| T | F | F |                        T                        |
+| T | F | T |                        T                        |
+| T | T | F |                        T                        |
+| T | T | T |                        T                        |
+
+A tautology takes the form of P V ~P. 
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  (a)  B(x,y) that says that x is a brother of y  
-  (b)  A(x,y) that says that x is an aunt of y  
+  (a)  B(x,y) that says that x is a brother of y: 
+  
+  B(xy) <--> ∃z(Pzx ^ Pzy) ^ ~F(x)
+  
+  (b)  A(x,y) that says that x is an aunt of y
+  
+  A(xy) <--> ∃z∃u(Pux ^ Puz ^ Pzy ^ F(x))
+  
+ 
   (c)  C(x,y) that says that x and y are cousins   
+  
+  
+  
   (d)  O(x) that says that x is an only child  
+  
+  
+  
   (e)  T(x) that says that x has exactly two brothers 
+  
+  
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```(a)  B that says that x is a brother of y
+
+K = Knowledge base 
+K = (T, A)
+T = general statement (e.g. ∃rC [relation without a name; C = concept]
+A = specific statement (e.g. a:c; (a, b): r [relation with a name])
+
+If we want to describe a domain, we have general statenents to assert a general relation and we have specific statements to assert specific relations.
+
+(a)  B that says that x is a brother of y
+
+$B\equiv M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
+  
+  
+  
   (b)  A that says that x is an aunt of y
   (c)  C that says that x and y are cousins
   (d)  O that says that x is an only child  
@@ -63,6 +140,8 @@ T	T	F
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
@@ -75,6 +154,13 @@ T	T	F
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
+
+```mermaid 
+graph LR
+A ---A(c)
+B ---B(
+C ---C
+```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
   ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
@@ -84,6 +170,8 @@ T	T	F
 ```
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
+
+
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
