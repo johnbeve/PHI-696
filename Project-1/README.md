@@ -210,19 +210,19 @@ Answer:
 
 (a) 
 
-![picture 1](fitch_proof_1.png) 
+![picture 1](fitch_proof_1.PNG) 
 
 (b) 
 
-![picture 1](fitch_proof_2.png) 
+![picture 1](fitch_proof_2.PNG) 
 
 (c) 
 
-![picture 1](fitch_proof_3.png) 
+![picture 1](fitch_proof_3.PNG) 
 
 (d) 
 
-![picture 1](fitch_proof_4.png) 
+![picture 1](fitch_proof_4.PNG) 
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
