@@ -11,7 +11,9 @@ Tip #4: The work we do is challenging; that should be assumed. You are smart eno
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
-  ```(a) (¬A→B)∨((A∧¬C)→B) <<< **This is a Tuatology**
+  ```
+ 
+(a) (¬A→B)∨((A∧¬C)→B) <<< **This is a Tuatology**
 
 | A | B | C | ((¬A → B) ∨ ((A ∧ ¬C) → B)) |
 |:-:|:-:|:-:|:---------------------------:|
@@ -84,9 +86,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
   (a)  B(x,y) that says that x is a brother of y 
-  	**This is not possible, unless "female" and "brother" are not restricted by sex/gender norms. If they are not, such that I may be a female *and* a brother, then: F(x)=B(x,y).**
   (b)  A(x,y) that says that x is an aunt of y
-  
   (c)  C(x,y) that says that x and y are cousins   
   (d)  O(x) that says that x is an only child  
   (e)  T(x) that says that x has exactly two brothers 
@@ -102,7 +102,8 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
+  ```
+  (a) ∃x∀y and ∀x∃y
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
@@ -110,11 +111,13 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+  ```
+  (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
