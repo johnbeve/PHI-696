@@ -97,22 +97,15 @@ T T T T     T.     T.          T
 C→¬A ≡ ¬C∨¬A
 (A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
  2. This formula contains no double negations, or negations outside parentheses.
- 3. - There are no conjunctions in the formula
- -  so I do not know how to distribute the disjunctions and put the formula in CNF from here...
-  
+ 3.  I do not know how to distribute the disjunctions and put the formula in CNF from here...
+ (¬Av(B∨C))v(¬C∨¬A)
+
+
+
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
  1. This formula contains no conditionals or biconditionals.
  2. This formula contains no double negations, or negations outside parentheses.
- 3. Since I don't know how to use DeMorgan's laws to put this formula in CNF, I'm going to use a truth table instead. I pulled the one below from Stanford's online generator:
-A	B	C	((¬A ∧ (¬B ∧ C)) ∨ (¬A ∧ ¬C))
-F	F	F	T
-F	F	T	T
-F	T	F	T
-F	T	T	F
-T	F	F	F
-T	F	T	F
-T	T	F	F
-T	T	T	F
+ 3. I don't know how to use DeMorgan's distributive laws to put this formula in CNF from here on.  
 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
@@ -166,6 +159,9 @@ T	T	T	F
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+
+
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
 	
