@@ -176,6 +176,21 @@ Answer:
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
+
+Answer:
+
+The following graph models the second sentence but not the first sentence:
+
+Verticles: a, b, c
+
+Edges: ab, ac, aa (loop)
+
+```mermaid
+graph LR
+A((a)) ---B((b))
+A((a)) ---C((c))
+A((a)) ---A((a))
+```
 	
 [8] Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
 ```
