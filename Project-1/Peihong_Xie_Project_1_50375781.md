@@ -114,15 +114,15 @@ Answer:
 
 Answer:
 
-(a) $B ≡ Male\sqcap ∃ParentOf^-.(∃ParentOf\ge2)$
+(a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
 
-(b) $A ≡ ¬Male\sqcap ∃ParentOf^-.((∃ParentOf.(∃ParentOf.Male\sqcup ¬Male))\sqcap∃ParentOf\ge2)$
+(b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
 
-(c) $C ≡ ∃ParentOf^-.(∃ParentOf^-.(\ge2ParentOf.(ParentOf.Male\sqcup ¬Male)))$
+(c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
 
-(d) $O ≡ ∃ParentOf^-.(∃ParentOf\le1)$
+(d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
 
-(e) $T ≡ (Male\sqcap ∃ParentOf^-.(\le3∃ParentOf.Male \sqcap \ge3∃ParentOf.Male))\sqcup(¬Male\sqcap∃ParentOf^-.(\le2∃ParentOf.Male \sqcap \ge2∃ParentOf.Male))$
+(e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
@@ -130,11 +130,11 @@ Answer:
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={$B ≡ Male\sqcap∃ParentOf^-.(∃ParentOf\ge2)$, 
+T-box $T_1$={$B ≡ M\sqcap∃parentOf^-.(∃parentOf\ge2)$, 
 
-$O≡∃ParentOf^-.(∃ParentOf\le1)$, 
+$O≡∃parentOf^-.(∃parentOf\le1)$, 
 
-$GP≡∃ParentOf.(∃ParentOf.Male\sqcup ¬Male)$}
+$GP≡∃parentOf.(∃parentOf.M\sqcup ¬M)$}
 
 A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
 
@@ -142,7 +142,7 @@ The following is a model $\Im=(\bigtriangleup^\Im,.^\Im)$ of $K_1$:
 
 $\bigtriangleup^\Im$={a,b,c}
 
-$Male^\Im$={a}
+$M^\Im$={a}
 
 $B^\Im=\emptyset$
 
@@ -150,7 +150,7 @@ $O^\Im$={b,a}
 
 $GP^\Im$={c}
 
-$ParentOf^\Im$={(c,b),(b,a)}
+$parentOf^\Im$={(c,b),(b,a)}
 
 $Karl^\Im$={a}
 
