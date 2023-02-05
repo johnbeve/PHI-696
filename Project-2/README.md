@@ -1,8 +1,9 @@
 # Project 2
 
-Your first project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
+Your second project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
 
-```Tip #1: Carefully study the Baader, et. al. selections assigned on bisimulation; it is deceptively subtle, and quite powerful. 
+```
+Tip #1: Carefully study the Baader, et. al. selections assigned on bisimulation; it is deceptively subtle, and quite powerful. 
 Tip #2: Google is still your friend. So is stackexchange...
 Tip #3: Work _together_ to solve these problems, even for initial submissions and when you do, document this in github. 
 Tip #4: Work together _as a team_. 
@@ -32,7 +33,8 @@ Tip #4: Work together _as a team_.
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
+  ```
+  (a) ∃x∀y and ∀x∃y
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
@@ -44,9 +46,9 @@ Tip #4: Work together _as a team_.
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
-```(a) a is a proper part of b and disjoint from e
+```
+  (a) a is a proper part of b and disjoint from e
   (b) a overlaps c
   (c) a is part of b, b is part of f, and a is part of f
   (e) There are no parts between a and g in common
 ```
-dddddd
