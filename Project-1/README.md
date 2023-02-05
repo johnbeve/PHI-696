@@ -189,19 +189,19 @@ Answer:
 
 (a)
 
-![picture 1](../../images/d5329d0d1c9c12387f3253a31ca7cc579c67310540896a9af6d9ff40eabc8003.png)  
+![picture 1](tree_proof_1.png)  
 
 (b)
 
-![picture 2](../../images/7eea738238868e9909210f73cbf78a2be8c571433679708379f3c96a7715512d.png)  
+![picture 2](tree_proof_2.png)  
 
 (c)
 
-![picture 3](../../images/3aa492cecf4f869aae6dd8693a6b5d7efb98c96a2077fbb8a41a5bfc7c51db05.png)  
+![picture 3](tree_proof_3.png)
 
 (d)
 
-![picture 4](../../images/b336f0a3381d933e34c6a924a2037e0f5e6bc2480c365289cc8d5317473a3d5e.png)  
+![picture 4](tree_proof_4.png)
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
