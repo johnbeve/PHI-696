@@ -205,7 +205,6 @@ Answer:
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
-
 Answer:
 
 (a) 
@@ -226,3 +225,10 @@ Answer:
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
+Answer:
+
+For (a), a Fitch-style natural deduction proof relies on deductive rules like disjunction elimination or double negation elimination (DNE) to a more substantive degree than a tree proof. 
+
+While a Fitch-style natural deduction proof is a combinational application of different means of derivation, a tree proof is essentially an application of indirect derivation. That is, when we do a tree proof, we have to decompose the target (complex) formula into its subformulas, and then differently connect negations of those subformulas in order to form different paths. Once when all paths somehow involve a contradiction, then the opposite possibilities of the target formula are all shown to be implausible, and thus the target formula will be proved.
+
+Moreover, a Fitch-style natural deduction proof is to apply rules to the target formula and its logical consequents, while a tree proof does not apply the same rules but concentrates on finding possible logical contradictions among negated subformulas of the target formula. 
