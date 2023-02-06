@@ -210,12 +210,23 @@ A-Box: Child(x), HasParent(x), HasChild(z)
 
 ```mermaid 
 graph LR
-A1(a1)
-A2(a2)
-A1 ---B(b)
-A2 ---B(b)
-B ---C(c)
+0(0)
+1(1)
+0 ---0
+0 ---1
+1 ---1
 ```
+
+U: [{0, 1}
+R: {(0. 0), (0, 1), {1, 1)}
+
+Interpretation:
+
+On this interpretation, ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z)) is represented, but ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z)) is not.
+
+On ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z)), everything should R everything and it is not the case in this graph.
+
+
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
 
