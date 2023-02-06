@@ -140,7 +140,7 @@ $O\equiv ∃parentOf^-.(∃parentOf.\le1)$
 
 (e)  T that says that x has exactly two brothers 
 
-$T\equiv (M\sqcap ∃parentOf^-.(\le3 ∃parentOf.M \sqcap \ge3 ∃parentOf.M)) \sqcup (\neg M \sqcap ∃parentOf^-.(\le2 ∃parentOf.M \sqcap \ge2 ∃parentOf.M))
+$T\equiv (M\sqcap ∃parentOf^-.(\le3 ∃parentOf.M \sqcap \ge3 ∃parentOf.M)) \sqcup (\neg M \sqcap ∃parentOf^-.(\le2 ∃parentOf.M \sqcap \ge2 ∃parentOf.M))$
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
@@ -249,8 +249,81 @@ On ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z)), everything should R everything an
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
-***I need help on this one***
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
 
+¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)	
+
+assume ¬(Px ∧ Qx).
+  assume ¬(¬Px ∨ ¬Qx).
+    assume ¬Px.
+      ¬Px ∨ ¬Qx.
+      F.
+    therefore ¬¬Px.
+    assume Qx.
+      Px.
+      assume ¬(¬Px ∨ ¬Qx).
+        Px ∧ Qx.
+        F.
+      therefore ¬¬(¬Px ∨ ¬Qx).
+      F.
+    therefore ¬Qx.
+    ¬Px ∨ ¬Qx.
+    F.
+  therefore ¬¬(¬Px ∨ ¬Qx).
+  ¬Px ∨ ¬Qx.
+therefore ¬(Px ∧ Qx) → ¬Px ∨ ¬Qx.	    
+
+(b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+
+¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)	
+
+assume ¬(Px ∨ Qx).
+  assume Px.
+    Px ∨ Qx.
+    F.
+  therefore ¬Px.
+  assume Qx.
+    Px ∨ Qx.
+    F.
+  therefore ¬Qx.
+  ¬Px ∧ ¬Qx.
+therefore ¬(Px ∨ Qx) → ¬Px ∧ ¬Qx.	  
+
+(c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
+¬Px ∨ ¬Qx → ¬(Px ∧ Qx)		
+
+assume ¬Px ∨ ¬Qx.
+  assume Px ∧ Qx.
+    Px.
+    Qx.
+    assume ¬Px.
+      F.
+    therefore ¬Px → F.
+    assume ¬Qx.
+      F.
+    therefore ¬Qx → F.
+    F.
+  therefore ¬(Px ∧ Qx).
+therefore ¬Px ∨ ¬Qx → ¬(Px ∧ Qx).	  
+
+(d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
+¬Px ∨ ¬Qx → ¬(Px ∧ Qx)	
+
+assume ¬Px ∨ ¬Qx.
+  assume Px ∧ Qx.
+    Px.
+    Qx.
+    assume ¬Px.
+      F.
+    therefore ¬Px → F.
+    assume ¬Qx.
+      F.
+    therefore ¬Qx → F.
+    F.
+  therefore ¬(Px ∧ Qx).
+therefore ¬Px + ¬Qx → ¬(Px ∧ Qx).	
 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
