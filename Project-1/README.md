@@ -74,13 +74,13 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 Conjunction normal form is a conjunction (^). We will use this to connect disjunctions. 
   
-(a) (A→B)→C = (~A V B) -> C = ~(~A V B) V C = (~~A ^ ~B) V C = (A ^ ~B) V C = **(A V C) ^ (~B V C)** [Distribution rule]  
+(a) (A→B)→C = (~A ∨ B) → C = ~(~A ∨ B) ∨ C = (~~A ∧ ~B) ∨ C = (A ∧ ~B) ∨ C = **(A ∨ C) ∧ (~B ∨ C)** [Distribution rule]  
     
-(b) (A→(B∨C))∨(C→¬A) = (~A V (B V C)) V (~C V ~A) = (B V C) V (~C V ~A) = **B V ~A**
+(b) (A→(B∨C))∨(C→¬A) = (~A ∨ (B ∨ C)) ∨ (~C ∨ ~A) = (B ∨ C) ∨ (~C ∨ ~A) = **B ∨ ~A**
   
-(c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A = **A V ~A**
+(c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A = **A ∨ ~A**
 
-According to this truth table, this sentence is a tautology. Thus, this sentence can be reduced to A V ~A.
+According to this truth table, this sentence is a tautology. Thus, this sentence can be reduced to A ∨ ~A.
 
 | A | B | C | ((¬A ∧ (¬B ∧ C)) ∨ ((¬A ∧ ¬C) ∨ ((B ∧ C) ∨ A))) |
 |:-:|:-:|:-:|:-----------------------------------------------:|
@@ -93,29 +93,29 @@ According to this truth table, this sentence is a tautology. Thus, this sentence
 | T | T | F |                        T                        |
 | T | T | T |                        T                        |
 
-A tautology takes the form of P V ~P. 
+A tautology takes the form of P ∨ ~P. 
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
   (a)  B(x,y) that says that x is a brother of y: 
   
-  B(xy) <--> ∃z(Pzx ^ Pzy) ^ ~F(x)
+  B(xy) = ∃z(Pzx ^ Pzy) ^ ~F(x)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-  A(xy) <--> ∃z∃u(Pux ^ Puz ^ Pzy ^ F(x))
-  
+  A(xy) = ∃z∃u(Pux ^ Puz ^ Pzy ^ F(x))
  
   (c)  C(x,y) that says that x and y are cousins   
   
-  
+  C(xy) = 
   
   (d)  O(x) that says that x is an only child  
   
-  
+  O(x) =
   
   (e)  T(x) that says that x has exactly two brothers 
   
+  T(x) = 
   
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
@@ -131,12 +131,18 @@ If we want to describe a domain, we have general statenents to assert a general 
 
 $B\equiv M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
   
+(b)  A that says that x is an aunt of y
   
   
-  (b)  A that says that x is an aunt of y
-  (c)  C that says that x and y are cousins
-  (d)  O that says that x is an only child  
-  (e)  T that says that x has exactly two brothers 
+(c)  C that says that x and y are cousins
+
+
+
+(d)  O that says that x is an only child  
+
+
+
+(e)  T that says that x has exactly two brothers 
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
@@ -144,10 +150,24 @@ $B\equiv M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
-  (b) ∃x∀y∃z and ∀x∃y∀z 
-  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-```
+
+(a) ∃x∀y and ∀x∃y
+
+∃x∀y = "Something is identical with everything" or "There exists an x such that for every y." This can be interpreted as a statement saying that there is at least one value of x for which the statement "for every y" is true. In other words, it asserts the existence of x in relation to all possible values of y.
+
+∀x∃y = "Everything is identical with something" or "For all x, there exists a y." This can be interpreted as a statement saying that for every possible value of x, there is at least one corresponding value of y. In other words, it asserts the existence of y in relation to all possible values of x.
+
+(b) ∃x∀y∃z and ∀x∃y∀z 
+
+∃x∀y∃z = "There exists an x such that for every y, there exists a z." This can be interpreted as a statement saying that for some value of x, we can find a corresponding value of z for every possible value of y. It states the existence of x and z in relation to all possible values of y.
+
+∀x∃y∀z = "For all x, there exists a y such that for all z." This can be interpreted as a statement saying that for all possible values of x, we can find a corresponding value of y that holds true for all values of z. In other words, it asserts the existence of y in relation to all possible values of x and z.
+
+(c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+
+∀x∃y∀z∃w = "For all x, there exists a y such that for all z, there exists a w." This can be interpreted as a statement saying that for all possible values of x, we can find a corresponding value of y, and for all possible values of z, we can find a corresponding value of w. In other words, it asserts the existence of y and w in relation to all possible values of x and z.
+
+∃x∀y∃z∀w = "There exists an x such that for all y, there exists a z for all w." This can be interpeted as a statement saying that for some value x, we can find a corresponding value y, and for every y, there is some value z that holds for all of w. 
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
@@ -163,11 +183,22 @@ C ---C
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
-  ```(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
-  (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
-  (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-  (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-```
+
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+
+![proof](https://user-images.githubusercontent.com/123851163/216893568-701f0b47-bd92-43fe-9fe7-e6a26d95985a.png)
+
+(b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+
+![proof-2](https://user-images.githubusercontent.com/123851163/216893625-612a4b80-b1e3-4c1c-88fd-98efc3d9285d.png)
+
+(c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
+![proof-3](https://user-images.githubusercontent.com/123851163/216893677-69d2dacc-a6cd-48e7-a5e2-9539d561bbe2.png)
+
+(d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
+![proof-4](https://user-images.githubusercontent.com/123851163/216893720-b1b01f6d-a818-46fb-b2c3-243d7903ef9c.png)
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
