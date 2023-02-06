@@ -132,8 +132,9 @@ If we want to describe a domain, we have general statenents to assert a general 
 $B\equiv M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
   
 (b)  A that says that x is an aunt of y
-  
-  
+
+$A\equiv $\neg$M\sqcap ∃parentOf^-.
+ 
 (c)  C that says that x and y are cousins
 
 
