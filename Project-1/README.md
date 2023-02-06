@@ -329,7 +329,7 @@ assume ¬Px ∨ ¬Qx.
   therefore ¬(Px ∧ Qx).
 therefore ¬Px + ¬Qx → ¬(Px ∧ Qx).
 ```
-
+ 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
