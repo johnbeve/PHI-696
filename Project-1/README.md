@@ -156,6 +156,7 @@ graph TD;
 0 --> 0;
 0 --> 1;
 1 --> 1; 
+```
 
  Here is my diagram of the universe: [label](file:///Universe.pub)
 U: {0,1}
