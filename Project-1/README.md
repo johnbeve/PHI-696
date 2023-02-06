@@ -207,14 +207,14 @@ A-Box: Child(x), HasParent(x), HasChild(z)
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
-***I need help on this one***
-
 
 ```mermaid 
 graph LR
-A ---A(c)
-B ---B(
-C ---C
+A1(a1)
+A2(a2)
+A1 ---B(b)
+A2 ---B(b)
+B ---C(c)
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
