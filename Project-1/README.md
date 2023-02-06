@@ -249,6 +249,7 @@ On ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z)), everything should R everything an
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
+```
 (a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
 
 ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)	
@@ -271,8 +272,9 @@ assume ¬(Px ∧ Qx).
     F.
   therefore ¬¬(¬Px ∨ ¬Qx).
   ¬Px ∨ ¬Qx.
-therefore ¬(Px ∧ Qx) → ¬Px ∨ ¬Qx.	    
-
+therefore ¬(Px ∧ Qx) → ¬Px ∨ ¬Qx.
+```
+```
 (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
 
 ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)	
@@ -287,8 +289,9 @@ assume ¬(Px ∨ Qx).
     F.
   therefore ¬Qx.
   ¬Px ∧ ¬Qx.
-therefore ¬(Px ∨ Qx) → ¬Px ∧ ¬Qx.	  
-
+therefore ¬(Px ∨ Qx) → ¬Px ∧ ¬Qx.	
+```
+```
 (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 
 ¬Px ∨ ¬Qx → ¬(Px ∧ Qx)		
@@ -306,7 +309,8 @@ assume ¬Px ∨ ¬Qx.
     F.
   therefore ¬(Px ∧ Qx).
 therefore ¬Px ∨ ¬Qx → ¬(Px ∧ Qx).	  
-
+```
+```
 (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 
 ¬Px ∨ ¬Qx → ¬(Px ∧ Qx)	
@@ -323,7 +327,8 @@ assume ¬Px ∨ ¬Qx.
     therefore ¬Qx → F.
     F.
   therefore ¬(Px ∧ Qx).
-therefore ¬Px + ¬Qx → ¬(Px ∧ Qx).	
+therefore ¬Px + ¬Qx → ¬(Px ∧ Qx).
+```
 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
