@@ -169,7 +169,9 @@ C→¬A ≡ ¬C∨¬A
 
 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 - This statement means there exists at least one x containing all cases y with the existence of at least one z, where x is related to y, x is related to z, and y is related to z by virtue of R
+
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
