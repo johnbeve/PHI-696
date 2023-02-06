@@ -97,26 +97,26 @@ A tautology takes the form of P ∨ ~P.
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  (a)  B(x,y) that says that x is a brother of y: 
+(a)  B(x,y) that says that x is a brother of y: 
   
-**  B(xy) = ∃z(P(zx) ∧ P(zy)) ∧ ~F(x)
-**  
-  (b)  A(x,y) that says that x is an aunt of y
+B(xy) = ∃z(P(zx) ∧ P(zy)) ∧ ~F(x)
+
+(b)  A(x,y) that says that x is an aunt of y
   
-**  A(xy) = ∃z∃u(P(ux) ∧ P(uz) ∧ P(zy) ∧ F(x))
-** 
-  (c)  C(x,y) that says that x and y are cousins   
+A(xy) = ∃z∃u(P(ux) ∧ P(uz) ∧ P(zy) ∧ F(x))
+
+(c)  C(x,y) that says that x and y are cousins   
   
-**  C(xy) = ∃u∃w∃z(P(uw) ∧ P(uz) ∧ P(wx) ∧ P(zy) ∧ ~(z=u)) ∧ ~(x=y) 
-**  
-  (d)  O(x) that says that x is an only child  
+C(xy) = ∃u∃w∃z(P(uw) ∧ P(uz) ∧ P(wx) ∧ P(zy) ∧ ~(z=u)) ∧ ~(x=y) 
   
-**  O(x) = ∃z(P(zx) ∧ ∀y(P(uy) → x=y))
-**  
-  (e)  T(x) that says that x has exactly two brothers 
+(d)  O(x) that says that x is an only child  
   
-**  T(x) = ∃w∃y∃z(P(wx) ∧ P(wy) ∧ P(wz) ∧ ~(x=y) ∧ ~(x=z) ∧ ~(y=z)) ∧ ∀u(P(wu) → u=x ∨ u=y ∨ u=z))    
-**  
+O(x) = ∃z(P(zx) ∧ ∀y(P(uy) → x=y))
+  
+(e)  T(x) that says that x has exactly two brothers 
+  
+T(x) = ∃w∃y∃z(P(wx) ∧ P(wy) ∧ P(wz) ∧ ~(x=y) ∧ ~(x=z) ∧ ~(y=z)) ∧ ∀u(P(wu) → u=x ∨ u=y ∨ u=z))    
+  
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
 
