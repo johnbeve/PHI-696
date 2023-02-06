@@ -1,7 +1,5 @@
 # Project 1 Assignment 
 
-(test 2)
-
 Your first project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
 
 ```Tip #1: Carefully study the Hedman selections assigned, as several of the questions are taken directly from the textbook. 
