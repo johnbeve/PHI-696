@@ -130,7 +130,9 @@ C→¬A ≡ ¬C∨¬A
   ∃P(x,y)∧O(x)
   
   (e)  T(x) that says that x has exactly two brothers 
-  
+ ∀T(x)∀
+ 
+
 
 ```
 
@@ -162,9 +164,12 @@ C→¬A ≡ ¬C∨¬A
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
+- This statement is saying that for all cases x there exists at least one case y containing all cases of z, with x being related to y, x being related to z, and y being related to z by virtue of R
+
 
 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+- This statement means there exists at least one x containing all cases y with the existence of at least one z, where x is related to y, x is related to z, and y is related to z by virtue of R
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
