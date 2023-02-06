@@ -90,10 +90,15 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (e)  T(x) that says that x has exactly two brothers 
 
 ```(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
+(a) if x is a brother of y x cannot be Female
 (b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
+(b) An aunt is the sister of your parent
 (c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
+(c) A cousin is a reltionship between two individuals whose parents are silbings 
 (d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
+(d) An only child is an individual who has no silbings and despite the potential existence of half-sibling that individual was raised primarily in a household where they were the only child present
 (e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
+(e) An individual x has exactly two brothers if they are the child of an individual who has exactly two male identifying children other then individual x. This would give rise to x having exactly brothers.
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -170,7 +175,7 @@ R: {(0,0), (0,1), (1,1)}
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
 
-  (a)¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+ (a) ¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
 ¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))      (1)
 ¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)).       (2)
        ¬(Pa ∧ Qa)                  (3)
@@ -197,7 +202,7 @@ x
 Pa (8)                  Qa (9)
 x                       x
 
-(c)¬∀x∀y((¬Px ∨ ¬Qx) →  ¬(Px ∧ Qx))
+(c) ¬∀x∀y((¬Px ∨ ¬Qx) →  ¬(Px ∧ Qx))
  ¬∀y(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))     (1)
   ¬(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))      (2)
          ¬Pa ∨  ¬Qa               (3)
@@ -209,7 +214,7 @@ x                       x
 ¬Pa (4)                 ¬Qa (4)  
 x                        x
 
-(d)1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+(d) ¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   ¬∀y((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))	(1)
     ¬((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))	(2)
 	     ¬Pa ∨ ¬Qa		(3)
@@ -254,7 +259,7 @@ x			   x
 3. 		Show: ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)
 4. 		¬(Px ∨ Qx)					            Ass CD
 5.			Show: (¬Px ∧ ¬Qx)
-6.			~(¬Px ∧ ¬Qx)			           	Ass ID
+6.			~(~Px ∧ ¬Qx)			           	Ass ID
 7.				Show: ~Px
 8.				Px				                  Ass ID, DN
 9.				Px V Qx				              8, Add
@@ -269,11 +274,11 @@ x			   x
 18.							                     	3, UD
 19.								                    2, UD
 (c)   
-1. Show: ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-2. 	Show: ∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-3. 		Show: (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)
-4. 		(¬Px ∨ ¬Qx)					              Ass CD
-5. 			Show: ¬(Px ∧ Qx)
+1. Show: ∀x∀y((~Px ∨ ~Qx) → ~(Px ∧ Qx))
+2. 	Show: ∀y((~Px ∨ ¬Qx) → ~(Px ∧ Qx))
+3. 		Show: (~Px ∨ ~Qx) → ~(Px ∧ Qx)
+4. 		(~Px ∨ ~Qx)					              Ass CD
+5. 			Show: ~(Px ∧ Qx)
 6. 			(Px ∧ Qx)				                Ass ID, DN
 7. 			Px					                    6, S
 8.			~~Px					                  7, DN
@@ -284,13 +289,13 @@ x			   x
 13. 							                    	3, UD
 14.								                      2, UD
 (d)
-1. Show: ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
-2. 	Show: ∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
-3. 		Show: (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)
-4.		(¬Px ∧ ¬Qx)					              Ass CD
+1. Show: ∀x∀y((¬Px ∧ ¬Qx) → ~(Px ∨ Qx))
+2. 	Show: ∀y((¬Px ∧ ¬Qx) → ~(Px ∨ Qx))
+3. 		Show: (¬Px ∧ ¬Qx) → ~(Px ∨ Qx)
+4.		(~Px ∧ ~Qx)					              Ass CD
 5.		~Px						                    4, S
 6.		~Qx					                     	4, S
-7.			Show: ¬(Px ∨ Qx)
+7.			Show: ~(Px ∨ Qx)
 8.			(Px ∨ Qx)				               Ass ID, DN
 9.			Qx					                   5, 8, MTP
 10.								                     6, 9, ID
