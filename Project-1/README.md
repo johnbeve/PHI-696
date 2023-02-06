@@ -151,9 +151,16 @@ Parent_of = {(z,w), (z,x)}
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-``` Here is my diagram of the universe: [label](file:///Universe.pub)
+```mermaid
+graph TD;
+0 --> 0;
+0 --> 1;
+1 --. 1; 
+
+ Here is my diagram of the universe: [label](file:///Universe.pub)
 U: {0,1}
 R: {(0,0), (0,1), (1,1)} 
+
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
 
