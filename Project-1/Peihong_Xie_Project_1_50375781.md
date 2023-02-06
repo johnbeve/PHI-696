@@ -80,7 +80,7 @@ Answer:
 
 (a) CNF: (A∨C)∧(¬B∨C)
 
-(b) CNF: B∨¬A
+(b) CNF: B∨¬B (the CNF of a tautology is any formula of the form "p∨¬p")
 
 (c) CNF: B∨¬B (the CNF of a tautology is any formula of the form "p∨¬p")
 
