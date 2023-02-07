@@ -146,6 +146,11 @@ C→¬A ≡ ¬C∨¬A
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+Domain (???) {x, y, Male, parent_of}
+Concepts: Male
+Role: Parent_Of
+
+
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
 
