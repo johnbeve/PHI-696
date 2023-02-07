@@ -44,7 +44,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 	T	T	T	T
 	
   (d) ((A→B)∧C)∨(A∧D) 
-  	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
+  	A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
 	F	F	F	F	F
 	F	F	F	T	F
 	F	F	T	F	T
