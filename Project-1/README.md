@@ -121,10 +121,12 @@ C→¬A ≡ ¬C∨¬A
   
     - All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
   ∀A(x,y)F(x)∃P(z,y)
+  
+  There exists a parent relationship between z and children x and w. x does not equal y and is female. w is a parent to y.
 
   (c)  C(x,y) that says that x and y are cousins 
 
- - I do not know how to define this sentence.
+There exists a parent relationship between z and children u and w. u does not equal w. w is a parent to x. u is a parent to y. x does not equal y.
  
   (d)  O(x) that says that x is an only child
   
@@ -133,7 +135,6 @@ C→¬A ≡ ¬C∨¬A
   (e)  T(x) that says that x has exactly two brothers 
   
 For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
- 
  
 
 
