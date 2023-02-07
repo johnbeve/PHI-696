@@ -128,15 +128,11 @@ C→¬A ≡ ¬C∨¬A
  
   (d)  O(x) that says that x is an only child
   
-  - There exists at least one parent relation between x and y where child x is an only child
-  ∃P(x,y)
-  
-  Delaney: ∃y∀z∧P(x,y)∧
-  
+  There exists at least one relation between parent x and child y, where for all cases of a third child z, z is equal to y.
   
   (e)  T(x) that says that x has exactly two brothers 
   
-there are two brothers (variables x, y, z) and it is only
+For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
  
  
 
