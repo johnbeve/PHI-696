@@ -86,19 +86,21 @@ T T T T     T.     T.          T
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
 - I am going to try and use DeMorgan's laws here:
-1. A→B ≡ ¬A∨B
+A→B ≡ ¬A∨B
 (A→B)→C ≡ ¬(¬A∨B)∨C
-2. ¬(¬A∨B)∨C ≡ (A∧¬B)∨C
-3. (A∧¬B)∨C ≡ (C∨A)∧(C∨¬B)
+¬(¬A∨B)∨C ≡ (A∧¬B)∨C
+(A∧¬B)∨C ≡ (C∨A)∧(C∨¬B)
 
 
   (b) (A→(B∨C))∨(C→¬A)
- 1. A→(B∨C) ≡ ¬Av(B∨C)
+  
+A→(B∨C) ≡ ¬Av(B∨C)
 C→¬A ≡ ¬C∨¬A
 (A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
- 2. This formula contains no double negations, or negations outside parentheses.
- 3.  I do not know how to distribute the disjunctions and put the formula in CNF from here...
- (¬Av(B∨C))v(¬C∨¬A)
+...
+- Ali: ((¬AvB)v(¬AvC))v(¬C∨¬A)
+- Carl, Sydney, Ali: This is a tautology. Any tautology written in CNF will yield the same result and works as a conversion.
+
 
 
 
@@ -127,10 +129,15 @@ C→¬A ≡ ¬C∨¬A
   (d)  O(x) that says that x is an only child
   
   - There exists at least one parent relation between x and y where child x is an only child
-  ∃P(x,y)∧O(x)
+  ∃P(x,y)
+  
+  Delaney: ∃y∀z∧P(x,y)∧
+  
   
   (e)  T(x) that says that x has exactly two brothers 
- ∀T(x)∀
+  
+there are two brothers (variables x, y, z) and it is only
+ 
  
 
 
