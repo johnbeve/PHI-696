@@ -285,5 +285,5 @@ In this model, the first sentence is false while the second sentence is true.
 
 ```
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
- 
- 	Interestingly, the proof for (a) in 8 
+ ```
+ 	Interestingly, the proof for (a) in 8 has fewer lines than the proof for (a) in 9, though the strategy seems to be superficially similar. In each, proof, the  strategy seems to be to look for some contradiction on the basis of an assumption in order to confirm the truth of the theorem. In the tableau proof, though, it looks like there are some implicit inferences that have to be made explicitly in natural deduction (at least in the system that I am using). Also, it's interesting that the tableau proof generator seems to want to decompose all statements into literals or their negation in order to find the relevant contradiction, whereas my strategy in the natural deduction proof for (a) was to show that on the basis of assuming the negation of the consequent of the conditional, I could derive the negation of the antecedent of the conditional itself, a sentence which does not appear in the tableau proof at all. 
