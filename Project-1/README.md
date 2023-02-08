@@ -27,7 +27,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 	
 	
   (b) (A→B)∧(A→¬B) (Is contingent)
-  A	B	((A → B) ∧ (A → ¬B))
+  	A	B	((A → B) ∧ (A → ¬B))
 	F	F	T
 	F	T	T
 	T	F	F
