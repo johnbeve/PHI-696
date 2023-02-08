@@ -114,30 +114,33 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   B(x,y) ≡ P(z,y)∧P(z,x)∧(x≠y)∧F(¬x)
+   ∀B(x,y)∃P(z,y)∧P(z,x)∧(x≠y≠z)∧F(¬x)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-  A(x,y) ≡ P(g,x)∧P(g,z)∧(x≠z)∧∀F(x)
-  
-  P(z,x)
-  
-    - All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
-  ∀A(x,y)F(x)∃P(z,y)
-  
-  There exists a parent relationship between z and children x and w. x does not equal y and is female. w is a parent to y.
+    - All aunts A(x) are female F(x)
+  ...
+  - There exists a parent relationship between g and children x and z. x does not equal z and is female. z is a parent to y.
+  ...
+   ∀A(x,y)∃P(g,x)∧P(g,z)∧∀F(x)∧P(z,y)∧(x≠y≠z≠g)
 
   (c)  C(x,y) that says that x and y are cousins 
 
 There exists a parent relationship between z and children u and w. u does not equal w. w is a parent to x. u is a parent to y. x does not equal y.
+ ...
+ ∀C(x,y)∃P(z,u)∧P(z,w)∧P(w,x)∧P(u,y)∧(x≠y≠u≠w≠z)
  
   (d)  O(x) that says that x is an only child
   
-  There exists at least one relation between parent x and child y, where for all cases of a third child z, z is equal to y.
+  There exists at least one relation between parent z and child x, where for all cases of a third child y, x is equal to y.
+ ...
+   ∀O(x)∃P(z,x)∧(x≠z)∀P(z,y)∧(x=y)
   
   (e)  T(x) that says that x has exactly two brothers 
   
-For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
+  For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
+ ...
+ ∀T(x)∃
  
 
 
@@ -145,9 +148,13 @@ For all cases x, with brothers y and z, it is only the case that a fourth child 
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
+  
   (b)  A that says that x is an aunt of y
+  
   (c)  C that says that x and y are cousins 
+  
   (d)  O that says that x is an only child
+  
   (e)  T that says that x has exactly two brothers 
 ```
 
