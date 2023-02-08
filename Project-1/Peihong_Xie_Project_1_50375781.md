@@ -94,15 +94,15 @@ Answer:
 
 Answer:
 
-(a) B(x,y) $\longleftrightarrow$ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
+(a) B(x,y) $\leftrightarrow$ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
-(b) A(x,y) $\longleftrightarrow$ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
+(b) A(x,y) $\leftrightarrow$ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
 
-(c) C(x,y) $\longleftrightarrow$ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
+(c) C(x,y) $\leftrightarrow$ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
 
-(d) O(x) $\longleftrightarrow$ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
+(d) O(x) $\leftrightarrow$ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
 
-(e) T(x) $\longleftrightarrow$ ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
+(e) T(x) $\leftrightarrow$ ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
 
 [4] Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
