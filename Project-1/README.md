@@ -28,43 +28,43 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 	
   (b) (A→B)∧(A→¬B) (Is contingent)
   	A	B	((A → B) ∧ (A → ¬B))
-	F	F	T
-	F	T	T
-	T	F	F
-	T	T	F
+		F	F	T
+		F	T	T
+		T	F	F
+		T	T	F
 	
   (c) (A→(B∨C))∨(C→¬A) (Is a tautology)
   
   	A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
-	F	F	F	T
-	F	F	T	T
-	F	T	F	T
-	F	T	T	T
-	T	F	F	T
-	T	F	T	T
-	T	T	F	T
-	T	T	T	T
-	
+		F	F	F	T
+		F	F	T	T
+		F	T	F	T
+		F	T	T	T
+		T	F	F	T
+		T	F	T	T
+		T	T	F	T
+		T	T	T	T
+		
   (d) ((A→B)∧C)∨(A∧D) 
   
   	A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
-	F	F	F	F	F
-	F	F	F	T	F
-	F	F	T	F	T
-	F	F	T	T	T
-	F	T	F	F	F
-	F	T	F	T	F
-	F	T	T	F	T
-	F	T	T	T	T
-	T	F	F	F	F
-	T	F	F	T	T
-	T	F	T	F	F
-	T	F	T	T	T
-	T	T	F	F	F
-	T	T	F	T	T
-	T	T	T	F	T
-	T	T	T	T	T
-	
+		F	F	F	F	F
+		F	F	F	T	F
+		F	F	T	F	T
+		F	F	T	T	T
+		F	T	F	F	F
+		F	T	F	T	F
+		F	T	T	F	T
+		F	T	T	T	T
+		T	F	F	F	F
+		T	F	F	T	T
+		T	F	T	F	F
+		T	F	T	T	T
+		T	T	F	F	F
+		T	T	F	T	T
+		T	T	T	F	T
+		T	T	T	T	T
+		
   ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
@@ -112,6 +112,9 @@ discount half-siblings as siblings.
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+	
+
+
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
@@ -132,7 +135,7 @@ discount half-siblings as siblings.
 	'∃x∀y∃z∀w' is equivalent to 'There exists an x for all y such that there exists a z for all w such that...'
 		
 		That is, the former means that all xs bear some relation to at least one y which bear(s) a relation to all zs which bear a relation to some w.
-		The latter means that some thing (x) is related to all y in 
+		The latter means that some thing (x) is related to all y, which each have some unsepcified relation to some other z which is then related to all w. 
   
 ```
 	
@@ -143,6 +146,7 @@ discount half-siblings as siblings.
 
 	U: {0, 1, 2}
 	R: {(0,2), (1,0), (1,1), (1,2), (2,2)}
+	
 
 In this model, the first sentence is false while the second sentence is true. 
 
@@ -246,15 +250,40 @@ In this model, the first sentence is false while the second sentence is true.
 			16.			¬Pa ∧ ¬Qa		6, 11 ADJ
 			17. 			!			5, 16 ID
 			18.						3, 4 CD
-			19.						2, UD
+			19.						2 UD
 			
 (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
 			1. Show ∀x((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-			2. 	Show 
+			2. 	Show (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)
+			3. 		(¬Px ∨ ¬Qx)			Assumption for CD
+			4. 		Show ¬(Px ∧ Qx)
+			5. 			¬¬(Px ∧ Qx)		Assumption for ID
+			6. 			Px ∧ Qx			5 DN
+			7. 			Px			6 CE
+			8. 			¬¬Px			7 DN
+			9. 			¬Qx			3, 8 DE
+			10. 			Qx			5 CE
+			11.			!			9, 10 ID
+			12.						3, 4 CD
+			13. 						2 UD
+			
 (d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
-			1. Show ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
-			2. 
+
+			1. Show ∀x((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+			2. 	Show (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)
+			3. 		(¬Px ∧ ¬Qx)			Assumption for CD
+			4. 		Show ¬(Px ∨ Qx)			
+			5. 			¬¬(Px ∨ Qx)		Assumption for ID
+			6. 			Px ∨ Qx			5 DN
+			7. 			¬Px			3 CE
+			8. 			Qx			6, 7 DE
+			9. 			¬Qx			3 CE
+			10.			!			8, 9 ID
+			11.						3, 4 CD
+			12.						2 UD
 
 ```
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
  
+ 	Interestingly, the proof for (a) in 8 
