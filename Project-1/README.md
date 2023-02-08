@@ -99,7 +99,7 @@ C→¬A ≡ ¬C∨¬A
 (A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
 ...
 - Ali: ((¬AvB)v(¬AvC))v(¬C∨¬A)
-- Carl, Sydney, Ali: This is a tautology. Any tautology written in CNF will yield the same result and works as a conversion.
+- Karl, Sydney, Ali: This is a tautology. Any tautology written in CNF will yield the same result and works as a conversion.
 
 
 
@@ -140,7 +140,7 @@ There exists a parent relationship between z and children u and w. u does not eq
   
   For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
  ...
- ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∀P(g,w)
+ ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∀P(g,w)∧((w=y)∨(w=z))
  
 
 
