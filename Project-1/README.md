@@ -16,14 +16,14 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (a) (¬A→B)∨((A∧¬C)→B) (Is a tautology)
   
   	A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
-	F	F	F	T
-	F	F	T	T
-	F	T	F	T
-	F	T	T	T
-	T	F	F	T
-	T	F	T	T
-	T	T	F	T
-	T	T	T	T
+		F	F	F	T
+		F	F	T	T
+		F	T	F	T
+		F	T	T	T
+		T	F	F	T
+		T	F	T	T
+		T	T	F	T
+		T	T	T	T
 	
 	
   (b) (A→B)∧(A→¬B) (Is contingent)
