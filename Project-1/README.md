@@ -81,7 +81,7 @@ Contingent
 
 ``` (a) (A ∨ C) ∧ (¬B ∨ C)
 (b) B ∨ ~A Tautology should have form of p v ~p
-(c) B v ~B Tautology  
+(c) B v ~B Tautology should have the same form as above
 
 used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.at/gateway/formular-uk-zentral.html
 
