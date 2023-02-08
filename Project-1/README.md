@@ -45,7 +45,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 		T	T	F	T
 		T	T	T	T
 		
-  (d) ((A→B)∧C)∨(A∧D) 
+  (d) ((A→B)∧C)∨(A∧D) (Is contingent)
   
   	A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
 		F	F	F	F	F
@@ -103,10 +103,16 @@ discount half-siblings as siblings.
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
+  	B ≡ Person⊓M⊓∃parent_of.Person        (I don't like this because I think if anything, I've defined "Father", and still don't know how I'm to tackle the 
+						identity issue I mention in subsequent subproblems)
   (b)  A that says that x is an aunt of y
+  	I can't define this relations because I don't see how to employ identity relations.
   (c)  C that says that x and y are cousins
+  	I can't define this relations because I don't see how to employ identity relations.
   (d)  O that says that x is an only child  
+  	I can't define this relations because I don't see how to employ identity relations.
   (e)  T that says that x has exactly two brothers 
+  	I can't define this relations because I don't see how to employ identity relations.
   ```
 
 
@@ -121,21 +127,27 @@ discount half-siblings as siblings.
 	‘∃x∀y’ is equivalent to ‘There is an x for all y…’ while 
         ‘∀x∃y’ is equivalent to ‘For all x, there is a y…’ 
 
-           That is, The former means that there is at least one y to which all xs have some sort of relation (to be specified after the prefix), while the latter means that every x has a(n unspecified) relation to some y, which does not have to be the same y for every x (though it certainly could be, depending upon how the relation is specified).
+           That is, The former means that there is at least one y to which all xs have some sort of 
+	relation (to be specified after the prefix), while the latter means that every x has a(n unspecified) 
+	relation to some y, which does not have to be the same y for every x (though it certainly could be, 
+	depending upon how the relation is specified).
 	   
   (b) ∃x∀y∃z and ∀x∃y∀z 
   	'∃x∀y∃z' is equivalent to 'There exists an x for all y such that there exists a z such that...'
 	'∀x∃y∀z' is equivalent to 'For all x there exists a y for all z such that...'
 		
-		That is, the former means that there is at least one x to which all things y bear some sort of relation, which is in a relation to another existing thing, z and the latter means that all xs have some relation (yet to be specified) to some class (min 1) of existing thing(s), related also to all things z. 
-  
+	   That is, the former means that there is at least one x to which all things y bear some sort of 
+	relation, which is in a relation to another existing thing, z and the latter means that all xs 
+	have some relation (yet to be specified) to some class (min 1) of existing thing(s), related also to all things z. 
+ 
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
   	'∀x∃y∀z∃w' is equivalent to 'For all x there exists a y such that for all z there exists a w such that...'
 	'∃x∀y∃z∀w' is equivalent to 'There exists an x for all y such that there exists a z for all w such that...'
 		
-		That is, the former means that all xs bear some relation to at least one y which bear(s) a relation to all zs which bear a relation to some w.
-		The latter means that some thing (x) is related to all y, which each have some unsepcified relation to some other z which is then related to all w. 
+	   That is, the former means that all xs bear some relation to at least one y which bear(s) a relation to all 
+	zs which bear a relation to some w.The latter means that some thing (x) is related to all y, which each have some 
+	unspecified relation to some other z, which is then related to all w. 
   
 ```
 	
@@ -286,4 +298,11 @@ In this model, the first sentence is false while the second sentence is true.
 ```
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
  ```
- 	Interestingly, the proof for (a) in 8 has fewer lines than the proof for (a) in 9, though the strategy seems to be superficially similar. In each, proof, the  strategy seems to be to look for some contradiction on the basis of an assumption in order to confirm the truth of the theorem. In the tableau proof, though, it looks like there are some implicit inferences that have to be made explicitly in natural deduction (at least in the system that I am using). Also, it's interesting that the tableau proof generator seems to want to decompose all statements into literals or their negation in order to find the relevant contradiction, whereas my strategy in the natural deduction proof for (a) was to show that on the basis of assuming the negation of the consequent of the conditional, I could derive the negation of the antecedent of the conditional itself, a sentence which does not appear in the tableau proof at all. 
+ 	  The proof for (a) in 8 has fewer lines than the proof for (a) in 9, though the strategy seems to be superficially similar. In each, proof, the  strategy is 
+	be to look for some contradiction on the basis of an assumption in order to confirm the truth of the theorem. In the tableau proof, though, it looks like 
+	there are some implicit inferences that have to be made explicitly in natural deduction (at least in the system that I am using). Also, I find it interesting 
+	that the tableau proof generator seems to want to decompose all statements into literals or their negation in order to find the relevant contradiction, 
+	whereas my strategy in the natural deduction proof for (a) was to show that on the basis of assuming the negation of the consequent of the conditional, I 
+	could derive the negation of the antecedent of the conditional itself, a sentence which does not appear in the tableau proof at all. Meanwhile, the precise 
+	strategy of the tableau proof seems to be to look for all possible truth assignments and make sure that none of the truth assignments compatible with the 
+	assumption can lead to the assumption being true.
