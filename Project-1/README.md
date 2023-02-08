@@ -17,57 +17,61 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
 
-A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
-F	F	F		  T
-F	F	T		  T
-F	T	F		  T
-F	T	T		  T
-T	F	F		  T
-T	F	T		  T
-T	T	F		  T
-T	T	T		  T
-(a) is a tautology.
+(a) 
+| A | B	| C | ¬A→B | A∧¬C | (A∧¬C)→B | (¬A→B)∨((A∧¬C)→B) |
+| ---  | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 1 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 0 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 0 | 1 | 1 |
+| 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+| 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+Tautology
 
- A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
-F	F	F	T
-F	F	T	T
-F	T	F	T
-F	T	T	T
-T	F	F	T
-T	F	T	T
-T	T	F	T
-T	T	T	T
- (c) is a tautology.	
- 
- A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
-F	F	F	T
-F	F	T	T
-F	T	F	T
-F	T	T	T
-T	F	F	T
-T	F	T	T
-T	T	F	T
-T	T	T	T
- (c) is a tautology.
- 
-   A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
-F	F	F	F	F
-F	F	F	T	F
-F	F	T	F	T
-F	F	T	T	T
-F	T	F	F	F
-F	T	F	T	F
-F	T	T	F	T
-F	T	T	T	T
-T	F	F	F	F
-T	F	F	T	T
-T	F	T	F	F
-T	F	T	T	T
-T	T	F	F	F
-T	T	F	T	T
-T	T	T	F	T
-T	T	T	T	T
-(d) is contignet.
+(b) 
+| A | B	| A→B | A→¬B | (A→B)∧(A→¬B) | 
+| ---  | --- | --- | --- | --- |
+| 1 | 1 | 1 | 0 | 0 | 
+| 1 | 0 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 
+Contingent
+
+(c)
+| A | B	| C | B∨C | A→(B∨C) | C→¬A | (A→(B∨C))∨(C→¬A)) |
+| ---  | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 1 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 1 | 1 | 1 | 1 | 1 |
+| 0 | 0 | 0 | 0 | 1 | 1 | 1 |
+Tautology
+
+(d) 
+| A | B	| C | D | A→B | (A→B)∧C | A∧D | ((A→B)∧C)∨(A∧D)
+| ---  | --- | --- | --- | --- | --- | --- |--- |
+| 1  | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 1  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 1  | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
+| 1  | 0 | 1 | 1 | 0 | 0 | 1 | 1 |
+| 0  | 1 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 1  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 0  | 0 | 1 | 1 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 0 | 1 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
+| 0  | 0 | 0 | 1 | 1 | 0 | 0 | 0 |
+| 0  | 0 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 0  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 1  | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 0  | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+Contingent
 
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
 
@@ -76,8 +80,8 @@ T	T	T	T	T
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 
 ``` (a) (A ∨ C) ∧ (¬B ∨ C)
-(b) A ∨ ¬B Tautology should have form of p v ~p
-(c) A v ~A Tautology  
+(b) B ∨ ~A Tautology should have form of p v ~p
+(c) B v ~B Tautology  
 
 used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.at/gateway/formular-uk-zentral.html
 
@@ -90,19 +94,19 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (d)  O(x) that says that x is an only child
   (e)  T(x) that says that x has exactly two brothers 
 
-```(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧(x≠y)∧(z≠x)∧(z≠y)∧¬Fx) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
+```(a) B(x,y) = ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
 (a) A brother is an individual who identifies as male and has at least one sibling that is, they share at least one parent. Half-siblings and step-siblings can be brothers. In the example above, x would be an individual who shares at least one parent with y and x would identify as male.
 
-(b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
+(b) A(x,y) = ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
 (b) An Aunt is a female identifying sibling of a parent. In the example above x would be an Aunt of y so long as x is the child of y's sibling
 
-(c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
+(c) C(x,y) = ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x= - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
 (c) A cousin is a relationship between two individuals whose parents are siblings. Such that you have a cousin in the child of your aunt
 
 (d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
 (d) An only child is an individual who was raised in a house primarily without siblings. Individuals who have step or half siblings but were raised pimarily alone are only children. 
 
-(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
+(e)T(x) = ∃u(∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z)) ∧ ∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w) → y=z ∨ y=w ∨ z=w ∨ x=y ∨ x=z ∨ x=w)) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
 (e) An individual has exactly two brothers if and only if they have two siblings who identify as male.
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
@@ -117,20 +121,25 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   m
 
   (a)  B that says that x is a brother of y
+  (a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
   (a)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf≥2)
   (a) assuming gender binary determined by chromosomes 
 
   (b)  A that says that x is an aunt of y
-  (b)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
+  (b)  $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
+  (b)  A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
   (b) assuming gender binary determined by chromosomes 
 
   (c)  C that says that x and y are cousins 
+  (c)  $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
   (c)  C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
 
   (d)  O that says that x is an only child
-  (d) $O ≡ ∃parentOf^-.(∃parentOf.≤1)
+  (d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
+  (d) O ≡ ∃parentOf^-.(∃parentOf.≤1)
 
   (e)  T that says that x has exactly two brothers 
+  (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
   (e)  T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
@@ -159,17 +168,20 @@ Parent_of = {(z,w), (z,x)}
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 
-```(a) ∃x∀y says something like there is some x such that for all y
-(a) ∀x∃y says for all x there is some y 
-(b) ∃x∀y∃z says there is some x such that for all y there is some z such that 
-(b) ∀x∃y∀z says for all x there is come y such that for all x
-(c) ∀x∃y∀z∃w says for all x there is some y such that for all z there is some w
-(c) ∃x∀y∃z∀w says there is some x such that for all y there exists some z such that for all w
+```(a) ∃x∀y means “there exists x such that for all y” 
+(a) ∀x∃y means "for all x, there exists y such that"
+
+(b) ∃x∀y∃z means “there exists x such that for all y, there exists z such that” 
+(b) ∀x∃y∀z means "for all x, there exists y such that for all z"
+
+(c) ∀x∃y∀z∃w means "for all x, there exists y such that for all z, there exists w such that" 
+(c) ∃x∀y∃z∀w means "there exists x such that for all y, there exists z such that for all y"
 
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 ```mermaid
 graph TD;
 0 --> 0;
@@ -318,6 +330,4 @@ x			   x
 
 Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-Well firsty and perhaps most notably the tree proof software provides no annotations (justifications?) for the how each line is derived from the line before it. I personally like having the annotations as it shows clearly how to move from one step to the next. Further, the tree proofs look like they start by universally instainting whereas in the natural deduction proofs you can go several route but the easiest with Universal Quantifiers is usually a universal derivation. I myself am prone to doing indirect derivations. This is because if it can be derived you can always(?) find a contradiction. Obviously, I still assumed inderictly once all of the unviersal were removed from the situation to complete the derivations. 
-
-
+Well firsty and perhaps most notably the tree proof software provides no annotations (justifications?) for the how each line is derived from the line before it. I personally like having the annotations as it shows clearly how to move from one step to the next. Further, the tree proofs look like they start by universally instainiating whereas in the natural deduction proofs you can go several route but the easiest with Universal Quantifiers is usually a universal derivation. I myself am prone to doing indirect derivations. This is because if it can be derived you can always(?) find a contradiction. Obviously, I still assumed indirectly once all of the unviersals were removed from the situation to complete the derivations. 
