@@ -114,10 +114,13 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-  - For all relationships where x is a brother of y, x cannot be female.
-    ∀B(x,y)¬F(x)
+   B(x,y) ≡ P(z,y)∧P(z,x)∧(x≠y)∧F(¬x)
   
   (b)  A(x,y) that says that x is an aunt of y
+  
+  A(x,y) ≡ P(g,x)∧P(g,z)∧(x≠z)∧∀F(x)
+  
+  P(z,x)
   
     - All aunts A(x) are female F(x) and are the sister to the existence of parent z in the relation P(z,y).
   ∀A(x,y)F(x)∃P(z,y)
