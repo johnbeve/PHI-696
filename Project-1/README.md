@@ -106,7 +106,7 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
 (d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
 (d) An only child is an individual who was raised in a house primarily without siblings. Individuals who have step or half siblings but were raised pimarily alone are only children. 
 
-(e)T(x) = ∃u(∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z)) ∧ ∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w) → y=z ∨ y=w ∨ z=w ∨ x=y ∨ x=z ∨ x=w)) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
+(e)∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)  - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
 (e) An individual has exactly two brothers if and only if they have two siblings who identify as male.
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
