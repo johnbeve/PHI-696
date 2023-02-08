@@ -140,7 +140,7 @@ There exists a parent relationship between z and children u and w. u does not eq
   
   For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
  ...
- ∀T(x)∃
+ ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∀P(g,w)
  
 
 
