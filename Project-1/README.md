@@ -77,11 +77,11 @@ It is Contignet.
   
   (b) (A→(B∨C))∨(C→¬A)
   
-  p∨~p
+  This is a tautology, so no CNF form is possible. p∨~p
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
   
-  p∨~p
+  This is a tautology, so no CNF form is possible. p∨~p
 ```
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
