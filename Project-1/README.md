@@ -77,60 +77,59 @@ It is Contignet.
   
   (b) (A→(B∨C))∨(C→¬A)
   
-  The calculator says it's already in CNF, though it doesn't look that way to me. I used a different calculator, and it said a CNF version of this does not exist.
+  p∨~p
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
   
-  The calculator says this one is also already in CNF, but it also doesn't look that way. And the other calculator also said one does not exist.
+  p∨~p
 ```
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B(x,y) that says that x is a brother of y
-  	∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx)
+  	∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx∧x≠y∧x≠z∧z≠y)
   (b)  A(x,y) that says that x is an aunt of y
-  	∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx)
+  	∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧y≠z)
   (c)  C(x,y) that says that x and y are cousins 
-  	∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y))
+  	∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)∧x≠v∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧w≠v∧y≠z∧y≠v∧v≠z)
   (d)  O(x) that says that x is an only child
-  	∃x∃y∀z(P(y,z)→z=x)
+  	∃x∃y∀z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x)
   (e)  T(x) that says that x has exactly two brothers 
-  	∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y))))
+  	∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
   
-  ΔI = {x, y, z},
-  parent_of = {(z,x), (z,y)},
-  Male = {x}.
+  B = M∩∃parent_of−.(≥2∃parent_of)
   
   (b)  A that says that x is an aunt of y
   
-  ΔI = {w, x, y, z},
-  parent_of = {(w,x), (w,z), (z,y)},
-  ~Male = {x}.
+  A = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))
+  I'm not sure how to say the aunt is the child of someone who is the parent of "someone else".
   
   (c)  C that says that x and y are cousins 
   
-  ΔI = {v, w, x, y, z},
-  parent_of = {(v,w), (v,z), (w,x), (z,y)}.
+  I could say they're children of people, but I don't know how to say they're the children of different people
   
   (d)  O that says that x is an only child
   
-   I'm not sure of a way to do this. I could say that x is a child of y, but in this system that wouldn't mean it's false of anything else.
+   O = ∃parent_of−.(≤1∃parent_of ∩ ≥1∃parent_of)
   
   (e)  T that says that x has exactly two brothers 
   
-  I'm not sure of a way to say this either for the same reason as before. I can say two things are x's brother, but this wouldn't say there's only two brothers
+  T = ∃parent_of−.(≥3∃parent_of ∩ ≤3∃parent_of)
+  I'm not sure how to say that the other 2 siblings are male.
   
 ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 ```
-Tex = {Brother ⊆ Male,		(Tex.1)
-	Aunt ⊆ ~Male}		(Tex.2)
+Tex = {Brother = M∩∃parent_of−.(≥2∃parent_of)			(Tex.1)
+	Aunt = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))		(Tex.2)
+	Brother ⊆ Male,						(Tex.3)
+	Aunt ⊆ ~Male}						(Tex.4)
 
 Aex = {Billy: Brother ∩ Male		(Aex.1)
 	Bob: Brother ∩ Male		(Aex.2)
