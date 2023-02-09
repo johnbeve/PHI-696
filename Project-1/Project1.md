@@ -149,7 +149,7 @@ T(x) = ∃x∃y∃w∃p(
   * Top $\top$, Bottom $\bot$, Conjunction $\sqcap$, Atomic Negation $\neg A$, Value Restriction $\forall r.C$
 * $AL$ extended with $C$ adds Negation (of compound concepts) $\neg C$
   * This allows a derivation of Disjunction $\sqcup$ (from Negation & Conjunction)
-  * This allows a derivation of Existential Restriction $\exist r.C$ (from Negation & Value Restrction)
+  * This allows a derivation of Existential Restriction $∃r.C$ (from Negation & Value Restrction)
 
 ### DL Extensions
 * None of the provided formulas are strictly definable as roles in $ALC$ in terms of the role `parent_of`
@@ -177,11 +177,11 @@ With these extensions we can define the formulas:
 The following formulas can be defined using the DL extension $N$, which adds Number Restrictions $(\leqslant n r)$ and $(\geqslant nr )$ where $n$ is a positive number:
 
 (d) `O that says that x is an only child`
-  * $O ≡ \exist parentOf^-.((\geqslant 1 parentOf) \sqcap (\leqslant 1 parentOf))$
+  * $O ≡ ∃parentOf^-.((\geqslant 1 parentOf) \sqcap (\leqslant 1 parentOf))$
     * "Someone is an only child iff there is a parent of them, who is a parent of at least and at most 1 (person)." 
 
 (e) `T that says that x has exactly two brothers`
-  * $T ≡ \exist parentOf^-.((\leqslant 2 parentOf) \sqcap (\geqslant 2 parentOf) \sqcap \exist parentOf.(M)) $
+  * $T ≡ ∃parentOf^-.((\leqslant 2 parentOf) \sqcap (\geqslant 2 parentOf) \sqcap ∃parentOf.(M)) $
     * "Someone has exactly two brothers iff there's a parent of them who is the parent of exactly two males"
 
 ---
@@ -197,8 +197,8 @@ $ T = \left\{
 	\begin{darray}{l}
 	  B \equiv M\sqcap ∃parentOf^-.(∃parentOf) \\\\
     C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) \\\\
-    siblingOf \equiv \exist parentOf^-(\exist parentOf) \\\\
-    Sibling \equiv \exist siblingOf
+    siblingOf \equiv ∃parentOf^-(∃parentOf) \\\\
+    Sibling \equiv ∃siblingOf
 	\end{darray}
 \right\} $
 
@@ -239,7 +239,7 @@ It's still a model even though:
 * It interprets concept names not in the knowledge base, $Extra$ and $CoolestGuy$
 * Extra elements are in the extension of $siblingOf$
 * The same element $t$ satisfies multiple concept names, $Tim$ and $CoolestGuy$, without a Unique Name Assumption preventing this
-* Axiom $Sibling \equiv \exist siblingOf$ plus the assertion that $Ralph : Sibling$ means someone is a sibling of Ralph, but no relation satisfies this. The Open World Assumption allows for incomplete knowledge about who is Ralph's sibling.
+* Axiom $Sibling \equiv ∃siblingOf$ plus the assertion that $Ralph : Sibling$ means someone is a sibling of Ralph, but no relation satisfies this. The Open World Assumption allows for incomplete knowledge about who is Ralph's sibling.
 
 ---
 # Question 6
