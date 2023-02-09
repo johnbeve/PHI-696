@@ -95,7 +95,7 @@ It is Contignet.
   (d)  O(x) that says that x is an only child
   	∃x∃y∀z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x)
   (e)  T(x) that says that x has exactly two brothers 
-  	∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
+  	∃v∃w∃x∃y(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
