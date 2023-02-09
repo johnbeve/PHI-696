@@ -107,6 +107,7 @@ C→¬A ≡ ¬C∨¬A
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
  1. This formula contains no conditionals or biconditionals.
  2. This formula contains no double negations, or negations outside parentheses.
+ 
  3. I don't know how to use DeMorgan's distributive laws to put this formula in CNF from here on.  
 
 
@@ -140,16 +141,19 @@ There exists a parent relationship between z and children u and w. u does not eq
   
   For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
  ...
- ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∀P(g,w)∧((w=y)∨(w=z))
+ ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∀P(g,w)((w=y)∨(w=z))
  
-
 
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
+ B ⊑ M
+ B ≡ ⊓M  ∀  parent_of ⊓ parent_of
   
   (b)  A that says that x is an aunt of y
+  
+  A ≡ ¬M 
   
   (c)  C that says that x and y are cousins 
   
@@ -172,10 +176,10 @@ Role: Parent_Of
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
   
- - ∃x∀y∃z states the existence of at least one 'x' means all cases of 'y' contain the existence of at least one case 'z'. ∀x∃y∀z means in all cases 'x' there exists at least one instance 'y' containing all cases of 'z'.
+ - ∃x∀y∃z states the existence of 'x' contains all cases of 'y' bearing the existence of 'z'. ∀x∃y∀z means in all cases 'x' there exists 'y' which contains all cases of 'z'.
  
  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
- - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' containing the existence of at least one 'w'. ∃x∀y∃z∀w states the existence of at least one 'x' wherein for all of its cases 'y' there also exists 'z' for all cases 'w'.
+ - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' contain the existence of 'w'. ∃x∀y∃z∀w states the existence of 'x' with all cases 'y' there also exists 'z' for all cases 'w'.
  
 ```
 	
