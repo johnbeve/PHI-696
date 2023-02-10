@@ -273,7 +273,10 @@ Proof: (¬P ∨ ¬Q) ≡ ¬(P ∧ Q)
 |6. ⊥                ⊥I 1,4,5
  7. ¬¬¬(P ∧ Q).      ¬I 2-6
  8. ¬(P ∧ Q)
-  
+ 
+ ![fitch_proof_1](https://user-images.githubusercontent.com/123851348/218146579-e639cec8-d85d-40c5-a270-f8f629217e8a.PNG)
+
+
   Second step: ¬(P ∧ Q) → ¬P ∨ ¬Q
  
  1.  ¬(P ∧ Q)               premise
