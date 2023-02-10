@@ -114,13 +114,13 @@ Answer:
 
 Answer:
 
-(a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
+(a) $B ≡ M\sqcap ∃parentOf^-.(\ge2 parentOf.(M\sqcup ¬M))$
 
-(b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
+(b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap \ge2 parentOf.(M\sqcup ¬M))$
 
 (c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
 
-(d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
+(d) $O ≡ ∃parentOf^-.(\le1 parentOf.(M\sqcup ¬M))$
 
 (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
 
