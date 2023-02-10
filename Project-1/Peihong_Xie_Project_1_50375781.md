@@ -122,7 +122,7 @@ Answer:
 
 (d) $O ≡ ∃parentOf^-.(\le1 parentOf.(M\sqcup ¬M))$
 
-(e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
+(e) $T ≡ (M\sqcap ∃parentOf^-.(\le3 parentOf.M \sqcap \ge3 parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
 
 
 
