@@ -125,45 +125,47 @@ Answer:
 (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
 
 
+
+
 The following is a different approach from Ali and Giacomo after my revisions (In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach):
 
 (a) B that says that x is a brother of y
 
-Person ≡ M ⊔ ¬M
+  Person ≡ M ⊔ ¬M
 
-p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
+  p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
 
-The inverse of p2 means that x is one of at least 2 children produced by y.
+  The inverse of p2 means that x is one of at least 2 children produced by y.
 
-B (brother) ≡ M ⊓ ∃p2¯.Person
+  B (brother) ≡ M ⊓ ∃p2¯.Person
 
 (b)  A that says that x is an aunt of y
   
-A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
+  A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
 
 (c)  C that says that x and y are cousins
 
-gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
+  gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
 
-C ≡ gp2¯. Person
+  C ≡ gp2¯. Person
 
-But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
+  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
 
 (d)  O that says that x is an only child  
 
-parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
+  parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
   
-O ≡ ∃parent_only¯.Person
+  O ≡ ∃parent_only¯.Person
 
 (e)  T that says that x has exactly two brothers. 
 
-p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
+  p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
 
-p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
+  p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
 
-T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)) 
+  T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)) 
 
--- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
+  -- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
