@@ -8,7 +8,7 @@ Tip #3: Work _together_ to solve these problems, even for initial submissions an
 Tip #4: The work we do is challenging; that should be assumed. You are smart enough to be here; that should also be assumed. We have neither time nor space for shaming, but all of time and space for praising. Be cognizant of how your messages might be received, and err on the side of caution. It is hard to surmise intent from text alone. For my part, I treat text only communications the way modern musicals are written: Little subtext; emotions on the sleeve. 
 ```
 
-Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
+Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout.
 
 [1] Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```(a) (¬A→B)∨((A∧¬C)→B) 
@@ -80,7 +80,7 @@ Answer:
 
 (a) CNF: (A∨C)∧(¬B∨C)
 
-(b) CNF: B∨¬A
+(b) CNF: B∨¬B (the CNF of a tautology is any formula of the form "p∨¬p")
 
 (c) CNF: B∨¬B (the CNF of a tautology is any formula of the form "p∨¬p")
 
