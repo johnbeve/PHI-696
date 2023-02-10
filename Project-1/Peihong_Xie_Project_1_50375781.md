@@ -114,6 +114,9 @@ Answer:
 
 Answer:
 
+
+**Approach 1 (directly introducing the inverse of a primary role)**
+
 (a) $B ≡ M\sqcap ∃parentOf^-.(\ge2 parentOf.(M\sqcup ¬M))$
 
 (b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap \ge2 parentOf.(M\sqcup ¬M))$
@@ -125,15 +128,15 @@ Answer:
 (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3 parentOf.M \sqcap \ge3 parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2 parentOf.M \sqcap \ge2 parentOf.M))$
 
 
+**Approach 2 (indirectly introducing the inverse of a primary role, based on Ali and Giacomo, after my revisions)**
 
-
-The following is a different approach from Ali and Giacomo after my revisions (In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach):
+In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach:
 
 (a) B that says that x is a brother of y
 
   Person ≡ M ⊔ ¬M
 
-  p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
+  **p2** (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
 
   The inverse of p2 means that x is one of at least 2 children produced by y.
 
@@ -145,7 +148,7 @@ The following is a different approach from Ali and Giacomo after my revisions (I
 
 (c)  C that says that x and y are cousins
 
-  gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
+  **gp2** (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
 
   C ≡ gp2¯. Person
 
@@ -153,19 +156,20 @@ The following is a different approach from Ali and Giacomo after my revisions (I
 
 (d)  O that says that x is an only child  
 
-  parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
+  **parent_only** (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
   
   O ≡ ∃parent_only¯.Person
 
 (e)  T that says that x has exactly two brothers. 
 
-  p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
+  **p3m** (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
 
-  p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
+  **p1** (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
 
   T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)) 
 
   -- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
+
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
@@ -173,11 +177,11 @@ Answer:
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={$B ≡ M\sqcap∃parentOf^-.(∃parentOf\ge2)$, 
+T-box $T_1$={B (brother) ≡ M ⊓ ∃p2¯.Person, 
 
-$O≡∃parentOf^-.(∃parentOf\le1)$, 
+O ≡ ∃parent_only¯.Person, 
 
-$GP≡∃parentOf.(∃parentOf.M\sqcup ¬M)$}
+$GP (grandparent) ≡ ∃parentOf.(∃parentOf.M\sqcup ¬M)$}
 
 A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
 
@@ -287,6 +291,6 @@ Answer:
 
 For (a), a Fitch-style natural deduction proof relies on deductive rules like disjunction elimination or double negation elimination (DNE) to a more substantive degree than a tree proof. 
 
-While a Fitch-style natural deduction proof is a combinational application of different means of derivation, a tree proof is essentially an application of indirect derivation. That is, when we do a tree proof, we have to decompose the target (complex) formula into its subformulas, and then differently connect negations of those subformulas in order to form different paths. Once when all paths somehow involve a contradiction, then the opposite possibilities of the target formula are all shown to be implausible, and thus the target formula will be proved.
+While a Fitch-style natural deduction proof is a **combinational application of different means of derivation**, a tree proof is essentially **an application of indirect derivation**. That is, when we do a tree proof, we have to decompose the target (complex) formula into its subformulas, and then differently connect negations of those subformulas in order to form different paths. Once when all paths somehow involve a contradiction, then the opposite possibilities of the target formula are all shown to be implausible, and thus the target formula will be proved.
 
 Moreover, a Fitch-style natural deduction proof is to apply rules to the target formula and its logical consequents, while a tree proof does not apply the same rules but concentrates on finding possible logical contradictions among negated subformulas of the target formula. 
