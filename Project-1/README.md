@@ -86,48 +86,73 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
   Answer:
   
-  (a) the CNF: (A∨C)∧(C∨(¬B))
+  (a) CNF: (A∨C)∧(C∨(¬B))
   
-  (b) is a tautology, so the CNF: T
+  (b) CNF: C v ¬C
+  Since (b) is a tautology, its CNF form can be any formula of the form pv¬p. 
   
-  (c) is already a CNF, also it is a tautology. 
+  (c) CNF: C v ¬C
+  (c) is a tautology.
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  (a)  B(x,y) that says that x is a brother of y  
-  Answer: possible. B(x,y) is a binary relation that x is a parent of y.
+  (a)  B(x,y) ≡ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
+
   
-  (b)  A(x,y) that says that x is an aunt of y
-  Answer: possible. A(x, y) is a binary relation that x is an aunt of y.
+  (b)  A(x,y) ≡ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
   
-  (c)  C(x,y) that says that x and y are cousins  
-  Answer: possible. C(x, y) is a binary relation that x is a cousin of y.
   
-  (d)  O(x) that says that x is an only child  
-  Answer: not possible. X is an only child cannot fit into a unary relation o().
+  (c)  C(x,y) ≡ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
   
+  
+  (d)  O(x) ≡ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
+    
  
-  (e)  T(x) that says that x has exactly two brothers 
-  Answer: possible. T(x) is a unary relation that x is having exactly two brothers.
+  (e)  T(x) ≡ ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
   
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  Answer: possible. B, as a role name, represents a binary predicate that x is a brother of y.
+
+  Answer: 
   
+  Person ≡ M ⊔ ¬M
+  p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
+  The inverse of p2 means that x is one of at least 2 children produced by y.
+  B ≡ M ⊓ ∃p2¯.Person
+
   (b)  A that says that x is an aunt of y
-  Answer: possible. A, as a role name, represents a binary predicate that x is an aunt of y.
+  
+  Answer: 
+  
+  A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
   
   (c)  C that says that x and y are cousins
-  Answer: possible. C, as a role name, represents a bianry predicate that x is a cousin of y.
+  
+  Answer: 
+  
+  gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
+  
+  C ≡ gp2¯. Person
+
+  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
+  
   
   (d)  O that says that x is an only child  
-  Answer:possible. O, as a concept name, represents a unary predicate that x is not having brothers and sisters. 
+  
+  Answer:
+  
+  parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
+  O ≡ ∃parent_only¯.Person
   
   (e)  T that says that x has exactly two brothers
-  Answer: possible. T, as a concept name, represents a unary predicate that x is having exactly two brothers.
   
+  Answer: 
+  
+  p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
+  p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
+  T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male))
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
