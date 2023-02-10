@@ -124,55 +124,46 @@ Answer:
 
 (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
 
-Hi, I was working on this part with Ali today and we may have a problem with using the inverse of parentof_ since parentof_ is a primitive and is not defined as anything, so its reverse could technically take any value.
-Keeping this in mind and using Karl's idea of reverse concepts, we built some intermediate concepts and came up with this (perhaps we can discuss it at tomorrow's meeting):
 
-  (a)  B that says that x is a brother of y
+The following is a different approach from Ali and Giacomo after my revisions (In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach):
 
-  Per (Person) ≡ M ⊔ ¬M
-  p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) (this condition is meant to avoid that the two persons are the same, but I am not entirely sure it works or whether there are better ways to do so)
-  
-  B ≡ M ⊓ ∃p2¯.Per
-
-  (b)  A that says that x is an aunt of y
-  
-  ∃p2¯.parentof.parentof.Per
-
-  A ≡ ¬M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ (¬parentof. Per ⊓ ∃p2¯.parentof.parentof.Per)
-  
-  U(uncle) ≡ M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per 
-
-  (c)  C that says that x and y are cousins
-
-  gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
-
-  C ≡ gp2¯.per
-
-  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin".
-  We cannot define "being cousins" in description logic.
-
-  (d)  O that says that x is an only child  
-
-  O ≡ ¬ ∃p2¯.Per
-
-  (e)  T that says that x has exactly two brothers 
-
-  This cannot be done without a role name for brother, we only have a concept name for it.
-
-I see that you have the answers for these on 5, but after talking with John, he told @giacomodecolle and I that using the inverse of parent_of is not possible to define since you need a direct definition of parent_of. @peihongx this is for you as well.
-But if you assume parent_of, you can define inverse terms that use parent_of indirectly.
-for example, Giacomo and I defined P2 (parent of 2) := (∃parent_of. ≥ 2) ⊓ ¬(∃parent_of. = 1) and then defined it's inverse. This is fine since we are not using the definition of parent_of directly for the inverse. So, this is what we got for part a:
 (a) B that says that x is a brother of y
 
-person := M ⊔ ¬M
+Person ≡ M ⊔ ¬M
 
-P2 (parent of 2) := (∃parent_of. ≥ 2) ⊓ ¬(∃parent_of. = 1)
+p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
 
-B (brother) := M ⊓ ∃P2¯.person
-Also, you need to remember the difference between RoleNames and ConceptNames.
+The inverse of p2 means that x is one of at least 2 children produced by y.
 
+B (brother) ≡ M ⊓ ∃p2¯.Person
 
+(b)  A that says that x is an aunt of y
+  
+A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
 
+(c)  C that says that x and y are cousins
+
+gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
+
+C ≡ gp2¯. Person
+
+But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
+
+(d)  O that says that x is an only child  
+
+parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
+  
+O ≡ ∃parent_only¯.Person
+
+(e)  T that says that x has exactly two brothers. 
+
+p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
+
+p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
+
+T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)) 
+
+-- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
