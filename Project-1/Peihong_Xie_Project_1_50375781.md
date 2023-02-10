@@ -118,7 +118,7 @@ Answer:
 
 (b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap \ge2 parentOf.(M\sqcup ¬M))$
 
-(c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
+(c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(∃parentOf.M\sqcup ¬M)))$
 
 (d) $O ≡ ∃parentOf^-.(\le1 parentOf.(M\sqcup ¬M))$
 
