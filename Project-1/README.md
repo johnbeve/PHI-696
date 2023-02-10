@@ -99,7 +99,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (a)  B(x,y) ≡ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
   
-  (b)  A(x,y) ≡ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
+  (b)  A(x,y) ≡ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)∧¬(x=y)
   
   
   (c)  C(x,y) ≡ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
@@ -159,31 +159,40 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 Answer: 
 
-T-Box:  first, two formulas selected from question 4:
-        T ⊑ ¬ O 
-	B ⊑ ¬ O
-	
-	Second, supplemental formulas:
-	has_sister ⊑ ¬ O ⊓ ¬  T 
-	T ≡ ¬ O ⊓ ¬has_single brother ⊓ ¬ has_moreThanTwoBrother ⊓ ¬ has_sister
-	
-A-Box: T (Mike)
-       O (Julia)
+K1=(T1,A1) such that:
 
-K ⊨ has_sister ⊓ T ⊑ ⊥
+T-box 
 
-		
+T1={B (brother) ≡ M ⊓ ∃p2¯.Person,
+O ≡ ∃parent_only¯.Person,
+GP(grandparent)≡∃parentOf.(∃parentOf.M⊔¬M)}
+	
+A-Box: 
+
+A1={(Julia,Mike):ParentOf, Mike:Male}.
+The following is a model ℑ=(△ℑ,.ℑ) of K1:
+△ℑ={a,b,c}
+Mℑ={a}
+Bℑ=∅
+Oℑ={b,a}
+GPℑ={c}
+parentOfℑ={(c,b),(b,a)}
+Mikeℑ={a}
+Juliaℑ={b}
+Jackℑ={c}
+
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   
   (a) ∃x∀y and ∀x∃y
-  Answer: the former means that there exists a x that for all y, and the latter means that for all x there exists a y.
+  Answer: the former means that there exists a x that for all y such that, while the latter means that for all x there exists a y such that.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
-  Answer: the former means that for all y there exist a x and a z, and the latter means that for all x and y there exists a y. 
+  Answer: the former means that there exists a x that for all y there exists a z such that, while the latter means that for all x there exists a y that for all z such that. 
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-  Answer: the former means that for all x and all z there exist a y and a w, and the latter means that for all y and all w there exist a x and a z.
+  Answer: the former means that for all x, there exists a y that for all z, there exists a w such that, while the latter means that there exists a x that for all y, there exists a z that for all w such that.
+  
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 
@@ -192,6 +201,12 @@ K ⊨ has_sister ⊓ T ⊑ ⊥
 
 Answer: 
 
+The following graph models the second sentence but not the first sentence:
+Verticles: a, b, c
+Edges: ab, ac, aa (loop)
+
+
+![image0](https://user-images.githubusercontent.com/123851348/218143816-bea9d8ec-0f81-4e7e-b2d3-4e7ccd002521.jpeg)
 
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
