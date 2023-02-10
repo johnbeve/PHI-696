@@ -118,7 +118,16 @@ T	T	T	T	T
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
+  
+  ∀x∃y - For all x there exists some y 
+  ∃x∀y - There exists an x for all y 
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  
+  ∃x∀y∃z - 
+  ∀x∃y∀z - 
+  
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 ```
 	
