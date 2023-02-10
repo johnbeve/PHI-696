@@ -8,7 +8,9 @@ Tip #3: Work _together_ to solve these problems, even for initial submissions an
 Tip #4: The work we do is challenging; that should be assumed. You are smart enough to be here; that should also be assumed. We have neither time nor space for shaming, but all of time and space for praising. Be cognizant of how your messages might be received, and err on the side of caution. It is hard to surmise intent from text alone. For my part, I treat text only communications the way modern musicals are written: Little subtext; emotions on the sleeve. 
 ```
 
+
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout.  
+
 
 [1] Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```(a) (¬A→B)∨((A∧¬C)→B) 
@@ -94,6 +96,7 @@ Answer:
 
 Answer:
 
+
 (a) B(x,y) $\leftrightarrow$ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
 (b) A(x,y) $\leftrightarrow$ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
@@ -103,6 +106,8 @@ Answer:
 (d) O(x) $\leftrightarrow$ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
 
 (e) T(x) $\leftrightarrow$ ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
+=======
+
 
 [4] Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -113,7 +118,6 @@ Answer:
 ```
 
 Answer:
-
 
 **Approach 1 (directly introducing the inverse of a primary role)**
 
@@ -170,7 +174,6 @@ In fact, these two approaches are interchangable because $parentOf^-$ in my own 
 
   -- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
 
-
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
 Answer:
@@ -217,7 +220,7 @@ Answer:
 (b) ∃x∀y∃z means “there exists x such that for all y, there exists z such that” while ∀x∃y∀z means "for all x, there exists y such that for all z"
 
 (c) ∀x∃y∀z∃w means "for all x, there exists y such that for all z, there exists w such that" while ∃x∀y∃z∀w means "there exists x such that for all y, there exists z such that for all w"
-	
+
 [7] Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
