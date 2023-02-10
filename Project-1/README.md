@@ -80,8 +80,8 @@ Contingent
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 
 ``` (a) (A ∨ C) ∧ (¬B ∨ C)
-(b) B ∨ ~A Tautology should have form of p v ~p
-(c) B v ~B Tautology should have the same form as above
+(b) B ∨ ¬B Tautology should have form of p v ~p
+(c) B v ¬B Tautology should have the same form as above
 
 used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.at/gateway/formular-uk-zentral.html
 
@@ -94,20 +94,16 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (d)  O(x) that says that x is an only child
   (e)  T(x) that says that x has exactly two brothers 
 
-```(a) B(x,y) = ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
-(a) A brother is an individual who identifies as male and has at least one sibling that is, they share at least one parent. Half-siblings and step-siblings can be brothers. In the example above, x would be an individual who shares at least one parent with y and x would identify as male.
+```
+(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx∧x≠y∧x≠z∧z≠y) 
 
-(b) A(x,y) = ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
-(b) An Aunt is a female identifying sibling of a parent. In the example above x would be an Aunt of y so long as x is the child of y's sibling
+(b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧y≠z)- 
 
-(c) C(x,y) = ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x= - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
-(c) A cousin is a relationship between two individuals whose parents are siblings. Such that you have a cousin in the child of your aunt
+(c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)∧x≠v∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧w≠v∧y≠z∧y≠v∧v≠z)
 
-(d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
-(d) An only child is an individual who was raised in a house primarily without siblings. Individuals who have step or half siblings but were raised pimarily alone are only children. 
+(d)  ∃x∃y∀z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x)
 
-(e)∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)  - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
-(e) An individual has exactly two brothers if and only if they have two siblings who identify as male.
+(e)∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -117,10 +113,8 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (e)  T that says that x has exactly two brothers 
 
   ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
-  parent_of
-  m
+ First attempts
 
-  (a)  B that says that x is a brother of y
   (a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
   (a)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf≥2)
   (a) assuming gender binary determined by chromosomes 
@@ -142,22 +136,58 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
   (e)  T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
 
+Per suggestions given by Ali, Giacomo, and Karl  
+
+(a) B that says that x is a brother of y
+
+Per (Person) ≡ M ⊔ ¬M
+p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) -- assuming gender is assigned based on chromosome 
+
+B ≡ M ⊓ ∃p2¯.Per
+
+(b) A that says that x is an aunt of y
+
+∃p2¯.parentof.parentof.Per
+
+A ≡ ¬M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ (¬parentof. Per ⊓ ∃p2¯.parentof.parentof.Per)
+
+U(uncle) ≡ M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per
+
+(c) C that says that x and y are cousins
+
+gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
+
+C ≡ gp2¯.per
+
+We cannot define "being cousins" in description logic. - but we can describe the relation of having a cousin 
+
+(d) O that says that x is an only child
+
+O ≡ ¬ ∃p2¯.Per
+
+(e) T that says that x has exactly two brothers
+
+This cannot be done without a role name for brother, we only have a concept name for it.
+
+
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
 
- TBox = {Brother ⊆ Male,		(TBox.1)
-	Aunt ⊆ ~Male}		(TBox.2)
+Tex = {Brother = M∩∃parent_of−.(≥2∃parent_of)			(Tex.1)
+	Aunt = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))		(Tex.2)
+	Brother ⊆ Male,						(Tex.3)
+	Aunt ⊆ ~Male}						(Tex.4)
 
-Donnie = {Frank: Brother ∩ Male		(Axiom.1)
-	Remi: Brother ∩ Male		(Axiom.2)
-	Mary: Aunt			(Axiom.3)
-	(Donnie, Frank): parent_of	(Axiom.4)
-	(Donnie, Remi): parent_of}		(Axiom.5)
+Aex = {Donnie: Brother ∩ Male		(Aex.1)
+	Bob: Brother ∩ Male		(Aex.2)
+	Mary: Aunt			(Aex.3)
+	(Alex, Remi): parent_of	(Aex.4)
+	(Alex, Brandon): parent_of}		(Aex.5)
 	
 ΔI = {w, x, y, z},
-William  = w
-Xaivar = x
-Eunice = y
-Zane = z
+Donnie = w
+Remi = x
+Mary = y
+Brandon = z
 Male = {w, x}
 Brother = {w, x}
 Aunt = {y}
