@@ -307,5 +307,7 @@ That is, when we do a tree proof, we have to decompose the target (complex) form
 Moreover, a Fitch-style natural deduction proof is to apply rules to the target formula and its logical consequents, while a tree proof does not apply the same rules but concentrates on finding possible logical contradictions among negated subformulas of the target formula.
 
 
+Tree proof uses only one rule: indirect derivation, but natural deduction can use multiple rules
+
 
 
