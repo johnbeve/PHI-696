@@ -59,7 +59,6 @@ F F F     T       T            T
 
 - If I am doing this right, this is a tautology.
  
- 
   ```(d) ((A→B)∧C)∨(A∧D)
   
 A B C D ((A→B)∧C)(A∧D) ((A→B)∧C)∨(A∧D)
@@ -81,7 +80,6 @@ T T T F	    T.     F.          T
 T T T T     T.     T.          T
   
   - If I am correct, this is a contingent.
-
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
@@ -90,7 +88,6 @@ A→B ≡ ¬A∨B
 (A→B)→C ≡ ¬(¬A∨B)∨C
 ¬(¬A∨B)∨C ≡ (A∧¬B)∨C
 (A∧¬B)∨C ≡ (C∨A)∧(C∨¬B)
-
 
   (b) (A→(B∨C))∨(C→¬A)
   
@@ -101,25 +98,20 @@ C→¬A ≡ ¬C∨¬A
 - Ali: ((¬AvB)v(¬AvC))v(¬C∨¬A)
 - Karl, Sydney, Ali: This is a tautology. Any tautology written in CNF will yield the same result and works as a conversion.
 
-
-
-
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
- 1. This formula contains no conditionals or biconditionals.
- 2. This formula contains no double negations, or negations outside parentheses.
- 
- 3. I don't know how to use DeMorgan's distributive laws to put this formula in CNF from here on.  
+- Plugging this statement into the Stanford Truth Table Generator shows that it is also a tautology.
+- So, both (2b) and (2c) can be rewritten as a CNF formula with no terms (got this from stack exchange, https://math.stackexchange.com/questions/64473/what-is-the-conjunction-normal-form-of-a-tautology), so 'T'. I've also seen A∨¬A used as a simplification.
 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   B(x,y) ≡ ∃x∃y∃z∧P(z,y)∧P(z,x)∧(x≠y≠z)∧F(¬x)
+   B(x,y) ≡ ∃x∃y∃z∧¬F(x)∧P(z,y)∧P(z,x)∧(x≠y≠z)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-   A(x,y) ≡ ∃g∃x∃y∃z∧P(g,x)∧P(g,z)∧∀F(x)∧P(z,y)∧(x≠y≠z≠g)
+   A(x,y) ≡ ∃g∃x∃y∃z∧F(x)∧P(g,x)∧P(g,z)∧P(z,y)∧(x≠y≠z≠g)
 
   (c)  C(x,y) that says that x and y are cousins 
   
@@ -127,16 +119,11 @@ C→¬A ≡ ¬C∨¬A
  
   (d)  O(x) that says that x is an only child
   
-  There exists at least one relation between parent z and child x, where for all cases of a third child y, x is equal to y.
- ...
-   O(x) ≡ ∃x∃y∃z∧P(z,x)∧∀P(z,y)(x=y≠z)
+  O(x) ≡ ∃x∃y∃z∧P(z,x)∧P(z,y)∧(x=y)∧(x≠z)
   
   (e)  T(x) that says that x has exactly two brothers 
   
- T(x)≡ ∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)
- 
- ∧∀wP(g,w)∧¬F((w=y)∨(w=z)
-
+ T(x)≡ ∃g∃x∃y∃z∧¬F(y)∧¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∃w∀P(g,w)(w≠g)((w=y)∨(w=z)∨(w=x))
 
 ```
 
