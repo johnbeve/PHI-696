@@ -107,40 +107,47 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   B(x,y) ≡ ∃x∃y∃z∧¬F(x)∧P(z,y)∧P(z,x)∧(x≠y≠z)
+   B(x,y) ≡ ∃x∃y∃z∀¬F(x)∧P(z,y)∧P(z,x)∧(x≠y≠z)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-   A(x,y) ≡ ∃g∃x∃y∃z∧F(x)∧P(g,x)∧P(g,z)∧P(z,y)∧(x≠y≠z≠g)
+   A(x,y) ≡ ∃g∃x∃y∃z∀F(x)∧P(g,x)∧P(g,z)∧P(z,y)(x≠y≠z≠g)
 
   (c)  C(x,y) that says that x and y are cousins 
   
- C(x,y) ≡ ∃w∃u∃x∃y∃z∧P(z,u)∧P(z,w)∧P(w,x)∧P(u,y)∧(x≠y≠u≠w≠z)
+ C(x,y) ≡ ∃w∃u∃x∃y∃zP(z,u)∧P(z,w)∧P(w,x)∧P(u,y)(x≠y≠u≠w≠z)
  
   (d)  O(x) that says that x is an only child
   
-  O(x) ≡ ∃x∃y∃z∧P(z,x)∧P(z,y)∧(x=y)∧(x≠z)
+  O(x) ≡ ∃x∃y∃zP(z,x)∀P(z,y)(x=y)(x≠z)
   
   (e)  T(x) that says that x has exactly two brothers 
   
- T(x)≡ ∃g∃x∃y∃z∧¬F(y)∧¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∃w∀P(g,w)(w≠g)((w=y)∨(w=z)∨(w=x))
+ T(x)≡ ∃g∃x∃y∃z∧∀¬F(y)∀¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∃w∀P(g,w)(w≠g)((w=y)∨(w=z)∨(w=x))
 
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
-  
- person1 ≡ 
- person2 ≡
  - Identify role bearing in concept
- - A brother is a male in the existence of a parent relation to two individuals
-
+ - A brother is a male child with all cases of a parent relation to two individuals
+ person ≡ M ⊔ ¬M
+ 
+∀B.person
+∀B.M
+B ≡ ∃parentof.M ⊓ ∀parentof.person
   
   (b)  A that says that x is an aunt of y
   
-  A ≡ ¬M 
   
   (c)  C that says that x and y are cousins 
+  
+  - Ali and Giacomo showed me how description logic can only be used to write formulas describing either concepts or roles. Because the statement 'x and y are cousins' involves more than two concepts and a relation between them, it cannot be formulated into one sentence in FOL.
+  - I have some expressions below that get at either the concepts x and y or the role of cousin.
+  - Taken together, they should define the statement accurately.
+ 
+ ∀C.person 
+ 
   
   (d)  O that says that x is an only child
   
