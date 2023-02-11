@@ -129,13 +129,12 @@ C→¬A ≡ ¬C∨¬A
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
+  
  person1 ≡ 
  person2 ≡
  - Identify role bearing in concept
  - A brother is a male in the existence of a parent relation to two individuals
- B ≡  M ⊓ ∃ parent_of.person1 ⊓ parent_of.person2
- ...
- 
+
   
   (b)  A that says that x is an aunt of y
   
@@ -177,13 +176,23 @@ Role: Parent_Of
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-- This statement is saying that for all cases x there exists at least one case y containing all cases of z, with x being related to y, x being related to z, and y being related to z by virtue of R
+...
+for all cases x there exists y which contains all cases of z
+x is related to y
+x is related to z
+y is related to z 
+all by virtue of R
 
 
 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-- This statement means there exists at least one x containing all cases y with the existence of at least one z, where x is related to y, x is related to z, and y is related to z by virtue of R
+...
+there exists x which contains all cases y with the existence of z
+x is related to y
+x is related to z
+and y is related to z 
+all by virtue of R
 
 ```
 	
