@@ -224,6 +224,7 @@ Edges: ab, ac, aa (loop)
   
   ¬Pa (4)              ¬Qa (4)
    x                   x
+   oo
              
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   Tree proof:
