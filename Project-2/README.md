@@ -32,11 +32,12 @@ Tip #4: Work together as a team.
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
 
-6. Explain the difference - using natural language - between the first-order prefixes:
+6. Explain the difference - using natural language - between the description logic expressions:
   ```
-  (a) ∃x∀y and ∀x∃y
-  (b) ∃x∀y∃z and ∀x∃y∀z 
-  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  (a) ∃r.C and ∀r.C
+  (b) ∃r-.C and ∀r-.C
+  (c) <=nr and <=nr.C
+  (d) ∃r-.C and ∃r-.{a} 
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
