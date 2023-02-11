@@ -115,34 +115,28 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   ∀B(x,y)∃P(z,y)∧P(z,x)∧(x≠y≠z)∧F(¬x)
+   B(x,y) ≡ ∃x∃y∃z∧P(z,y)∧P(z,x)∧(x≠y≠z)∧F(¬x)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-    - All aunts A(x) are female F(x)
-  ...
-  - There exists a parent relationship between g and children x and z. x does not equal z and is female. z is a parent to y.
-  ...
-   ∀A(x,y)∃P(g,x)∧P(g,z)∧∀F(x)∧P(z,y)∧(x≠y≠z≠g)
+   A(x,y) ≡ ∃g∃x∃y∃z∧P(g,x)∧P(g,z)∧∀F(x)∧P(z,y)∧(x≠y≠z≠g)
 
   (c)  C(x,y) that says that x and y are cousins 
-
-There exists a parent relationship between z and children u and w. u does not equal w. w is a parent to x. u is a parent to y. x does not equal y.
- ...
- ∀C(x,y)∃P(z,u)∧P(z,w)∧P(w,x)∧P(u,y)∧(x≠y≠u≠w≠z)
+  
+ C(x,y) ≡ ∃w∃u∃x∃y∃z∧P(z,u)∧P(z,w)∧P(w,x)∧P(u,y)∧(x≠y≠u≠w≠z)
  
   (d)  O(x) that says that x is an only child
   
   There exists at least one relation between parent z and child x, where for all cases of a third child y, x is equal to y.
  ...
-   ∀O(x)∃P(z,x)∧(x≠z)∀P(z,y)∧(x=y)
+   O(x) ≡ ∃x∃y∃z∧P(z,x)∧∀P(z,y)(x=y≠z)
   
   (e)  T(x) that says that x has exactly two brothers 
   
-  For all cases x, with brothers y and z, it is only the case that a fourth child would be either x, y, or z. none of them equal each other, and neither y nor z are female. 
- ...
- ∀T(x)∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∀P(g,w)((w=y)∨(w=z))
+ T(x)≡ ∃P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)
  
+ ∧∀wP(g,w)∧¬F((w=y)∨(w=z)
+
 
 ```
 
@@ -188,7 +182,7 @@ Role: Parent_Of
  - ∃x∀y∃z states the existence of 'x' contains all cases of 'y' bearing the existence of 'z'. ∀x∃y∀z means in all cases 'x' there exists 'y' which contains all cases of 'z'.
  
  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
- - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' contain the existence of 'w'. ∃x∀y∃z∀w states the existence of 'x' with all cases 'y' there also exists 'z' for all cases 'w'.
+ - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' contain the existence of 'w'. ∃x∀y∃z∀w states the existence of 'x' contains all cases 'y' where there exists 'z' with all cases of 'w'.
  
 ```
 	
