@@ -85,63 +85,106 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  (a)  B(x,y) that says that x is a brother of y
-  	**Not possible; unless "brother" is considered sex and/or gender neutral and the neutral, in which case (∃x(F(x)∧(B(x,y))))**
-	
-  (b)  A(x,y) that says that x is an aunt of y
-  	***Possible: (∃x(F(x)∧(A(x,y))))**
-	
-  (c)  C(x,y) that says that x and y are cousins
-  	**Possible: (∃x(C(x,y)))**
-	
-  (d)  O(x) that says that x is an only child 
-  	**Not Possible: as (P(x,y)) is a parent relationship, and (O(x)) describes a *child_of* relationship, V does not have the relation necessary**
-	
-  (e)  T(x) that says that x has exactly two brothers
-  	**Possible: (∃x(P(x,y)∧T(x)))**
+  ```
+  (a)  B(x,y) that says that x is a brother of y  
+  B(x,y) := ∃z.(P(zx) ∧ P(zy) ∧ ¬(z=y)) ∧ ¬(z=x) ¬(x=y) ¬F(x)
+  (b)  A(x,y) that says that x is an aunt of y  
+  A(x,y) := ∃z∃w.(P(zy) ∧ P(wz) ∧ P(wx) ∧ ¬(z=x)) F(x)
+  (c)  C(x,y) that says that x and y are cousins   
+  C(x,y) := ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
+  (d)  O(x) that says that x is an only child  
+  O(x) := ∃y.(P(yx) ∧ ∀z.(P(yz) → (w=y)))
+  (e)  T(x) that says that x has exactly two brothers 
+  T(x) := ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
+
+  ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  	**Possible: MB ≡ M∩∃B**
-	
+
+  Per (Person) ≡ M ⊔ ¬M
+  p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) (this condition is meant to avoid that the two persons are the same, but I am not entirely sure it works or whether there are better ways to do so)
+  
+  B ≡ M ⊓ ∃p2¯.Per
+
   (b)  A that says that x is an aunt of y
-  	**Not Possible, unless "aunt" is considered a gender neutral term, in which case; MA ≡ M∩∃A**
-	
+  
+  ∃p2¯.parentof.parentof.Per
+
+  A ≡ ¬M ⊓ (∃p2¯. (parentof. Per ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per 
+  
+  U(uncle) ≡ M ⊓ (∃p2¯. (parentof. Per ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per 
+
   (c)  C that says that x and y are cousins
-  	**Possible: MC ≡ M∩∃C**
-	
+
+  gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
+
+  C ≡ gp2¯.per
+
+  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin".
+  We cannot define "being cousins" in description logic.
+
   (d)  O that says that x is an only child  
-  	**Not Possible, as nd O describes a *child_of* relationship, V does not have the relation necessary**
-	
+
+  O ≡ ¬ ∃p2¯.Per
+
   (e)  T that says that x has exactly two brothers 
-	**Possible: I have no idea how.**
+
+  This cannot be done without a role name for brother, we only have a concept name for it.
+
+  ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 	
-	**There's literally no way I can do this correctly.**
+	TBox = {
+B ⊑ M
+B ⊑ Per
+M ⊑ Per
+A ⊑ ¬M
+A ⊑ Per
+}
+
+ABox = { John : M
+John : parentof. Chris
+John: B
+Chris: M
+Mary : ¬M
+Mary: A
+Alexander : parentof. Mary
+Alexander : parentof. John
+}
+
+ΔI = {John, Mary, Alexander, Chris}
+
+Named Individuals:
+JohnI = J,
+MaryI = M,
+AlexanderI = A,
+Chris = C
+
+Concept Assignments:
+PersonI = {J, M, A, C},
+MaleI = {J, A, C},
+FemaleI = {M},
+BrotherI = {J},
+AuntI = {M}
+
+Role Assignments:
+parentofI = {(J, C), (A, J), (A, M)}
 	
-	1) B that says that x is a brother of y
-		T1 = {Brother	⊆ Entity
-			X	⊆ exists.Entity
-			Y	⊆ exists.Entity
-		No.... this can't be right. There's an existential quantifier on page 18... the existence is... presumed? But the problem with it is that they're using "Teacher" in the example, but they don't mean it as a concept, but as a "thing"... I have no idea how to go about this with an X and a Y, which are not "things which exist".				
-	
-	
-	2) O that says that x is an only child.
-	See above. Obviously I have no idea what I'm doing.
 	
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
-  	** These read "There exists some X such that for all y..." and "For all x there exists some y such that..." There is no way to explain the difference beyond this because there is no meaning associated with these prefixes. They are analogous to "sentence fragments" from natural language where the Subject was missing and the only verb is "is"; "Is large and blue."  **
+  	** These read "There exists some X such that for all y..." and "For all x there exists some y such that..." There is no way to explain the difference beyond this because these are incomplete sentences. They are analogous to "sentence fragments" from natural language where the Subject was missing and the only verb is "is"; "Is large and blue."  **
 	
   (b) ∃x∀y∃z and ∀x∃y∀z 
-  	** These read "There exists some X such that for all Y and some z..." and "For all X there exists some Y such that all Z. .. " There is no way to explain the difference beyond this because there is no meaning associated with these prefixes. **
+  	** These read "There exists some X such that for all Y and some z..." and "For all X there exists some Y such that all Z. .. " There is no way to explain the difference beyond this because these are incomplete sentences **
 	
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-  	** These read "For all X there exists some Y such that all Z and some W. . ." and "There exists some X for all Y such that some some Z and all W . . . " There is no way to explain the difference beyond this because there is no meaning associated with these prefixes. **
+  	** These read "For all X there exists some Y such that all Z and some W. . ." and "There exists some X for all Y such that some some Z and all W . . . " There is no way to explain the difference beyond this because these are incomplete sentences.  **
   
 ```
 	
@@ -149,7 +192,12 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-** I have no idea where to even begin. Do I just *make up* verticies and edges? How would I have any idea how many I needed?**
+∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+```
+ {(a,b)(b,a)(a,a)} 
+ The second statement is true in this model. There is an x that relates every y (a, related to a and b) There is an x that relates to a z (where a is x and b is z), all ys (a and b) are related to some z (a is related to a and b, b is related to a)
+ The first statement is not true. It is not true that all xs (a and b) are related to all zs (b is not related to a)
 
 ```
 	
@@ -170,7 +218,70 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 ```
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws.
-I honestly couldn't figure out how to use the Natural Deduction Proof checker. There's nothing to see here but my utter lack of knowledge.
+a) 
+assume -(Px & Qx).
+  assume -(-Px + -Qx).
+    assume -Px.
+      -Px + -Qx.
+      F.
+    therefore --Px.
+    assume Qx.
+      Px.
+      assume -(-Px + -Qx).
+        Px & Qx.
+        F.
+      therefore --(-Px + -Qx).
+      F.
+    therefore -Qx.
+    -Px + -Qx.
+    F.
+  therefore --(-Px + -Qx).
+  -Px + -Qx.
+therefore -(Px & Qx) => -Px + -Qx.	
+
+b)
+assume -(Px + Qx).
+  assume Px.
+    Px + Qx.
+    F.
+  therefore -Px.
+  assume Qx.
+    Px + Qx.
+    F.
+  therefore -Qx.
+  -Px & -Qx.
+therefore -(Px + Qx) => -Px & -Qx.	    
+
+c)
+assume -Px + -Qx.
+  assume Px & Qx.
+    Px.
+    Qx.
+    assume -Px.
+      F.
+    therefore -Px => F.
+    assume -Qx.
+      F.
+    therefore -Qx => F.
+    F.
+  therefore -(Px & Qx).
+therefore -Px + -Qx => -(Px & Qx).
+
+d)
+assume -Px & -Qx.
+  assume Px + Qx.
+    assume Px.
+      -Px.
+      F.
+    therefore Px => F.
+    assume Qx.
+      -Qx.
+      F.
+    therefore Qx => F.
+    F.
+  therefore -(Px + Qx).
+therefore -Px & -Qx => -(Px + Qx).	
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
-I couldn't begin to and this was due an hour ago.
+
+The tableau proofs are more systematizable because they take the negation of each statement; this is a fixed starting point which does not require any choice between options. The natural proof method is more flexible and depends on dividing the original statement into an assumption/consequent pair; this is less easy to systematize, because the division needs to be chosen.
