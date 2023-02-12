@@ -102,37 +102,65 @@ It is Contignet.
   ```
   (a)  B that says that x is a brother of y
   
-  B = M∩∃parent_of−.(≥2∃parent_of)
+  B = M∩∃parent_of¯.(≥2∃parent_of)
+  
+  or
+  
+  p2 (parent of at least 2) = ≥2 ∃parent_of
+  B = M ⊓ ∃p2¯
   
   (b)  A that says that x is an aunt of y
   
-  A = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))
-  I'm not sure how to say the aunt is the child of someone who is the parent of "someone else".
+  A = ~M ⊓ ∃parent_of¯.(∃parent_of.(∃parent_of))
+  I'm not sure how to say the aunt is the child of someone who is the parent of someone else besides the aunt.
+  
+  or
+  
+  A = ¬M ⊓ (∃p2¯.(∃p2.(∃parent_of)))
+  This has the same problem where it doesn't make clear that it's the aunt's sibling that has the child.
   
   (c)  C that says that x and y are cousins 
   
   I could say they're children of people, but I don't know how to say they're the children of different people
   
+  or
+  
+  gp2 (Grandparent with at least two children which each have children) ≡ ≥2parentof.(∃parentof)
+  
+  C = gp2¯
+  But this doesn't make clear that these 2 are cousins as opposed to siblings. Either that, or it's only talking about a single person, rather than 2 cousins.
+  
   (d)  O that says that x is an only child
   
-   O = ∃parent_of−.(≤1∃parent_of ∩ ≥1∃parent_of)
+   O = ∃parent_of¯.(≤1∃parent_of ⊓ ≥1∃parent_of)
+   
+   or
+   
+   O ≡ ¬∃p2¯
+   I'm not a fan of this, since it's also true of rocks.
   
   (e)  T that says that x has exactly two brothers 
   
-  T = ∃parent_of−.(≥3∃parent_of ∩ ≤3∃parent_of)
-  I'm not sure how to say that the other 2 siblings are male.
+  T = ∃parent_of¯.(≥3∃parent_of ⊓ ≥2∃parent_of.Male ⊓ ≤2∃parent_of.Male)
+  This doesn't quite work, since it says there's no more than 2 brothers out of the three, not that the one sibling I'm talking about has exactly 2 brothers.
+  
+  or
+  
+  p3 (parent of at least 3) = ≥3∃parent_of
+  T = ∃p3¯.(≥2∃parent_of.Male ⊓ ≤2∃parent_of.Male)
+  This proposal has the same problem as the previous one.
   
 ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 ```
-Tex = {Brother = M∩∃parent_of−.(≥2∃parent_of)			(Tex.1)
-	Aunt = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))		(Tex.2)
+Tex = {Brother = M∩∃parent_of¯.(≥2∃parent_of)			(Tex.1)
+	Aunt = ~M∩∃parent_of¯.(∃parent_of.(∃parent_of))		(Tex.2)
 	Brother ⊆ Male,						(Tex.3)
 	Aunt ⊆ ~Male}						(Tex.4)
 
-Aex = {Billy: Brother ∩ Male		(Aex.1)
-	Bob: Brother ∩ Male		(Aex.2)
+Aex = {Billy: Brother ⊓ Male		(Aex.1)
+	Bob: Brother ⊓ Male		(Aex.2)
 	Mary: Aunt			(Aex.3)
 	(Alex, Billy): parent_of	(Aex.4)
 	(Alex, Bob): parent_of}		(Aex.5)
