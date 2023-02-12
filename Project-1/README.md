@@ -146,7 +146,13 @@ I did not complete #4.
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-After referencing Hedman 2.4, I'm not sure how to graph either sentence 
+After referencing Hedman 2.4, I'm not sure how to graph either sentence (or how to show that they are not equivalent).  However:
+
+∀x∃y∀z = For all x there exists some y such that for all z
+∃x∀y∃z = There exists x such that for all y there exists z
+
+Clearly have different meaings, and I assume the graph will reflect this in how the variables are mapped (or not mapped) to each other.
+
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
