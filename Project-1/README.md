@@ -83,23 +83,33 @@ T T T T     T.     T.          T
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```(a) (A→B)→C
-- I am going to try and use DeMorgan's laws here:
+
 A→B ≡ ¬A∨B
+
 (A→B)→C ≡ ¬(¬A∨B)∨C
+
 ¬(¬A∨B)∨C ≡ (A∧¬B)∨C
+
 (A∧¬B)∨C ≡ (C∨A)∧(C∨¬B)
+
+CNF: (C∨A)∧(C∨¬B)
 
   (b) (A→(B∨C))∨(C→¬A)
   
 A→(B∨C) ≡ ¬Av(B∨C)
+
 C→¬A ≡ ¬C∨¬A
+
 (A→(B∨C))∨(C→¬A) ≡ (¬Av(B∨C))v(¬C∨¬A)
-...
+
 - Ali: ((¬AvB)v(¬AvC))v(¬C∨¬A)
+
 - Karl, Sydney, Ali: This is a tautology. Any tautology written in CNF will yield the same result and works as a conversion.
 
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
+  
 - Plugging this statement into the Stanford Truth Table Generator shows that it is also a tautology.
+
 - So, both (2b) and (2c) can be rewritten as a CNF formula with no terms (got this from stack exchange, https://math.stackexchange.com/questions/64473/what-is-the-conjunction-normal-form-of-a-tautology), so 'T'. I've also seen A∨¬A used as a simplification.
 
 
@@ -107,23 +117,23 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   B(x,y) ≡ ∃x∃y∃z∀¬F(x)∧P(z,y)∧P(z,x)∧(x≠y≠z)
+   B(x,y) ≡ ¬F(x)∧P(z,y)∧P(z,x)
   
   (b)  A(x,y) that says that x is an aunt of y
   
-   A(x,y) ≡ ∃g∃x∃y∃z∀F(x)∧P(g,x)∧P(g,z)∧P(z,y)(x≠y≠z≠g)
+   A(x,y) ≡ F(x)∧P(g,x)∧P(g,z)∧P(z,y)
 
   (c)  C(x,y) that says that x and y are cousins 
   
- C(x,y) ≡ ∃w∃u∃x∃y∃zP(z,u)∧P(z,w)∧P(w,x)∧P(u,y)(x≠y≠u≠w≠z)
+ C(x,y) ≡ (z,u)∧P(z,w)∧P(w,x)∧P(u,y)
  
   (d)  O(x) that says that x is an only child
   
-  O(x) ≡ ∃x∃y∃zP(z,x)∀P(z,y)(x=y)(x≠z)
+  O(x) ≡ P(z,x)∧P(z,y)∧(x=y)
   
   (e)  T(x) that says that x has exactly two brothers 
   
- T(x)≡ ∃g∃x∃y∃z∧∀¬F(y)∀¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧(x≠y≠z≠g)∃w∀P(g,w)(w≠g)((w=y)∨(w=z)∨(w=x))
+ T(x)≡ ¬F(y)¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧P(g,w)((w=y)∨(w=z)∨(w=x))
 
 ```
 
@@ -138,6 +148,8 @@ C→¬A ≡ ¬C∨¬A
 B ≡ ∃parentof.M ⊓ ∀parentof.person
   
   (b)  A that says that x is an aunt of y
+  
+ A ≡ ∃parentof.¬M 
   
   
   (c)  C that says that x and y are cousins 
@@ -156,46 +168,46 @@ B ≡ ∃parentof.M ⊓ ∀parentof.person
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+Tbox 
 
+Abox
  B ⊑ M
  
- 
-Domain (???) {x, y, Male, parent_of}
-Concepts: Male
-Role: Parent_Of
+
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
 
-- The first prefix ∃x∀y has the existence of x contain all instances 'y' , whereas the second prefix ∀x∃y means for all cases 'x' there exists 'y'. The first prefix guarantees itself in all instances 'y', but the second prefix only holds in at least one, but not all, cases of 'y'.
+- The first prefix ∃x∀y means there exists some x related to all instances 'y' , whereas the second prefix ∀x∃y means for all cases 'x' there exists 'y'. The first prefix guarantees itself in all instances 'y', but the second prefix only holds in at least one, but not all, cases of 'y'.
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
   
- - ∃x∀y∃z states the existence of 'x' contains all cases of 'y' bearing the existence of 'z'. ∀x∃y∀z means in all cases 'x' there exists 'y' which contains all cases of 'z'.
+ - ∃x∀y∃z states the existence of 'x' relates all cases of 'y' with the existence of 'z'. ∀x∃y∀z means in all cases 'x' there exists 'y' which relates to all cases 'z'.
  
  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
- - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' contain the existence of 'w'. ∃x∀y∃z∀w states the existence of 'x' contains all cases 'y' where there exists 'z' with all cases of 'w'.
+ - ∀x∃y∀z∃w states that for all 'x' there exists 'y' such that all instances 'z' have a relation to the existence of some 'w'. ∃x∀y∃z∀w states the existence of 'x' is related to all cases 'y' where there exists 'z' with all cases of 'w'.
  
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
+- https://www.geeksforgeeks.org/mathematic-logic-predicates-quantifiers/ I found a neat little table explaining quantifiers here
+
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-...
-for all cases x there exists y which contains all cases of z
+- For all cases x there exists y which contains all cases of z
+... so, (1,0,1)
 x is related to y
 x is related to z
 y is related to z 
 all by virtue of R
 
 
-
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-...
-there exists x which contains all cases y with the existence of z
+- There exists x which contains all cases y with the existence of z 
+... so, (0,1,0)
 x is related to y
 x is related to z
 and y is related to z 
@@ -218,11 +230,19 @@ all by virtue of R
 
 ```	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
-- For these problems I am using a combo of stack exchange and http://teachinglogic.liglab.fr/DN/index.php
+- For these problems I am combining answers from stack exchange, http://teachinglogic.liglab.fr/DN/index.php, and https://www.erpelstolz.at/gateway//prover.html 
 
 a. ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
  start with ¬(Px ∧ Qx)
+ 
  assume ¬(¬Px ∨ ¬Qx)
+  ¬(¬Px ∨ ¬Qx) ≡
+  ¬Px 
+  ¬Px ∨ ¬Qx
+  
+  (Px ∧ Qx)
+ 
+ 
  
  
 
