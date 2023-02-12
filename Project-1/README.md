@@ -123,12 +123,16 @@ T	T	T	T	T
   ∃x∀y - There exists an x for all y 
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
-  
-  ∃x∀y∃z - 
-  ∀x∃y∀z - 
+ 
+  ∃x∀y∃z - There exists an x for all y such that there exists some z
+  ∀x∃y∀z - For all x there exists some y such that for all z 
   
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  
+  ∀x∃y∀z∃w - for all x there exists some y such that for all z there exists some w
+  ∃x∀y∃z∀w - there exists some x for all y such that there exists some z for all w 
+  
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
