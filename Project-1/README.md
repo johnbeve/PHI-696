@@ -171,12 +171,12 @@ Male  ≡ Person ⊓ ¬ Female}
 	
 A-Box: 
 
-Person(Julia),Person(Mike),Person (Bob), Person (Paul),
+{Person(Julia),Person(Mike),Person (Bob), Person (Paul),
 Male(Mike), Male (Bob),
 Female (Julia),
 B(Julia), B(Bob), B(Mike),
 T(Mary),
-Parent_of(Paul, Mike), Parent_of(Paul,Mary), Parent_of(Paul,Bob).
+Parent_of(Paul, Mike), Parent_of(Paul,Mary), Parent_of(Paul,Bob)}
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
