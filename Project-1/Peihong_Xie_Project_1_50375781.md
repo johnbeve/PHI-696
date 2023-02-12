@@ -8,7 +8,9 @@ Tip #3: Work _together_ to solve these problems, even for initial submissions an
 Tip #4: The work we do is challenging; that should be assumed. You are smart enough to be here; that should also be assumed. We have neither time nor space for shaming, but all of time and space for praising. Be cognizant of how your messages might be received, and err on the side of caution. It is hard to surmise intent from text alone. For my part, I treat text only communications the way modern musicals are written: Little subtext; emotions on the sleeve. 
 ```
 
-Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout.
+
+Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout.  
+
 
 [1] Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```(a) (¬A→B)∨((A∧¬C)→B) 
@@ -94,15 +96,18 @@ Answer:
 
 Answer:
 
-(a) B(x,y)=def. ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
-(b) A(x,y)=def. ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
+(a) B(x,y) $\leftrightarrow$ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
 
-(c) C(x,y)=def. ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
+(b) A(x,y) $\leftrightarrow$ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
 
-(d) O(x)=def. ∃u(P(u,x)∧∀y(P(u,y)→x=y))
+(c) C(x,y) $\leftrightarrow$ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
 
-(e) T(x)=def. ∃u(∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z)) ∧ ∀y∀z∀w(P(u,x)∧P(u,y)∧P(u,z)∧P(u,w)∧¬F(y)∧¬F(z)∧¬F(w) → y=z ∨ y=w ∨ z=w ∨ x=y ∨ x=z ∨ x=w))
+(d) O(x) $\leftrightarrow$ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
+
+(e) T(x) $\leftrightarrow$ ∃u∃y∃z(¬(y=z)∧¬(x=y)∧¬(x=z)∧P(u,x)∧P(u,y)∧P(u,z)∧¬F(y)∧¬F(z))∧∀w(P(u,w)∧¬F(w)→ w=x ∨ w=y ∨ w=z)
+=======
+
 
 [4] Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -114,15 +119,60 @@ Answer:
 
 Answer:
 
-(a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
+**Approach 1 (directly introducing the inverse of a primary role)**
 
-(b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
+(a) $B ≡ M\sqcap ∃parentOf^-.(\ge2 parentOf.(M\sqcup ¬M))$
 
-(c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
+(b) $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap \ge2 parentOf.(M\sqcup ¬M))$
 
-(d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
+(c) $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(∃parentOf.M\sqcup ¬M)))$
 
-(e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
+(d) $O ≡ ∃parentOf^-.(\le1 parentOf.(M\sqcup ¬M))$
+
+(e) $T ≡ (M\sqcap ∃parentOf^-.(\le3 parentOf.M \sqcap \ge3 parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2 parentOf.M \sqcap \ge2 parentOf.M))$
+
+
+**Approach 2 (indirectly introducing the inverse of a primary role, based on Ali and Giacomo, after my revisions)**
+
+In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach:
+
+(a) B that says that x is a brother of y
+
+  Person ≡ M ⊔ ¬M
+
+  **p2** (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
+
+  The inverse of p2 means that x is one of at least 2 children produced by y.
+
+  B (brother) ≡ M ⊓ ∃p2¯.Person
+
+(b)  A that says that x is an aunt of y
+  
+  A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
+
+(c)  C that says that x and y are cousins
+
+  **gp2** (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
+
+  C ≡ gp2¯. Person
+
+  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
+
+(d)  O that says that x is an only child  
+
+  **parent_only** (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
+  
+  O ≡ ∃parent_only¯.Person
+
+(e)  T that says that x has exactly two brothers. 
+
+  **p3m** (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
+
+  **p1** (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
+
+  T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)) 
+
+  -- This means, either x is one of exactly 3 boys produced by a person (so x has exactly two brothers), or x is female and is a child of a person who has exactly two boys (so x has also exactly two brothers)
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
@@ -130,11 +180,11 @@ Answer:
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={$B ≡ M\sqcap∃parentOf^-.(∃parentOf\ge2)$, 
+T-box $T_1$={B (brother) ≡ M ⊓ ∃p2¯.Person, 
 
-$O≡∃parentOf^-.(∃parentOf\le1)$, 
+O ≡ ∃parent_only¯.Person, 
 
-$GP≡∃parentOf.(∃parentOf.M\sqcup ¬M)$}
+$GP (grandparent) ≡ ∃parentOf.(∃parentOf.M\sqcup ¬M)$}
 
 A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
 
@@ -169,8 +219,8 @@ Answer:
 
 (b) ∃x∀y∃z means “there exists x such that for all y, there exists z such that” while ∀x∃y∀z means "for all x, there exists y such that for all z"
 
-(c) ∀x∃y∀z∃w means "for all x, there exists y such that for all z, there exists w such that" while ∃x∀y∃z∀w means "there exists x such that for all y, there exists z such that for all y"
-	
+(c) ∀x∃y∀z∃w means "for all x, there exists y such that for all z, there exists w such that" while ∃x∀y∃z∀w means "there exists x such that for all y, there exists z such that for all w"
+
 [7] Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
@@ -240,10 +290,10 @@ Answer:
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-Answer:
+Answer: 
 
 For (a), a Fitch-style natural deduction proof relies on deductive rules like disjunction elimination or double negation elimination (DNE) to a more substantive degree than a tree proof. 
 
-While a Fitch-style natural deduction proof is a combinational application of different means of derivation, a tree proof is essentially an application of indirect derivation. That is, when we do a tree proof, we have to decompose the target (complex) formula into its subformulas, and then differently connect negations of those subformulas in order to form different paths. Once when all paths somehow involve a contradiction, then the opposite possibilities of the target formula are all shown to be implausible, and thus the target formula will be proved.
+While a Fitch-style natural deduction proof is a **combinational application of different means of derivation**, a tree proof is essentially **an application of indirect derivation**. That is, when we do a tree proof, we have to decompose the target (complex) formula into its subformulas, and then differently connect negations of those subformulas in order to form different paths. Once when all paths somehow involve a contradiction, then the opposite possibilities of the target formula are all shown to be implausible, and thus the target formula will be proved.
 
 Moreover, a Fitch-style natural deduction proof is to apply rules to the target formula and its logical consequents, while a tree proof does not apply the same rules but concentrates on finding possible logical contradictions among negated subformulas of the target formula. 
