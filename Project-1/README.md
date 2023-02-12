@@ -110,10 +110,16 @@ T	T	T	T	T
   (c)  C that says that x and y are cousins
   (d)  O that says that x is an only child  
   (e)  T that says that x has exactly two brothers 
+  
+After attending two group homework sessions and working with Austin, I do not understand how to interpret the sentences.  
+
+
   ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+I could not complete #4. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
@@ -139,6 +145,13 @@ T	T	T	T	T
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+For all x there exists some y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
+There exists some x for all y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+∀a∃b∀c(R(a,b) ∧ R(a,c) ∧ R(b,c))
+∃a∀b∃c(R(a,b) ∧ R(a,c) ∧ R(b,c))
+
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
