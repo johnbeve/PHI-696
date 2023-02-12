@@ -126,18 +126,18 @@ I did not complete #4.
   (a) ∃x∀y and ∀x∃y
   
   ∀x∃y - For all x there exists some y 
-  ∃x∀y - There exists an x for all y 
+  ∃x∀y - There exists an x such that for all y 
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
  
-  ∃x∀y∃z - There exists an x for all y such that there exists some z
+  ∃x∀y∃z - There exists an x such that for all y such that there exists some z
   ∀x∃y∀z - For all x there exists some y such that for all z 
   
   
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
   
   ∀x∃y∀z∃w - for all x there exists some y such that for all z there exists some w
-  ∃x∀y∃z∀w - there exists some x for all y such that there exists some z for all w 
+  ∃x∀y∃z∀w - there exists x such that for all y such that there exists some z for all w 
   
 ```
 	
@@ -146,11 +146,7 @@ I did not complete #4.
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-For all x there exists some y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
-There exists some x for all y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
-
-In sentence one, z does not seem to map to x?
-
+After referencing Hedman 2.4, I'm not sure how to graph either sentence 
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
