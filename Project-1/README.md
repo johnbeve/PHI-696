@@ -231,4 +231,6 @@ T	T	T	T	T
 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+
+Both proofs seek contradictions.  In step 3 in the proof for 8a, it seems ¬((¬Pa ∧ ¬Qa) → ¬(Pa ∨ Qa)) is negated (to arrive at steps 4 and 5), but I don't know.  The proof for 9a is much shorter and simply negates the consequent.  
  
