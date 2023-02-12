@@ -91,7 +91,7 @@ T     T      T      T                           T
 (b) (A→(BvC))v(C→~A)
   
   Already a tautology; CNF 
-  A v ~B
+  A v ~A
 
 (c) (¬A^¬B^C)v(¬A^¬C)v(B^C)vA
   
@@ -128,27 +128,22 @@ explain why:
 
 (a)  B that says that x is a brother of y
 
-$B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
 B ≡ M ⊓ ∃parentOf^-.(∃parentOf≥2)
 
 (b)  A that says that x is an aunt of y
 
-$A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
 A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
 
 (c)  C that says that x and y are cousins
 
-$C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
 C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
 
 (d)  O that says that x is an only child  
 
-$O ≡ ∃parentOf^-.(∃parentOf\le1)$
 O ≡ ∃parentOf^-.(∃parentOf.≤1)
 
 (e)  T that says that x has exactly two brothers
 
-$T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ ge3∃parentOf.M)) \sqcup (¬M\sqcap ∃parentOf^-.(\le2 ∃parentOf.M \sqcap \ge2 ∃parentOf.M))$
 T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
 
 
@@ -158,7 +153,7 @@ as well as an A-box, so that you ultimately construct a knowledge base K = (T,A)
 
 K = (T, A)      
 
-(a)  B that says that [w] is a brother of [w]
+(a)  B that says that [w] is a brother of [x]
 (b)  A that says that [y] is an aunt of [w]
 
 T.box= {Brother ⊆ Male    (TBox.a)
@@ -193,7 +188,7 @@ Aunt_of = {(y,w), (y,x)}
 
 (a) ∃x∀y and ∀x∃y
 
-  ∃x∀y means “there is or exists some x such that for all y…”, and ∀x∃y means “For all x, there is some y that…”
+  ∃x∀y means “there is--or exists--some x such that for all y…”, and ∀x∃y means “For all x, there is some y that…”
 
 (b) ∃x∀y∃z and ∀x∃y∀z 
 
