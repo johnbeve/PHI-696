@@ -260,38 +260,47 @@ See attached picture: image 0.
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
-Proof: (¬P ∨ ¬Q) ≡ ¬(P ∧ Q)
 
-  first step: (¬P ∨ ¬Q) → ¬(P ∧ Q)
+  first step: (¬p ∨ ¬q) → ¬(p ∧ q)
    
- 1. ¬P ∨ ¬Q          premise
-|2. ¬¬(P ∧ Q)        assumption
-|3. P ∧ Q            ¬E2
-|4. P                ∧E3
+ 1. ¬p ∨ ¬q          premise
+|2. ¬¬(p ∧ q)        assumption
+|3. p ∧ q            ¬E2
+|4. p                ∧E3
 |5. q                ∧E3
 |6. ⊥                ⊥I 1,4,5
- 7. ¬¬¬(P ∧ Q).      ¬I 2-6
- 8. ¬(P ∧ Q)
+ 7. ¬¬¬(p ∧ q).      ¬I 2-6
+ 8. ¬(p ∧ q)
  
- ![fitch_proof_1](https://user-images.githubusercontent.com/123851348/218146579-e639cec8-d85d-40c5-a270-f8f629217e8a.PNG)
+See the attachment: image 1-2.
 
 
-  Second step: ¬(P ∧ Q) → ¬P ∨ ¬Q
+  Second step: ¬(p ∧ q) → ¬p ∨ ¬q
  
- 1.  ¬(P ∧ Q)               premise
-|2.  ¬(¬P ∨ ¬Q)             assumption
-| |3.  ¬P                   assumption 
-| |4.  ¬P ∨ ¬Q              ∨I3
+ 1.  ¬(p ∧ q)               premise
+|2.  ¬(¬p ∨ ¬q)             assumption
+| |3.  ¬p                   assumption 
+| |4.  ¬p ∨ ¬q              ∨I3
 | |5. ⊥                    ⊥I2,4
-|6. P                      ⊥I3-5
-| |7. ¬Q                    assmuption
-| |8. ¬P ∨ ¬Q               ∨I7
+|6. p                      ⊥I3-5
+| |7. ¬q                    assmuption
+| |8. ¬p ∨ ¬q               ∨I7
 | |9. ⊥                    ⊥I2,8
-|10. Q                     ⊥I 7-9
-|11. P ∧ Q                  ∧I6,10
+|10. q                     ⊥I 7-9
+|11. p ∧ q                  ∧I6,10
 |12. ⊥                     ⊥I1,11
-13. ¬¬(¬P ∨ ¬Q)             ⊥I2-12         
-14. ¬P ∨ ¬Q                 ¬E13
+13. ¬¬(¬p ∨ ¬q)             ⊥I2-12         
+14. ¬p ∨ ¬q                 ¬E13
+
+See the attachment: image 1-2.
+
+Third step:  ¬(p v q) → ¬p  ∧ ¬q
+
+See the attachment: image 3.
+
+Fourth step:  ¬p ∧ ¬q → ¬(p v q)
+
+see the attachment: image 4.
 
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
