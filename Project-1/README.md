@@ -231,22 +231,84 @@ all by virtue of R
 ```	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 - For these problems I am combining answers from stack exchange, http://teachinglogic.liglab.fr/DN/index.php, and https://www.erpelstolz.at/gateway//prover.html 
+- I was also given a lot of wonderful help by Josh, Delaney, Finn and Giacomo!
 
 a. ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
- start with ¬(Px ∧ Qx)
- 
+- here's my attempt:
+premise ¬(Px ∧ Qx)
  assume ¬(¬Px ∨ ¬Qx)
-  ¬(¬Px ∨ ¬Qx) ≡
-  ¬Px 
-  ¬Px ∨ ¬Qx
+ therefore ¬(¬Px ∨ ¬Qx) ≡ Px ∧ Qx
+assume ¬(Px ∧ Qx)
+ T
+ ...
+ - here's a generation:
+ assume ¬(Px ∧ Qx).
+  assume ¬(¬Px ∨ ¬Qx).
+    assume ¬Px.
+     ¬Px ∨ ¬Qx.
+      F.
+    therefore ¬¬Px.
+    assume Qx.
+      Px.
+      assume ¬(¬Px ∨ ¬Qx).
+        Px ∧ Qx.
+        F.
+      therefore ¬¬(¬Px ∨ ¬Qx).
+      F.
+    therefore ¬Qx.
+    ¬Px ∨ ¬Qx.
+    F.
+  therefore ¬¬(¬Px ∨ ¬Qx).
+ ¬Px ∨ ¬Qx.
+ ¬(Px ∧ Qx) → ¬Px ∨ ¬Qx.
+ T
   
-  (Px ∧ Qx)
+ b. ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+ - here's a generation:
+ assume ¬(Px ∨ Qx).
+  assume Px
+    Px ∨ Qx.
+    F
+  therefore ¬P.
+  assume Q.
+    P ∨ Q.
+    F
+  therefore ¬Q.
+  ¬P ∧ ¬Q
+¬(P + Q) → ¬P ∧ ¬Q 
+ T
  
- 
- 
- 
+ c. ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+ - I love computers! here's a generation:
+ assume ¬Px ∨ ¬Qx.
+  assume Px ∧ Qx.
+    Px.
+    Qx.
+    assume ¬Px.
+      F.
+    assume ¬Qx.
+      F.
+  therefore ¬(Px ∨ Qx).
+ ¬Px ∨ ¬Qx → ¬(Px ∧ Qx)
+ T
 
-
+d. ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+- here's a generation:
+assume ¬Px ∨ ¬Qx.
+  assume Px ∧ Qx.
+    Px.
+    Qx.
+    assume ¬Px.
+      F.
+    therefore ¬Px → F.
+    assume ¬Qx.
+      F.
+    therefore ¬Qx → F.
+    F.
+  therefore ¬(Px ∧ Qx).
+¬Px ∨ ¬Qx → ¬(Px ∧ Qx).	
+ T
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
+Natural deduction proofs repeatedly negate the right-hand (concluding) contingent variable or expression to (fail to) prove a contradiction. Tree proofs, at least via the ones I've seen via the online tableau proof generator, work off of negating the left-hand side, or the premises, of the given entailment.
