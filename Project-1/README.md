@@ -205,8 +205,7 @@ The following graph models the second sentence but not the first sentence:
 Verticles: a, b, c
 Edges: ab, ac, aa (loop)
 
-
-![image0](https://user-images.githubusercontent.com/123851348/218143816-bea9d8ec-0f81-4e7e-b2d3-4e7ccd002521.jpeg)
+See attached picture: image 0.
 
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
