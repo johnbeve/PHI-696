@@ -119,7 +119,7 @@ After attending two group homework sessions and working with Austin, I do not un
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-I could not complete #4. 
+I did not complete #4. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
@@ -149,8 +149,7 @@ I could not complete #4.
 For all x there exists some y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
 There exists some x for all y such that for all z: (R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-∀a∃b∀c(R(a,b) ∧ R(a,c) ∧ R(b,c))
-∃a∀b∃c(R(a,b) ∧ R(a,c) ∧ R(b,c))
+In sentence one, z does not seem to map to x?
 
 ```
 	
