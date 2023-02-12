@@ -163,23 +163,20 @@ K1=(T1,A1) such that:
 
 T-box 
 
-T1={B (brother) ≡ M ⊓ ∃p2¯.Person,
-O ≡ ∃parent_only¯.Person,
-GP(grandparent)≡∃parentOf.(∃parentOf.M⊔¬M)}
+T1={B ≡ M ⊓ ∃p2¯.Person,
+T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)),
+Male ⊑ Person,
+Female ⊑ Person,
+Male  ≡ Person ⊓ ¬ Female}
 	
 A-Box: 
 
-A1={(Julia,Mike):ParentOf, Mike:Male}.
-The following is a model ℑ=(△ℑ,.ℑ) of K1:
-△ℑ={a,b,c}
-Mℑ={a}
-Bℑ=∅
-Oℑ={b,a}
-GPℑ={c}
-parentOfℑ={(c,b),(b,a)}
-Mikeℑ={a}
-Juliaℑ={b}
-Jackℑ={c}
+Person(Julia),Person(Mike),Person (Bob), Person (Paul),
+Male(Mike), Male (Bob),
+Female (Julia),
+B(Julia), B(Bob), B(Mike),
+T(Mary),
+Parent_of(Paul, Mike), Parent_of(Paul,Mary), Parent_of(Paul,Bob).
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
