@@ -6,7 +6,7 @@ Your first project will require you to answer each of the 10 questions below.  Y
 Tip #2: Google is your friend. An important skill to pick up in this class is recognizing when to think hard and when to think smart. You might find answers to some of the questions below simply by googling; you might find pieces of answers to parts of some question below, which will need to be combined; then again, you might not find any help at all because the questions are more novel than they initially appear. I encourage you to use existing resources as guidance, but be careful. My reputation for asking students tricky questions is well-earned. 
 Tip #3: Work _together_ to solve these problems, even for initial submissions and when you do, document this in github. For example, you might feel like you nearly have answers to question 1, but would love another pair of eyes. You can then open a post in your local github account, and tag folks from class requesting they check out your work. 
 Tip #4: The work we do is challenging; that should be assumed. You are smart enough to be here; that should also be assumed. We have neither time nor space for shaming, but all of time and space for praising. Be cognizant of how your messages might be received, and err on the side of caution. It is hard to surmise intent from text alone. For my part, I treat text only communications the way modern musicals are written: Little subtext; emotions on the sleeve. 
-```
+```    
 
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
 
@@ -101,17 +101,57 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (c)  C that says that x and y are cousins 
   (d)  O that says that x is an only child
   (e)  T that says that x has exactly two brothers 
+```
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
 
-```(a) ΔI = x,y,z
-(a) parent_of = (z,x) (z,y)
-(a) Male = x
-(b) ΔI = w, x, y, z
-(b) praren_of = (w,x) (w,z) (z,y)
-(b) ¬Male = x
-(c) ΔI = v, w, x, y, z
-(c) parent_of = (v, w) (v,z) (w,x) (z,y)
-(d) Not possible in this language as saying x is an only child of y but would make everything else false.
-(e) Not possible in this laguage as you can say that x has two brothers but you can't say that x has exactly two brothers.  
+   First attempts
+
+  (a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
+  (a)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf≥2)
+  (a) assuming gender binary determined by chromosomes 
+
+  (b)  A that says that x is an aunt of y
+  (b)  $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
+  (b)  A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
+  (b) assuming gender binary determined by chromosomes 
+
+  (c)  C that says that x and y are cousins 
+  (c)  $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
+  (c)  C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
+
+  (d)  O that says that x is an only child
+  (d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
+  (d) O ≡ ∃parentOf^-.(∃parentOf.≤1)
+
+  (e)  T that says that x has exactly two brothers 
+  (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
+  (e)  T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
+
+Per suggestions given by Ali, Giacomo, and Karl  
+
+a) B that says that x is a brother of y
+
+Per (Person) ≡ M ⊔ ¬M
+p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) -- assuming gender is assigned based on chromosome 
+B ≡ M ⊓ ∃p2¯.Per
+
+(b) A that says that x is an aunt of y
+
+∃p2¯.parentof.parentof.Per
+A ≡ ¬M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ (¬parentof. Per ⊓ ∃p2¯.parentof.parentof.Per)
+U(uncle) ≡ M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per
+
+(c) C that says that x and y are cousins
+
+gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
+C ≡ gp2¯.per
+Cannot define "being cousins" in description logic.
+
+(d) O that says that x is an only child
+O ≡ ¬ ∃p2¯.Per
+
+(e) T that says that x has exactly two brothers
+This cannot be done 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
 
