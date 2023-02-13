@@ -226,9 +226,9 @@ Knowledge Base $K = (T, A)$
 ```math
 T = \left\{
 \begin{array}{rcl}
-    B		&≡& M \sqcap ∃parentOf^-.(∃parentOf) \\
-    C		&≡& ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) \\
-    siblingOf	&≡& ∃parentOf^-(∃parentOf) \\
+    B		&≡& M \sqcap ∃parentOf^-.(∃parentOf.\top) \\
+    C		&≡& ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf.\top))) \\
+    siblingOf	&≡& ∃parentOf^-(∃parentOf.\top) \\
     Sibling	&≡& ∃siblingOf \\
 \end{array} \right\}
 ```
