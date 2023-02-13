@@ -28,6 +28,15 @@ T	T	F		  T
 T	T	T		  T
 (a) is a tautology.
 
+
+
+A	B	((A → B) ∧ (A → ¬B))
+F	F	T
+F	T	T
+T	F	F
+T	T	F
+(b)is contingent
+
  A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
 F	F	F	T
 F	F	T	T
@@ -37,18 +46,7 @@ T	F	F	T
 T	F	T	T
 T	T	F	T
 T	T	T	T
- (c) is a tautology.	
- 
- A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
-F	F	F	T
-F	F	T	T
-F	T	F	T
-F	T	T	T
-T	F	F	T
-T	F	T	T
-T	T	F	T
-T	T	T	T
- (c) is a tautology.
+ (c) is a tautology
  
    A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
 F	F	F	F	F
@@ -67,7 +65,7 @@ T	T	F	F	F
 T	T	F	T	T
 T	T	T	F	T
 T	T	T	T	T
-(d) is contignet.
+(d) is contignet
 
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
 
@@ -76,10 +74,8 @@ T	T	T	T	T
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 
 ``` (a) (A ∨ C) ∧ (¬B ∨ C)
-(b) ¬A ∨ ¬B
-(c) (¬A∧¬B∧C)∨(¬A∧¬C)??
-used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.at/gateway/formular-uk-zentral.html
-
+(b) B ∨ ¬B -- Tautology 
+(c) B ∨ ¬B -- Tautology 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
 
@@ -90,9 +86,13 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (e)  T(x) that says that x has exactly two brothers 
 
 ```(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
+
 (b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
+
 (c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
+
 (d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
+
 (e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
@@ -165,10 +165,10 @@ Donnie = {Frank: Brother ∩ Male		(Axiom.1)
 	(Donnie, Remi): parent_of}		(Axiom.5)
 	
 ΔI = {w, x, y, z},
-William  = w
-Xaivar = x
-Eunice = y
-Zane = z
+Donnie = w
+Remi = x
+Mary = y
+Frank = z
 Male = {w, x}
 Brother = {w, x}
 Aunt = {y}
