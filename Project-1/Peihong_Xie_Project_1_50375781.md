@@ -254,19 +254,19 @@ Answer:
 
 (a)
 
-![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/fitch_proof_1.PNG)  
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_1.PNG)  
 
 (b)
 
-![picture 2](tree_proof_2.png)  
+![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_2.png)  
 
 (c)
 
-![picture 3](tree_proof_3.png)
+![picture 3](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_3.png)
 
 (d)
 
-![picture 4](tree_proof_4.png)
+![picture 4](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_4.png)
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
@@ -274,19 +274,19 @@ Answer:
 
 (a) 
 
-![picture 1](fitch_proof_1.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/fitch_proof_1.PNG) 
 
 (b) 
 
-![picture 1](fitch_proof_2.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/fitch_proof_2.PNG) 
 
 (c) 
 
-![picture 1](fitch_proof_3.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/fitch_proof_3.PNG) 
 
 (d) 
 
-![picture 1](fitch_proof_4.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/fitch_proof_4.PNG) 
 
 [10]   Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
