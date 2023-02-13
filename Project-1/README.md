@@ -10,68 +10,62 @@ Tip #4: The work we do is challenging; that should be assumed. You are smart eno
 
 Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
 
-1. Provide the truth tables for each of the following propositional logic formulas. State whether each is awhether each is a tautology, a contradiction, or contingent:
+1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
 
   ```(a) (¬A→B)∨((A∧¬C)→B) 
   (b) (A→B)∧(A→¬B)
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
 
-(a) 
-| A | B	| C | ¬A→B | A∧¬C | (A∧¬C)→B | (¬A→B)∨((A∧¬C)→B) |
-| ---  | --- | --- | --- | --- | --- | --- |
-| 1 | 1 | 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 0 | 1 | 1 |
-| 0 | 1 | 1 | 1 | 0 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 | 0 | 1 |
-| 0 | 1 | 0 | 1 | 0 | 1 | 1 |
-| 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-| 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-Tautology
+A	B	C	((¬A → B) ∨ ((A ∧ ¬C) → B))
+F	F	F		  T
+F	F	T		  T
+F	T	F		  T
+F	T	T		  T
+T	F	F		  T
+T	F	T		  T
+T	T	F		  T
+T	T	T		  T
+(a) is a tautology.
 
-(b) 
-| A | B	| A→B | A→¬B | (A→B)∧(A→¬B) | 
-| ---  | --- | --- | --- | --- |
-| 1 | 1 | 1 | 0 | 0 | 
-| 1 | 0 | 0 | 1 | 0 |
-| 0 | 1 | 1 | 1 | 1 |
-| 0 | 0 | 1 | 1 | 1 | 
-Contingent
 
-(c)
-| A | B	| C | B∨C | A→(B∨C) | C→¬A | (A→(B∨C))∨(C→¬A)) |
-| ---  | --- | --- | --- | --- | --- | --- |
-| 1 | 1 | 1 | 1 | 1 | 0 | 1 |
-| 1 | 1 | 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 1 | 0 | 1 |
-| 0 | 1 | 1 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 0 | 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 1 | 1 | 1 | 1 |
-| 0 | 0 | 1 | 1 | 1 | 1 | 1 |
-| 0 | 0 | 0 | 0 | 1 | 1 | 1 |
-Tautology
 
-(d) 
-| A | B	| C | D | A→B | (A→B)∧C | A∧D | ((A→B)∧C)∨(A∧D)
-| ---  | --- | --- | --- | --- | --- | --- |--- |
-| 1  | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| 1  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
-| 1  | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
-| 1  | 0 | 1 | 1 | 0 | 0 | 1 | 1 |
-| 0  | 1 | 1 | 1 | 1 | 1 | 0 | 1 |
-| 1  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
-| 1  | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| 0  | 0 | 1 | 1 | 1 | 1 | 0 | 1 |
-| 0  | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
-| 0  | 1 | 0 | 1 | 1 | 0 | 0 | 0 |
-| 1  | 0 | 0 | 1 | 0 | 0 | 1 | 1 |
-| 0  | 0 | 0 | 1 | 1 | 0 | 0 | 0 |
-| 0  | 0 | 1 | 0 | 1 | 1 | 0 | 1 |
-| 0  | 1 | 0 | 0 | 1 | 0 | 0 | 0 |
-| 1  | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| 0  | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
-Contingent
+A	B	((A → B) ∧ (A → ¬B))
+F	F	T
+F	T	T
+T	F	F
+T	T	F
+(b)is contingent
+
+ A	B	C	((A → (B ∨ C)) ∨ (C → ¬A))
+F	F	F	T
+F	F	T	T
+F	T	F	T
+F	T	T	T
+T	F	F	T
+T	F	T	T
+T	T	F	T
+T	T	T	T
+ (c) is a tautology
+ 
+   A	B	C	D	(((A → B) ∧ C) ∨ (A ∧ D))
+F	F	F	F	F
+F	F	F	T	F
+F	F	T	F	T
+F	F	T	T	T
+F	T	F	F	F
+F	T	F	T	F
+F	T	T	F	T
+F	T	T	T	T
+T	F	F	F	F
+T	F	F	T	T
+T	F	T	F	F
+T	F	T	T	T
+T	T	F	F	F
+T	T	F	T	T
+T	T	T	F	T
+T	T	T	T	T
+(d) is contignet
 
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
 
@@ -80,11 +74,8 @@ Contingent
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
 
 ``` (a) (A ∨ C) ∧ (¬B ∨ C)
-(b) B ∨ ¬B Tautology should have form of p v ~p
-(c) B v ¬B Tautology should have the same form as above
-
-used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.at/gateway/formular-uk-zentral.html
-
+(b) B ∨ ¬B -- Tautology 
+(c) B ∨ ¬B -- Tautology 
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
 
@@ -94,16 +85,15 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (d)  O(x) that says that x is an only child
   (e)  T(x) that says that x has exactly two brothers 
 
-```
-(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx∧x≠y∧x≠z∧z≠y) 
+```(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
 
-(b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧y≠z)- 
+(b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
 
-(c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)∧x≠v∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧w≠v∧y≠z∧y≠v∧v≠z)
+(c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
 
-(d)  ∃x∃y∀z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x)
+(d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
 
-(e)∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
+(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -111,9 +101,10 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
   (c)  C that says that x and y are cousins 
   (d)  O that says that x is an only child
   (e)  T that says that x has exactly two brothers 
+```
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
 
-  ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
- First attempts
+   First attempts
 
   (a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
   (a)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf≥2)
@@ -138,56 +129,46 @@ used CNF calculator https://www.artima.com/cs/cnf.html & https://www.erpelstolz.
 
 Per suggestions given by Ali, Giacomo, and Karl  
 
-(a) B that says that x is a brother of y
+a) B that says that x is a brother of y
 
 Per (Person) ≡ M ⊔ ¬M
 p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) -- assuming gender is assigned based on chromosome 
-
 B ≡ M ⊓ ∃p2¯.Per
 
 (b) A that says that x is an aunt of y
 
 ∃p2¯.parentof.parentof.Per
-
 A ≡ ¬M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ (¬parentof. Per ⊓ ∃p2¯.parentof.parentof.Per)
-
 U(uncle) ≡ M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per
 
 (c) C that says that x and y are cousins
 
 gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
-
 C ≡ gp2¯.per
-
-We cannot define "being cousins" in description logic. - but we can describe the relation of having a cousin 
+Cannot define "being cousins" in description logic.
 
 (d) O that says that x is an only child
-
 O ≡ ¬ ∃p2¯.Per
 
 (e) T that says that x has exactly two brothers
-
-This cannot be done without a role name for brother, we only have a concept name for it.
-
+This cannot be done 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
 
-Tex = {Brother = M∩∃parent_of−.(≥2∃parent_of)			(Tex.1)
-	Aunt = ~M∩∃parent_of−.(∃parent_of.(∃parent_of))		(Tex.2)
-	Brother ⊆ Male,						(Tex.3)
-	Aunt ⊆ ~Male}						(Tex.4)
+ TBox = {Brother ⊆ Male,		(TBox.1)
+	Aunt ⊆ ~Male}		(TBox.2)
 
-Aex = {Donnie: Brother ∩ Male		(Aex.1)
-	Bob: Brother ∩ Male		(Aex.2)
-	Mary: Aunt			(Aex.3)
-	(Alex, Remi): parent_of	(Aex.4)
-	(Alex, Brandon): parent_of}		(Aex.5)
+Donnie = {Frank: Brother ∩ Male		(Axiom.1)
+	Remi: Brother ∩ Male		(Axiom.2)
+	Mary: Aunt			(Axiom.3)
+	(Donnie, Frank): parent_of	(Axiom.4)
+	(Donnie, Remi): parent_of}		(Axiom.5)
 	
 ΔI = {w, x, y, z},
 Donnie = w
 Remi = x
 Mary = y
-Brandon = z
+Frank = z
 Male = {w, x}
 Brother = {w, x}
 Aunt = {y}
@@ -198,26 +179,17 @@ Parent_of = {(z,w), (z,x)}
   (b) ∃x∀y∃z and ∀x∃y∀z 
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
 
-```(a) ∃x∀y means “there exists x such that for all y” 
-(a) ∀x∃y means "for all x, there exists y such that"
-
-(b) ∃x∀y∃z means “there exists x such that for all y, there exists z such that” 
-(b) ∀x∃y∀z means "for all x, there exists y such that for all z"
-
-(c) ∀x∃y∀z∃w means "for all x, there exists y such that for all z, there exists w such that" 
-(c) ∃x∀y∃z∀w means "there exists x such that for all y, there exists z such that for all y"
+```(a) ∃x∀y says something like there is some x such that for all y
+(a) ∀x∃y says for all x there is some y 
+(b) ∃x∀y∃z says there is some x such that for all y there is some z such that 
+(b) ∀x∃y∀z says for all x there is come y such that for all x
+(c) ∀x∃y∀z∃w says for all x there is some y such that for all z there is some w
+(c) ∃x∀y∃z∀w says there is some x such that for all y there exists some z such that for all w
 
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-
-```mermaid
-graph TD;
-0 --> 0;
-0 --> 1;
-1 --> 1;
-```
 
 ``` Here is my diagram of the universe: [label](file:///Universe.pub)
 U: {0,1}
@@ -360,4 +332,4 @@ x			   x
 
 Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-Well firsty and perhaps most notably the tree proof software provides no annotations (justifications?) for the how each line is derived from the line before it. I personally like having the annotations as it shows clearly how to move from one step to the next. Further, the tree proofs look like they start by universally instainiating whereas in the natural deduction proofs you can go several route but the easiest with Universal Quantifiers is usually a universal derivation. I myself am prone to doing indirect derivations. This is because if it can be derived you can always(?) find a contradiction. Obviously, I still assumed indirectly once all of the unviersals were removed from the situation to complete the derivations.  
+Well firsty and perhaps most notably the tree proof software provides no annotations (justifications?) for the how each line is derived from the line before it. I personally like having the annotations as it shows clearly how to move from one step to the next. Further, the tree proofs look like they start by universally instainting whereas in the natural deduction proofs you can go several route but the easiest with Universal Quantifiers is usually a universal derivation. I myself am prone to doing indirect derivations. This is because if it can be derived you can always(?) find a contradiction. Obviously, I still assumed inderictly once all of the unviersal were removed from the situation to complete the derivations. 
