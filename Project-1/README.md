@@ -149,18 +149,18 @@ B ≡ ∃parentof.M ⊓ ∀parentof.person
   
   (b)  A that says that x is an aunt of y
   
- A ≡ ∃parentof.¬M 
-  
+ A ≡ ∃parentof.¬M ⊓
+ ...
+ - During some meetings in the past week I got a feel for the logic behind the answers Giacomo and Ali provided to these questions.
+ - If I understood the syntax of ALC, here are some things I would like to do:
+- Establish a concept of 'parent' to denote anything that bears the parent role
+- That way, I could use a similar syntax to the one in question 3b. An aunt is a not-male who has a parent, and that parent has another parent as a child.
   
   (c)  C that says that x and y are cousins 
   
-  - Ali and Giacomo showed me how description logic can only be used to write formulas describing either concepts or roles. Because the statement 'x and y are cousins' involves more than two concepts and a relation between them, it cannot be formulated into one sentence in FOL.
-  - I have some expressions below that get at either the concepts x and y or the role of cousin.
-  - Taken together, they should define the statement accurately.
+  - Ali and Giacomo showed me how description logic can only be used to write formulas describing either concepts or roles. Because the statement 'x and y are cousins' involves more than two concepts and a relation between them, it cannot be formulated into one sentence in FOL. 
+ - With this said, ∀C.person 
  
- ∀C.person 
- 
-  
   (d)  O that says that x is an only child
   
   (e)  T that says that x has exactly two brothers 
@@ -193,25 +193,30 @@ Abox
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 - https://www.geeksforgeeks.org/mathematic-logic-predicates-quantifiers/ I found a neat little table explaining quantifiers here
-
+- http://www.jfsowa.com/peirce/ms514.htm This site is awesome!!!!
+...
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-- For all cases x there exists y which contains all cases of z
-... so, (1,0,1)
+- For all vertices there is a vertex that is connected to all other vertices
+... so (1, 0, 1)
 x is related to y
 x is related to z
 y is related to z 
 all by virtue of R
 
-
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-- There exists x which contains all cases y with the existence of z 
+- There exists a vertex which is connected to all other vertices connected to a third vertex
 ... so, (0,1,0)
 x is related to y
 x is related to z
 and y is related to z 
 all by virtue of R
+  
+x ---> y
+|->z <-|
+
+I believe this models the second one, and not the first. I believe I'm deeply misunderstanding something though because I can't shake the feeling that the first variable in each relation is somehow the 'active' member, hence the direction of my graph's arrows. Is this true, or do relations in logic not work on this dynamic?
 
 ```
 	
@@ -311,4 +316,4 @@ assume ¬Px ∨ ¬Qx.
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-Natural deduction proofs repeatedly negate the right-hand (concluding) contingent variable or expression to (fail to) prove a contradiction. Tree proofs, at least via the ones I've seen via the online tableau proof generator, work off of negating the left-hand side, or the premises, of the given entailment.
+Natural deduction proofs repeatedly negate the right-hand (concluding) contingent variable or expression to (fail to) prove a contradiction. The proof is free to use whatever rules or inferences are relevant at each stage. Tree proofs, at least via the ones I've seen via the online tableau proof generator, only appear to work off of negating the left-hand side, or the premises, of the given entailment.
