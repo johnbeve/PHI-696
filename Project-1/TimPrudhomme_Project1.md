@@ -83,7 +83,6 @@
 ¬(¬A ∨ B) ∨ C          [→ to ∨]
 (A ∧ ¬B) ∨ C           [DeMorgan]
 (A ∨ C) ∧ (¬B ∨ C)     [Distribute ∨]
-
 ```
 
 (b) `(A→(B∨C))∨(C→¬A)`
@@ -188,19 +187,19 @@ With these extensions we can define the formulas:
 $B ≡ M\sqcap ∃parentOf^-.(∃parentOf)$  
 
   * "Someone is a brother of someone else iff they're a male and there's a parent of that someone who is also a parent of that someone else"
-  * This relation should also be defined as irreflexive, symmetric, and transitive
+  * `TODO:` This relation should also be defined as irreflexive, symmetric, and transitive
 
 (b) `A that says that x is an aunt of y`  
 $A ≡ \neg M \sqcap ∃parentOf^-.(∃parentOf.(∃parentOf))$
 
   * "Someone is an aunt of someone else iff they're not male and there's a parent of that someone, who is also a parent of another, who in turn is a parent of that someone else"
-  * This relation should be irreflexive, asymmetric, and intransitive
+  * `TODO:` This relation should be irreflexive, asymmetric, and intransitive
 
 (c) `C that says that x and y are cousins`  
 $C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) $  
 
   * "Someone is a cousin of someone else iff they have a parent, who has a parent, who is the parent of another, who is the parent of that someone else"
-  * This relation should be irreflexive, symmetric, and intransitive (for first cousins)
+  * `TODO:` This relation should be irreflexive, symmetric, and intransitive (for first cousins)
 
 
 The following formulas can be defined using the DL extension $N$, which adds Number Restrictions $(\leqslant n r)$ and $(\geqslant nr )$ where $n$ is a positive number:
@@ -318,7 +317,7 @@ graph LR
 ```
 
 * Interpretation of `R` as less than or equal to (`<=`) with the domain `{0, 1, 2}`
-* This models `∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))` because in this domain there's something that is less than or equal to everything
+* This models `∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))` because in this domain there's something `∃x` that is less than or equal to everything. Likewise for `∃z` but `x=z` in this model anway.
 * This doesn't model `∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))` because not everything is less than or equal to everything (`∀x∀y(R(x,y))`): 2 is not less than or equal to 0
 
 
