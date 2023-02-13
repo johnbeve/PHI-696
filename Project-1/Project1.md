@@ -158,31 +158,36 @@ T(x) = ∃x∃y∃w∃p(
 
 With these extensions we can define the formulas:
 
-(a) `B that says that x is a brother of y`
-  * $B ≡ M\sqcap ∃parentOf^-.(∃parentOf)$
-    * "Someone is a brother of someone else iff they're a male and there's a parent of that someone who is also a parent of that someone else"
+(a) `B that says that x is a brother of y`  
+$B ≡ M\sqcap ∃parentOf^-.(∃parentOf)$  
+
+  * "Someone is a brother of someone else iff they're a male and there's a parent of that someone who is also a parent of that someone else"
   * This relation should also be defined as irreflexive, symmetric, and transitive
 
-(b) `A that says that x is an aunt of y`
-  * $A ≡ \neg M \sqcap ∃parentOf^-.(∃parentOf.(∃parentOf))$
-    * "Someone is an aunt of someone else iff they're not male and there's a parent of that someone, who is also a parent of another, who in turn is a parent of that someone else"
+(b) `A that says that x is an aunt of y`  
+$A ≡ \neg M \sqcap ∃parentOf^-.(∃parentOf.(∃parentOf))$
+
+  * "Someone is an aunt of someone else iff they're not male and there's a parent of that someone, who is also a parent of another, who in turn is a parent of that someone else"
   * This relation should be irreflexive, asymmetric, and intransitive
 
-(c) `C that says that x and y are cousins`
-  * $C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) $
-    * "Someone is a cousin of someone else iff they have a parent, who has a parent, who is the parent of another, who is the parent of that someone else"
+(c) `C that says that x and y are cousins`  
+$C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) $  
+
+  * "Someone is a cousin of someone else iff they have a parent, who has a parent, who is the parent of another, who is the parent of that someone else"
   * This relation should be irreflexive, symmetric, and intransitive (for first cousins)
 
 
 The following formulas can be defined using the DL extension $N$, which adds Number Restrictions $(\leqslant n r)$ and $(\geqslant nr )$ where $n$ is a positive number:
 
-(d) `O that says that x is an only child`
-  * $O ≡ ∃parentOf^-.((\geqslant 1 parentOf) \sqcap (\leqslant 1 parentOf))$
-    * "Someone is an only child iff there is a parent of them, who is a parent of at least and at most 1 (person)." 
+(d) `O that says that x is an only child`  
+$O ≡ ∃parentOf^-.((\geqslant 1 parentOf) \sqcap (\leqslant 1 parentOf))$  
+  
+  * "Someone is an only child iff there is a parent of them, who is a parent of at least and at most 1 (child)." 
 
-(e) `T that says that x has exactly two brothers`
-  * $T ≡ ∃parentOf^-.((\leqslant 2 parentOf) \sqcap (\geqslant 2 parentOf) \sqcap ∃parentOf.(M)) $
-    * "Someone has exactly two brothers iff there's a parent of them who is the parent of exactly two males"
+(e) `T that says that x has exactly two brothers`  
+$T ≡ ∃parentOf^-.((\leqslant 2 parentOf) \sqcap (\geqslant 2 parentOf) \sqcap ∃parentOf.(M)) $  
+
+  * "Someone has exactly two brothers iff there's a parent of them who is the parent of at least and at most two, who are males"
 
 ---
 # Question 5
@@ -277,6 +282,27 @@ It's still a model even though:
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ```
 
+## Answers:
+```mermaid
+graph LR
+0((0))
+1((1))
+2((2))
+
+0 ---> |<=| 1
+1 ---> |<=| 2
+0 ---> |<=| 2
+
+0 ---> |<=| 0
+1 ---> |<=| 1
+2 ---> |<=| 2
+```
+
+* Interpretation of `R` as less than or equal to (`<=`) with the domain `{0, 1, 2}`
+* This models `∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))` because in this domain there's something that is less than or equal to everything
+* This doesn't model `∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))` because not everything is less than or equal to everything (`∀x∀y(R(x,y))`): 2 is not less than or equal to 0
+
+
 ---
 # Question 8
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
@@ -351,7 +377,6 @@ x               x
 ---
 # Question 9
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
-
 
 ---
 # Question 10
