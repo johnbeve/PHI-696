@@ -192,8 +192,7 @@ parentofI = {(J, C), (A, J), (A, M)}
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 ```
  {(a,b)(b,a)(a,a)} 
  The second statement is true in this model. There is an x that relates every y (a, related to a and b) There is an x that relates to a z (where a is x and b is z), all ys (a and b) are related to some z (a is related to a and b, b is related to a)
