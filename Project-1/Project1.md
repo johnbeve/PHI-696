@@ -90,11 +90,35 @@
 ```
 (¬A ∨ (B ∨ C)) ∨ (¬C ∨ ¬A)     [→ to ∨]
 ```
+| A | B | C | (¬A ∨ (B ∨ C)) | (¬C ∨ ¬A) | (¬A ∨ (B ∨ C)) ∨ (¬C ∨ ¬A) |
+| - | - | - | -------------- | --------- | --------------------------- |
+| T | T | T | T              | F         | T                           |
+| T | F | T | T              | F         | T                           |
+| F | T | T | T              | T         | T                           |
+| F | F | T | T              | T         | T                           |
+| T | T | F | T              | T         | T                           |
+| T | F | F | F              | T         | T                           |
+| F | T | F | T              | T         | T                           |
+| F | F | F | T              | T         | T                           |
+This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B ∨ ¬B) ∧ (C ∨ ¬C)`
+
 
 (c) `(¬A ∧ ¬B ∧ C) ∨ (¬A ∧ ¬C) ∨ (B ∧ C) ∨ A`
 ```
-(¬A ∧ ¬B ∧ C) ∨ (¬A ∧ ¬C) ∨ (B ∨ A) ∧ (A ∨ C)      [Distribute ∨]
+(¬A ∧ ¬B ∧ C) ∨ (¬A ∧ ¬C) ∨ ((B ∨ A) ∧ (A ∨ C))      [Distribute ∨]
 ```
+| A | B | C | (¬A ∧ ¬B ∧ C)  | (¬A ∧ ¬C) | ((B ∨ A) ∧ (A ∨ C)) | (¬A ∧ ¬B ∧ C) ∨ (¬A ∧ ¬C) ∨ ((B ∨ A) ∧ (A ∨ C)) |
+| - | - | - | -------------- | --------- | -------------------- | ------------------------------------------------ |
+| T | T | T | F              | F         | T                    | T                                                |
+| T | F | T | F              | F         | T                    | T                                                |
+| F | T | T | F              | F         | T                    | T                                                |
+| F | F | T | T              | F         | T                    | T                                                |
+| T | T | F | F              | F         | T                    | T                                                |
+| T | F | F | F              | F         | T                    | T                                                |
+| F | T | F | F              | T         | F                    | T                                                |
+| F | F | F | F              | T         | F                    | T                                                |
+This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B ∨ ¬B) ∧ (C ∨ ¬C)`
+
 
 ---
 # Question 3
@@ -460,3 +484,6 @@ x               x
 ---
 # Question 10
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+
+## Answers:
+Tree proofs are used for proofs by contradiction, by assuming the opposite of the intended conclusion and then deriving a contradiction. By contrast, natural deduction proofs may consist of applying rules of derivation to try and reach the conclusion as a goal, however they may also employ proofs by contradiction.
