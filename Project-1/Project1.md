@@ -100,6 +100,7 @@
 | T | F | F | F              | T         | T                           |
 | F | T | F | T              | T         | T                           |
 | F | F | F | T              | T         | T                           |
+
 This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B ∨ ¬B) ∧ (C ∨ ¬C)`
 
 
@@ -117,6 +118,7 @@ This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B �
 | T | F | F | F              | F         | T                    | T                                                |
 | F | T | F | F              | T         | F                    | T                                                |
 | F | F | F | F              | T         | F                    | T                                                |
+
 This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B ∨ ¬B) ∧ (C ∨ ¬C)`
 
 
