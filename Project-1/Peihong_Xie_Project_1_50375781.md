@@ -254,7 +254,7 @@ Answer:
 
 (a)
 
-![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_1.PNG)  
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_1.PNG)
 
 (b)
 
