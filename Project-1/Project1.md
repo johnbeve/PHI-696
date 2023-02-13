@@ -192,46 +192,51 @@ The following formulas can be defined using the DL extension $N$, which adds Num
 ## Answers:
 Knowledge Base $K = (T, A)$
 
-### T-Box T
-$ T = \left\{
-	\begin{darray}{l}
-	  B \equiv M\sqcap ∃parentOf^-.(∃parentOf) \\\\
-    C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) \\\\
-    siblingOf \equiv ∃parentOf^-(∃parentOf) \\\\
-    Sibling \equiv ∃siblingOf
-	\end{darray}
-\right\} $
+### T-Box $T$
+```math
+T = \left\{
+\begin{array}{rcl}
+    B		&≡& M \sqcap ∃parentOf^-.(∃parentOf) \\
+    C		&≡& ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) \\
+    siblingOf	&≡& ∃parentOf^-(∃parentOf) \\
+    Sibling	&≡& ∃siblingOf \\
+\end{array} \right\}
+```
 
-### A-Box A
-$ A = \left\{
-	\begin{darray}{r}
-		(Tim, Ralph) : B \\
-    (Ralph, Maynard) : B \\
-    (Tim, Maynard) : B \\
-    (Matt, Tim) : C \\
-    (Jill, Tim) : siblingOf \\
-    Tim : Sibling \\ 
-    Ralph : Sibling
-	\end{darray}
-\right\} $
+### A-Box $A$
+```math
+A = \left\{
+\begin{array}{rcl}
+    (Tim, Ralph) 	&:& B \\
+    (Ralph, Maynard)	&:& B \\
+    (Tim, Maynard)	&:& B \\
+    (Matt, Tim)		&:& C \\
+    (Jill, Tim)		&:& siblingOf \\
+    Tim			&:& Sibling \\
+    Ralph		&:& Sibling \\
+\end{array}
+\right\}
+```
 
 ### Interpretation $I$
-$ I \left\{
-	\begin{darray}{l}
-    \Delta^I = \set{t, j, r, q, m, 5, 11} \\
-    Tim^I = t \\
-    Jill^I = j \\
-    Ralph^I = r \\
-    Maynard^I = q \\
-    Matt^I = m \\ 
-    Extra^I = 5 \\
-    CoolestGuy^I = t \\
-    B^I = \set{(t, r), (r, q), (t, q)} \\
-    C^I = \set{(m, t)} \\
-    siblingOf^I = \set{(j, t), (t, q) } \\
-    Sibling^I = \set{t, r}
-	\end{darray}
-\right\} $
+```math
+I = \left\{
+\begin{array}{rcl}
+    \Delta^I		&=& \set{t, j, r, q, m, 5, 1} \\
+    Tim^I		&=& t \\
+    Jill^I		&=& j \\
+    Ralph^I		&=& r \\
+    Maynard^I		&=& q \\
+    Matt^I		&=& m \\
+    Extra^I		&=& 5 \\
+    CoolestGuy^I	&=& t \\ 
+    B^I			&=& \set{(t, r), (r, q), (t, q)} \\
+    C^I			&=& \set{(m, t)} \\
+    siblingOf^I		&=& \set{(j, t), (t, q) } \\
+    Sibling^I		&=& \set{t, r} \\
+\end{array}
+\right\}
+```
 
 $I_1$ is a model of $K$ because it satisfies every axiom of $T$ and every assertion of $A$. 
 
