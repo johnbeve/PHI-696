@@ -413,8 +413,47 @@ x               x
 8.  |   |   | ⊥                                   1, 7, ¬E
 9.  |   | ¬Qa                                     6-8, ¬I
 10. |   | ¬Pa ∧ ¬Qa                               5, 9, ∧I
-11. | ¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa)                    1, 10, →I
+11. | ¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa)                    1-10, →I
 12. | ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))              11, ∀I
+```
+
+(c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+```
+1.  |   | (¬Pa ∨ ¬Qa)                             Assumption
+2.  |   |   | ¬Pa                                 Asumption
+3.  |   |   |   | Pa ∧ Qa                         Assumption
+4.  |   |   |   | Pa                              3, ∧E
+5.  |   |   |   | ⊥                               2, 4, ¬E
+6.  |   |   | ¬(Pa ∧ Qa)                          3-5, ¬I
+7.  |   |   | ¬Qa                                 Assumption
+8.  |   |   |   | Pa ∧ Qa                         Assumption
+9.  |   |   |   | Qa                              8, ∧E
+10. |   |   |   | ⊥                               7, 9, ¬E
+11. |   |   | ¬(Pa ∧ Qa)                          5, 9, ∧I
+12. |   | ¬(Pa ∧ Qa)                              1, 2-6, 7-11, ∨E
+13. | (¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa)                    1-12, →I
+14. | ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))              13, ∀I
+```
+
+(d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+```
+1.  |   | ¬Pa ∧ ¬Qa                                Assumption
+2.  |   |   | Pa ∨ Qa                              Assumption
+3.  |   |   |   | Pa                               Assumption
+4.  |   |   |   |   | ¬Pa ∧ ¬Qa                    Assumption
+5.  |   |   |   |   | ¬Pa                          4, ∧E
+6.  |   |   |   |   | ⊥                            3, 5, ¬E
+7.  |   |   |   | ¬(¬Pa ∧ ¬Qa)                     4-6, ¬I
+8.  |   |   |   | Qa                               Assumption
+9.  |   |   |   |   | ¬Pa ∧ ¬Qa                    Assumption
+10. |   |   |   |   | ¬Qa                          9, ∧E
+11. |   |   |   |   | ⊥                            8, 10, ¬E
+12. |   |   |   | ¬(¬Pa ∧ ¬Qa)                     9-11, ¬I
+13. |   |   | ¬(¬Pa ∧ ¬Qa)                         2, 3-7, 8-12, ∨E
+14. |   |   | ⊥                                    1, 13, ¬E
+15. |   |  ¬(Pa ∨ Qa)                              2-14, ¬I
+16. | (¬Pa ∧ ¬Qa) → ¬(Pa ∨ Qa)                     1-15, →I
+17. | ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))               16, ∀I
 ```
 
 
