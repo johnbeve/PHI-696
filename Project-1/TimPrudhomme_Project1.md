@@ -287,18 +287,11 @@ It's still a model even though:
 ```
 
 ## Answers:
-(a) 
-* `∃x∀y` means "There exists some x such that for all y".
-* `∀x∃y` means "For all x, there exists some y".
+(a) `∃x∀y` means "There exists some x such that for all y". But `∀x∃y` means "For all x, there exists some y".
 
-(b)
-* `∃x∀y∃z` means "There exists some x such that, for all y, there exists some z".
-* `∀x∃y∀z` means "For all x, there exists some y such that for all z".
+(b) `∃x∀y∃z` means "There exists some x such that, for all y, there exists some z". But `∀x∃y∀z` means "For all x, there exists some y such that for all z".
 
-(c)
-* `∀x∃y∀z∃w` means "For all x there exists some y such that for all z there exists some w".
-* `∃x∀y∃z∀w` means "There exists some x such that for all y there exists some z such that for all w".
-
+(c) `∀x∃y∀z∃w` means "For all x there exists some y such that for all z there exists some w". But `∃x∀y∃z∀w` means "There exists some x such that for all y there exists some z such that for all w".
 
 ---
 # Question 7
