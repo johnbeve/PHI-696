@@ -184,19 +184,19 @@ T(x) = ∃x∃y∃w∃p(
 With these extensions we can define the formulas:
 
 (a) `B that says that x is a brother of y`  
-$B ≡ M\sqcap ∃parentOf^-.(∃parentOf)$  
+$B ≡ M\sqcap ∃parentOf^-.(∃parentOf.\top)$  
 
   * "Someone is a brother of someone else iff they're a male and there's a parent of that someone who is also a parent of that someone else"
   * `TODO:` This relation should also be defined as irreflexive, symmetric, and transitive
 
 (b) `A that says that x is an aunt of y`  
-$A ≡ \neg M \sqcap ∃parentOf^-.(∃parentOf.(∃parentOf))$
+$A ≡ \neg M \sqcap ∃parentOf^-.(∃parentOf.(∃parentOf.\top))$
 
   * "Someone is an aunt of someone else iff they're not male and there's a parent of that someone, who is also a parent of another, who in turn is a parent of that someone else"
   * `TODO:` This relation should be irreflexive, asymmetric, and intransitive
 
 (c) `C that says that x and y are cousins`  
-$C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) $  
+$C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf.\top))) $  
 
   * "Someone is a cousin of someone else iff they have a parent, who has a parent, who is the parent of another, who is the parent of that someone else"
   * `TODO:` This relation should be irreflexive, symmetric, and intransitive (for first cousins)
@@ -205,12 +205,12 @@ $C ≡ ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf))) $
 The following formulas can be defined using the DL extension $N$, which adds Number Restrictions $(\leqslant n r)$ and $(\geqslant nr )$ where $n$ is a positive number:
 
 (d) `O that says that x is an only child`  
-$O ≡ ∃parentOf^-.((\geqslant 1 parentOf) \sqcap (\leqslant 1 parentOf))$  
+$O ≡ ∃parentOf^-.((\geqslant 1 parentOf.\top) \sqcap (\leqslant 1 parentOf.\top))$  
   
   * "Someone is an only child iff there is a parent of them, who is a parent of at least and at most 1 (child)." 
 
 (e) `T that says that x has exactly two brothers`  
-$T ≡ ∃parentOf^-.((\leqslant 2 parentOf) \sqcap (\geqslant 2 parentOf) \sqcap ∃parentOf.(M)) $  
+$T ≡ ∃parentOf^-.((\leqslant 2 parentOf.\top) \sqcap (\geqslant 2 parentOf.\top) \sqcap ∃parentOf.(M)) $  
 
   * "Someone has exactly two brothers iff there's a parent of them who is the parent of at least and at most two, who are males"
 
