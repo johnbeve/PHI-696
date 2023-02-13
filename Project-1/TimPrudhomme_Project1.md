@@ -229,7 +229,7 @@ T = \left\{
     B		&≡& M \sqcap ∃parentOf^-.(∃parentOf.\top) \\
     C		&≡& ∃parentOf^-.(∃parentOf^-.(∃parentOf.(∃parentOf.\top))) \\
     siblingOf	&≡& ∃parentOf^-(∃parentOf.\top) \\
-    Sibling	&≡& ∃siblingOf \\
+    Sibling	&≡& ∃siblingOf.\top \\
 \end{array} \right\}
 ```
 
