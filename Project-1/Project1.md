@@ -378,6 +378,46 @@ x               x
 # Question 9
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
+## Answers:
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+```
+1.  |   | ¬(Pa ∧ Qa)                              Assumption
+2.  |   |   | ¬(¬Pa ∨ ¬Qa)                        Assumption
+3.  |   |   |   | ¬Pa                             Assumption
+4.  |   |   |   | ¬Pa ∨ ¬Qa                       3, ∨I
+5.  |   |   |   | ⊥                               2, 4, ¬E
+6.  |   |   | ¬¬Pa                                3-5, ¬I
+7.  |   |   | Pa                                  5, ¬¬E
+8.  |   |   |   | ¬Qa                             Assumption
+9.  |   |   |   | ¬Pa ∨ ¬Qa                       8, ∨I
+10. |   |   |   | ⊥                               2, 9, ¬E
+11. |   |   | ¬¬Qa                                8-10, ¬I
+12. |   |   | Qa                                  11, ¬¬E
+13. |   |   | Pa ∧ Qa                             7, 11, ∧I
+14. |   |   | ⊥                                   1, 13, ¬E
+15. |   | ¬¬(¬Pa ∨ ¬Qa)                           2-14, ¬I
+16. |   | (¬Pa ∨ ¬Qa)                             15, ¬¬E
+17. | ¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)                    1-16, →I
+18. | ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))              17, ∀I
+```
+
+(b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+```
+1.  |   | ¬(Pa ∨ Qa)                              Assumption
+2.  |   |   | Pa                                  Asumption
+3.  |   |   | Pa ∨ Qa                             2, ∨I
+4.  |   |   | ⊥                                   1, 3, ¬E
+5.  |   | ¬Pa                                     2-4, ¬I
+6.  |   |   | Qa                                  Assumption
+7.  |   |   | Pa ∨ Qa                             6, ∨I
+8.  |   |   | ⊥                                   1, 7, ¬E
+9.  |   | ¬Qa                                     6-8, ¬I
+10. |   | ¬Pa ∧ ¬Qa                               5, 9, ∧I
+11. | ¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa)                    1, 10, →I
+12. | ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))              11, ∀I
+```
+
+
 ---
 # Question 10
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
