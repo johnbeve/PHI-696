@@ -138,13 +138,13 @@ This is a tautology, so its equivalent to the CNF formula `(A ∨ ¬A) ∧ (B �
 FOL 
 
 // x is brother of y
-B(x,y) = ∃x∃y∃p( P(p,x) ∧ P(p,y) ∧ ¬F(x) )
+B(x,y) = ∃x∃y∃p( P(p,x) ∧ P(p,y) ∧ ¬F(x) ∧ x≠y ∧ x≠z ∧ y≠z )
 
 // x is aunt of y
-A(x,y) = ∃y∃p∃g∃x( P(p,y) ∧ P(g,p) ∧ P(g,x) ∧ F(x) )
+A(x,y) = ∃y∃p∃g∃x( P(p,y) ∧ P(g,p) ∧ P(g,x) ∧ F(x) ∧ x≠y ∧ x≠p ∧ x≠g ∧ p≠g ∧ p≠y ∧ g≠y)
 
 // x is cousin of y
-C(x,y) = ∃x∃p∃g∃u∃y( P(p,x) ∧ P(g,p) ∧ P(g,u) ∧ P(u,y) )
+C(x,y) = ∃x∃p∃g∃u∃y( P(p,x) ∧ P(g,p) ∧ P(g,u) ∧ P(u,y) ∧ x≠y ∧ x≠p ∧ x≠g ∧ x≠u ∧ p≠g ∧ p≠y ∧ p≠u ∧ g≠y ∧ g≠u))
 
 // x is an only child
 O(x) = ∃x∃p( P(p,x) ∧ ∀y( P(p,y) → y=x ) )
