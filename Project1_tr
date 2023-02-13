@@ -128,24 +128,33 @@ explain why:
 
 (a)  B that says that x is a brother of y
 
-B ≡ M ⊓ ∃parentOf^-.(∃parentOf≥2)
+Person ≡ M ⊔ ¬M
+p2 (parent of at least 2 children) ≡ ∃parent_of.Person≥2
+[n.b., The inverse of p2 means, I take it, that 2 children have a parent; not sure how to specify that it is the same parent.]
+
+B ≡ M ⊓ ∃p2¯.Person
 
 (b)  A that says that x is an aunt of y
 
-A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
+A ≡ ¬M ⊓ (∃p2¯.(parent_of≥ 2. (∃parent_of. Person)) ⊔ ¬∃parent_of.Person)
 
 (c)  C that says that x and y are cousins
 
-C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
-
+gp2 (Grandparent with at least two children-parents) ≡ parentof≥2. (∃parentof.Person)
+  
+C ≡ gp2¯.Person
+  
 (d)  O that says that x is an only child  
 
-O ≡ ∃parentOf^-.(∃parentOf.≤1)
+parent_only (parent of exactly one child) ≡ (parent_of.Person≥1 ) ⊓ (parent_of.Person≤1)
+
+O ≡ ∃parent_only¯.Person
 
 (e)  T that says that x has exactly two brothers
 
-T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
+p3m (parent of exactly three male children) ≡ (parent_of≥3.Male) ⊓ (parent_of≥3. Male) 
 
+T ≡ ∃p3m¯.Person
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, 
@@ -157,7 +166,7 @@ K = (T, A)
 (b)  A that says that [y] is an aunt of [w]
 
 T.box= {Brother ⊆ Male    (TBox.a)
-	      Aunt ⊆ ~Male}		  (TBox.b)
+	Aunt ⊆ ~Male}	  (TBox.b)
 
 A.box=  {John: Bro ∩ male            (Ax1)
          Paul: Bro ∩ male            (Ax2)
@@ -213,7 +222,7 @@ graph LR
    `--------------^
   
   U: {0,1,2}
-  R: {(0,1), (0,2), (1,2)}
+  R: {(0,1),(0,2),(1,2)}
   
   
   
