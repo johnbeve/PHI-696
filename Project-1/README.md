@@ -195,9 +195,9 @@ Abox
 - https://www.geeksforgeeks.org/mathematic-logic-predicates-quantifiers/ I found a neat little table explaining quantifiers here
 - http://www.jfsowa.com/peirce/ms514.htm This site is awesome!!!!
 ...
+ - ∀x∃y∀z means in all cases 'x' there exists 'y' which relates to all cases 'z'.
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-- For all vertices there is a vertex that is connected to all other vertices
 ... so (1, 0, 1)
 x is related to y
 x is related to z
@@ -205,18 +205,18 @@ y is related to z
 all by virtue of R
 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+- ∃x∀y∃z states the existence of 'x' relates all cases of 'y' with the existence of 'z'.
 
-- There exists a vertex which is connected to all other vertices connected to a third vertex
 ... so, (0,1,0)
 x is related to y
 x is related to z
 and y is related to z 
 all by virtue of R
-  
-x ---> y
-|->z <-|
-
-I believe this models the second one, and not the first. I believe I'm deeply misunderstanding something though because I can't shake the feeling that the first variable in each relation is somehow the 'active' member, hence the direction of my graph's arrows. Is this true, or do relations in logic not work on this dynamic?
+    
+The reason why this models the second statement and not the first is because the first statement starts off by quantifying that "for all x, there exists y that bears a relation to all variables z". If this were the case, there would be such a thing as R(y,y). The second statement only quantifies by saying all ys are related to z, which makes space for R(y,¬y). 
+    R
+ x ---> y
+R|->z <-| R
 
 ```
 	
