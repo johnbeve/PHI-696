@@ -103,22 +103,26 @@ discount half-siblings as siblings.
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  	B ≡ Person⊓M⊓∃parent_of.Person        (I don't like this because I think if anything, I've defined "Father", and still don't know how I'm to tackle the 
-						identity issue I mention in subsequent subproblems)
+  	I can't define this relation because I don't see how to employ identity relations.
+	
   (b)  A that says that x is an aunt of y
-  	I can't define this relations because I don't see how to employ identity relations.
+  	I can't do this with the current set of gender concept names.
+	
   (c)  C that says that x and y are cousins
-  	I can't define this relations because I don't see how to employ identity relations.
+  	 I can't define this relation because I don't see how to employ identity relations.
+	 
   (d)  O that says that x is an only child  
-  	I can't define this relations because I don't see how to employ identity relations.
+  	O ≡ ≤1parent_of−.Person.⊓≥1parent_of−.Person... If I can't use inverse relations, though, this doesn't work. 
+	
   (e)  T that says that x has exactly two brothers 
-  	I can't define this relations because I don't see how to employ identity relations.
+  	hasTwoBrothers ≡ Person⊓≤2brother_of.Person.⊓≥2brother_of.Person. This would work if I had a brother_of relation... but alas. 
+  
   ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-	
+	Since I don't really have any acceptable formulas... 
 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
