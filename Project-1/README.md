@@ -139,31 +139,29 @@ C→¬A ≡ ¬C∨¬A
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
- - Identify role bearing in concept
- - A brother is a male child with all cases of a parent relation to two individuals
- person ≡ M ⊔ ¬M
- 
-∀B.person
-∀B.M
-B ≡ ∃parentof.M ⊓ ∀parentof.person
+
+B:= ∃parent_of.n⊓(∃≥1.M)
   
   (b)  A that says that x is an aunt of y
-  
+ F⊑.¬M
+ M⊓F≡T
+ 
  A ≡ ∃parentof.¬M ⊓
  ...
- - During some meetings in the past week I got a feel for the logic behind the answers Giacomo and Ali provided to these questions.
- - If I understood the syntax of ALC, here are some things I would like to do:
-- Establish a concept of 'parent' to denote anything that bears the parent role
-- That way, I could use a similar syntax to the one in question 3b. An aunt is a not-male who has a parent, and that parent has another parent as a child.
   
   (c)  C that says that x and y are cousins 
   
   - Ali and Giacomo showed me how description logic can only be used to write formulas describing either concepts or roles. Because the statement 'x and y are cousins' involves more than two concepts and a relation between them, it cannot be formulated into one sentence in FOL. 
  - With this said, ∀C.person 
- 
-  (d)  O that says that x is an only child
-  
-  (e)  T that says that x has exactly two brothers 
+
+(d)  O that says that x is an only child
+
+0 := (∃parent_of.1)⊓(parent_of.≠¬1)
+
+(e)  T that says that x has exactly two brothers 
+
+T := ∃parent_of.3⊓(∃≥2M)
+
 ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
