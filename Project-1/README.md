@@ -157,18 +157,21 @@ There exists a parent relationship between z and children u and w. u does not eq
   
   (c)  C that says that x and y are cousins 
   
+  C:=
+  
   (d)  O that says that x is an only child
 
-0 := ∃parent_of.0
+0 := (∃parent_of.1)⊓(parent_of.≠¬1)
 
   (e)  T that says that x has exactly two brothers 
 
-T := ∃parent_of.2⊓∀M
+T := ∃parent_of.3⊓
 
 ```
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+T boxes contain axioms about what is true in the vocabulary (like B
 Domain (???) {x, y, Male, parent_of}
 Concepts: Male
 Role: Parent_Of
