@@ -32,12 +32,27 @@ Tip #4: Work together _as a team_.
   
 ```
 
-2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
+
 Tex = {PP = ∃P.~P         (Tex. 1)
+
       iPP = PP¯           (Tex. 2)
+      
       iP = P¯             (Tex. 3)
+      
       O = ∃P¯.(∃P)        (Tex. 4)
+      
       D = ~O              (Tex. 5)
+      
+      P⊆PP                (Tex. 6)
+      
+      iP⊆iPP              (Tex. 7)}
+      
+Aex = {(New York, United States): part_of        (Aex. 1)
+
+      (United States, North America): part_of    (Aex. 2)
+      
+      (United States, New York): inverse_part_of (Aex. 3)
       
       
 
