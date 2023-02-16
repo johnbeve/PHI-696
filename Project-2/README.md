@@ -51,10 +51,12 @@ A box
 
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+- ALC does not include conditionals or biconditionals in its syntax, so first I'm going to re-express the given formula without them:
+∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y)))) ≡ ∀y(R(x,y) ∨ ¬(∃x(R(y,x))) ∧ ∀y(R(x,y)∨ ¬A(y))
 
 
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
-
+(∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y)) ≡ (∀y)(R(x, y) ∨ ¬A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
