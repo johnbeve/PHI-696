@@ -10,27 +10,28 @@ Tip #4: Work together _as a team_.
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
-  (a)  PP that says that x is a proper part of y
-  
+  (a)  PP that says that x is a proper part of y 
 - A proper part is like a one-sided (subsumption) relationship (Finn)
+- Finn, Giacomo, Ali: PP:= ∃P.~P OR ∃(P⊓P^_)
 
-Finn, Giacomo, Ali: PP:= ∃P.~P OR ∃(P∧P^_)
-
-P means x is a part of y or 
-~P means x is not a part of y
-P^_ means y is a part of x
+- P means x is a part of y
+- ~P means x is not a part of y
+- P^_ means y is a part of x
   
   (b)  iPP that says that y is a proper part of x
- Finn, Giacomo, Ali: PP ^_
+ - Finn, Giacomo, Ali: iPP:= PP^_
  
   (c)  iP that says that y has x as part 
 iP := P^_
 
   (d)  O that says that x overlaps y
-
- 
+ - Pulled from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1175958/: "r1 overlap r2 = [definition] for some r, r part_of r1 and r part_of r2."
+0 := ∃P.P^_
+ - Could ∃(P⊓P^_) also work for the above?
  
   (e)  D that says that x and y are disjoint 
+D:= 0^_
+
 ``` 
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
