@@ -45,9 +45,17 @@ A box
 3. Translate the following first-order logic axioms into ALC: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+
+
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
+
+
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
@@ -57,11 +65,19 @@ A box
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```(a) ∃x∀y and ∀x∃y
   
-  there exists an x that is related to every y VS. every x is related to the existence of y.
-  
+  there exists an x that is related to every y
+  VS.
+  every x is related to the existence of y
   
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  there exists an x that is related to every y where there exists z 
+  VS. 
+  every x is related to the existence of y bearing a relation to every z
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  every x is related to the existence of y bearing a relation to every z where there exists w 
+  VS.
+  there exists an x that is related to every y where there exists z with all cases w
   
 ```
 
