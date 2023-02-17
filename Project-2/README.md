@@ -10,7 +10,7 @@ Tip #4: Work together _as a team_.
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
   (a)  PP that says that x is a proper part of y
-  
+ 
   (b)  iPP that says that y is a proper part of x
   
   (c)  iP that says that y has x as part 
@@ -42,19 +42,27 @@ I will assume {a} to be Donnie
 ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
 
 (a) ∃r.C and ∀r.C
+
 (a) ∃ParentOf.Capricornchild: Things with a Capricorn child
+
 (a) ∀ParentOf.Capricornchild: Things all of whose children are Capricorn 
 
 (b) ∃r-.C and ∀r-.C
+
 (b) ∃r-.C and ∀r-.C∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+
 (b) ∀ParentOf-.ParentedCapricornchild: All things that parent are things that parent Capricorn children
 
 (c) <=nr and <=nr.C
+
 (c) at most n R
+
 (c) at most n ParentOf.Capricornchild: There is at most n of things that are parents of Capricorn children
 
 (d) ∃r-.C and ∃r-.{a} 
+
 (d) ∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+
 (d) ∃ParentOf-.ParentedDonnie: Things that parent Donnie
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the finite model property. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
@@ -66,7 +74,11 @@ I will assume {a} to be Donnie
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences:
 
   (a) a is a proper part of b and disjoint from e
+  
   (b) a overlaps c
+  
   (c) a is part of b, b is part of f, and a is part of f
+  
   (e) There are no parts between a and g in common
+  
 Provide a screenshot of your results here.
