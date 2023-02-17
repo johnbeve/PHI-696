@@ -64,22 +64,10 @@ A box
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 
-6. Explain the difference - using natural language - between the first-order prefixes:
-  ```(a) ∃x∀y and ∀x∃y
-  
-  there exists an x that is related to every y
-  VS.
-  every x is related to the existence of y
-  
-  (b) ∃x∀y∃z and ∀x∃y∀z 
-  there exists an x that is related to every y where there exists z 
-  VS. 
-  every x is related to the existence of y bearing a relation to every z
-  
-  (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
-  every x is related to the existence of y bearing a relation to every z where there exists w 
-  VS.
-  there exists an x that is related to every y where there exists z with all cases w
+6. (a) ∃r.C and ∀r.C
+(b) ∃r-.C and ∀r-.C
+(c) <=nr and <=nr.C
+(d) ∃r-.C and ∃r-.{a} 
   
 ```
 
