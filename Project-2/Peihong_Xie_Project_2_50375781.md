@@ -20,14 +20,87 @@ Tip #4: Work together as a team.
 
 Answer:
 
-*p1** (be a part of at least one thing) ≡ (≥1 part_of) -- the inverse of p1 namely $P1^-$ is "be a whole of"
+(a) $PP ≡ P\sqcap ¬P^-$
 
-(a) $PP ≡ P\sqcap \bot$
+(b) $iPP ≡ P^-\sqcap ¬P$
 
+(c) $iP ≡ P$
 
+(d) $O ≡ ∃P^-.(∃P.\top)$
 
+(e) $D ≡  ∀P^-.(∀P.\bot)$
 
 [2] Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+Answer:
+
+K = (T,A) such that
+
+T={$PP ≡ P\sqcap ¬P^-$,
+
+$iPP ≡ P^-\sqcap ¬P$,
+
+$iP ≡ P$,
+
+$O ≡ ∃P^-.(∃P.\top)$,
+
+$D ≡  ∀P^-.(∀P.\bot)$,
+
+$TP (partOfPartof) ≡ P.(P)$,
+
+$SI (selfIdenticalTo) ≡ P\sqcap P^-$}
+
+A={(Handle,Door):P, (Karl,Mary):D, (Karlhead,Karl):P, (Maryhand,Mary):P}
+
+
+The following is a model $\Im=(\bigtriangleup^\Im,.^\Im)$ of K:
+
+$\bigtriangleup^\Im$={a,b,c,d,e,f}
+
+$P^\Im$={(a,b), (e,c), (f,d),(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
+
+$P¯^\Im$={(b,a), (c,e), (d,f),(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
+
+$PP^\Im$={(a,b), (e,c), (f,d)}
+
+$iPP^\Im$={(b,a), (c,e), (d,f)}
+
+$iP^\Im$={(a,b), (e,c), (f,d),(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
+
+$O^\Im$={(a,b), (e,c), (f,d),(b,a), (c,e), (d,f)}
+
+$D^\Im$={(c,d), (d,c), (b,c), (c,b), (b,d), (d,b), (a,e),(e,a),(a,f),(f,a),(e,f),(f,e),(a,c),(c,a),(a,d),(d,a),(b,e),(e,b),(d,e),(e,d),(b,f),(f,b),(c,f),(f,c)}
+
+$TP^\Im$=$\emptyset$
+
+$SI^\Im$={(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
+
+
+$Handle^\Im$={a}
+
+$Door^\Im$={b}
+
+$Karl^\Im$={c}
+
+$Mary^\Im$={d}
+
+$Karlhead^\Im$={e}
+
+$Maryhand^\Im$={f}
+
+
+This model seems very complex at first glance, but it is actually intuitive: Imagine two persons Karl and Mary, and a door called "Door". Karl has a head called "Karlhead", Mary has a hand called "Maryhand", and Door has a handle called "Handle". My model is designed to describe in detail mereological relations between them.
+```mermaid
+classDiagram
+class Door
+    Door : Handle
+
+class Karl
+    Karl : Karlhead
+
+class Mary
+    Mary : Maryhand
+```
 
 [3] Translate the following first-order logic axioms into ALCI: 
 ```
@@ -46,10 +119,6 @@ Answer:
 (c) $∀R.(∃R^-.(∀R.A))$
 
 (d) $∀R.A\sqcap∃R.B$
-
-
-
-
 
 [4] Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
