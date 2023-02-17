@@ -37,13 +37,25 @@ Tip #4: Work together _as a team_.
 
 6. Explain the difference - using natural language - between the description logic expressions:
 
+I will make the assumption (if allowed) the Role is Parent of. and C is the concept Capricorn child
+I will assume {a} to be Donnie
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
+
 (a) ∃r.C and ∀r.C
+(a) ∃ParentOf.Capricornchild: Things with a Capricorn child
+(a) ∀ParentOf.Capricornchild: Things all of whose children are Capricorn 
 
 (b) ∃r-.C and ∀r-.C
+(b) ∃r-.C and ∀r-.C∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+(b) ∀ParentOf-.ParentedCapricornchild: All things that parent are things that parent Capricorn children
 
 (c) <=nr and <=nr.C
+(c) at most n R
+(c) at most n ParentOf.Capricornchild: There is at most n of things that are parents of Capricorn children
 
 (d) ∃r-.C and ∃r-.{a} 
+(d) ∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+(d) ∃ParentOf-.ParentedDonnie: Things that parent Donnie
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the finite model property. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
