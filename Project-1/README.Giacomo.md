@@ -17,28 +17,24 @@ Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
   ```
   (a) (¬A→B)∨((A∧¬C)→B)
 Tautology (see image)
-![1-a](https://user-images.githubusercontent.com/117365623/219531269-1fbc6a49-f023-402e-a7ac-661ef785cf4e.png)
 
-   
-<img width="205" alt="7" src= https://user-images.githubusercontent.com/117365623/219530920-e372b761-5f7a-4d10-b351-57d280b03044.png>
-
-
+![1-a](https://user-images.githubusercontent.com/117365623/219532218-b320ca56-94c7-4d2a-bf7e-5bde0ff53674.png)
 
 
   (b) (A→B)∧(A→¬B)
 Contingent (see image)
 
-![1-b](https://user-images.githubusercontent.com/117365623/218544900-f0888a15-ab53-4016-b860-654132fe64b9.png>
+![1-b](https://user-images.githubusercontent.com/117365623/219532294-ae38dc40-2aac-4d07-a4e0-fda2008f027a.png)
 
 (c) (A→(B∨C))∨(C→¬A) 
 Tautology (see image)
 
-![1-c](https://user-images.githubusercontent.com/117365623/218545360-8301579b-7a83-4c9e-984a-8cfa8aa0dfd1.png)
+![1-c](https://user-images.githubusercontent.com/117365623/219532303-b29aabb7-b639-4690-8002-bff99ba47517.png)
 
   (d) ((A→B)∧C)∨(A∧D) 
 Contingent (see image)
 
-![1-d](https://user-images.githubusercontent.com/117365623/218545382-d9b88607-891c-4c02-a755-d24eade1d933.png)
+![1-d](https://user-images.githubusercontent.com/117365623/219532316-0642f948-2325-4931-9545-a329a76a44e7.png)
 
   ```
 	
