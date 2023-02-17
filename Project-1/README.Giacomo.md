@@ -18,12 +18,16 @@ Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
   (a) (¬A→B)∨((A∧¬C)→B)
 Tautology (see image)
 
-![1-a](https://user-images.githubusercontent.com/117365623/218544866-9948904c-1f52-4f05-a6b9-bdb9fa0104aa.png)
+   
+<img width="205" alt="7" src= https://user-images.githubusercontent.com/117365623/219530920-e372b761-5f7a-4d10-b351-57d280b03044.png>
+
+
+
 
   (b) (A→B)∧(A→¬B)
 Contingent (see image)
 
-![1-b](https://user-images.githubusercontent.com/117365623/218544900-f0888a15-ab53-4016-b860-654132fe64b9.png)
+![1-b](https://user-images.githubusercontent.com/117365623/218544900-f0888a15-ab53-4016-b860-654132fe64b9.png>
 
 (c) (A→(B∨C))∨(C→¬A) 
 Tautology (see image)
