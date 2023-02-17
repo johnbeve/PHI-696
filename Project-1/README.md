@@ -117,23 +117,23 @@ C→¬A ≡ ¬C∨¬A
 
   ```(a)  B(x,y) that says that x is a brother of y
   
-   B(x,y) ≡ ¬F(x)∧P(z,y)∧P(z,x)
+   B(x,y) ≡ (∃x)(∃y)(∃z)∧¬F(x)∧P(z,y)∧P(z,x)∧
   
   (b)  A(x,y) that says that x is an aunt of y
   
-   A(x,y) ≡ F(x)∧P(g,x)∧P(g,z)∧P(z,y)
+   A(x,y) ≡ (∃x)(∃y)(∃z)(∃g)∧F(x)∧P(g,x)∧P(g,z)∧P(z,y)∧
 
   (c)  C(x,y) that says that x and y are cousins 
   
- C(x,y) ≡ (z,u)∧P(z,w)∧P(w,x)∧P(u,y)
+ C(x,y) ≡ (∃x)(∃y)(∃z)(∃w)(∃u)∧(z,u)∧P(z,w)∧P(w,x)∧P(u,y)∧
  
   (d)  O(x) that says that x is an only child
   
-  O(x) ≡ P(z,x)∧P(z,y)∧(x=y)
+  O(x) ≡ (∃x)(∃y)(∃z)∧P(z,x)∧P(z,y)∧(x=y)∧(z≠(x∨y))
   
   (e)  T(x) that says that x has exactly two brothers 
   
- T(x)≡ ¬F(y)¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧P(g,w)((w=y)∨(w=z)∨(w=x))
+ T(x)≡ (∃x)(∃y)(∃z)(∃g)(∃w)¬F(y)¬F(z)∧P(g,x)∧P(g,y)∧P(g,z)∧P(g,w)((w=y)∨(w=z)∨(w=x))
 
 ```
 
