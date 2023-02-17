@@ -17,6 +17,7 @@ Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
   ```
   (a) (¬A→B)∨((A∧¬C)→B)
 Tautology (see image)
+![1-a](https://user-images.githubusercontent.com/117365623/219531269-1fbc6a49-f023-402e-a7ac-661ef785cf4e.png)
 
    
 <img width="205" alt="7" src= https://user-images.githubusercontent.com/117365623/219530920-e372b761-5f7a-4d10-b351-57d280b03044.png>
