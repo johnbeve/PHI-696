@@ -10,11 +10,14 @@ Tip #4: Work together _as a team_.
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
   (a)  PP that says that x is a proper part of y
- 
-  (b)  iPP that says that y is a proper part of x
+  (a) Not definable 
   
-  (c)  iP that says that y has x as part 
+  (b) iPP that says that y is a proper part of x
+  (b) Not deinable 
   
+  (c) iP that says that y has x as part 
+  (c) iP ≡ ∀part_of-.
+   
   (d)  O that says that x overlaps y
   (d)  not definable 
   
@@ -23,49 +26,59 @@ Tip #4: Work together _as a team_.
   
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a model of K. This may be graphical or symbolic or both.
 
+TBox:
+
 3. Translate the following first-order logic axioms into ALCI:
 
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+(a)
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+(b)
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+(c)
 
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
+(d)
 
 4. Provide an interpretation I1 for ALC and an interpretation I2 for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the mermaid syntax of markdown to provide a graphical representation of your work. Feel free to use the mermaid live editor when diagramming.
 
+
+
 5. Provide an interpretation I1 for ALC and an interpretation I2 for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that does not demonstrate ALCN is more expressive than ALC. Use the mermaid syntax of markdown to provide a graphical representation of your work. Feel free to use the mermaid live editor when diagramming.
+
+
 
 6. Explain the difference - using natural language - between the description logic expressions:
 
-I will make the assumption (if allowed) the Role is Parent of. and C is the concept Capricorn child
+I will make the assumption (if allowed) the Role is Biological Parent of. and C is the concept Capricorn child
 I will assume {a} to be Donnie
-⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∃ ∀
 
 (a) ∃r.C and ∀r.C
 
-(a) ∃ParentOf.Capricornchild: Things with a Capricorn child
+(a) ∃ParentOf.Capricorn: Things that are biological parents of Capricorns
 
-(a) ∀ParentOf.Capricornchild: Things all of whose children are Capricorn 
+(a) ∀ParentOf.Capricorn: All biological parents of Capricorns 
 
 (b) ∃r-.C and ∀r-.C
 
-(b) ∃r-.C and ∀r-.C∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+(b) ∃r-.C and ∀r-.C∃ParentOf-.Capricorn: Things that are biological children of parents are Capricorns 
 
-(b) ∀ParentOf-.ParentedCapricornchild: All things that parent are things that parent Capricorn children
+(b) ∀ParentOf-.ParentedCapricorn: All things that are biological children of parents are Capricorns
 
 (c) <=nr and <=nr.C
 
-(c) at most n R
+(c) at most n Parent of
 
-(c) at most n ParentOf.Capricornchild: There is at most n of things that are parents of Capricorn children
+(c) at most n ParentOf.Capricorn: There is at most n of things that are parents of Capricorn children
 
 (d) ∃r-.C and ∃r-.{a} 
 
-(d) ∃ParentOf-.ParentedCapricornchild: Things that parent a Capricorn child
+(d) ∃ParentOf-.Capricorn: Things that are biological children are Capricorns
 
-(d) ∃ParentOf-.ParentedDonnie: Things that parent Donnie
+(d) ∃ParentOf-.Donnie: Things that are biological children of Donnie are Capricorns
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the finite model property. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
