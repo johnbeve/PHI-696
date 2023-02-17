@@ -45,7 +45,7 @@ A box
 3. Translate the following first-order logic axioms into ALC: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-R(x,y) is R.y (?)
+
 
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
@@ -67,6 +67,7 @@ R(x,y) is R.y (?)
 
 6. Explain the difference - using natural language - between the description logic expressions:
 (a) ∃r.C and ∀r.C
+
 
 (b) ∃r-.C and ∀r-.C
 - An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. The expression means 'there is a C being r'd'. The second expression has a universal quantifier, so it means 'all C's are being r'd'.
