@@ -15,30 +15,62 @@ Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
 
 1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
   ```
-  (a) (¬A→B)∨((A∧¬C)→B)
-Tautology (see image)
+  (a) (¬A→B)∨((A∧¬C)→B: Tautology**  
 
-<img width="289" alt="8-c" src="https://user-images.githubusercontent.com/117365623/219532218-b320ca56-94c7-4d2a-bf7e-5bde0ff53674.png">
+| A | B | C | ((¬A → B) ∨ ((A ∧ ¬C) → B)) |  
+|:---:|:---:|:---:|:-----------------------------:|
+| F | F | F | T                           |   
+| F | F | T | T                           |   
+| F | T | F | T                           |   
+| F | T | T | T                           |   
+| T | F | F | T                           |  
+| T | F | T | T                           |   
+| T | T | F | T                           |   
+| T | T | T | T                           |   
 
-![1-a](https://user-images.githubusercontent.com/117365623/219532218-b320ca56-94c7-4d2a-bf7e-5bde0ff53674.png)
+**(b) (A→B)∧(A→¬B): Contingent**
+  
+| A | B | ((A → B) ∧ (A → ¬B)) |
+|:-:|:-:|:--------------------:|
+| F | F |           T          |  
+| F | T |           T          |   
+| T | F |           F          |   
+| T | T |           F          |
+  
+**(c) (A→(B∨C))∨(C→¬A): Tautology**
 
+| A | B | C | ((A → (B ∨ C)) ∨ (C → ¬A)) |   
+|:-:|:-:|:-:|:--------------------------:|
+| F | F | F |              T             |   
+| F | F | T |              T             |   
+| F | T | F |              T             |   
+| F | T | T |              T             |   
+| T | F | F |              T             |   
+| T | F | T |              T             |   
+| T | T | F |              T             |   
+| T | T | T |              T             |   
+  
+**(d) ((A→B)∧C)∨(A∧D): Contingent**
 
-  (b) (A→B)∧(A→¬B)
-Contingent (see image)
+| A | B | C | D | (((A → B) ∧ C) ∨ (A ∧ D)) |
+|:-:|:-:|:-:|:-:|:-------------------------:|
+| F | F | F | F |             F             |
+| F | F | F | T |             F             |
+| F | F | T | F |             T             |
+| F | F | T | T |             T             |
+| F | T | F | F |             F             |
+| F | T | F | T |             F             |
+| F | T | T | F |             T             |
+| F | T | T | T |             T             |
+| T | F | F | F |             F             |
+| T | F | F | T |             T             |
+| T | F | T | F |             F             |
+| T | F | T | T |             T             |
+| T | T | F | F |             F             |
+| T | T | F | T |             T             |
+| T | T | T | F |             T             |
+| T | T | T | T |             T             |
 
-![1-b](https://user-images.githubusercontent.com/117365623/219532294-ae38dc40-2aac-4d07-a4e0-fda2008f027a.png)
-
-(c) (A→(B∨C))∨(C→¬A) 
-Tautology (see image)
-
-![1-c](https://user-images.githubusercontent.com/117365623/219532303-b29aabb7-b639-4690-8002-bff99ba47517.png)
-
-  (d) ((A→B)∧C)∨(A∧D) 
-Contingent (see image)
-
-![1-d](https://user-images.githubusercontent.com/117365623/219532316-0642f948-2325-4931-9545-a329a76a44e7.png)
-
-  ```
 	
 2. A _literal_ is an atomic formula or the negation of an atomic formula. We say a formula is in _conjunctive normal form_ (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
   ```
