@@ -85,15 +85,16 @@ T	T	T	T	T
   (d)  O(x) that says that x is an only child
   (e)  T(x) that says that x has exactly two brothers 
 
-```(a) ∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx) - There is some x and some y and some z such that z is the parent of y and z is the parent x and x is not female
+```(a) ∀x∀y∀z(P(z,x) ∧ P(z,y) ∧ ¬Fx → z≠y ∧ x≠y ∧ z≠x) - For all cases of x and for all cases of y and for all cases of z if z is the parent of x and z is the parent of y and x is not male then z is not identical with y and x is not is not identical with y and z is not identical with x.
 
-(b) ∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx) - There is some w and some x and some y and some z such that z is the parent of y and w is the parent of z and w is the parent of x and x is female
+(b) ∀v∀w∀x∀y∀z(((P(z,y)∧P(w,z)∧P(w,x)∧Fx) → z≠y∧x≠y∧w≠x∧w≠z∧y≠w) v ((P(z,y)∧(P(w,z)∧(P(v,x)∧Fx)→ z≠y∧ x≠y∧ w≠v ∧ x≠v ∧ y≠v)) - For all cases of v and all cases of w and all cases of x and all cases of y and all cases of z if z is the parent of y and w is parent of z and w is the parent of x and x is female then z is not indetical with y and x is not identical with y and w is not identical with x and w is not identical with z and y is not indetical with w OR z is the parent of y and w is the parent of z and v is the parent of x and x if female then z is not identical with y and x is not identical with y and w is not identical with v and x is not identical with v and y is not identical with v
+(woof, I hope that captures it)
 
 (c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
 
 (d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
 
-(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female ten z is identical with w or z is identical with w or z is identical with y
+(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female then z is identical with w or z is identical with w or z is identical with y
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -104,75 +105,15 @@ T	T	T	T	T
 ```
 ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤
 
-   First attempts
-
-  (a) $B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
-  (a)  B ≡ M ⊓ ∃parentOf^-. (∃parentOf≥2)
-  (a) assuming gender binary determined by chromosomes 
-
-  (b)  A that says that x is an aunt of y
-  (b)  $A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
-  (b)  A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
-  (b) assuming gender binary determined by chromosomes 
-
-  (c)  C that says that x and y are cousins 
-  (c)  $C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
-  (c)  C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
-
-  (d)  O that says that x is an only child
-  (d) $O ≡ ∃parentOf^-.(∃parentOf\le1)$
-  (d) O ≡ ∃parentOf^-.(∃parentOf.≤1)
-
-  (e)  T that says that x has exactly two brothers 
-  (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ge3∃parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2∃parentOf.M \sqcap \ge2∃parentOf.M))$
-  (e)  T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
-
-Per suggestions given by Ali, Giacomo, and Karl  
-
-a) B that says that x is a brother of y
-
-Per (Person) ≡ M ⊔ ¬M
-p2 (Parent of 2) ≡ ∃parentof. ≥ 2 ⊓ ¬(∃parentof. = 1) -- assuming gender is assigned based on chromosome 
-B ≡ M ⊓ ∃p2¯.Per
-
-(b) A that says that x is an aunt of y
-
-∃p2¯.parentof.parentof.Per
-A ≡ ¬M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ (¬parentof. Per ⊓ ∃p2¯.parentof.parentof.Per)
-U(uncle) ≡ M ⊓ (∃p2¯. (parentof. ≥ 2).(parentof.Per)) ⊔ ¬parentof.Per
-
-(c) C that says that x and y are cousins
-
-gp2(Grandparent with at least two children which each have children) ≡ ∃parentof ≥ 2.parentof.Per
-C ≡ gp2¯.per
-Cannot define "being cousins" in description logic.
-
-(d) O that says that x is an only child
-O ≡ ¬ ∃p2¯.Per
-
-(e) T that says that x has exactly two brothers
-This cannot be done 
+(a) Not possible to define using ALC -- not expressive enough
+(b) Not possible to define using ALC -- not expressive enough
+(c) Not possible to define using ALC -- not expressive enough
+(d) Not possible to define using ALC -- not expressive enough
+(e) Not possible to define using ALC -- not expressive enough
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
 
- TBox = {Brother ⊆ Male,		(TBox.1)
-	Aunt ⊆ ~Male}		(TBox.2)
-
-Donnie = {Frank: Brother ∩ Male		(Axiom.1)
-	Remi: Brother ∩ Male		(Axiom.2)
-	Mary: Aunt			(Axiom.3)
-	(Donnie, Frank): parent_of	(Axiom.4)
-	(Donnie, Remi): parent_of}		(Axiom.5)
-	
-ΔI = {w, x, y, z},
-Donnie = w
-Remi = x
-Mary = y
-Frank = z
-Male = {w, x}
-Brother = {w, x}
-Aunt = {y}
-Parent_of = {(z,w), (z,x)}
+No usable formulas due to the inability to express anything in question #4
 
 6. Explain the difference - using natural language - between the first-order prefixes:
  ```(a) ∃x∀y and ∀x∃y
