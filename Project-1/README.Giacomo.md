@@ -18,6 +18,8 @@ Other symbols: ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡
   (a) (¬A→B)∨((A∧¬C)→B)
 Tautology (see image)
 
+<img width="289" alt="8-c" src="https://user-images.githubusercontent.com/117365623/219532218-b320ca56-94c7-4d2a-bf7e-5bde0ff53674.png">
+
 ![1-a](https://user-images.githubusercontent.com/117365623/219532218-b320ca56-94c7-4d2a-bf7e-5bde0ff53674.png)
 
 
