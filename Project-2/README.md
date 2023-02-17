@@ -45,6 +45,7 @@ A box
 3. Translate the following first-order logic axioms into ALC: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+R(x,y) is R.y (?)
 
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
@@ -64,10 +65,17 @@ A box
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 
-6. (a) ∃r.C and ∀r.C
+6. Explain the difference - using natural language - between the description logic expressions:
+(a) ∃r.C and ∀r.C
+
 (b) ∃r-.C and ∀r-.C
+- An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. The expression means 'there is a C being r'd'. The second expression has a universal quantifier, so it means 'all C's are being r'd'.
+
 (c) <=nr and <=nr.C
+- '<=n' in either case is a number restriction meaning 'fewer or equal to n instances'. The first expression specifies there are fewer than or equal to n instances of the relation 'r', while the second is an element of the concept C set and therefore means there are 'fewer than or equal to n instances of the relation r bearing in C'.
+
 (d) ∃r-.C and ∃r-.{a} 
+- An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. There could be multiple instances of C being 'r'd'. '{a}', on the other hand, is an atomic concept. It is the only one of its kind, like an individual in its singleton set. It exists as 'r'd' just like C, but there are no interchangeable entities just like it.
   
 ```
 
