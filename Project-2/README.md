@@ -62,12 +62,19 @@ A box
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
+- ALCN is a syntax identical to ALC with "...unqualified number restrictions... concepts of the form (≤nr.T) and (≥nr.T)" (Baader et. al., 63)
+- So, in the textbook, once a set contains more than 1 relation, it can no longer be expressed in ALC.
+
+
+
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
+
+- I feel like this could be done by contrasting (bisimulating?) two solitary sets of relations.
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
 (a) ∃r.C and ∀r.C
-
+- 'There exists C as an r-filler' versus 'All c's are r-fillers'. So, ∃r.C means 'there exists a C being r'd' and ∀r.C means 'all C's are being r'd'
 
 (b) ∃r-.C and ∀r-.C
 - An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. The expression means 'there is a C being r'd'. The second expression has a universal quantifier, so it means 'all C's are being r'd'.
@@ -81,6 +88,7 @@ A box
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
