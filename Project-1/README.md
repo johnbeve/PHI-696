@@ -117,43 +117,30 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
   Answer: 
   
-  Person ≡ M ⊔ ¬M
-  p2 (parent of at least 2 children) ≡ ≥2 ∃parent_of.Person
-  The inverse of p2 means that x is one of at least 2 children produced by y.
-  B ≡ M ⊓ ∃p2¯.Person
+  The formula cannot be defined in ALC, because the defination needs a inverse role name. 
 
   (b)  A that says that x is an aunt of y
   
   Answer: 
-  
-  A ≡ ¬M ⊓ (∃p2¯.(≥ 2 parent_of. (∃parent_of. Person)) ⊔ ¬∃parent_of. Person)
+  The formula cannot be defined in ALC, because the defination needs an inverse role name. 
   
   (c)  C that says that x and y are cousins
   
   Answer: 
-  
-  gp2 (Grandparent with at least two children which each have children) ≡ ≥2 parentof. (∃parentof. Person)
-  
-  C ≡ gp2¯. Person
-
-  But this would only describe one of the two cousins, i.e. "being a cousin of someone" or "having a cousin". We cannot define "being cousins" in description logic.
+  The formula cannot be defined in ALC, because the defination needs number restrictions. 
   
   
   (d)  O that says that x is an only child  
   
   Answer:
   
-  parent_only (be a parent of exactly one child) ≡ (≥1 parent_of. Person) ⊓ (≤1 parent_of. Person)
-  O ≡ ∃parent_only¯.Person
+  The formula cannot be defined in ALC, because the defination needs number restrictions and an inverse role name.
   
   (e)  T that says that x has exactly two brothers
   
   Answer: 
   
-  p3m (be a parent of exactly three male children) ≡ (≥3 parent_of. Male) ⊓ (≤3 parent_of. Male)
-  p1 (be a parent of at least one child) ≡ ≥1 parent_of. Person -- the inverse of p1 is just "be a child of"!
-  T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male))
-
+  The formula cannot be defined in ALC, because the defination needs number restrictions and inverse role names.
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
