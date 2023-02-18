@@ -13,7 +13,7 @@ Tip #4: Work together as a team.
 ```
   (a)  PP that says that x is a proper part of y
   (b)  iPP that says that y is a proper part of x
-  (c)  iP that says that y has x as part 
+  (c)  iP that says that x has y as part 
   (d)  O that says that x overlaps y
   (e)  D that says that x and y are disjoint 
 ```
@@ -24,7 +24,7 @@ Answer:
 
 (b) $iPP ≡ P^-\sqcap ¬P$
 
-(c) $iP ≡ P$
+(c) $iP ≡ P^-$
 
 (d) $O ≡ ∃P^-.(∃P.\top)$
 
@@ -40,7 +40,7 @@ T={$PP ≡ P\sqcap ¬P^-$,
 
 $iPP ≡ P^-\sqcap ¬P$,
 
-$iP ≡ P$,
+$iP ≡ P^-$,
 
 $O ≡ ∃P^-.(∃P.\top)$,
 
@@ -65,7 +65,7 @@ $PP^\Im$={(a,b), (e,c), (f,d)}
 
 $iPP^\Im$={(b,a), (c,e), (d,f)}
 
-$iP^\Im$={(a,b), (e,c), (f,d),(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
+$iP^\Im$={(b,a), (c,e), (d,f),(a,a),(b,b),(c,c),(d,d),(e,e),(f,f)}
 
 $O^\Im$={(a,b), (e,c), (f,d),(b,a), (c,e), (d,f)}
 
@@ -237,7 +237,7 @@ $Spider$= {d}
 
 It is clear that $I_1$ is a model of T<sup>1</sup>, and $Spider$ has an instance _d_ in $I_1$. So $I_1$ is a finite model of $Spider$ with respect to T<sup>1</sup>.
 
-(3) Finite model property (FMP) of a description logic is very important if we wanna design a decidable algorithm for the satisfiability of its concepts, and thus determine a conceptual hierarchy of that logic. But if we want a more expressive description logic like _ALCIN_, then FMP can be sacrified for its expressive power. Also, sometimes we are required to check the consistency of some knowledge base. In that case, FMP is very useful because that knowledge base may not have a finite model. 
+(3) Finite model property (FMP) of a description logic is very important if we wanna design a decidable algorithm for the satisfiability of its concepts, and thus determine a conceptual hierarchy of that logic. But if we want a more expressive description logic like _ALCIN_, then FMP can be sacrified for its expressive power. Also, sometimes we are required to check the consistency of some knowledge base. In that case, FMP is not very useful because that knowledge base may not have a finite model. 
 
 **[8]** Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
@@ -275,27 +275,21 @@ However, if a knowledge base or ontology has only infinite tree models, then TMP
 
 **[9]** Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
-```
-  (a)  PP that says that x is a proper part of y
-  (b)  iPP that says that y is a proper part of x
-  (c)  iP that says that y has x as part 
-  (d)  O that says that x overlaps y
-  (e)  D that says that x and y are disjoint 
-```
-
 Answer:
 
-(a) $PP ≡ P\sqcap ¬P^-$
+![picture 1](c_overlaps_a_1.PNG) 
 
-(b) $iPP ≡ P^-\sqcap ¬P$
+The tableau algorithm generates this inference (c,a):O in such a way:
 
-(c) $iP ≡ P$
+From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff $(\emptyset,A\cup \left \{(c,a):\neg O\right \})$ _is_ not consistent. Here A={(c,a):P,(c,b):O}.
 
-(d) $O ≡ ∃P^-.(∃P.\top)$
+Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*=\left \{(c,a):P,(c,b):O, (c,a)\neg O\right \}$ is inconsistent.
 
-(e) $D ≡  ∀P^-.(∀P.\bot)$
+In order to calculate with the inconsistency problem, the algorithm _expand_ will first apply concept expansion rules to $A^*$ to construct a complete A-box. However, as we notice, $A^*$ does not include any concept, so the application of expansion rules to $A^*$ is empty. 
 
+However, by the fact that P is a sub-property of O and that (c,a):P, the algorithm _expand_ infers that (c,a):O, and thus finds that $A^*$ implies a clash {(c,a):O, (c,a):¬O}. Thus, $expand(A^*)= \emptyset$. 
 
+In light of this, a larger alrorithm _consistent_ which includes the algorithm _expand_ will return "inconsistent". Given Theorem 2.17, we show that $(\emptyset,A)\models(c,a):O$.
 
 **[10]**  Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
@@ -306,3 +300,9 @@ Answer:
 ```
 
 Provide a screenshot of your results here. 
+
+![picture 2](pic_4.PNG) 
+
+![picture 3](pic_2.PNG) 
+
+![picture 4](pic_3.PNG) 
