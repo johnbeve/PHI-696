@@ -261,16 +261,16 @@ Answer:
 
 (a)
 
-![picture 1](tree_1.jpg)
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_1.jpg)
 
 (b)(c)
 
-![picture 2](tree_2.jpg)  
+![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_2.jpg)  
 
 
 (d)
 
-![picture 3](tree_3.jpg)
+![picture 3](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_3.jpg)
 
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
