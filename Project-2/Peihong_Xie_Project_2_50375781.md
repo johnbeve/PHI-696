@@ -281,9 +281,9 @@ Answer:
 
 The tableau algorithm generates this inference (c,a):O in such a way:
 
-From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff $(\emptyset,A\cup \left \{(c,a):\neg O\right \})$ _is_ not consistent. Here A={(c,a):P,(c,b):O}.
+From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff $(\emptyset,A\cup \left\{(c,a):\neg O\right\})$ _is_ not consistent. Here A={(c,a):P,(c,b):O}.
 
-Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*=\left \{(c,a):P,(c,b):O, (c,a)\neg O\right \}$ is inconsistent.
+Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*=\left\{(c,a):P,(c,b):O, (c,a)\neg O\right\}$ is inconsistent.
 
 In order to calculate with the inconsistency problem, the algorithm _expand_ will first apply concept expansion rules to $A^*$ to construct a complete A-box. However, as we notice, $A^*$ does not include any concept, so the application of expansion rules to $A^*$ is empty. 
 
