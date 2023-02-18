@@ -301,6 +301,8 @@ In light of this, a larger alrorithm _consistent_ which includes the algorithm _
 
 Provide a screenshot of your results here. 
 
+Answers:
+
 ![picture 2](pic_4.PNG) 
 
 ![picture 3](pic_2.PNG) 
