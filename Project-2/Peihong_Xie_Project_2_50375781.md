@@ -281,15 +281,15 @@ Answer:
 
 The tableau algorithm generates this inference (c,a):O in such a way:
 
-From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff $(\emptyset,A\cup \left\{(c,a):\neg O\right\})$ _is_ not consistent. Here A={(c,a):P,(c,b):O}.
+From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff ($\emptyset$,$A\cup$ {(c,a):¬O}) _is_ not consistent. Here A={(c,a):P,(c,b):O}.
 
-Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*=\left\{(c,a):P,(c,b):O, (c,a)\neg O\right\}$ is inconsistent.
+Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*$={(c,a):P,(c,b):O, (c,a)¬O} is inconsistent.
 
 In order to calculate with the inconsistency problem, the algorithm _expand_ will first apply concept expansion rules to $A^*$ to construct a complete A-box. However, as we notice, $A^*$ does not include any concept, so the application of expansion rules to $A^*$ is empty. 
 
 However, by the fact that P is a sub-property of O and that (c,a):P, the algorithm _expand_ infers that (c,a):O, and thus finds that $A^*$ implies a clash {(c,a):O, (c,a):¬O}. Thus, $expand(A^*)= \emptyset$. 
 
-In light of this, a larger alrorithm _consistent_ which includes the algorithm _expand_ will return "inconsistent". Given Theorem 2.17, we show that $(\emptyset,A)\models(c,a):O$.
+In light of this, a larger alrorithm _consistent_ which includes the algorithm _expand_ will return "inconsistent". Given Theorem 2.17, we have shown that $(\emptyset,A)\models(c,a):O$.
 
 **[10]**  Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
