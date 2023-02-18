@@ -112,7 +112,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
-  ```
+  
   (a)  B that says that x is a brother of y
 
   Answer: 
@@ -170,6 +170,17 @@ Answer:
 The following graph models the second sentence but not the first sentence:
 Verticles: a, b, c
 Edges: ab, ac, aa (loop)
+
+
+```mermaid
+
+flowchart LR
+
+A((a))---B((b))
+A---C((c))
+A---A
+
+```
 
 See attached picture: image 0.
 
