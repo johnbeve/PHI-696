@@ -96,10 +96,10 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   
-  (a)  B(x,y) ≡ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)
+  (a)  B(x,y) ≡ ∃u(P(u,x)∧P(u,y))∧¬F(x)∧¬(x=y)∧¬(u=x)
 
   
-  (b)  A(x,y) ≡ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)∧¬(x=y)
+  (b)  A(x,y) cannot be defined in this vocabulary because an aunt and her nephew may not have a blood relation and there is no marriage relation available in the vocabulary. 
   
   
   (c)  C(x,y) ≡ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
