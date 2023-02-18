@@ -261,51 +261,17 @@ Answer:
 
 (a)
 
-![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_1.png)
+![picture 1](tree_1.jpg)
 
-∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+(b)(c)
 
-1. ∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))
-2. ¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)
-3. ¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))
-4. ¬(Pa ∧ Qa)
-5. ¬(¬Pa ∨ ¬Qa)
-6. ¬¬Pa (5)
-7. ¬¬Qa (5)
-8. Qa (7)
-9. Pa (6)
+![picture 2](tree_2.jpg)  
 
-Step 9 lead to two branches:
-
-10. ¬Pa(4) x
-
-11.¬Qa (4) x
-
-(b)
-
-![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_2.png)  
-
-∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
-1. ∀y(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))
-2. ¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa)
-3. ¬(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))
-4. 2.¬(Pa ∨ Qa)(1)3.¬(¬Pa ∧ ¬Qa)(1)4.¬Pa(2)5.¬Qa(2)6.¬¬Pa(3)8.Pa(6)
-x
-7.¬¬Qa(3)9.Qa(7)
-x
-
-
-
-
-
-
-(c)
-
-![picture 3](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_3.png)
 
 (d)
 
-![picture 4](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_4.png)
+![picture 3](tree_3.jpg)
+
 
 [9] Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
