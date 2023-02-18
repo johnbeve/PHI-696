@@ -146,25 +146,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
 
 Answer: 
 
-K1=(T1,A1) such that:
-
-T-box 
-
-T1={B ≡ M ⊓ ∃p2¯.Person,
-T ≡ ∃p3m¯.Person ⊔ (¬M ⊓ ∃p1¯. (≥2 parent_of. Male ⊓ ≤2 parent_of. Male)),
-Male ⊑ Person,
-Female ⊑ Person,
-Male  ≡ Person ⊓ ¬ Female}
-	
-A-Box: 
-
-{Person(Julia),Person(Mike),Person (Bob), Person (Paul),
-Male(Mike), Male (Bob),
-Female (Julia),
-B(Julia), B(Bob), B(Mike),
-T(Mary),
-Parent_of(Paul, Mike), Parent_of(Paul,Mary), Parent_of(Paul,Bob)}
-
+There is no formula to choose from Q4, because ALC is not expressive enough. 
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   
