@@ -101,7 +101,14 @@ Answer:
 
 (b) A(x,y) $\leftrightarrow$ ∃u∃w(P(u,y)∧P(w,x)∧P(w,u)∧¬(x=u))∧F(x)
 
-(c) C(x,y) $\leftrightarrow$ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
+(c) C(x,y) $\leftrightarrow$ ∃s∃u∃v∃w∃z(P(w,z)∧P(z,x)∧((P(w,u)∧P(u,y))∨(P(s,w)∧P(s,v)∧P(v,u)∧P(u,y)))∧¬(x=y)
+
+Here consider two situations (by disjunction):
+
+(i) x's parent z has sibiling u (who has the same parent w as z), and y is u's child and thus x's first cousion.
+(ii) x's grandparent w has sibiling v (who has the same parent s as w), and y is a grandchild of v and thus a second cousin of x. 
+
+
 
 (d) O(x) $\leftrightarrow$ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
 
@@ -256,9 +263,41 @@ Answer:
 
 ![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_1.png)
 
+∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+
+1. ∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))
+2. ¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)
+3. ¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))
+4. ¬(Pa ∧ Qa)
+5. ¬(¬Pa ∨ ¬Qa)
+6. ¬¬Pa (5)
+7. ¬¬Qa (5)
+8. Qa (7)
+9. Pa (6)
+
+Step 9 lead to two branches:
+
+10. ¬Pa(4) x
+
+11.¬Qa (4) x
+
 (b)
 
 ![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-1/tree_proof_2.png)  
+
+∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+1. ∀y(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))
+2. ¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa)
+3. ¬(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))
+4. 2.¬(Pa ∨ Qa)(1)3.¬(¬Pa ∧ ¬Qa)(1)4.¬Pa(2)5.¬Qa(2)6.¬¬Pa(3)8.Pa(6)
+x
+7.¬¬Qa(3)9.Qa(7)
+x
+
+
+
+
+
 
 (c)
 
