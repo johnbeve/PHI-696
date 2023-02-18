@@ -102,7 +102,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   (b)  A(x,y) cannot be defined in this vocabulary because an aunt and her nephew may not have a blood relation and there is no marriage relation available in the vocabulary. 
   
   
-  (c)  C(x,y) ≡ ∃u∃w∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y)
+  (c)  C(x,y) ≡ ∃w∃u∃z(P(w,z)∧P(w,u)∧P(z,x)∧P(u,y)∧¬(z=u))∧¬(x=y))v∃k∃m∃n∃g(P(k,m)∧P(k,n)∧P(m,x)∧P(n,g)∧P(g,y)∧¬(m=n)∧¬(n=x)∧¬(g=x)∧¬(n=y)∧¬(m=g)∧¬(y=x))
   
   
   (d)  O(x) ≡ ∃u(P(u,x)∧∀y(P(u,y)→x=y))
