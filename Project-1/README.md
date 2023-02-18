@@ -227,38 +227,39 @@ See attached picture: image 0.
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
 
-  first step: (¬p ∨ ¬q) → ¬(p ∧ q)
+  first step: ∀x((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
    
- 1. ¬p ∨ ¬q          premise
-|2. ¬¬(p ∧ q)        assumption
-|3. p ∧ q            ¬E2
-|4. p                ∧E3
-|5. q                ∧E3
+ 1. ¬Pa ∨ ¬Qa          premise
+|2. ¬¬(Pa ∧ Qa)        assumption
+|3. Pa ∧ Qa            ¬E2
+|4. Pa                ∧E3
+|5. Qa                ∧E3
 |6. ⊥                ⊥I 1,4,5
- 7. ¬¬¬(p ∧ q).      ¬I 2-6
- 8. ¬(p ∧ q)
+ 7. ¬¬¬(Pa ∧ Qa)      ¬I 2-6
+ 8. ¬(Pa ∧ Qa)        VE 1-7
+ 9. ∀x(¬Px ∨ ¬Qx) → ¬(Px ∧ Qx) →I1-8
  
-See the attachment: image 1-2.
 
 
-  Second step: ¬(p ∧ q) → ¬p ∨ ¬q
+  Second step: ∀x ( ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
  
- 1.  ¬(p ∧ q)               premise
-|2.  ¬(¬p ∨ ¬q)             assumption
-| |3.  ¬p                   assumption 
-| |4.  ¬p ∨ ¬q              ∨I3
+ 1.  ¬(Pa ∧ Qa)               premise
+|2.  ¬(¬Pa ∨ ¬Qa)             assumption
+| |3.  ¬Pa                   assumption 
+| |4.  ¬Pa ∨ ¬Qa              ∨I3
 | |5. ⊥                    ⊥I2,4
-|6. p                      ⊥I3-5
-| |7. ¬q                    assmuption
-| |8. ¬p ∨ ¬q               ∨I7
+|6. Pa                      ⊥I3-5
+| |7. ¬Qa                    assmuption
+| |8. ¬Pa ∨ ¬Qa               ∨I7
 | |9. ⊥                    ⊥I2,8
-|10. q                     ⊥I 7-9
-|11. p ∧ q                  ∧I6,10
+|10. Qa                     ⊥I 7-9
+|11. Pa ∧ Qa                 ∧I6,10
 |12. ⊥                     ⊥I1,11
-13. ¬¬(¬p ∨ ¬q)             ⊥I2-12         
-14. ¬p ∨ ¬q                 ¬E13
+13. ¬¬(¬Pa ∨ ¬Qa)             ⊥I2-12         
+14. ¬Pa ∨ ¬Qa                 ¬E13
+15.  ¬(Pa ^ Qa)→( ¬Pa V ¬Qa)  →I1-14
+16. ∀x( ¬(Px ∧ Qx)→( ¬Px v ¬Qx)  ∀I 16
 
-See the attachment: image 1-2.
 
 Third step:  ¬(p v q) → ¬p  ∧ ¬q
 
