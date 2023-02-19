@@ -58,15 +58,41 @@ We need to translate this sentence into DL: Oxy = ∃z.(Pzx ^ Pzy)
 
 **(a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))**
 
+**∃R.(∀R.T) ⊓ ∀R.T**
+
+Remember ∀x∃y(R(x,y)∧Cy) is translated into ∃R.C. So we don’t need to deal with the first quantifier ∀x in translating the formula (a). Now we have only two variables in our translation: ∃y and ∀z.
+
+“∃R.(∀R.T)” is to deal with y, meaning that x has a R-successor y (which is “∀x∃yR(x,y)” says), and y can have any R-successor (which is “∀x∀zR(y,z)” says).
+
+ “∀R.T“ is to deal with z, just meaning that x can have any R-successor (which is “∀x∀zR(x,z)” says).
 
 **(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))**
 
+Given that DL has an implicit universal quantifier at the beginning, here we decided to start from y as the subject of the formula, which is universally quantified. Given y is fixed, then we should do some work such that x and z are successors of y, whatever relation is between them. 
+
+But we know x in R(x,y) is a predecessor but not successor of y, so we want to inverse this part to R¯(y, x). In this way, we get what we want: x is a R¯-successor of y.
+
+R(x,y) = R¯(y,x)
+
+∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))=>
+∃x∀y∃z(R¯(y,x) ∧ R(x,z) ∧ R(y,z))  
+
+**∃R¯.(∃R.⊤) ⊓ ∃R.⊤**
+
+“∃R¯.(∃R.⊤)” is to deal with x and its relation to y
+“∃R.⊤” is to deal with z and its relation to y
 
 **(c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))**
 
+**∀R.∃R.∀R.A**
+
+The inner variable “y” is closed under the outermost quantifier “∀” has to be calculated, this variable falls outside its scope. The DL translation falls in the same order with the closed variable “y” at the front.
 
 **(d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))**
 
+**(∀R.A) ⊓ (∃R.B)**
+
+Each appearance of variable “y” is closed inside the scope of a different quantifier. For this reason, it does not fall inside the scope of the other quantifier.
 
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
