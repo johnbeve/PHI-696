@@ -84,17 +84,19 @@ T	T	T	T	T
   (c)  C(x,y) that says that x and y are cousins 
   (d)  O(x) that says that x is an only child
   (e)  T(x) that says that x has exactly two brothers 
+  
+    ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∀ ∃
 
 ```(a) ∀x∀y∀z(P(z,x) ∧ P(z,y) ∧ ¬Fx → z≠y ∧ x≠y ∧ z≠x) - For all cases of x and for all cases of y and for all cases of z if z is the parent of x and z is the parent of y and x is not male then z is not identical with y and x is not is not identical with y and z is not identical with x.
 
 (b) ∀v∀w∀x∀y∀z(((P(z,y)∧P(w,z)∧P(w,x)∧Fx) → z≠y∧x≠y∧w≠x∧w≠z∧y≠w) v ((P(z,y)∧(P(w,z)∧(P(v,x)∧Fx)→ z≠y∧ x≠y∧ w≠v ∧ x≠v ∧ y≠v)) - For all cases of v and all cases of w and all cases of x and all cases of y and all cases of z if z is the parent of y and w is parent of z and w is the parent of x and x is female then z is not indetical with y and x is not identical with y and w is not identical with x and w is not identical with z and y is not indetical with w OR z is the parent of y and w is the parent of z and v is the parent of x and x if female then z is not identical with y and x is not identical with y and w is not identical with v and x is not identical with v and y is not identical with v
 (woof, I hope that captures it)
 
-(c) ∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)) - There is some v and some w and some x and some y and some z such that v is the parent of w and v is the parent of z and w is the parent of x and z is the parent of y
+(c) ∀v∀w∀x∀y∀z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)  → v≠w  ∧ v≠x ∧ v≠y ∧ v≠z ∧ w≠x ∧ w≠y ∧ w≠z ∧ x≠y ∧ x≠z ∧ y≠z) - For all cases of v and all cases of w and all cases of x and all cases of y and all cases of z if v is a parent of w and v is a parent of z and w is a parent of x and z is a parent of y then v is not identical to w and v is not identical to x and v is not identical to y and v is not identical to z and w is not identical to x and w is not identical to y and w is not identical to z and x is not identical to y and x is not identical to z and y is not identical to z (This only counts for first cousins as definitions including 2nd, 3rd, 4th, and so on introducing a nearly infinite amount of cousins and clauses to match) 
 
-(d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical 
+(d) ∃x∃y∀z(P(y,z)→z=x) - There is some x and some y such that for all z if y is the parent of z then z and x are identical ( I think this works because it is exactly one)
 
-(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female then z is identical with w or z is identical with w or z is identical with y
+(e) ∃v∃w∃x∃y∀z(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))) - There is some v and some w and some x and some y such that for all z if v is the parent of x and v is the parent of w and w is not female and v is the parent of y and y is not female and for all instances of z v is a parent of z and z is not female then z is identical with w or z is identical with w or z is identical with y ( I think this works because it is exactly two brother)
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```(a)  B that says that x is a brother of y
@@ -142,62 +144,65 @@ R: {(0,0), (0,1), (1,1)}
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
   (d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  
+  ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∀ ∃
+  
+(a)∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+∃x¬∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))  (1)
+¬∀y(¬(Pw ∧ Qw) → (¬Pw ∨ ¬Qw))    (2)
+∃y¬(¬(Pw ∧ Qw) → (¬Pw ∨ ¬Qw))    (3)
+¬(¬(Pw ∧ Qw) → (¬Pw ∨ ¬Qw))      (4)
+         ¬(Pw ∧ Qw)              (4)
+        ¬(¬Pw ∨ ¬Qw)             (4)
+	  ¬¬Pw                   (7)
+	  ¬¬Qw                   (7)
+	    Qw                   (9)
+	    Pw                   (8)
+  ¬Pw(b)             ¬Qw(b)
+  x                     x
+  
+ (b)∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+ ¬∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+ ∃x¬∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))   (1)
+ ¬∀y((¬(Pw ∨ Qw) → (¬Pw ∧ ¬Qw))    (2)
+ ∃y¬((¬(Pw ∨ Qw) → (¬Pw ∧ ¬Qw))    (3)
+  ¬((¬(Pw ∨ Qw) → (¬Pw ∧ ¬Qw))     (4)
+           ¬(Pw ∨ Qw)              (5)
+           ¬(¬Pw ∧ ¬Qw)            (5)
+               ¬Pw                 (b)
+	       ¬Qw                 (b)
+  ¬¬Pw                     ¬¬Qw    (7)
+    x                        x
 
-  (a)¬∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
-¬∀y(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa))      (1)
-¬(¬(Pa ∧ Qa) → (¬Pa ∨ ¬Qa)).       (2)
-       ¬(Pa ∧ Qa)                  (3)
-       ¬(¬Pa ∨ ¬Qa)                (3)
-          ¬¬Pa                     (5)
-          ¬¬Qa                     (5)
-           Qa                      (7)
-           Pa                      (6)
 
-¬Pa (4)              ¬Qa (4)
- x                   x
- 
-11.¬Qa(4)
-x
-(b) ¬∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))  
- ¬∀y(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))     (1)
-  ¬(¬(Pa ∨ Qa) → (¬Pa ∧ ¬Qa))      (2)
-         ¬(Pa ∨ Qa)                (3)
-         ¬(¬Pa ∧ ¬Qa)              (3)
-         ¬Pa                  	   (4)
-             ¬Qa                   (4)
-
-¬¬Pa (5)                ¬¬Qa 	   (5)  
-Pa (8)                  Qa (9)
-x                       x
-
-(c)¬∀x∀y((¬Px ∨ ¬Qx) →  ¬(Px ∧ Qx))
- ¬∀y(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))     (1)
-  ¬(¬(Pa ∨ Qa) →  ¬(Pa ∧ Qa))      (2)
-         ¬Pa ∨  ¬Qa               (3)
-         ¬¬(Pa ∧ Qa)              (3)
-      Pa ∧ Qa                 	   (5)
-         Pa                   	   (6)
-             Qa                   (6)
-
-¬Pa (4)                 ¬Qa (4)  
-x                        x
-
-(d)1.¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
-  ¬∀y((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))	(1)
-    ¬((¬Pa ∨ ¬Qa) → ¬(Pa ∧ Qa))	(2)
-	     ¬Pa ∨ ¬Qa		(3)
-	    ¬¬(Pa ∧ Qa)		(3)
-		Pa ∧ Qa		(5)
-		Pa		(6)
-		   Qa		(6)
-¬Pa(4)			¬Qa 	(4)
-x			   x
-
-![proof](https://user-images.githubusercontent.com/123985147/216454220-f9b7c892-d73c-4409-a564-92250dfb8be2.png)	
-![Proof2](https://user-images.githubusercontent.com/123985147/216454252-833dd3bb-4fc4-465e-89cf-18ebeb2bc6e6.png)
-![Proof3](https://user-images.githubusercontent.com/123985147/216454294-d01f5cc1-2d68-467c-8f45-74d69fff8318.png)
-![proof](https://user-images.githubusercontent.com/123985147/216454485-9f253939-e4a4-4cea-8487-18726310b83f.png)
-
+  (c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  ¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+  ∃x¬∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))     (1)
+  ¬∀y((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))       (2)
+  ∃y¬((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))       (3)
+  ¬((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))         (4)
+            ¬Pw ∨ ¬Qw                 (5)
+	    ¬¬(Pw ∧ Qw)               (5)
+	      Pw ∧ Qw                 (7)
+	        Pw                    (8)
+		Qw                    (8)
+       ¬Pw (6)              ¬Qw (6)
+       x                     x
+       
+(d) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+¬∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+ ∃x¬∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))    (1)
+ ¬∀y((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))      (2)
+ ∃y¬((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))      (3)
+  ¬((¬Pw ∨ ¬Qw) → ¬(Pw ∧ Qw))       (4)
+         ¬Pw ∨ ¬Qw                  (5)
+	 ¬¬(Pw ∧ Qw)                (5)
+	      ¬Pw		    (6)
+	      ¬Qw 		    (6)
+  Pw (8)		Qw (8)
+   x                    x
+  
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 
 (a)
