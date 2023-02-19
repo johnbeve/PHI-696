@@ -10,24 +10,94 @@ Tip #4: Work together as a team.
 ```
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
-```
+
   (a)  PP that says that x is a proper part of y
+  
+  Answer:
+  PP ≡ ∃part_of.C ⊓ ¬( ∀part_of.C ⊓ ∀part_of.¬C)
+  ∃parent_only¯.Person
+  
   (b)  iPP that says that y is a proper part of x
+ 
+  Answer:
+  iPP ≡ ∃part_of¯.C ⊓ ¬ (∀part_of.C ⊓ ∀part_of.¬C)
+  
   (c)  iP that says that y has x as part 
+  
+  Answer:
+  iP ≡  ¬∃part_of¯.C
+  
   (d)  O that says that x overlaps y
+  
+  Answer:
+  O ≡ ¬∀part_of.C ⊓ ¬∀part_of.¬C ⊔ (∀part_of.C ⊓ ∀part_of.¬C)
+  
   (e)  D that says that x and y are disjoint 
-```
+  
+  Answer:
+  D ≡ ∀part_of.¬C ⊓ ¬(∀part_of.C ⊓ ∀part_of.¬C)
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+Answer: 
+
+A mode I of K = (T#1, A#1) as follow,
+
+ΔI = {Chairs, Stools, Animals, Tigers, Cats, Birds, Peacocks},
+Chairs = cr,
+Stools = s,
+Animals = a,
+Tigers = t,
+Cats = ct,
+Birds = b,
+Peacocks = p
+
+TBox: 
+T#1 = {C ≡ C_colored ⊔ ¬C_colored,
+PP ≡ ∃part_of.C ⊓ ¬( ∀part_of.C ⊓ ∀part_of.¬C),
+iPP ≡ ∃part_of¯.C ⊓ ¬ (∀part_of.C ⊓ ∀part_of.¬C),
+iP ≡  ¬∃part_of¯.C,
+O ≡ ¬∀part_of.C ⊓ ¬∀part_of.¬C ⊔ (∀part_of.C ⊓ ∀part_of.¬C),
+D ≡ ∀part_of.¬C ⊓ ¬(∀part_of.C ⊓ ∀part_of.¬C)}
+
+ABox:
+A#1 = { cr: C_colored,
+p:C_colored,
+s: ¬C_colored,
+a: ¬C_colored,
+t: ¬C_colored,
+ct: ¬C_colored,
+b: ¬C_colored,
+P(t, ct),
+P(ct, a),
+pp(t, ct),
+O (cr, s),
+D (cr, b),
+iPP (a, t)}
+
+
 3. Translate the following first-order logic axioms into ALCI: 
-```
+
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+Answer: ∃r.(∀r.C ∧ ∀r¯.C)
+
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+Answer: ∃r.(∃r.C ∧ ∀r¯.C)
+
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+
+Answer: ∃r.(∃r.C ∧ ∀r¯.C)
+
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
-```
+
+
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+
+
+
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
