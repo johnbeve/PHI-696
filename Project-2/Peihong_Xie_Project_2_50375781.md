@@ -113,11 +113,11 @@ class Mary
 
 Answer:
 
-(a)  
+(a) ∃R.(∀R. $\top$) $\sqcap$ ∀R.$\top$
 
-(b) 
+(b) $∃R.T \sqcap ∃R^-.(∃R.T)$
 
-(c) $∀R.(∃R^-.(∀R.A))$
+(c) $∀R.(∃R.(∀R.A))$
 
 (d) $∀R.A\sqcap∃R.B$
 
