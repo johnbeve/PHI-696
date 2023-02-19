@@ -9,6 +9,7 @@ Tip #4: Work together _as a team_.
 ```
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
+
   (a)  PP that says that x is a proper part of y
   (a) Not definable 
   
@@ -26,21 +27,48 @@ Tip #4: Work together _as a team_.
   
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a model of K. This may be graphical or symbolic or both.
 
-TBox:
+Knowledge Base = {TBox: 
 
 3. Translate the following first-order logic axioms into ALCI:
 
-(a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-(a)
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∃ ∀
 
-(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-(b)
+(a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z)) - For all cases of x there is some y such that for all cases of z it is the case that all instances of x Rs some instance of y and all instances of x Rs all instances of z and some y Rs all instances z
+ 
+ I am not sure how to put these into axioms althought I know it should have a from similar to ∀r-.C Further, I am not sure I even modeled any of these correctly.
 
-(c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
-(c)
+```mermaid
+graph TD;
+x --> y;
+y --> z;
+x --> z;
+```
 
-(d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
-(d)
+(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z)) - There is some x such that for all y there is some z such that it is the case that some instance of x Rs all instances of y and x Rs some instance of z and all instances of y Rs some z
+
+```mermaid
+graph TD;
+x --> y;
+x --> z;
+y --> z;
+```
+
+(c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y)))) - For all y if there is some x thats Rs all instances of y then there is some x such that all instances of y Rs some x and for all y if x Rs y then y As
+
+```mermaid
+graph TD;
+x --> y;
+y --> x;
+y --> y;
+```
+
+(d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y)) - For all y if x Rs y then y As and some instances of y x Rs y and y Bs
+
+```mermaid
+graph TD;
+x --> y;
+y --> y;
+```
 
 4. Provide an interpretation I1 for ALC and an interpretation I2 for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the mermaid syntax of markdown to provide a graphical representation of your work. Feel free to use the mermaid live editor when diagramming.
 
