@@ -10,13 +10,46 @@ Tip #4: Work together as a team.
 ```
 
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
-```
-  (a)  PP that says that x is a proper part of y
-  (b)  iPP that says that y is a proper part of x
-  (c)  iP that says that y has x as part 
-  (d)  O that says that x overlaps y
-  (e)  D that says that x and y are disjoint 
-```
+
+**(a)  PP that says that x is a proper part of y**  
+
+In mereology, x is a proper part of y when x is a part of y and y is not a part of x (they are not the same entity).
+
+We then need to translate this sentence into DL: PPxy = Pxy ^ ~Pyx
+
+(x,y): PP=(x,y): P ⊓ ¬P¯
+
+**PP ≡ P ⊓ ¬P¯**
+
+This reads something like: a proper part between x and y exists iff x is part of y and it is not the case that the inverse parthood relation (whole) holds between x and y.
+  
+**(b)  iPP that says that y is a proper part of x**  
+
+This question is asking us to write out the inverse of PP. We have established PP in (a).
+
+**iPP ≡ PP¯ =>
+  iPP ≡ (P ⊓ ¬P¯)¯**
+
+**iPP ≡ ¬P ⊓ P¯**
+
+These two are equivalent.
+  
+**(c)  iP that says that y has x as part**  
+
+**iP ≡ P¯**
+
+**(d)  O that says that x overlaps y**
+
+In mereology, x overlaps y iff x and y have a part which is the same (they have a thing in common). Even if the part is just x or y. 
+
+We need to translate this sentence into DL: Oxy = ∃z.(Pzx ^ Pzy)
+
+**O ≡ ∃P¯.(∃P)
+  O ≡ ∃iP.(∃P.T)**
+
+**(e)  D that says that x and y are disjoint**
+
+**D ≡ ¬O**
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
