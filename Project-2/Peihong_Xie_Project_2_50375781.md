@@ -219,7 +219,7 @@ Answer:
 
 Answer:
 
-(1) When we say that a concept C of X is satisfiable with respect to some T-box of X, T<sup>X</sup>, which is a set of statements about relations between concepts, we mean that there is a model of T<sup>X</sup> such that C has some instance in this model. Now if every satisfiable concept of X with respect to T<sup>X</sup> has a finite model (or a model with a finite domain) with respect to T<sup>X</sup>, then X is said to have _finite model property_.
+(1) When we say that a concept like "Dog" is satisfiable in a description logic, we mean that there is a model to assign some individual dogs to it. Now every satisfiable concept in that description logic has a finite model, a model which has only finitely many elements, then we say that logic has _finite model property_.
 
 (2) Example: Consider a simple _ALC_ T-box T<sup>1</sup>={$Dog \sqsubseteq Mammal$, $Person \equiv Rational \sqcap Mammal$}. The _ALC_ concept $Spider$ is satisfiable with respect to T<sup>1</sup>, and it is not difficult to find that $Spider$ has a finite model with respect to T<sup>1</sup>. For example, $I_1=(\bigtriangleup^1,.^1)$ such that:
 
@@ -243,7 +243,7 @@ It is clear that $I_1$ is a model of T<sup>1</sup>, and $Spider$ has an instance
 
 Answer:
 
-(1) When we say that a concept C of X is satisfiable with respect to some T-box of X, T<sup>X</sup>, which is a set of statements about relations between concepts, we mean that there is a model of T<sup>X</sup> such that C has some instance in this model. Now if every satisfiable concept of X with respect to T<sup>X</sup> has a tree model with respect to T<sup>X</sup>, then X is said to have _tree model property_ (TMP). Here a model is a _tree model_ if its graph representation has only one root, viz. a node without r-parent for some relation r, and every r-child node has only one parent. 
+(1) When we say that a concept like "Father" is satisfiable in a description logic, we mean that there is a model to assign some individual men to it. Now every satisfiable concept in that description logic has a tree model, then we say that logic has _tree model property_. Here a model is a _tree model_ if it can be represented as a tree-like graph, which has only one root, viz. a node without parent, and every child node has only one parent. 
 
 (2) Consider a simple _ALC_ T-box T<sup>2</sup>={$Daughter \sqsubseteq Female$, $Son \sqsubseteq Male$}. The _ALC_ concept $Father$ is satisfiable with respect to T<sup>2</sup>, and it is not difficult to find that $Father$ has a finite model with respect to T<sup>1</sup>. For example, $I_2=(\bigtriangleup^2,.^2)$ such that:
 
