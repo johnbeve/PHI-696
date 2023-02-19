@@ -126,7 +126,11 @@ Here consider two situations (by disjunction):
 
 Answer:
 
-**Approach 1 (directly introducing the inverse of a primary role)**
+**Given ALC has no inverse role or numerical restrictions, B, A, C, O, and T cannot be represented here. For example, a brother must be a child of someone, but he might not be a parent of someone (if he is barren). That is, without the inverse role of parent_of, it is impossible to characterize him as a brother only by using parent_of.** 
+
+The following are some definitional attempts within ALCIN.
+
+**Approach 1 for ALCIN (directly introducing the inverse of a primary role)**
 
 (a) $B ≡ M\sqcap ∃parentOf^-.(\ge2 parentOf.(M\sqcup ¬M))$
 
@@ -139,7 +143,7 @@ Answer:
 (e) $T ≡ (M\sqcap ∃parentOf^-.(\le3 parentOf.M \sqcap \ge3 parentOf.M))\sqcup(¬M\sqcap∃parentOf^-.(\le2 parentOf.M \sqcap \ge2 parentOf.M))$
 
 
-**Approach 2 (indirectly introducing the inverse of a primary role, based on Ali and Giacomo, after my revisions)**
+**Approach 2 for ALCIN (indirectly introducing the inverse of a primary role, based on Ali and Giacomo, after my revisions)**
 
 In fact, these two approaches are interchangable because $parentOf^-$ in my own approach plays the same role as $p1^-$ in my revised Ali and Giacomo's approach:
 
@@ -183,15 +187,13 @@ In fact, these two approaches are interchangable because $parentOf^-$ in my own 
 
 [5] Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-Answer (based on the approach 2 in Question 4):
+Answer:
+
+**There is no formula from Question 4 available here.**
 
 $K_1 = (T_1,A_1)$ such that:
 
-T-box $T_1$={B (brother) ≡ M ⊓ ∃p2¯.Person, 
-
-O ≡ ∃parent_only¯.Person, 
-
-$GP (grandparent) ≡ ∃parentOf.(∃parentOf.M\sqcup ¬M)$}
+T-box $T_1$={GP (grandparent) ≡ ∃parentOf.(∃parentOf.M∪¬M)}
 
 A-box $A_1$={(Mary,Karl):ParentOf, Karl:Male}.
 
@@ -200,10 +202,6 @@ The following is a model $\Im=(\bigtriangleup^\Im,.^\Im)$ of $K_1$:
 $\bigtriangleup^\Im$={a,b,c}
 
 $M^\Im$={a}
-
-$B^\Im=\emptyset$
-
-$O^\Im$={b,a}
 
 $GP^\Im$={c}
 
