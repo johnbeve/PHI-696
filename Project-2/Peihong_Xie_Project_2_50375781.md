@@ -225,15 +225,15 @@ Answer:
 
 $\bigtriangleup^1$={a,b,c,d}
 
-$Dog$ = {b,c}
+$Dog^1$ = {b,c}
 
-$Mammal$ = {a,b,c}
+$Mammal^1$ = {a,b,c}
 
-$Person$= {a}
+$Person^1$= {a}
 
-$Rational$= {a}
+$Rational^1$= {a}
 
-$Spider$= {d}
+$Spider^1$= {d}
 
 It is clear that $I_1$ is a model of T<sup>1</sup>, and $Spider$ has an instance _d_ in $I_1$. So $I_1$ is a finite model of $Spider$ with respect to T<sup>1</sup>.
 
@@ -245,21 +245,21 @@ Answer:
 
 (1) When we say that a concept like "Father" is satisfiable in a description logic, we mean that there is a model to assign some individual men to it. Now every satisfiable concept in that description logic has a tree model, then we say that logic has _tree model property_. Here a model is a _tree model_ if it can be represented as a tree-like graph, which has only one root, viz. a node without parent, and every child node has only one parent. 
 
-(2) Consider a simple _ALC_ T-box T<sup>2</sup>={$Daughter \sqsubseteq Female$, $Son \sqsubseteq Male$}. The _ALC_ concept $Father$ is satisfiable with respect to T<sup>2</sup>, and it is not difficult to find that $Father$ has a finite model with respect to T<sup>1</sup>. For example, $I_2=(\bigtriangleup^2,.^2)$ such that:
+(2) Consider a simple _ALC_ T-box T<sup>2</sup>={$Daughter \sqsubseteq Female$, $Son \sqsubseteq Male$}. The _ALC_ concept $Father$ is satisfiable with respect to T<sup>2</sup>, and it is not difficult to find that $Father$ has a tree model with respect to T<sup>2</sup>. For example, $I_2=(\bigtriangleup^2,.^2)$ such that:
 
-$\bigtriangleup^1$={Karl,Mary,Jack,Lucy}
+$\bigtriangleup^2$={Karl,Mary,Jack,Lucy}
 
-$Daughter$ = {Mary,Lucy}
+$Daughter^2$ = {Mary,Lucy}
 
-$Female$ = {Mary,Lucy}
+$Female^2$ = {Mary,Lucy}
 
-$Son$= {Jack}
+$Son^2$= {Jack}
 
-$Male$= {Karl,Jack}
+$Male^2$= {Karl,Jack}
 
-$Father$= {Karl}
+$Father^2$= {Karl}
 
-parentOf = {(Karl,Mary),(Karl,Jack),(Karl,Lucy)}
+$parentOf^2$ = {(Karl,Mary),(Karl,Jack),(Karl,Lucy)}
 
 ```mermaid
 graph TD
