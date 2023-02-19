@@ -15,7 +15,6 @@ Tip #4: Work together as a team.
   
   Answer:
   PP ≡ ∃part_of.C ⊓ ¬( ∀part_of.C ⊓ ∀part_of.¬C)
-  ∃parent_only¯.Person
   
   (b)  iPP that says that y is a proper part of x
  
@@ -112,6 +111,33 @@ graph TB
 I<sub>2</sub> 
 ---
 ```mermaid
+stateDiagram-v2
+    state if_state <<choice>>
+    [*] --> IsPositive
+    IsPositive --> if_state
+    if_state --> False: if n < 2
+    if_state --> True : if n >= 2
+```
+
+5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+---
+I<sub>1</sub>
+---
+```mermaid
+graph TB
+  A([animal])-->B([mammal])
+  P([plant])-->Q([Has_seeds])
+  B-->C([Cat])
+  Q-->R([Needle_leaves])
+  C-->D([Tiger])
+  R-->S([Conifers])  
+  
+```
+---
+I<sub>2</sub> 
+---
+```mermaid
 ---
 title: Animal example
 ---
@@ -139,8 +165,6 @@ classDiagram
         +run()
     }
 ```
-
-5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
