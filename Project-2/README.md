@@ -168,12 +168,23 @@ classDiagram
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
-  ```
+ 
   (a) ∃r.C and ∀r.C
+  
+  Answer: ∃r.C means that there exists a r-filler which is an element that belongs to C, while ∀r.C means that all r-fillers are Cs.
+  
   (b) ∃r-.C and ∀r-.C
+  
+  Answer: ∃r-.C means that there exists a inverse r-filler which an element that belongs to C, while ∀r.C means that all inverse r-fillers are Cs.
+  
   (c) <=nr and <=nr.C
+  
+  Answer: <=nr means that there are no more than n r-fillers, while <=nr.C means that there are no more than n r-fillers in C.
+  
   (d) ∃r-.C and ∃r-.{a} 
-```
+  
+  Answer: ∃r-.C means that there are no more than n inverse r-fillers, while <=nr.C means that there are no more than n inverse r-fillers in C.
+
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
