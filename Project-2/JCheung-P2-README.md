@@ -96,8 +96,83 @@ Each appearance of variable “y” is closed inside the scope of a different qu
 
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
+P = Professor
+
+P ⊓ ∃R.T (ALC interpretation cannot distinguish between numbers of successors)
+
+P ⊓ ≥ 2R.T(ALCN Interpretation)
+P ⊓ ≥ 3R.T(ALCN Interpretation)
+
+ΔI1 = {Dr. Beverley, PHI 697, PHI 329, Tuesday Workshop}
+
+Named IndividualsI:
+Dr. BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+Tuesday WorkshopI = W
+
+Role Assignments:
+t = {(B, 697), (B, 329), (B, W)}
+
+
+ΔI2 = {Dr. Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+Dr. BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role m as
+≥2 ∃t.⊤
+in I1
+≥1 ∃t2.⊤
+in I2
+
+[![](https://mermaid.ink/img/pako:eNqNkDELgkAYhv_K8S0Z6KBCoUND2NIUJDR0DR_eVyd6npxnIdp_74KGaKje6R2eB17eEQotCFI41_pWSDSW5RlvmEsWHrdaNmxNVzL1cGJBsGKTJSwkdRPbhN5OlotkOf8Pj554HCV_4rGX99QJHNhBm6qTunXiS42-q7PPZb_4t2nggyKjsBTuk_Hpc7CSFHFIXRVoKg68uTsOe6v3Q1NAak1PPvStQEtZiReDCtIz1h3dH3_hcFQ?type=png)](https://mermaid.live/edit#pako:eNqNkDELgkAYhv_K8S0Z6KBCoUND2NIUJDR0DR_eVyd6npxnIdp_74KGaKje6R2eB17eEQotCFI41_pWSDSW5RlvmEsWHrdaNmxNVzL1cGJBsGKTJSwkdRPbhN5OlotkOf8Pj554HCV_4rGX99QJHNhBm6qTunXiS42-q7PPZb_4t2nggyKjsBTuk_Hpc7CSFHFIXRVoKg68uTsOe6v3Q1NAak1PPvStQEtZiReDCtIz1h3dH3_hcFQ)
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+These graphical representations do not demonstrate that ALCN is more expressive than ALC.
+
+[![](https://mermaid.ink/img/pako:eNqNjzELwjAQhf9KuEWFOrSC0g4OUhcnQTfjcCSnKTaJxFQpbf-7KXUQB_VNx_F9PF4DwkqCDE6lfQiFzrN9zg0LyePDxirDVnQnV9ZHNp0uWesJhaJby9bxeKuKebqY_IcnPT5L0gHn5mUl363RZ8sv_q0GItDkNBYy7Gt6n4NXpIlDFk6J7sKBmy5wWHm7q42AzLuKIqiuEj3lBZ4d6uHZPQFU2F5C?type=png)](https://mermaid.live/edit#pako:eNqNjzELwjAQhf9KuEWFOrSC0g4OUhcnQTfjcCSnKTaJxFQpbf-7KXUQB_VNx_F9PF4DwkqCDE6lfQiFzrN9zg0LyePDxirDVnQnV9ZHNp0uWesJhaJby9bxeKuKebqY_IcnPT5L0gHn5mUl363RZ8sv_q0GItDkNBYy7Gt6n4NXpIlDFk6J7sKBmy5wWHm7q42AzLuKIqiuEj3lBZ4d6uHZPQFU2F5C)
+
+Named IndividualsI:
+Dr. BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+Tuesday WorkshopI = W
+
+Role Assignments:
+t = {(B, 697), (B, 329), (B, W)}
+
+
+ΔI2 = {Dr. Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+Dr. BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role m as
+≥2 ∃t.⊤
+in I1
+≥1 ∃t2.⊤
+in I2
+
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
@@ -107,8 +182,48 @@ Each appearance of variable “y” is closed inside the scope of a different qu
   (c) <=nr and <=nr.C
   (d) ∃r-.C and ∃r-.{a} 
 ```
+**(a) ∃r.C and ∀r.C**  
+
+  The first one reads: there is a thing r-related to all xs, and this thing falls under concept C
+  The second one reads: if there is a thing r-related to all xs, this thing falls under concept C
+  
+**(b) ∃r-.C and ∀r-.C**  
+
+  The first one reads: there is a thing r-related to all xs, and this thing falls under the reverse of concept C
+  The second one reads: if there is a thing r-related to all xs, this thing falls under the reverse of concept C
+  
+**(c) <=nr and <=nr.C**  
+
+  The first one reads: role r connects all the xs to no more than n elements.
+  The second one reads: role r connects all the xs to no more than n elements, and they fall under concept C.
+  
+**(d) ∃r-.C and ∃r-.{a}**  
+
+  The first one reads: for all xs, there is at least a thing y, which is C-reverse related to it, and which falls under concept C.
+  The second one reads: for all xs, there is element a, which is C-reverse related to it.
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+
+**EL15**
+
+The finite model property means that if you want to prove something in a game or puzzle, you don't have to use too many toys or blocks, just a few of them will be enough. This makes it easier to solve the game or puzzle and saves time.
+
+Suppose you have a game with two toy animals, a cat and a dog. The rules of the game are that the cat is always hungry, and the dog is always friendly. You want to prove that if the cat is hungry, then the dog is not hungry.
+
+One way to prove this would be to use all the possible combinations of hunger and friendliness for the cat and the dog, which would require an infinite number of possibilities. Infinite is the biggest number ever that never ends! It goes on forever! But because the game has the finite model proper
+
+**Finite Model Property** (Full explanation)
+
+The finite model property is a property of a logical system or a formal language that means that every sentence that is true in all models of the system or language is also logically equivalent to a sentence that is true in some finite model of the system or language.
+
+In other words, a logical system or formal language has the finite model property if every true sentence can be proved using only a finite number of objects or elements, rather than requiring an infinite number of objects. This is a desirable property for logical systems or formal languages, as it allows for more effective and efficient reasoning and proof methods.
+
+The finite model property is closely related to other concepts in logic and computer science, such as decidability and computability. Many important logical systems, such as first-order logic, have the finite model property, while others, such as second-order logic, do not.
+
+**Simplified**
+
+The finite model property means that if something is true in a logical system or language, it can be shown to be true using only a finite number of objects or elements, instead of needing an infinite number. This makes reasoning and proving things more efficient and effective.
+
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
