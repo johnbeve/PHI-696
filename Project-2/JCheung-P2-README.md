@@ -54,6 +54,9 @@ We need to translate this sentence into DL: Oxy = ∃z.(Pzx ^ Pzy)
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+**I will complete this later.**
+
+
 3. Translate the following first-order logic axioms into ALCI: 
 
 **(a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))**
