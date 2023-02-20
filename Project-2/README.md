@@ -72,16 +72,16 @@ A box
 
 6. Explain the difference - using natural language - between the description logic expressions:
 (a) ∃r.C and ∀r.C
-- 'There exists C as an r-filler' versus 'All c's are r-fillers'. So, ∃r.C means 'there exists a C being r'd' and ∀r.C means 'all C's are being r'd'
+- 'All x's are related to some instance of C via R' versus 'All x's are ONLY related to some instance of C via R'. 
 
 (b) ∃r-.C and ∀r-.C
-- An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. The expression means 'there is a C being r'd'. The second expression has a universal quantifier, so it means 'all C's are being r'd'.
+- 'C' is a concept, which in ALC is synonymous to a class, set, or type. The inverse role relation means that 'C is being r'd by all xs' ( ∃r-.C) or 'only being r'd by all xs' (∀r-.C)
 
 (c) <=nr and <=nr.C
 - '<=n' in either case is a number restriction meaning 'fewer or equal to n instances'. The first expression specifies there are fewer than or equal to n instances of the relation 'r', while the second is an element of the concept C set and therefore means there are 'fewer than or equal to n instances of the relation r bearing in C'.
 
 (d) ∃r-.C and ∃r-.{a} 
-- An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. There could be multiple instances of C being 'r'd'. '{a}', on the other hand, is an atomic concept. It is the only one of its kind, like an individual in its singleton set. It exists as 'r'd' just like C, but there are no interchangeable entities just like it.
+- An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. There could be multiple instances of C being 'r'd'. '{a}', on the other hand, is an atomic concept. It is the only one of its kind. It is also being 'r'd' by some variable, but there are no interchangeable entities just like it.
   
 ```
 
