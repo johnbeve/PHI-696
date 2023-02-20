@@ -260,6 +260,6 @@ In the same way, the finite tree model helps people understand how programs and 
   (c) a is part of b, b is part of f, and a is part of f
   (e) There are no parts between a and g in common
 ```
-Provide a screenshot of your results here. 
+Provide a screenshot of your results here.
 
 **For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
