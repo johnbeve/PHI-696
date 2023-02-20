@@ -47,7 +47,6 @@ A box
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
 
-
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
 
@@ -64,7 +63,6 @@ A box
 
 - ALCN is a syntax identical to ALC with "...unqualified number restrictions... concepts of the form (≤nr.T) and (≥nr.T)" (Baader et. al., 63)
 - So, in the textbook, once a set contains more than 1 relation, it can no longer be expressed in ALC.
-
 
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
