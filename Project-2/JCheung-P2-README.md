@@ -129,7 +129,7 @@ Bisimulation:
 
 ρ = {(B, B2), (697, 697-2), (329, 329-2)}
 
-So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role m as
+So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role t as
 ≥2 ∃t.⊤
 in I1
 ≥1 ∃t2.⊤
@@ -204,11 +204,11 @@ in I2
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-**EL15**
+**EL15** (I will come back to this and revise!)
 
 The finite model property means that if you want to prove something in a game or puzzle, you don't have to use too many toys or blocks, just a few of them will be enough. This makes it easier to solve the game or puzzle and saves time.
 
-Suppose you have a game with two toy animals, a cat and a dog. The rules of the game are that the cat is always hungry, and the dog is always friendly. You want to prove that if the cat is hungry, then the dog is not hungry.
+Imagine you have a game with two toy animals, a cat and a dog. The rules of the game are that the cat is always hungry, and the dog is always friendly. You want to prove that if the cat is hungry, then the dog is not hungry.
 
 One way to prove this would be to use all the possible combinations of hunger and friendliness for the cat and the dog, which would require an infinite number of possibilities. Infinite is the biggest number ever that never ends! It goes on forever! But because the game has the finite model proper
 
@@ -224,10 +224,34 @@ The finite model property is closely related to other concepts in logic and comp
 
 The finite model property means that if something is true in a logical system or language, it can be shown to be true using only a finite number of objects or elements, instead of needing an infinite number. This makes reasoning and proving things more efficient and effective.
 
+8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
-8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+**EL15** (I will come back to this and revise!)
+
+Imagine you have a toy with lots of buttons and levers. When you press a button or pull a lever, the toy changes in some way. The finite tree model is like a picture of all the different ways the toy can change.
+
+Each picture shows the toy in a different state, with some buttons and levers pressed and others not pressed. The lines between the pictures show how the toy changes when you press a button or pull a lever.
+
+By looking at all the pictures together, you can see all the different ways the toy can change, and how it changes from one state to another. This can help you understand how the toy works and how to use it.
+
+In the same way, the finite tree model helps people understand how programs and processes work by showing all the different ways they can change and how they change from one state to another.
+
+An example:Imagine you're playing a game where you have to guess a number between 1 and 10. The game will tell you if your guess is too high or too low, and you have to keep guessinguntil you get the right answer.
+
+We can represent this game as a finite tree model. The starting point is when you make your first guess, which is like the "root" of the tree. Depending on whether your guess is too high or too low, the tree branches off into two different paths.
+
+If your guess is too high, you go down one path where you make a lower guess. If your guess is too low, you go down the other path where you make a higher guess. 
+
+This branching continues until you finally guess the right number, which is like reaching a "leaf" node in the tree.
+
+By using the finite tree model to represent the guessing game, we can see all the different possible paths that the game can take, and how the game progresses from one guess to the next.
+
+In the same way, the finite tree model helps people understand how programs and processes work by showing all the different ways they can change and how they change from one state to another.
+
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
+
+**For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
@@ -237,3 +261,5 @@ The finite model property means that if something is true in a logical system or
   (e) There are no parts between a and g in common
 ```
 Provide a screenshot of your results here. 
+
+**For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
