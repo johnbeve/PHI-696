@@ -109,12 +109,80 @@ Tip #4: Work together as a team.
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 ```
 
-I have no idea how to answer this question. The textbook is terrible at explaining what bisimulation means. A funny example, I'm trying to figure out what it means using the example on p. 52. The book says "Given the three interpretations depicted in Figure 3.1 (where c is supposed to represent the role child, M the concept Male and F the concept Female), it is easy to see that (d1, I1) and (f1, I3) are bisimilar, whereas (d1, I1) and (e1, I2) are not." I've been trying to figure this out for hours and can't make sense of why that would be. "easy to see"
+I have a mermaid diagram, but I can't figure out how to add it to github. I've tried dragging it in, but that doesn't do anything.
+
+ΔI1 = {John Beverley, PHI 697, PHI 329, Tuesday Workshop}
+
+Named IndividualsI:
+John BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+Tuesday WorkshopI = W
+
+Role Assignments:
+t = {(B, 697), (B, 329), (B, W)}
+
+
+ΔI2 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+John BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role t as:
+
+≥3 ∃t.⊤
+in I1
+
+≥2 ∃t2.⊤
+in I2
+
 ```
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 ```
-I have the same problem here as the previous question.
+I have a mermaid diagram for this one as well, but can't figure out how to insert it.
+
+ΔI1 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+John BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+
+Role Assignments:
+t = {(B, 697), (B, 329)}
+
+ΔI2 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+John BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. The ALCN definitions are
+
+≥2 ∃m.⊤
+in I1
+
+≥2 ∃m2.⊤
+in I2
+
 ```
 
 6. Explain the difference - using natural language - between the description logic expressions:
