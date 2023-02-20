@@ -12,45 +12,138 @@ Tip #4: Work together as a team.
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
   (a)  PP that says that x is a proper part of y
+  PP = ∃P.~P
+  
+  or 
+  
+  PP = ∃(P⊓~P¯)
+  
   (b)  iPP that says that y is a proper part of x
+  iPP = PP¯
+  
   (c)  iP that says that y has x as part 
+  iP = P¯
+  
   (d)  O that says that x overlaps y
+  O = ∃P¯.(∃P)
+  -I'm worried about this, since I don't know what order you're allowed to read the variables in.
+  
   (e)  D that says that x and y are disjoint 
+  D = ~O
 ```
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+```
+ 
+  Tex = {PP = ∃P.~P         (Tex. 1)
+
+        iPP = PP¯           (Tex. 2)
+  
+        iP = P¯             (Tex. 3)
+  
+        O = ∃P¯.(∃P)        (Tex. 4)
+  
+        D = ~O              (Tex. 5)
+  
+        P⊆PP                (Tex. 6)
+  
+        iP⊆iPP              (Tex. 7)}
+  
+
+  Aex = {(New York, United States): part_of             (Aex. 1)
+
+        (United States, North America): part_of         (Aex. 2)
+  
+        (United States, New York): inverse_part_of      (Aex. 3)
+        
+        (North America, United States): inverse_part_of (Aex. 4)
+        
+        (United States, Mongolia): disjoint             (Aex. 5)
+        
+        (Mongolia, United States): disjoint             (Aex. 6)
+        
+        (Russia, Europe): overlap                       (Aex. 7)
+        
+ΔI = {u, v, w, x, y, z},
+
+  United States = u
+  
+  North America = v
+  
+  New York = w
+  
+  Mongolia = x
+  
+  Russia = y
+  
+  Europe = z
+  
+  Part_of = {(w,u), (u,v)}
+  
+  Inverse_Part_of = {(u,w), (v,u)}
+  
+  Disjoint = {(u,x), (x,u)}
+  
+  Overlap = {(y,z)}
+```
 
 3. Translate the following first-order logic axioms into ALCI: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+(∃R.∀R ⊓ ∀R)
+
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+∃(∀R.∃R ⊓ ∃R)
+
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+
+-I'm not sure how to do this one, partly because the first x isn't bound by a quantifier. 
+
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
+
+-I have the same problem here as I did with the previous question.
 ```
+
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+```
+
+I have no idea how to answer this question. The textbook is terrible at explaining what bisimulation means. A funny example, I'm trying to figure out what it means using the example on p. 52. The book says "Given the three interpretations depicted in Figure 3.1 (where c is supposed to represent the role child, M the concept Male and F the concept Female), it is easy to see that (d1, I1) and (f1, I3) are bisimilar, whereas (d1, I1) and (e1, I2) are not." I've been trying to figure this out for hours and can't make sense of why that would be. "easy to see"
+```
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
-
+```
+I have the same problem here as the previous question.
+```
 
 6. Explain the difference - using natural language - between the description logic expressions:
   ```
   (a) ∃r.C and ∀r.C
+  -The first says everything is in the r relation to something, while the second says everything is in the r relation to everything.
   (b) ∃r-.C and ∀r-.C
+  -The first says that something is in the r relation to everything, while the second means that everything is in the r relation to everything.
   (c) <=nr and <=nr.C
+  -Is <= supposed to mean less-than-or-equal-to, or is it an arrow? If it's an arrow, I have no clue what this could mean. If it's the former, <=nr means there is a number of r-fillers that's less than or equal to some amount, and <=nr.C means there is a number of r-fillers that are Cs that's less than or equal to some amount.
   (d) ∃r-.C and ∃r-.{a} 
+  -The first says that something that's a member of a concept is in an r relation to everything, while the second says that someone that's being used as a concept is in an r relation to everything.
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-
+```
+```
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-
+```
+```
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
-
+```
+```
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
   (a) a is a proper part of b and disjoint from e
   (b) a overlaps c
   (c) a is part of b, b is part of f, and a is part of f
   (e) There are no parts between a and g in common
-```
+
 Provide a screenshot of your results here. 
+```
