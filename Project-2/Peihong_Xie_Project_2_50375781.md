@@ -36,7 +36,7 @@ Answer:
 
 K = (T,A) such that
 
-T={$PP ≡ P\sqcap ¬P^-$,
+T={PP ≡ P ⊔ ¬P<sup>-</sup>,
 
 $iPP ≡ P^-\sqcap ¬P$,
 
@@ -113,7 +113,7 @@ class Mary
 
 Answer:
 
-(a) ∃R.(∀R. $\top$) $\sqcap$ ∀R.$\top$
+(a) $∃R.(∀R.\top)\sqcap ∀R.\top$
 
 (b) $∃R.T \sqcap ∃R^-.(∃R.T)$
 
@@ -156,7 +156,7 @@ D((d2)) -->|parentOf|M((m2))
 D((d2)) -->|parentOf|N((n2))
 ```
 
-It is clear that $p$ = {(a1,a2),(b1,b2),(b1,c2),(b1,d2),(c1,e2),(c1,f2),(c1,g2),(c1,h2),(c1,m2),(c1,n2)} is a bisimulation between $I_1$ and $I_2$, so we have ($I_1$, a1)~($I_2$, a2). However, a2$\in$($\ge3 parentOf.(\ge2 parentOf)$)<sup>I<sub>2<sub></sup>, but a1$\notin$($\ge3 parentOf.(\ge2 parentOf)$)<sup>I<sub>1<sub></sup>, so ($\ge3 parentOf.(\ge2 parentOf)$) is not a ALC concept (otherwise it should be the case that a1$\in$($\ge3 parentOf.(\ge2 parentOf)$)<sup>I<sub>1<sub></sup>). Therefore, we find that a ALCN concept which is not ALC concept, showing that ALCN is more expressive than ALC.
+It is clear that $p$ = {(a1,a2),(b1,b2),(b1,c2),(b1,d2),(c1,e2),(c1,f2),(c1,g2),(c1,h2),(c1,m2),(c1,n2)} is a bisimulation between $I_1$ and $I_2$, so we have ($I_1$, a1)~($I_2$, a2). However, $a2\in(\ge3 parentOf.(\ge2 parentOf))$<sup>I<sub>2<sub></sup>, but $a1\notin(\ge3 parentOf.(\ge2 parentOf))$<sup>I<sub>1<sub></sup>, so $(\ge3 parentOf.(\ge2 parentOf))$ is not a ALC concept (otherwise it should be the case that $a1\in(\ge3 parentOf.(\ge2 parentOf))$<sup>I<sub>1<sub></sup>). Therefore, we find that a ALCN concept which is not ALC concept, showing that ALCN is more expressive than ALC.
 
 **[5]** Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
@@ -219,9 +219,9 @@ Answer:
 
 Answer:
 
-(1) When we say that a concept like "Dog" is satisfiable in a description logic, we mean that there is a model to assign some individual dogs to it. Now every satisfiable concept in that description logic has a finite model, a model which has only finitely many elements, then we say that logic has _finite model property_.
+(1) When we say that a concept like "Dog" is satisfiable in a description logic, we mean that there is a model to assign some individual dogs to it. Now if every satisfiable concept in that description logic has a finite model, a model which has only finitely many elements, then we say that logic has _finite model property_.
 
-(2) Example: Consider a simple _ALC_ T-box T<sup>1</sup>={$Dog \sqsubseteq Mammal$, $Person \equiv Rational \sqcap Mammal$}. The _ALC_ concept $Spider$ is satisfiable with respect to T<sup>1</sup>, and it is not difficult to find that $Spider$ has a finite model with respect to T<sup>1</sup>. For example, $I_1=(\bigtriangleup^1,.^1)$ such that:
+(2) Example: Consider a simple _ALC_ T-box T<sup>1</sup>={$Dog\sqsubseteq Mammal$, $Person\equiv Rational\sqcap Mammal$}. The _ALC_ concept $Spider$ is satisfiable with respect to T<sup>1</sup>, and it is not difficult to find that $Spider$ has a finite model with respect to T<sup>1</sup>. For example, $I_1=(\bigtriangleup^1,.^1)$ such that:
 
 $\bigtriangleup^1$={a,b,c,d}
 
@@ -243,9 +243,9 @@ It is clear that $I_1$ is a model of T<sup>1</sup>, and $Spider$ has an instance
 
 Answer:
 
-(1) When we say that a concept like "Father" is satisfiable in a description logic, we mean that there is a model to assign some individual men to it. Now every satisfiable concept in that description logic has a tree model, then we say that logic has _tree model property_. Here a model is a _tree model_ if it can be represented as a tree-like graph, which has only one root, viz. a node without parent, and every child node has only one parent. 
+(1) When we say that a concept like "Father" is satisfiable in a description logic, we mean that there is a model to assign some individual men to it. Now if every satisfiable concept in that description logic has a tree model, then we say that logic has _tree model property_. Here a model is a _tree model_ if it can be represented as a tree-like graph, which has only one root, viz. a node without parent, and every child node below the root has only one parent. 
 
-(2) Consider a simple _ALC_ T-box T<sup>2</sup>={$Daughter \sqsubseteq Female$, $Son \sqsubseteq Male$}. The _ALC_ concept $Father$ is satisfiable with respect to T<sup>2</sup>, and it is not difficult to find that $Father$ has a tree model with respect to T<sup>2</sup>. For example, $I_2=(\bigtriangleup^2,.^2)$ such that:
+(2) Consider a simple _ALC_ T-box T<sup>2</sup>={$Daughter\sqsubseteq Female$, $Son \sqsubseteq Male$}. The _ALC_ concept $Father$ is satisfiable with respect to T<sup>2</sup>, and it is not difficult to find that $Father$ has a tree model with respect to T<sup>2</sup>. For example, $I_2=(\bigtriangleup^2,.^2)$ such that:
 
 $\bigtriangleup^2$={Karl,Mary,Jack,Lucy}
 
@@ -271,27 +271,28 @@ It is clear that $I_2$ is a model of T<sup>2</sup>, and $Father$ has an instance
 
 (3) TMP is crucial to tableau-based algorithms for the consistency check of knowledge base and applied ontology. Most of applied ontologies, especially those BFO-based ones, have TMP, allowing that their consistency can be checked by tableau reasonings. Moreover, TMP can show decidability of satisfiability of ALC concepts in the so-called automata-based approach.
 
-However, if a knowledge base or ontology has only infinite tree models, then TMP might not be very useful in consistency check.
+However, if we deal with linear roles or small datasets, TMP might not be very useful because its poor generalization performance in these cases.
 
 **[9]** Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
 Answer:
 
-![picture 1](pic_1_1.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_1_1.PNG) 
 
-![picture 1](pic_1_2.PNG)
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_1_2.PNG)
 
-![picture 1](pic_1_3.PNG)
+![picture 1](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_1_3.PNG)
+
 
 The tableau algorithm generates this inference (c,a):O in such a way:
 
-From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff ($\emptyset$,$A\cup$ {(c,a):¬O}) _is_ not consistent. Here A={(c,a):P,(c,b):O}.
+From Theorem 2.17 (Baader.etc: 32), we have $(\emptyset,A)\models(c,a):O$ iff ($\emptyset,A\cup$ {(c,a):¬O}) _is_ not consistent. Here A={(c,a):P,(c,b):O}.
 
-Therefore, the target inference problem becomes the problem of determining that the new A-box $A^*$={(c,a):P,(c,b):O, (c,a)¬O} is inconsistent.
+Therefore, the target inference problem becomes the problem of determining that the new A-box A*={(c,a):P,(c,b):O, (c,a)¬O} is inconsistent.
 
-In order to calculate with the inconsistency problem, the algorithm _expand_ will first apply concept expansion rules to $A^*$ to construct a complete A-box. However, as we notice, $A^*$ does not include any concept, so the application of expansion rules to $A^*$ is empty. 
+In order to calculate with the inconsistency problem, the algorithm _expand_ will first apply concept expansion rules to A* to construct a complete A-box. However, as we notice, A* does not include any concept, so the application of expansion rules to A* is empty. 
 
-However, by the fact that P is a sub-property of O and that (c,a):P, the algorithm _expand_ infers that (c,a):O, and thus finds that $A^*$ implies a clash {(c,a):O, (c,a):¬O}. Thus, $expand(A^*)= \emptyset$. 
+However, by the fact that P is a sub-property of O and that (c,a):P, the algorithm _expand_ infers that (c,a):O, and thus finds that A* implies a clash {(c,a):O, (c,a):¬O}. Thus, $expand(A^*)= \emptyset$. 
 
 In light of this, a larger alrorithm _consistent_ which includes the algorithm _expand_ will return "inconsistent". Given Theorem 2.17, we have shown that $(\emptyset,A)\models(c,a):O$.
 
@@ -307,8 +308,8 @@ Provide a screenshot of your results here.
 
 Answers:
 
-![picture 2](pic_2_1.PNG) 
+![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_1.PNG) 
 
-![picture 3](pic_2_2.PNG) 
+![picture 3](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_2.PNG) 
 
-![picture 4](pic_2_3.PNG) 
+![picture 4](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_3.PNG) 
