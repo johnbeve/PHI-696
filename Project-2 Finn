@@ -188,23 +188,26 @@ in I2
 6. Explain the difference - using natural language - between the description logic expressions:
   ```
   (a) ∃r.C and ∀r.C
-  -The first says everything is in the r relation to something, while the second says everything is in the r relation to everything.
+  -The first is talking about anything that r's something that's a C, while the second is talking about everything that r's everything that's a C.
   (b) ∃r-.C and ∀r-.C
-  -The first says that something is in the r relation to everything, while the second means that everything is in the r relation to everything.
+  -The first is talking about something that r's everything that's C, while the second is talking about everything that r's anything that's C.
   (c) <=nr and <=nr.C
-  -Is <= supposed to mean less-than-or-equal-to, or is it an arrow? If it's an arrow, I have no clue what this could mean. If it's the former, <=nr means there is a number of r-fillers that's less than or equal to some amount, and <=nr.C means there is a number of r-fillers that are Cs that's less than or equal to some amount.
+  -<=nr means there is a number of r-fillers that's less than or equal to some amount, and <=nr.C means there is a number of r-fillers that's less than or equal to some amount, and they are Cs.
   (d) ∃r-.C and ∃r-.{a} 
-  -The first says that something that's a member of a concept is in an r relation to everything, while the second says that someone that's being used as a concept is in an r relation to everything.
+  -The first says there's something that's a member of a concept that is in an r relation to everything, while the second says that someone that's being used as a concept is in an r relation to everything.
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 ```
+Say that I want to show that Ottawa is the capital of Canada. I could open a map that shows each country's capital to demonstrate this. If that doesn't convince you, we could ask someone from Canada, or even go to Canada ourselves. But to show this, I don't need to know the capital of Australia, or how an internal combustion engine works. There's lots of facts that I don't need to use to show that Canada's capital is Ottawa. If something has a finite model property, then you don't need to use every fact to show it's true. This is important, because computers also try to show that some things are true, but without the finite model property, they would be stuck calculating forever, since they would need to use all the facts.
 ```
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 ```
+Imagine that you have a simple toy with lots of buttons or levers on it. If you press a button or pull a lever, it changes the toy in some way. Then imagine we take a picture of what happens each time you press a button or pull a lever, and we map out all of the ways the toy can change. That's a tree model, and since we made one with the toy, the toy has a tree model property. Diagraming changes in this way is helpful for understanding all of the ways that programs or processes can be changed.
 ```
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 ```
+I have no idea how to use Protege
 ```
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
