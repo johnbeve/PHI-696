@@ -6,7 +6,7 @@ Your second project will require you to answer each of the 10 questions below.  
 Tip #1: Carefully study the Baader, et. al. selections assigned on bisimulation; it is deceptively subtle, and quite powerful. 
 Tip #2: Google is still your friend. So is stackexchange...
 Tip #3: Work together to solve these problems, even for initial submissions and when you do, document this in github. 
-Tip #4: Work together as a team. 
+Tip #4: Work together as a team.
 ```
 
 **[1]** Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
@@ -115,7 +115,11 @@ Answer:
 
 (a) $∃R.(∀R.\top)\sqcap ∀R.\top$
 
+Or: $∃R.(∀R.(∀R¯.\top))$
+
 (b) $∃R.T \sqcap ∃R^-.(∃R.T)$
+
+Or: $∃R^-.(∃R.(∃R^-.\top))$
 
 (c) $∀R.(∃R.(∀R.A))$
 
