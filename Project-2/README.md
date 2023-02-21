@@ -62,8 +62,8 @@ A box
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 - ALCN is a syntax identical to ALC with "...unqualified number restrictions... concepts of the form (≤nr.T) and (≥nr.T)" (Baader et. al., 63)
-- So, in the textbook, once a set contains more than 1 relation, it can no longer be expressed in ALC.
-
+- So, in the textbook, once a set contains more or less than 1 relation, it can no longer be expressed in ALC.
+- This looks like (≤1 r).
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
