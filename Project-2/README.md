@@ -68,6 +68,7 @@ A box
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 - I feel like this could be done by contrasting (bisimulating?) two solitary sets of relations.
+- Looking at the third page of this pdf https://lat.inf.tu-dresden.de/teaching/ws2013-2014/DL/handout3.pdf tells me an empty relation 0 is also always a bisimulation.
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
@@ -89,8 +90,18 @@ A box
 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+- HERE ARE SOME USEFUL EXCERPTS FROM BAADER:
+"...ALC has the tree model property; i.e., every satisfiable concept has a tree model."
+
+- The most important part of logic is seeing if something is true. One way logicians (logical people) do this is by thinking about what we're interested in like it's the trunk of a tree. A tree has lots of different branches that go in different directions. 
+
+we like to split it in many different directions.
+
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
+
+
+
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```(a) a is a proper part of b and disjoint from e
