@@ -35,10 +35,15 @@ D:= 0^_
 ``` 
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+- These slides https://www.inf.unibz.it/~calvanese/teaching/16-17-odbs/lecture-notes/KRO-6-alc.pdf are the bestttt
+
+T Box: inclusive Terms
+
+A box: membership Assertions
+
+Domain: {Hand, Severed_Hand, Handless_jack, Handful_jack)
 
 
-
-A box
 
 
 
@@ -93,15 +98,13 @@ A box
 - HERE ARE SOME USEFUL EXCERPTS FROM BAADER:
 "...ALC has the tree model property; i.e., every satisfiable concept has a tree model."
 
-- The most important part of logic is seeing if something is true. One way logicians (logical people) do this is by thinking about what we're interested in like it's the trunk of a tree. A tree has lots of different branches that go in different directions. 
-
-we like to split it in many different directions.
+- The most important part of logic is seeing if something is true. One way logicians (logical people) do this is by thinking about what we're interested in like it's the trunk of a tree. 
+- A tree has lots of different branches that go in different directions. 
+...
+- If what we're looking at is true, the tree keeps on growing and growing forever!
 
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
-
-
-
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```(a) a is a proper part of b and disjoint from e
