@@ -11,13 +11,14 @@ Tip #4: Work together _as a team_.
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
   (a)  PP that says that x is a proper part of y 
-- A proper part is like a one-sided (subsumption) relationship (Finn)
-- Finn, Giacomo, Ali: PP:= ∃P.~P OR ∃(P⊓P^_)
-
 - P means x is a part of y
 - ~P means x is not a part of y
 - P^_ means y is a part of x
   
+- A proper part is like a one-sided (subsumption) relationship (Finn)
+- Finn, Giacomo, Ali: PP:= ∃P.~P OR PP:= ∃(P⊓~P^_)
+
+
   (b)  iPP that says that y is a proper part of x
  - Finn, Giacomo, Ali: iPP:= PP^_
  
