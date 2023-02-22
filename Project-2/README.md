@@ -14,31 +14,26 @@ Tip #4: Work together as a team.
   (a)  PP that says that x is a proper part of y
   
   Answer:
-  PP ≡ ∃part_of.C ⊓ ¬( ∀part_of.C ⊓ ∀part_of.¬C)
   PP ≡ P ⊓ ¬P¯
   
   (b)  iPP that says that y is a proper part of x
  
   Answer:
-  iPP ≡ ∃part_of¯.C ⊓ ¬ (∀part_of.C ⊓ ∀part_of.¬C)
   iPP ≡ (P ⊓ ¬P¯)¯
   
   (c)  iP that says that y has x as part 
   
   Answer:
-  iP ≡  ¬∃part_of¯.C
   iP ≡ P¯
   
   (d)  O that says that x overlaps y
   
   Answer:
-  O ≡ ¬∀part_of.C ⊓ ¬∀part_of.¬C ⊔ (∀part_of.C ⊓ ∀part_of.¬C)
   O ≡ ∃P¯.(∃P)
   
   (e)  D that says that x and y are disjoint 
   
   Answer:
-  D ≡ ∀part_of.¬C ⊓ ¬(∀part_of.C ⊓ ∀part_of.¬C)
   D ≡ ¬O
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
@@ -57,12 +52,12 @@ Birds = b,
 Peacocks = p
 
 TBox: 
-T#1 = {C ≡ C_colored ⊔ ¬C_colored,
-PP ≡ ∃part_of.C ⊓ ¬( ∀part_of.C ⊓ ∀part_of.¬C),
-iPP ≡ ∃part_of¯.C ⊓ ¬ (∀part_of.C ⊓ ∀part_of.¬C),
-iP ≡  ¬∃part_of¯.C,
-O ≡ ¬∀part_of.C ⊓ ¬∀part_of.¬C ⊔ (∀part_of.C ⊓ ∀part_of.¬C),
-D ≡ ∀part_of.¬C ⊓ ¬(∀part_of.C ⊓ ∀part_of.¬C)}
+T#1 = {C ≡ C_colored ⊔ C_noncolored,
+PP ≡ ≡ P ⊓ ¬P¯,
+iPP ≡ iPP ≡ (P ⊓ ¬P¯)¯,
+iP ≡ P¯
+O ≡ ∃P¯.(∃P)
+D ≡ ¬O
 
 ABox:
 A#1 = { cr: C_colored,
