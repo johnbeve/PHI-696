@@ -79,7 +79,7 @@ iPP (a, t)}
 
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-Answer: ∃r.(∀r.C ∧ ∀r¯.C)
+Answer: ∃R.(∀R.T) ⊓ ∀R.T
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
