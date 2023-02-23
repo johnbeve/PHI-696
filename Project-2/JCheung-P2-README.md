@@ -50,6 +50,8 @@ We need to translate this sentence into DL: Oxy = ∃z.(Pzx ^ Pzy)
 
 **(e)  D that says that x and y are disjoint**
 
+X and y are disjoint if they do not have any part in common. This then is just the negation of Overlap.
+
 **D ≡ ¬O**
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
@@ -69,6 +71,15 @@ Remember ∀x∃y(R(x,y)∧Cy) is translated into ∃R.C. So we don’t need to 
 
  “∀R.T“ is to deal with z, just meaning that x can have any R-successor (which is “∀x∀zR(x,z)” says).
 
+or
+
+**∃R.(∀R.(∀R¯.T))**
+
+or
+
+**∃R.(∀R.(∀R¯))**
+
+
 **(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))**
 
 Given that DL has an implicit universal quantifier at the beginning, here we decided to start from y as the subject of the formula, which is universally quantified. Given y is fixed, then we should do some work such that x and z are successors of y, whatever relation is between them. 
@@ -84,6 +95,14 @@ R(x,y) = R¯(y,x)
 
 “∃R¯.(∃R.⊤)” is to deal with x and its relation to y
 “∃R.⊤” is to deal with z and its relation to y
+
+or 
+
+**∃R¯.(∃R.(∃R¯.T))**
+
+or 
+
+**∃R¯.(∃R.(∃R¯))**
 
 **(c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))**
 
@@ -133,9 +152,9 @@ Bisimulation:
 ρ = {(B, B2), (697, 697-2), (329, 329-2)}
 
 So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role t as
-≥2 ∃t.⊤
+≥3 ∃t.⊤
 in I1
-≥1 ∃t2.⊤
+≥2 ∃t2.⊤
 in I2
 
 [![](https://mermaid.ink/img/pako:eNqNkDELgkAYhv_K8S0Z6KBCoUND2NIUJDR0DR_eVyd6npxnIdp_74KGaKje6R2eB17eEQotCFI41_pWSDSW5RlvmEsWHrdaNmxNVzL1cGJBsGKTJSwkdRPbhN5OlotkOf8Pj554HCV_4rGX99QJHNhBm6qTunXiS42-q7PPZb_4t2nggyKjsBTuk_Hpc7CSFHFIXRVoKg68uTsOe6v3Q1NAak1PPvStQEtZiReDCtIz1h3dH3_hcFQ?type=png)](https://mermaid.live/edit#pako:eNqNkDELgkAYhv_K8S0Z6KBCoUND2NIUJDR0DR_eVyd6npxnIdp_74KGaKje6R2eB17eEQotCFI41_pWSDSW5RlvmEsWHrdaNmxNVzL1cGJBsGKTJSwkdRPbhN5OlotkOf8Pj554HCV_4rGX99QJHNhBm6qTunXiS42-q7PPZb_4t2nggyKjsBTuk_Hpc7CSFHFIXRVoKg68uTsOe6v3Q1NAak1PPvStQEtZiReDCtIz1h3dH3_hcFQ)
@@ -173,7 +192,7 @@ Bisimulation:
 So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role m as
 ≥2 ∃t.⊤
 in I1
-≥1 ∃t2.⊤
+≥2 ∃t2.⊤
 in I2
 
 
@@ -187,23 +206,27 @@ in I2
 ```
 **(a) ∃r.C and ∀r.C**  
 
-  The first one reads: there is a thing r-related to all xs, and this thing falls under concept C
-  The second one reads: if there is a thing r-related to all xs, this thing falls under concept C
+  The first one reads: all x has a r-filler y instantiating C
+  
+  The second one reads: all r-fillers ys of x instantiate C.
   
 **(b) ∃r-.C and ∀r-.C**  
 
-  The first one reads: there is a thing r-related to all xs, and this thing falls under the reverse of concept C
-  The second one reads: if there is a thing r-related to all xs, this thing falls under the reverse of concept C
+  The first one reads: there is a thing y r-related to all xs, (or, all xs are r-inverse-related to y) and this thing falls under concept C.
   
+  The second one reads: if there is a thing r-related to all xs, (or, all xs are r-inverse-related to all ys) this thing falls under concept C.
+
 **(c) <=nr and <=nr.C**  
 
   The first one reads: role r connects all the xs to no more than n elements.
-  The second one reads: role r connects all the xs to no more than n elements, and they fall under concept C.
   
+  The second one reads: role r connects all the xs to no more than n elements, and they fall under concept C.
+
 **(d) ∃r-.C and ∃r-.{a}**  
 
-  The first one reads: for all xs, there is at least a thing y, which is C-reverse related to it, and which falls under concept C.
-  The second one reads: for all xs, there is element a, which is C-reverse related to it.
+  The first one reads: for all xs, there is at least a thing y, which is r-inverse related to it, and which falls under concept C.
+  
+  The second one reads: for all xs, there is element a, which is r-inverse related to it.
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
