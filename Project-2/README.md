@@ -128,13 +128,12 @@ stateDiagram-v2
 I<sub>1</sub>
 ---
 ```mermaid
+---
+title: Classification of Animals
+---
 graph TB
-  A([animal])-->B([mammal])
-  P([plant])-->Q([Has_seeds])
-  B-->C([Cat])
-  Q-->R([Needle_leaves])
-  C-->D([Tiger])
-  R-->S([Conifers])  
+  A([Animal])--sub-kingdom-->B([Vertebrates])
+  A--sub-kingdom-->C([Invertebrates])
   
 ```
 ---
@@ -142,31 +141,11 @@ I<sub>2</sub>
 ---
 ```mermaid
 ---
-title: Animal example
+title: Classification of Plants
 ---
-classDiagram
-    note "From Duck till Zebra"
-    Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
+graph TB
+    A([Plant])--sub-kingdom-->B([Cryptogams])
+    A--sub-kingdom-->C([phanerogams])   
 ```
 
 
