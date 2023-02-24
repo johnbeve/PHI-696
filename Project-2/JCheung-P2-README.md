@@ -264,7 +264,7 @@ In the same way, the finite tree model helps people understand how programs and 
 ```
 Provide a screenshot of your results here. 
 
-(a)	a is a proper part of b and disjoint from e
+**(a)	a is a proper part of b and disjoint from e**
 
 The question does not specify whether the consequences, after the reasoner is run, must be non-contradictory or not. I was able to set the object properties to return the desired consequences, although one inference is contradictory (i.e. a overlaps e).
 
@@ -280,15 +280,16 @@ The other direct way to answer this question is to directly assert the object pr
 
 <img width="397" alt="JCheung 10A2" src="https://user-images.githubusercontent.com/123851163/221298304-127ff88c-9da7-4e96-a638-4b9bb1b5264f.png">
 
-(b)	a overlaps c
+**(b)	a overlaps c**
+
+<img width="397" alt="JCheung 10B" src="https://user-images.githubusercontent.com/123851163/221299405-b8cf6320-d4ae-443c-9e66-c47d4fc62315.png">
 
 
-(c)	a is part of b, b is part of f, and a is part of f
-
-
-(d)	There are no parts between a and g in common
-
+**(c)	a is part of b, b is part of f, and a is part of f**
 
 
 
-**For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
+**(d)	There are no parts between a and g in common**
+
+
+
