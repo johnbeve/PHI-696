@@ -255,7 +255,6 @@ In the same way, the finite tree model helps people understand how programs and 
 <img width="1387" alt="PHI_637_Project_2_Q9" src="https://user-images.githubusercontent.com/123851163/221008128-a817ead8-7de8-4dcb-9c0f-49ab18054d71.png">
 
 
-
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
   (a) a is a proper part of b and disjoint from e
@@ -264,5 +263,32 @@ In the same way, the finite tree model helps people understand how programs and 
   (e) There are no parts between a and g in common
 ```
 Provide a screenshot of your results here. 
+
+(a)	a is a proper part of b and disjoint from e
+
+The question does not specify whether the consequences, after the reasoner is run, must be non-contradictory or not. I was able to set the object properties to return the desired consequences, although one inference is contradictory (i.e. a overlaps e).
+
+![JCheung 10A](https://user-images.githubusercontent.com/123851163/221298194-a415526b-ba56-47d1-9e9e-155e0e519e95.jpg)
+
+I tried disjointing the object properties “disjoint” and “overlaps” to represent that disjoint is the negation of overlaps, but the reasoner would not run when this relation was set. (I tried dozens of combinations, but for some reason I could not avoid the contradiction.)
+
+This is what my object properties look like (I named them to mirror the relations ontology).
+
+<img width="713" alt="JCheung 10A3" src="https://user-images.githubusercontent.com/123851163/221298236-d2191a12-7a7c-4f0b-885f-07330cdb24f2.png">
+
+The other direct way to answer this question is to directly assert the object property that a is disjoint from e. This is my second answer.
+
+<img width="397" alt="JCheung 10A2" src="https://user-images.githubusercontent.com/123851163/221298304-127ff88c-9da7-4e96-a638-4b9bb1b5264f.png">
+
+(b)	a overlaps c
+
+
+(c)	a is part of b, b is part of f, and a is part of f
+
+
+(d)	There are no parts between a and g in common
+
+
+
 
 **For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
