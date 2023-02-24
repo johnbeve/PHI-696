@@ -42,37 +42,38 @@ Answer:
 
 A mode I of K = (T#1, A#1) as follow,
 
-ΔI = {Chairs, Stools, Animals, Tigers, Cats, Birds, Peacocks},
-Chairs = cr,
-Stools = s,
-Animals = a,
-Tigers = t,
-Cats = ct,
-Birds = b,
-Peacocks = p
+ΔI = {Aquatic animal, Whales, Mammal, Cats, Seagull, Fish},
+Aquatic animals = a,
+Seagull = b,
+Cats = c,
+Fish = f,
+Mammal = m,
+Whales = w,
+Fly = {b},
+}
 
 TBox: 
-T#1 = {C ≡ C_colored ⊔ C_noncolored,
+T#1 = {C ≡ Fly ⊔ ¬ Fly,
 PP ≡ ≡ P ⊓ ¬P¯,
 iPP ≡ iPP ≡ (P ⊓ ¬P¯)¯,
 iP ≡ P¯
 O ≡ ∃P¯.(∃P)
 D ≡ ¬O
+}
 
 ABox:
-A#1 = { cr: C_colored,
-p:C_colored,
-s: ¬C_colored,
-a: ¬C_colored,
-t: ¬C_colored,
-ct: ¬C_colored,
-b: ¬C_colored,
-P(t, ct),
-P(ct, a),
-pp(t, ct),
-O (cr, s),
-D (cr, b),
-iPP (a, t)}
+A#1 = { 
+Fly: b,
+PP(w, a),
+pp(w, m),
+pp(f, a),
+iP (m, w),
+iPP (m, c),
+O (a, m),
+D(f,m),
+D(b, c),
+D(a, b)
+}
 
 
 3. Translate the following first-order logic axioms into ALCI: 
