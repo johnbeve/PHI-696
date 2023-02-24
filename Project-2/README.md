@@ -107,6 +107,15 @@ Domain: {Hand, Severed_Hand, Handless_jack, Handful_jack)
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
 
+- In Protege we have modeled the knowledge base for question 1.
+- Part_of is a transitive relationship, and Overlap is symmetric.
+- Since parthood is a subclass of overlap, and overlap is symmetric, this means parthood is also symmetric. It "inherits" the qualities of the broader property
+- This means A is a part of C because C is a part of A.
+- So, C must overlap A as well because they both bear the broader overlap property.
+
+The reasoner in Protege does it is by applying ALC "syntax expansion rules" to the given ontology, and following to their logical conclusions in order to 'complete' the A-box. 
+
+
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```(a) a is a proper part of b and disjoint from e
   (b) a overlaps c
