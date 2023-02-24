@@ -284,12 +284,33 @@ The other direct way to answer this question is to directly assert the object pr
 
 <img width="397" alt="JCheung 10B" src="https://user-images.githubusercontent.com/123851163/221299405-b8cf6320-d4ae-443c-9e66-c47d4fc62315.png">
 
-
 **(c)	a is part of b, b is part of f, and a is part of f**
 
+(1) a is part of b and (3) a is part of f
 
+<img width="395" alt="JCheung 10C" src="https://user-images.githubusercontent.com/123851163/221300595-dad472f3-eb7b-486f-aa95-912d27fd7fd5.png">
+
+(2) b is part of f 
+
+<img width="394" alt="JCheung 10C2" src="https://user-images.githubusercontent.com/123851163/221300740-9104d0c5-185d-42d2-9867-b6514a356b00.png">
 
 **(d)	There are no parts between a and g in common**
+
+First, I show that a disjoints g, which means that there is no overlap, i.e. they share no parts.
+
+<img width="519" alt="JCheung 10D" src="https://user-images.githubusercontent.com/123851163/221320207-6914e1d5-c8d2-4ad1-9de7-9e0a1d118a4b.png">
+
+Second, I show that a is a different individual than g. 
+
+<img width="1045" alt="JCheung 10D2" src="https://user-images.githubusercontent.com/123851163/221319727-7df25d7b-f9ed-4479-aa9d-f0d81ea1d96d.png">
+
+Third, I show that DifferentIndividuals means that there are no parts between a and g in common by annotating this meaning.
+
+<img width="543" alt="JCheung 10D3" src="https://user-images.githubusercontent.com/123851163/221320191-40669e68-c4dc-4fd1-b462-87bb8d1d6f32.png">
+
+Here is a complete picture:
+
+<img width="1043" alt="JCheung 10D4" src="https://user-images.githubusercontent.com/123851163/221320230-3b1ae74c-76c1-4cd7-8f6f-0cba525bcbcf.png">
 
 
 
