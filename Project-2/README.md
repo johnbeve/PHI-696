@@ -85,6 +85,8 @@ Answer: ∃R.(∀R.T) ⊓ ∀R.T
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
 Answer: ∃r.(∃r.C ∧ ∀r¯.C)
+∃R¯.(∃R.⊤) ⊓ ∃R.⊤
+
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 
@@ -189,7 +191,12 @@ classDiagram
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-Ansewr: color, plastic, metal
+Ansewr: 
+Bob loves playing games, and he hopes there is a game that can be played with different results forever. 
+One day, his father gives him a game, called Color-card: there are a number of color cards in a box. Each card has a different color, but it is full colored on one side, while on the other side it is a blank sheet with the colored dot. Once a time, the player chooses any number of cards from the box, and then use any number of cards he chose to make combinations. For example, the first time, Bob chooses five color cards from the box, red, yellow, blue, green, brown, then he uses three cards, and put them in such a order: 1, red (front side), 2, blue (back side), 3, green (back side). That is one combination. The player continues playing until there is a combination that repeats. If the player cannot continue playing, he/she fails. 
+However, if the player fails at one time, he/she can choose more or different cards, then plays the next time. The player wins if the cards he chooses can allow him to play forever. 
+Unfortunately, Bob cannot win the game, because no matter how many cards he chooses (the number of cards is not limitless), he cannot continue playing without a repeated combination occur.  
+We call the Color-card game has finite model property. 
 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
