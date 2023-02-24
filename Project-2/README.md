@@ -113,8 +113,8 @@ Domain: {Hand, Severed_Hand, Handless_jack, Handful_jack)
 - This means A is a part of C because C is a part of A.
 - So, C must overlap A as well because they both bear the broader overlap property.
 
-The reasoner in Protege does it is by applying ALC "syntax expansion rules" to the given ontology, and following to their logical conclusions in order to 'complete' the A-box. 
-
+- The reasoner in Protege does it is by applying ALC "syntax expansion rules" to the given ontology, and following to their logical conclusions in order to 'complete' the A-box. In this case, it's using the subsumption rule explained on page 84 of Baader et. al.
+- Many thanks to Ali and Giacomo
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```(a) a is a proper part of b and disjoint from e
