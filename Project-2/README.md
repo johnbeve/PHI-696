@@ -205,19 +205,25 @@ So Animals is bisimilar to Plants.
  
   (a) ∃r.C and ∀r.C
   
-  Answer: ∃r.C means that there exists a r-filler which is an element that belongs to C, while ∀r.C means that all r-fillers are Cs.
+  Answer: ∃r.C means that all x has a r-filler y which belongs to C, while ∀r.C means that all r-fillers ys of all x belong to C.
   
   (b) ∃r-.C and ∀r-.C
   
-  Answer: ∃r-.C means that there exists a inverse r-filler which an element that belongs to C, while ∀r.C means that all inverse r-fillers are Cs.
+  Answer: ∃r-.C means that there is a thing y r-related to all xs, and this thing belongs to C,
+  
+  while ∀r.C means that if there is a thing r-related to all xs, then this thing belongs to C.
   
   (c) <=nr and <=nr.C
   
-  Answer: <=nr means that there are no more than n r-fillers, while <=nr.C means that there are no more than n r-fillers in C.
+  Answer: <=nr means that role r connects all the xs to no more than n elements.
+ 
+  while <=nr.C means that role r connects all the xs to no more than n elements, and they belong to C.
   
   (d) ∃r-.C and ∃r-.{a} 
   
-  Answer: ∃r-.C means that there are no more than n inverse r-fillers, while <=nr.C means that there are no more than n inverse r-fillers in C.
+  Answer: ∃r-.C means that for all xs, there is at least a thing y, which is r-inverse related to it, and which belongs to C,
+  
+  while ∃r-.{a} means that for all xs, there is element a, which is r-inverse related to it.
 
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
