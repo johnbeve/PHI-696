@@ -15,9 +15,8 @@ Tip #4: Work together _as a team_.
 - ~P means x is not a part of y
 - P^_ means y is a part of x
   
-- A proper part is like a one-sided (subsumption) relationship (Finn)
+- A proper part is like a one-sided (subsumption) relationship.
 - Finn, Giacomo, Ali: PP:= ∃P.~P OR PP:= ∃(P⊓~P^_)
-
 
   (b)  iPP that says that y is a proper part of x
  - Finn, Giacomo, Ali: iPP:= PP^_
@@ -36,16 +35,20 @@ D:= 0^_
 ``` 
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
-- These slides https://www.inf.unibz.it/~calvanese/teaching/16-17-odbs/lecture-notes/KRO-6-alc.pdf are the bestttt
+- These slides https://www.inf.unibz.it/~calvanese/teaching/16-17-odbs/lecture-notes/KRO-6-alc.pdf are the best
+- https://www.researchgate.net/publication/326360368_Automated_noninvasive_epithelial_cell_counting_in_phase_contrast_microscopy_images_with_automated_parameter_selection/figures?lo=1 Figure 3 here helps me think about parthood for the purposes of my T box
+
+Instances: {Hand, Severed_Hand, Handless_Darcy, Darcy_2Hands}
+Concepts: {Limb, Person}
+Relations: {P, PP, P¯, PP¯, 0, D}
 
 T Box: inclusive Terms
+ 
 
 A box: membership Assertions
 
-Domain: {Hand, Severed_Hand, Handless_jack, Handful_jack)
-
-
-
+Person: {Handless_Darcy, Darcy_2Hands}
+Body: {Hand, Severed_Hand}
 
 
 3. Translate the following first-order logic axioms into ALC: 
