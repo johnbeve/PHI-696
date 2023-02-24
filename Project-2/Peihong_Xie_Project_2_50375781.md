@@ -113,13 +113,13 @@ class Mary
 
 Answer:
 
-(a) $∃R.(∀R.\top)\sqcap ∀R.\top$
+(a) $∃R.(∀R.(∀R¯.\top))$
 
-Or: $∃R.(∀R.(∀R¯.\top))$
+Fixing x (restricted by an impicit universal quantifer), this formula says: All x is R-related to some y such that y is R-related to all z such that z is R¯-related to all x (or, all x is R-related to z).
 
-(b) $∃R.T \sqcap ∃R^-.(∃R.T)$
+(b) $∃R^-.(∃R.(∃R^-.\top))$
 
-Or: $∃R^-.(∃R.(∃R^-.\top))$
+Fixing y (restricted by an impicit universal quantifer), this formula says: All y is is R¯-related to some x (or, some x is R-related to y) such that x is R-related to some z such that z is R¯-related to all y (or, all y is R-related to z).
 
 (c) $∀R.(∃R.(∀R.A))$
 
