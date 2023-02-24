@@ -101,26 +101,63 @@ Answer: ∃r.(∃r.C ∧ ∀r¯.C)
 I<sub>1</sub>
 ---
 ```mermaid
+---
+title: Classification of Vertebrates
+---
 graph TB
-  A([animal])-->B([mammal])
-  P([plant])-->Q([Has_seeds])
-  B-->C([Cat])
-  Q-->R([Needle_leaves])
-  C-->D([Tiger])
-  R-->S([Conifers])  
-  
+  A([Vertebrates])--sub_class-->B([Warm-blooded])
+  A--sub_class-->C([Cold-blooded])  
 ```
 ---
 I<sub>2</sub> 
 ---
 ```mermaid
-stateDiagram-v2
-    state if_state <<choice>>
-    [*] --> IsPositive
-    IsPositive --> if_state
-    if_state --> False: if n < 2
-    if_state --> True : if n >= 2
+---
+title: Classification of Invertebrates
+---
+graph TB
+   A([Invertebrates])--sub_class-->B([Porifera])
+   A--sub_class-->C([Cnidaria])
+   A--sub_class-->D([Arthropoda])
+   A--sub_class-->E([Annelida])
+   A--sub_class-->F([Mollusca])
 ```
+
+ΔI1 = {Vertebrates, Warm-blooded, Cold-blooded}
+
+Vertebrates = V
+Warm-blooded = WB
+Cold-blooded = CB
+
+Role Assignments:
+s = {(V, WB), (V, CB)}
+
+
+ΔI2 = {Invertebrates, Porifera, Cnidaria, Arthropoda, Annelida, Mollusca}
+
+Named IndividualsI:
+Invertebrates = INV
+Porifera = PO
+Cnidaria = CN
+Arthropoda = AR
+Annelida = AN
+Mollusca = MO
+
+Role Assignments:
+t2 = {(INV, PO), (INV, CN), (INV, AR), (INV, AR), (INV, AN), (INV,MO)}
+
+Bisimulation:
+
+ρ = {(V, INV), (WB, PO), (CB, CN)}
+
+So V is bisimilar to INV. But we can distinguish them in ALCN by defining the role t as
+≥2 ∃t.⊤
+in I1,
+
+≥5 ∃t2.⊤
+in I2
+___
+
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
@@ -132,8 +169,8 @@ I<sub>1</sub>
 title: Classification of Animals
 ---
 graph TB
-  A([Animal])--sub-kingdom-->B([Vertebrates])
-  A--sub-kingdom-->C([Invertebrates])
+  A([Animal])--sub_kingdom-->B([Vertebrates])
+  A--sub_kingdom-->C([Invertebrates])
   
 ```
 ---
@@ -147,6 +184,21 @@ graph TB
     A([Plant])--sub-kingdom-->B([Cryptogams])
     A--sub-kingdom-->C([phanerogams])   
 ```
+ΔI1 = {Animals, Vertebrates, Invertebrates}
+
+Role Assignments:
+s = {(Animals, Vertebrates), (Animals, Invertebrates)}
+
+ΔI2 = {Plants, Cryptogams, Phanerograms}
+
+Role Assignments:
+s2 = {(Plants, Cryptogams),  (Plants, Phanerograms)}
+
+Bisimulation:
+
+ρ = {(Animals, Plants), (Vertebrates, Cryptogams), (Invertebrates, Phanerograms)}
+
+So Animals is bisimilar to Plants.
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
