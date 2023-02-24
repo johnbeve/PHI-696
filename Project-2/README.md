@@ -195,13 +195,14 @@ Ansewr:
 Bob loves playing games, and he hopes there is a game that can be played with different results forever. 
 One day, his father gives him a game, called Color-card: there are a number of color cards in a box. Each card has a different color, but it is full colored on one side, while on the other side it is a blank sheet with the colored dot. Once a time, the player chooses any number of cards from the box, and then use any number of cards he chose to make combinations. For example, the first time, Bob chooses five color cards from the box, red, yellow, blue, green, brown, then he uses three cards, and put them in such a order: 1, red (front side), 2, blue (back side), 3, green (back side). That is one combination. The player continues playing until there is a combination that repeats. If the player cannot continue playing, he/she fails. 
 However, if the player fails at one time, he/she can choose more or different cards, then plays the next time. The player wins if the cards he chooses can allow him to play forever. 
-Unfortunately, Bob cannot win the game, because no matter how many cards he chooses (the number of cards is not limitless), he cannot continue playing without a repeated combination occur.  
-We call the Color-card game has finite model property. 
-
+Unfortunately, Bob cannot win the game, because no matter how many cards he chooses (the number of cards is not limitless), and how hard he tries, he cannot continue playing without a repeated combination occur.  
+We say that the Color-card game has finite model property. 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-
+At another day, Bob's father gives him a different game, called Dot-and-Line. 
+There is a big board, a number of tacks and thread. The games can be played with two people. When it is your turn, the other player choose a number of tacks and tacks them on the board - he/she can choose any place to locate a tack. Then the player uses thread to connect the tacks (any one tack needs to be connected to at least one other tack) - have all tacks to be connected. The connection is such that from one tack to any other tack through the thread, there is only one way to go. If the other player finds there is another way, you lose. If you does not lose, then it is the other player's turn. You two play on turn until one lose. 
+We say that the Dot-and-Line game has the tree model property. 
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
