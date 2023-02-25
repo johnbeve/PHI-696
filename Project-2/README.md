@@ -97,7 +97,8 @@ Body: {Hand, Severed_Hand}
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 - I got help here from https://vimeo.com/65392670
-- Sets in logic are a little bit like special clubs. These special clubs in logic are made up of true statements called _axioms_. Sometimes, us logicians (logical people) want to test if something new is a part of a club or not. If we can do it, we say the logic is _decideable_. 
+- Sets in logic are a little bit like special clubs. These special clubs in logic are made up of true statements called _axioms_. Sometimes, us logicians (logical people) want to test if something new is a part of a club or not. If we can do it, we say the logic is _decideable_. With decideable clubs, we're able to push around and put together the statements we already know are a part of them to find out.
+- If we can do this in a countable number of steps, our club has the finite model property.
 
 
 
