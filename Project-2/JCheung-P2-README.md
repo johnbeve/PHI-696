@@ -277,7 +277,16 @@ In the same way, the finite tree model helps people understand how programs and 
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
-**For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
+The tableau method starts from a Knowledge Base, i.e. the assertions we made through the Protege editor about individuals and between classes. We then build a tree. Each node in the tree represents a possible interpretation, and the branches represent the different ways in which the interpretation can be extended. It then expands the assertions by using different rules. For example, the disjunction rule to check all the possible cases (see Baader from page 71 to 73) and other rules for subsumption, etc. (see Baader pag. 84). What we are doing is basically constructing a set of possible interpretations where all the possible inferences from T-box are drawn, as well as all the possible concept memberships are tried.
+
+As a result, the reasoner will notice the logical relations between the concepts we asserted for individuals through Protege. It will see that c is a part of a, and since parthood is subsumed by overlap, it will apply the subsumption rule explained at page 84 in Baader et al. This will add a new fact, that c overlaps a. 
+
+Here is an explanation provided by Protege, which shows the relation that parthood is a subproperty of overlap:
+
+<img width="1243" alt="PHI_637_Project_2_Q9_2" src="https://user-images.githubusercontent.com/123851163/221322817-767edea0-8dbb-40c0-a206-d9bf3d514e11.png">
+
+<img width="1387" alt="PHI_637_Project_2_Q9" src="https://user-images.githubusercontent.com/123851163/221008128-a817ead8-7de8-4dcb-9c0f-49ab18054d71.png">
+
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
@@ -286,6 +295,54 @@ In the same way, the finite tree model helps people understand how programs and 
   (c) a is part of b, b is part of f, and a is part of f
   (e) There are no parts between a and g in common
 ```
-Provide a screenshot of your results here.
+Provide a screenshot of your results here. 
 
-**For some reason, there is a bug on the most recent Protege version for MacOs users, which is not allowing me to open the application. I am still working on this one, but I should have it completed over the next week!**
+**(a)	a is a proper part of b and disjoint from e**
+
+The question does not specify whether the consequences, after the reasoner is run, must be non-contradictory or not. I was able to set the object properties to return the desired consequences, although one inference is contradictory (i.e. a overlaps e).
+
+![JCheung 10A](https://user-images.githubusercontent.com/123851163/221298194-a415526b-ba56-47d1-9e9e-155e0e519e95.jpg)
+
+I tried disjointing the object properties “disjoint” and “overlaps” to represent that disjoint is the negation of overlaps, but the reasoner would not run when this relation was set. (I tried dozens of combinations, but for some reason I could not avoid the contradiction.)
+
+This is what my object properties look like (I named them to mirror the relations ontology).
+
+<img width="713" alt="JCheung 10A3" src="https://user-images.githubusercontent.com/123851163/221298236-d2191a12-7a7c-4f0b-885f-07330cdb24f2.png">
+
+The other direct way to answer this question is to directly assert the object property that a is disjoint from e. This is my second answer.
+
+<img width="397" alt="JCheung 10A2" src="https://user-images.githubusercontent.com/123851163/221298304-127ff88c-9da7-4e96-a638-4b9bb1b5264f.png">
+
+**(b)	a overlaps c**
+
+<img width="397" alt="JCheung 10B" src="https://user-images.githubusercontent.com/123851163/221299405-b8cf6320-d4ae-443c-9e66-c47d4fc62315.png">
+
+**(c)	a is part of b, b is part of f, and a is part of f**
+
+(1) a is part of b and (3) a is part of f
+
+<img width="395" alt="JCheung 10C" src="https://user-images.githubusercontent.com/123851163/221300595-dad472f3-eb7b-486f-aa95-912d27fd7fd5.png">
+
+(2) b is part of f 
+
+<img width="394" alt="JCheung 10C2" src="https://user-images.githubusercontent.com/123851163/221300740-9104d0c5-185d-42d2-9867-b6514a356b00.png">
+
+**(d)	There are no parts between a and g in common**
+
+First, I show that a disjoints g, which means that there is no overlap, i.e. they share no parts.
+
+<img width="519" alt="JCheung 10D" src="https://user-images.githubusercontent.com/123851163/221320207-6914e1d5-c8d2-4ad1-9de7-9e0a1d118a4b.png">
+
+Second, I show that a is a different individual than g. 
+
+<img width="1045" alt="JCheung 10D2" src="https://user-images.githubusercontent.com/123851163/221319727-7df25d7b-f9ed-4479-aa9d-f0d81ea1d96d.png">
+
+Third, I show that DifferentIndividuals means that there are no parts between a and g in common by annotating this meaning.
+
+<img width="543" alt="JCheung 10D3" src="https://user-images.githubusercontent.com/123851163/221320191-40669e68-c4dc-4fd1-b462-87bb8d1d6f32.png">
+
+Here is a complete picture:
+
+<img width="1043" alt="JCheung 10D4" src="https://user-images.githubusercontent.com/123851163/221320230-3b1ae74c-76c1-4cd7-8f6f-0cba525bcbcf.png">
+
+
