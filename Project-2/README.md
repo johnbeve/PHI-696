@@ -250,7 +250,7 @@ The tableau method uses the concept/concepts from a Knowledge Base (KB). In the 
 What we are doing to create individuals and classes in the Protege editor is basically constructing a set of possible interpretations where all the possible inferences from T-box are drawn, as well as all the possible concept memberships are tried.
 As a result, the reasoner will notice the logical relations between the concepts we asserted for individuals through Protege. It will see that c is a part of a, and since parthood is subsumed by overlap, it will apply the subsumption rule explained at page 84 in Baader et al. This will add a new fact, that c overlaps a. 
 
-![](../2.png)
+![picture 1](Q9.png)
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
