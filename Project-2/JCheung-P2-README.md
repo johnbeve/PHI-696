@@ -318,6 +318,6 @@ Third, I show that DifferentIndividuals means that there are no parts between a 
 Here is a complete picture:
 
 <img width="1043" alt="JCheung 10D4" src="https://user-images.githubusercontent.com/123851163/221320230-3b1ae74c-76c1-4cd7-8f6f-0cba525bcbcf.png">
-
+ 
 
 
