@@ -12,79 +12,96 @@ Tip #4: Work together as a team.
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
   (a)  PP that says that x is a proper part of y
-  PP = ∃P.~P
+  PP ≡ ∃P.~P
   
   or 
   
-  PP = ∃(P⊓~P¯)
+  PP ≡ ∃(P⊓~P¯)
+  
+  or
+  
+  PP ≡ P ⊓ ¬P¯
+  
+  or
+  
+  PP ≡ P.~P (I think this is my favored answer)
   
   (b)  iPP that says that y is a proper part of x
-  iPP = PP¯
+  iPP ≡ PP¯
   
   (c)  iP that says that y has x as part 
-  iP = P¯
+  iP ≡ P¯
   
   (d)  O that says that x overlaps y
-  O = ∃P¯.(∃P)
+  O ≡ ∃P¯.(∃P)
   -I'm worried about this, since I don't know what order you're allowed to read the variables in.
   
   (e)  D that says that x and y are disjoint 
-  D = ~O
+  D ≡ ~O
 ```
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 ```
  
-  Tex = {PP = ∃P.~P         (Tex. 1)
+  Tex ≡ {PP ≡ ∃P.~P         (Tex. 1)
 
-        iPP = PP¯           (Tex. 2)
+        iPP ≡ PP¯           (Tex. 2)
   
-        iP = P¯             (Tex. 3)
+        iP ≡ P¯             (Tex. 3)
   
-        O = ∃P¯.(∃P)        (Tex. 4)
+        O ≡ ∃P¯.(∃P)        (Tex. 4)
   
-        D = ~O              (Tex. 5)
+        D ≡ ~O              (Tex. 5)
   
-        P⊆PP                (Tex. 6)
+        PP⊑P                (Tex. 6)
   
-        iP⊆iPP              (Tex. 7)}
+        iPP⊑iP              (Tex. 7)}
   
 
-  Aex = {(New York, United States): part_of             (Aex. 1)
+  Aex = {(New York, United States): part_of                    (Aex. 1)
 
-        (United States, North America): part_of         (Aex. 2)
+        (United States, North America): part_of                (Aex. 2)
   
-        (United States, New York): inverse_part_of      (Aex. 3)
+        (United States, New York): inverse_part_of             (Aex. 3)
         
-        (North America, United States): inverse_part_of (Aex. 4)
+        (North America, United States): inverse_part_of        (Aex. 4)
         
-        (United States, Mongolia): disjoint             (Aex. 5)
+        (United States, Mongolia): disjoint                    (Aex. 5)
         
-        (Mongolia, United States): disjoint             (Aex. 6)
+        (Mongolia, United States): disjoint                    (Aex. 6)
         
-        (Russia, Europe): overlap                       (Aex. 7)
+        (Russia, Europe): overlap                              (Aex. 7)
+        
+        (United States, North America): proper_part_of         (Aex. 8)
+        
+        (North America, United States): inverse_proper_part_of (Aex. 9)
+        
         
 ΔI = {u, v, w, x, y, z},
 
-  United States = u
+  United States ≡ u
   
-  North America = v
+  North America ≡ v
   
-  New York = w
+  New York ≡ w
   
-  Mongolia = x
+  Mongolia ≡ x
   
-  Russia = y
+  Russia ≡ y
   
-  Europe = z
+  Europe ≡ z
   
-  Part_of = {(w,u), (u,v)}
+  Part_of ≡ {(w,u), (u,v)}
   
-  Inverse_Part_of = {(u,w), (v,u)}
+  Proper_Part_of ≡ {(u,v)}
   
-  Disjoint = {(u,x), (x,u)}
+  Inverse_Part_of ≡ {(u,w), (v,u)}
   
-  Overlap = {(y,z)}
+  Inverse_Proper_Part_of ≡ {(v,u)}
+  
+  Disjoint ≡ {(u,x), (x,u)}
+  
+  Overlap ≡ {(y,z)}
 ```
 
 3. Translate the following first-order logic axioms into ALCI: 
@@ -99,11 +116,11 @@ Tip #4: Work together as a team.
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 
--I'm not sure how to do this one, partly because the first x isn't bound by a quantifier. 
+-I'm not sure how to do this one, partly because the first x isn't bound by a quantifier. Here's an attempt: ∀R.∃R.∀R.A
 
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 
--I have the same problem here as I did with the previous question.
+-I have the same problem here as I did with the previous question. Another attempt: (∀R.A) ⊓ (∃R.B)
 ```
 
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
@@ -111,31 +128,31 @@ Tip #4: Work together as a team.
 
 I have a mermaid diagram, but I can't figure out how to add it to github. I've tried dragging it in, but that doesn't do anything.
 
-ΔI1 = {John Beverley, PHI 697, PHI 329, Tuesday Workshop}
+ΔI1 ≡ {John Beverley, PHI 697, PHI 329, Tuesday Workshop}
 
 Named IndividualsI:
-John BeverleyI = B
-PHI 697I = 697
-PHI 329I = 329
-Tuesday WorkshopI = W
+John BeverleyI ≡ B
+PHI 697I ≡ 697
+PHI 329I ≡ 329
+Tuesday WorkshopI ≡ W
 
 Role Assignments:
-t = {(B, 697), (B, 329), (B, W)}
+t ≡ {(B, 697), (B, 329), (B, W)}
 
 
-ΔI2 = {John Beverley, PHI 697, PHI 329}
+ΔI2 ≡ {John Beverley, PHI 697, PHI 329}
 
 Named IndividualsI:
-John BeverleyI2 = B2
-PHI2 697I = 697-2
-PHI 329I = 329-2
+John BeverleyI2 ≡ B2
+PHI2 697I ≡ 697-2
+PHI 329I ≡ 329-2
 
 Role Assignments:
-t2 = {(B2, 697-2),  (B, 329-2)}
+t2 ≡ {(B2, 697-2),  (B, 329-2)}
 
 Bisimulation:
 
-ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+ρ ≡ {(B, B2), (697, 697-2), (329, 329-2), (w, 697-2)}
 
 So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role t as:
 
@@ -151,29 +168,29 @@ in I2
 ```
 I have a mermaid diagram for this one as well, but can't figure out how to insert it.
 
-ΔI1 = {John Beverley, PHI 697, PHI 329}
+ΔI1 ≡ {John Beverley, PHI 697, PHI 329}
 
 Named IndividualsI:
-John BeverleyI = B
-PHI 697I = 697
-PHI 329I = 329
+John BeverleyI ≡ B
+PHI 697I ≡ 697
+PHI 329I ≡ 329
 
 Role Assignments:
-t = {(B, 697), (B, 329)}
+t ≡ {(B, 697), (B, 329)}
 
-ΔI2 = {John Beverley, PHI 697, PHI 329}
+ΔI2 ≡ {John Beverley, PHI 697, PHI 329}
 
 Named IndividualsI:
-John BeverleyI2 = B2
-PHI2 697I = 697-2
-PHI 329I = 329-2
+John BeverleyI2 ≡ B2
+PHI2 697I ≡ 697-2
+PHI 329I ≡ 329-2
 
 Role Assignments:
-t2 = {(B2, 697-2),  (B, 329-2)}
+t2 ≡ {(B2, 697-2),  (B, 329-2)}
 
 Bisimulation:
 
-ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+ρ ≡ {(B, B2), (697, 697-2), (329, 329-2)}
 
 So B is bisimilar to B2. The ALCN definitions are
 
@@ -190,11 +207,11 @@ in I2
   (a) ∃r.C and ∀r.C
   -The first is talking about anything that r's something that's a C, while the second is talking about everything that r's everything that's a C.
   (b) ∃r-.C and ∀r-.C
-  -The first is talking about something that r's everything that's C, while the second is talking about everything that r's anything that's C.
+  -The first is talking about something that's C that r's everything, while the second is talking about everything that's C that r's everything.
   (c) <=nr and <=nr.C
   -<=nr means there is a number of r-fillers that's less than or equal to some amount, and <=nr.C means there is a number of r-fillers that's less than or equal to some amount, and they are Cs.
   (d) ∃r-.C and ∃r-.{a} 
-  -The first says there's something that's a member of a concept that is in an r relation to everything, while the second says that someone that's being used as a concept is in an r relation to everything.
+  -The first says there's something that's a member of a concept that is in an r relation to everything, while the second says that something that's a concept is in an r relation to everything.
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
