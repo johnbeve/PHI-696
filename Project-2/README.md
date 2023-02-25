@@ -48,7 +48,8 @@ T Box: inclusive Terms
 A box: membership Assertions
 
 Person: {Handless_Darcy, Darcy_2Hands}
-Body: {Hand, Severed_Hand}
+Limb: {Hand, Severed_Hand}
+
 
 
 3. Translate the following first-order logic axioms into ALC: 
