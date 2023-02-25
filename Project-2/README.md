@@ -96,20 +96,17 @@ Body: {Hand, Severed_Hand}
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-- I got help here from https://vimeo.com/65392670
-- Sets in logic are a little bit like special clubs. These special clubs in logic are made up of true statements called _axioms_. Sometimes, us logicians (logical people) want to test if something new is a part of a club or not. If we can do it, we say the logic is _decideable_. With decideable clubs, we're able to push around and put together the statements we already know are a part of them to find out.
-- If we can do this in a countable number of steps, our club has the finite model property.
-
-
+- I got help here from https://vimeo.com/65392670 and https://philosophy.stackexchange.com/questions/15525/how-is-first-order-logic-complete-but-not-decidable#:~:text=First%2Dorder%20logic%20is%20complete,or%20is%20not%20logically%20entailed. 
+- Languages in logic are like special clubs, and these clubs can be used to make new clubs about whatever we're interested in. Sometimes, us logicians (logical people) want to know if something new can be part of a club or not. We can test it out by treating what we're interested in like a new member, and seeing if it gets along with the other members. If we can count the number of steps it takes before we can tell if everybody gets along or not, our club has the finite model property.
+- The finite model property is important because it gives us a helpful routine that makes figuring out these clubs a lot simpler. Sometimes all we need is three members to tell us they can't handle a new member. Sometimes, though, 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-- HERE ARE SOME USEFUL EXCERPTS FROM BAADER:
 "...ALC has the tree model property; i.e., every satisfiable concept has a tree model."
 
 - The most important part of logic is seeing if something is true. One way logicians (logical people) do this is by thinking about what we're interested in like it's the trunk of a tree. 
-- A tree has lots of different branches that go in different directions. 
+- A tree has lots of different branches that go in different directions. These branches _extend away_ from the trunk, but they're a part of the whole tree just like every other part is.
 ...
-- If what we're looking at is true, the tree keeps on growing and growing forever!
+
 
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
