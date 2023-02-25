@@ -13,7 +13,7 @@ Tip #4: Work together as a team.
 ```
   (a)  PP that says that x is a proper part of y
   (b)  iPP that says that y is a proper part of x
-  (c)  iP that says that y has x as part 
+  (c)  iP that says that x has y as part 
   (d)  O that says that x overlaps y
   (e)  D that says that x and y are disjoint 
 ```
