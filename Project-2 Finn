@@ -226,7 +226,7 @@ Imagine that you have a simple toy with lots of buttons or levers on it. If you 
 ```
 I added the object properties and successfully ran the reasoner. But again I am not able to get my image into github. 
 
-We inserted information about which individuals are involved, how the relevant relations are subsumed under each other, and some information about the logical relations between some of the relations. The tableu algorithim produces its inference by taking the information we inserted and generating a tree of potential models that are compatible with the information that was inserted. 
+We inserted information about which individuals are involved, how the relevant relations are subsumed under each other, and some information about the logical relations between some of the relations. The tableau algorithim produces its inference by taking the information we inserted and generating a tree of potential models that are compatible with the information that was inserted. In doing this, it recognizes the logical relations of the information we inserted and applies rules of inference to output logical consequences of this information.
 ```
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
