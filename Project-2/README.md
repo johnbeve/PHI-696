@@ -36,34 +36,38 @@ D:= 0^_
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 - These slides https://www.inf.unibz.it/~calvanese/teaching/16-17-odbs/lecture-notes/KRO-6-alc.pdf are the best
-- https://www.researchgate.net/publication/326360368_Automated_noninvasive_epithelial_cell_counting_in_phase_contrast_microscopy_images_with_automated_parameter_selection/figures?lo=1 Figure 3 here helps me think about parthood for the purposes of my T box
-
-Instances: {Hand, Severed_Hand, Handless_Darcy, Darcy_2Hands}
+- https://www.researchgate.net/publication/326360368_Automated_noninvasive_epithelial_cell_counting_in_phase_contrast_microscopy_images_with_automated_parameter_selection/figures?lo=1 Figure 3 here helps me think about parthood for the purposes of my Knowledge base K=(T,A)
+Instances: {Hand, Severed_Hand, Handless_Maria, BothHands_Darcy}
 Concepts: {Limb, Person}
 Relations: {P, PP, P¯, PP¯, 0, D}
 
 T Box: inclusive Terms
+ iP := P^_
+ PP:= ∃(P⊓~P^_)
+ iPP:= PP^_
+ 0:= ∃P.P^_
+ D:= 0^_
  
-
 A box: membership Assertions
 
-Person: {Handless_Darcy, Darcy_2Hands}
-Limb: {Hand, Severed_Hand}
-
-
+Person: {Handless_Maria, BothHands_Darcy}
+Limb: {Darcy_LeftHand, Darcy_RightHand, Severed_Left_Hand}
+P: {(Darcy_LeftHand, BothHands_Darcy),(Darcy_RightHand, BothHands_Darcy}
+iP: {(BothHands_Darcy, Darcy_LeftHand),(BothHands_Darcy,Darcy_RightHand)}
+PP: {(Darcy_LeftHand, BothHands_Darcy),(Darcy_RightHand, BothHands_Darcy)}
+iPP: {(BothHands_Darcy, Darcy_LeftHand),(BothHands_Darcy,Darcy_RightHand)}
+0: {(Darcy_LeftHand, BothHands_Darcy),(BothHands_Darcy, Darcy_LeftHand),(Darcy_RightHand, BothHands_Darcy),(BothHands_Darcy,Darcy_RightHand)}
+D: {(Severed_Hand, Maria),(Maria,Severed_Hand)}
 
 3. Translate the following first-order logic axioms into ALC: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
-
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 - ALC does not include conditionals or biconditionals in its syntax, so first I'm going to re-express the given formula without them:
 ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y)))) ≡ ∀y(R(x,y) ∨ ¬(∃x(R(y,x))) ∧ ∀y(R(x,y)∨ ¬A(y))
-
 
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y)) ≡ (∀y)(R(x, y) ∨ ¬A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
@@ -72,14 +76,12 @@ Limb: {Hand, Severed_Hand}
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 - ALCN is a syntax identical to ALC with "...unqualified number restrictions... concepts of the form (≤nr.T) and (≥nr.T)" (Baader et. al., 63)
-- So, in the textbook, once a set contains more or less than 1 relation, it can no longer be expressed in ALC.
-- This looks like (≤1 r).
+- So, in the textbook, once we specify that an individual bears a relation to more than one other individual, it can no longer be expressed in ALC.
 
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 - I feel like this could be done by contrasting (bisimulating?) two solitary sets of relations.
 - Looking at the third page of this pdf https://lat.inf.tu-dresden.de/teaching/ws2013-2014/DL/handout3.pdf tells me an empty relation 0 is also always a bisimulation.
-
 
 6. Explain the difference - using natural language - between the description logic expressions:
 (a) ∃r.C and ∀r.C
@@ -98,15 +100,15 @@ Limb: {Hand, Severed_Hand}
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 - I got help here from https://vimeo.com/65392670 and https://philosophy.stackexchange.com/questions/15525/how-is-first-order-logic-complete-but-not-decidable#:~:text=First%2Dorder%20logic%20is%20complete,or%20is%20not%20logically%20entailed. 
-- Languages in logic are like special clubs, and these clubs can be used to make new clubs about whatever we're interested in. Sometimes, us logicians (logical people) want to know if something new can be part of a club or not. We can test it out by treating what we're interested in like a new member, and seeing if it gets along with the other members. If we can count the number of steps it takes before we can tell if everybody gets along or not, our club has the finite model property.
+- Languages in logic are like special clubs, and these clubs can help us form new clubs about whatever we're interested in. Sometimes, us logicians (logical people) want to know if something new can be part of a club or not. We can test it out by treating what we're interested in like a new member, and seeing if it gets along with the other members. If we can count the number of steps it takes before we can tell if everybody gets along or not, our club has the finite model property.
 - The finite model property is important because it gives us a helpful routine that makes figuring out these clubs a lot simpler. Sometimes all we need is three members to tell us they can't handle a new member. 
-- Now, sometimes we don't want to limit the members of these clubs. Then it's more about making sure there can be space for everybody, even if that takes more work. When we're thinking about clubs like this, we don't need the finite model property so much.
+- Now, sometimes we don't want to limit the members of these clubs. Then it's more about making sure there can be space for everybody, even if that takes more work. When we want to make clubs like these, we don't need the finite model property.
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-- One way logicians (logical people) think about what we're interested is by picturing it like it's the trunk of a tree. 
+- One way us logicians think about what we're interested is by picturing it like it's the trunk of a tree. 
 - A tree has lots of different branches that go in different directions. These branches _extend away_ from the trunk, but they're a part of the whole tree just like every other part is. The ends of these branches grow into more specific parts of what we want to think about, like fruits or leaves. These are connected to the whole rest of the tree by the branches. 
 - As the tree grows, us logicians get to collect what we're interested in and look at it all together. We can add our own branches, more fruits, or even ask computers to lend a hand. Looking at a tree can make complicated problems easier to figure out.
-- Sometimes, though, if we tried to make a tree out of what we're looking at, it wouldn't help us that much. Then we'll find other ways of putting the parts together instead of trying to grow one. 
+- Sometimes, though, if we tried to make a tree out of what we're looking at, it wouldn't help us that much. Maybe the tree it would make is too small, or too weak. Then we'll find other ways of putting the parts together instead of trying to grow one. 
 ...
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
