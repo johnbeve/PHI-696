@@ -304,6 +304,7 @@ This is my most up to date answer—thanks to Karl for the insight. If disjoint 
  <img width="521" alt="JCheung 10A4" src="https://user-images.githubusercontent.com/123851163/221385263-895d3f52-755e-4e60-bd20-ac333fba5db6.png">
  
 __
+
 (The following were my initial answers and “work-around” attempts prior to finding the right object property setting.)
 
 The question does not specify whether the consequences, after the reasoner is run, must be non-contradictory or not. I was able to set the object properties to return the desired consequences, although one inference is contradictory (i.e. a overlaps e).
