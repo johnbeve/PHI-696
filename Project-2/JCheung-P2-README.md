@@ -315,9 +315,9 @@ The second one reads: role r connects all the xs to no more than n elements, and
   
 **(d) ∃r-.C and ∃r-.{a}**  
 
-The first one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): for all xs, there is at least a thing y, which is r-related to it, and which falls under concept C.
+The first one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): for all xs, there is at least a thing y, which is r-inverse related to it, and which falls under concept C.
   
-The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=a)), or ∀x∃y(r(y,x)∧(y=a))): for all xs, there is element a, which is r-related to it.
+The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=a)), or ∀x∃y(r(y,x)∧(y=a))): for all xs, there is element a, which is r-inverse related to it.
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
