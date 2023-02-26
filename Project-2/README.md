@@ -42,7 +42,16 @@ Answer:
 
 A mode I of K = (T#1, A#1) as follow,
 
-ΔI = {a, b, c, f, m, w},
+TBox: 
+T#1 = {C ≡ Fly ⊔ ¬ Fly,
+PP ≡ P ⊓ ¬P¯,
+iPP ≡ (P ⊓ ¬P¯)¯,
+iP ≡ P¯,
+O ≡ ∃P¯.(∃P),
+D ≡ ¬O
+}
+
+ΔI = {Aquatic animals, Seagull, Cats, Fish, Mammal, Whales}
 
 Individual names assignments:
 Aquatic animals = a,
@@ -58,22 +67,14 @@ Fly = {b},
 Animal = {a, b, c, f, m, w}.
 
 Role relation assignments: 
-P = {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (f,a), (m,a), (c,m), (w, m)}
-PP = {(f,a), (m,a), (c,m), (w, m)}
-iPP = {(a, f), (a, m), (m, c), (m, w)}
-iP = {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (a, f), (a, m), (m,c), (m,w)}
-O = {(a, m), (m,a)}
-D = {(a, b),(b,a) (a, c), (c,a), (b, c), (c, b), (b, f), (f, b), (b, m), (m, b), (b, w), (w, b), (c, f), (f, c), (c, w), (w, c), (f, m), 
+P: {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (f,a), (m,a), (c,m), (w, m)}
+PP: {(f,a), (m,a), (c,m), (w, m)}
+iPP: {(a, f), (a, m), (m, c), (m, w)}
+iP: {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (a, f), (a, m), (m,c), (m,w)}
+O: {(a, m), (m,a)}
+D: {(a, b),(b,a) (a, c), (c,a), (b, c), (c, b), (b, f), (f, b), (b, m), (m, b), (b, w), (w, b), (c, f), (f, c), (c, w), (w, c), (f, m), 
 (m, f), (f, w,, (w,f)}
 
-TBox: 
-T#1 = {C ≡ Fly ⊔ ¬ Fly,
-PP ≡ P ⊓ ¬P¯,
-iPP ≡ (P ⊓ ¬P¯)¯,
-iP ≡ P¯,
-O ≡ ∃P¯.(∃P),
-D ≡ ¬O
-}
 
 ABox:
 A#1 = { 
