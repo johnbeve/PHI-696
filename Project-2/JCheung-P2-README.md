@@ -56,7 +56,93 @@ X and y are disjoint if they do not have any part in common. This then is just t
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
-I will come back to this. 
+**Knowledge Base = (T,A):**
+
+TBox = { 
+
+PP ⊑ P
+
+iPP ⊑ iP
+
+P ⊑ O
+
+O ⊑ O¯
+
+O¯ ⊑ O
+D ⊑ ¬O 
+
+}
+
+
+
+ABox = { 
+
+(Half Dome, Yosemite National Park) : PP
+
+(Yosemite National Park, California) : PP
+
+(California, USA) : P
+
+(California, USA) : O
+
+(USA, California) : iPP
+
+(Half Dome, Angel’s Landing) : D
+
+(Yosemite National Park, Zion National Park) : D
+
+(California, Utah): D
+
+(Angel’s Landing, Zion National Park) : PP 
+
+(Zion National Park, Utah) : PP
+
+(Utah, USA) : P
+
+(Utah, USA) : O
+
+(USA, Utah) : iPP
+
+}
+
+
+
+ΔI = {Half Dome, Yosemite National Park, California, Angels Landing, Zion National Park, Utah, USA}
+
+
+
+Named Individuals: Half Dome = HD, Yosemite National Park = YNP, California = C, Angels Landing = AL, Zion National Park = ZNP, Utah = U, USA = USA
+
+
+
+Concept Assignments: Summit = {HD, AL}, National Park = {ZNP, YNP}, State = {C, U}, Country = {USA} 
+
+
+
+Role Assignments: 
+
+PP: {(HD, YNP), (YNP, C), (C, USA), (AL, ZNP), (ZNP, U), (U, USA)} 
+
+P: {(HD, YNP), (YNP, C), (C, USA), (AL, ZNP), (ZNP, U), (U, USA), (HD, HD), (YNP, YNP), (C, C), (AL, AL), (ZNP, ZNP), (U, U), (C, USA), (U, USA), (USA, USA)}
+
+iPP: {(YNP, HD), (C, YNP), (USA, C), (ZNP, AL), (U, ZNP), (USA, U)}
+
+iP: {(YNP, HD), (C, YNP), (USA, C), (ZNP, AL), (U, ZNP), (USA, U), (HD, HD), (YNP, YNP), (C, C), (AL, AL), (ZNP, ZNP), (U, U), (USA, C), (USA, U), (USA, USA)}
+
+O: {(HD, YNP), (YNP, C), (C, USA), (AL, ZNP), (ZNP, U), (U, USA), (HD, HD), (YNP, YNP), (C, C), (AL, AL), (ZNP, ZNP), (U, U), (C, USA), (U, USA), (USA, USA)}
+
+D: {(HD, AL), (HD, ZNP), (HD, U), (YNP, AL), (YNP, ZNP), (YNP, U), (C, AL), (C, ZNP), (C, U)}
+
+**Thank you, Delaney, for inspiring me to share some of my pictures of Half Dome and Angel's Landing!**
+
+**Half Dome**
+
+<img width="613" alt="Half Dome" src="https://user-images.githubusercontent.com/123851163/221388205-25236067-c91f-43b1-9077-2e2b646327fc.png">
+
+**Angel's Landing**
+
+![Angels Landing](https://user-images.githubusercontent.com/123851163/221388076-40507e01-cc91-4cdc-ae9a-1973add87290.JPG)
+
 
 3. Translate the following first-order logic axioms into ALCI: 
 
