@@ -50,9 +50,21 @@ Seagull = b,
 Cats = c,
 Fish = f,
 Mammal = m,
-Whales = w,
+Whales = w.
+
+Concept assignments:
 Fly = {b},
-}
+¬ Fly = {a, c, f, m, w},
+Animal = {a, b, c, f, m, w}.
+
+Role relation assignments: 
+P = {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (f,a), (m,a), (c,m), (w, m)}
+PP = {(f,a), (m,a), (c,m), (w, m)}
+iPP = {(a, f), (a, m), (m, c), (m, w)}
+iP = {(a,a), (b,b), c,c), (m,m), (w,w), (f,f), (a, f), (a, m), (m,c), (m,w)}
+O = {(a, m), (m,a)}
+D = {(a, b),(b,a) (a, c), (c,a), (b, c), (c, b), (b, f), (f, b), (b, m), (m, b), (b, w), (w, b), (c, f), (f, c), (c, w), (w, c), (f, m), 
+(m, f), (f, w,, (w,f)}
 
 TBox: 
 T#1 = {C ≡ Fly ⊔ ¬ Fly,
