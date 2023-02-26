@@ -151,7 +151,7 @@ D: {(HD, AL), (HD, ZNP), (HD, U), (YNP, AL), (YNP, ZNP), (YNP, U), (C, AL), (C, 
 
 **∃R.(∀R.T) ⊓ ∀R.T**
 
-Remember ∀x∃y(R(x,y)∧Cy) is translated into ∃R.C. So we don’t need to deal with the first quantifier ∀x in translating the formula (a). Now we have only two variables in our translation: ∃y and ∀z.
+∀x∃y(R(x,y)∧Cy) is translated into ∃R.C. So we don’t need to deal with the first quantifier ∀x in translating the formula (a). Now we have only two variables in our translation: ∃y and ∀z.
 
 “∃R.(∀R.T)” is to deal with y, meaning that x has a R-successor y (which is “∀x∃yR(x,y)” says), and y can have any R-successor (which is “∀x∀zR(y,z)” says).
 
@@ -166,6 +166,8 @@ Or
 **∃R.(∀R.(∀R¯))**
 
 **(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))**
+
+**∃R¯.(∃R.⊤) ⊓ ∃R.⊤**
 
 Given that DL has an implicit universal quantifier at the beginning, here we decided to start from y as the subject of the formula, which is universally quantified. Given y is fixed, then we should do some work such that x and z are successors of y, whatever relation is between them. 
 
