@@ -274,5 +274,5 @@ As a result, the reasoner will notice the logical relations between the concepts
 ```
 Provide a screenshot of your results here. 
 
-
+![picture 2](Q10.png)
 
