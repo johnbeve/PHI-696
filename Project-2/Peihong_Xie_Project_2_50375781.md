@@ -317,4 +317,3 @@ Answers:
 ![picture 3](pic_2_2_1.PNG) 
 
 ![picture 4](pic_2_3_1.PNG) 
-fix picture error
