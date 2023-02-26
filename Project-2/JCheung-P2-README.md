@@ -322,7 +322,7 @@ The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=
 
 **EL15 Answer:**
 
-Description Logic is this fancy term that explains a way of teaching computers about the world using words and rules! The finite model property is another way to teach computers about the world using words and rules. It helps the computer understand the meaning of different words and how they relate to each other. For example, it helps the computer understand that a dog is an animal, or that a tree has leaves. By using words and rules, the computer can remember what it has learned and use it to figure things out or answer questions, just like we learn using words and rules. This can be helpful for many things like finding information or playing games! 
+Description Logic is this fancy name for a way of teaching computers about the world using words and rules! The finite model property is another way to teach computers about the world using words and rules. It helps the computer understand the meaning of different words and how they relate to each other. For example, it helps the computer understand that a dog is an animal, or that a tree has leaves. By using words and rules, the computer can remember what it has learned and use it to figure things out or answer questions, just like we learn using words and rules. This can be helpful for many things like finding information or playing games! 
 
 The finite model property is like playing with blocks. Imagine you have a bunch of blocks with different shapes and colors. You can use these blocks to build different things, like a house or a tower. The things you build are called models. 
 
@@ -350,7 +350,7 @@ The finite model property might be unimportant because if you did have to build 
 
 **EL15 Answer:** 
 
-Remember how we learned that Description Logic is a fancy term that explains a way of teaching computers about the world using words and rules? A tree model property is like a family tree for the words and rules we teach the computer. It helps the computer understand how different things are connected and related to each other, like how a dog is an animal, or how a tree has leaves! The tree model helps the computer remember all the different things it has learned and how they fit together, like a big puzzle. This makes it easier for the computer to answer questions or figure things out based on what it has learned before.
+Remember how we learned that Description Logic is a fancy name for a way of teaching computers about the world using words and rules and that a finite model property is another way of teaching computers about the world using words and rules? Well there is another way we can teach computers called a tree model property! A tree model property is like a family tree for the words and rules we teach the computer. It helps the computer understand how different things are connected and related to each other, like how a dog is an animal, or how a tree has leaves! The tree model helps the computer remember all the different things it has learned and how they fit together, like a big puzzle. This makes it easier for the computer to answer questions or figure things out based on what it has learned before.
 
 **Why is the tree model property important?**
 
