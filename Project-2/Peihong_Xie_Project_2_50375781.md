@@ -314,6 +314,6 @@ Answers:
 
 ![picture 2](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_1.PNG) 
 
-![picture 3](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_2_1.PNG) 
+![picture 3](https://github.com/peihongx/PHI-696/blob/peihong_karl_project_2/Project-2/pic_2_2_1.PNG) 
 
-![picture 4](https://github.com/peihongx/PHI-696/blob/main/Project-2/pic_2_3_1.PNG) 
+![picture 4](https://github.com/peihongx/PHI-696/blob/peihong_karl_project_2/Project-2/pic_2_3_1.PNG) 
