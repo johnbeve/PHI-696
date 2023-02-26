@@ -322,13 +322,15 @@ The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=
 
 **EL15 Answer:**
 
+Description Logic is this fancy term that explains a way of teaching computers about the world using words and rules! The finite model property is another way to teach computers about the world using words and rules. It helps the computer understand the meaning of different words and how they relate to each other. For example, it helps the computer understand that a dog is an animal, or that a tree has leaves. By using words and rules, the computer can remember what it has learned and use it to figure things out or answer questions, just like we learn using words and rules. This can be helpful for many things like finding information or playing games! 
+
 The finite model property is like playing with blocks. Imagine you have a bunch of blocks with different shapes and colors. You can use these blocks to build different things, like a house or a tower. The things you build are called models. 
 
 Now imagine you have lots and lots of blocks, more than you could ever count! You might think it's impossible to build something with all of them, but the finite model property says that you can still build something with just a few of them that will be like having all of them. The little things you build, the models, can tell you what is real and true.
 
 In the same way, the finite model property says that if we have a lot of ideas or things we want to say, we can still find a way to understand them by just looking at a few examples. This helps us learn and understand things even when they seem really big and complicated! 
 
-**Why is this important?!**
+**Why is this important?**
 
 The finite model property is important because it helps us understand big and complicated ideas by using just a few examples. It's like having a magic trick that lets us learn things faster and easier!
 
@@ -346,27 +348,20 @@ The finite model property might be unimportant because if you did have to build 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
-**EL15** (I will come back to this and revise!)
+**EL15 Answer:** 
 
-Imagine you have a toy with lots of buttons and levers. When you press a button or pull a lever, the toy changes in some way. The finite tree model is like a picture of all the different ways the toy can change.
+Remember how we learned that Description Logic is a fancy term that explains a way of teaching computers about the world using words and rules? A tree model property is like a family tree for the words and rules we teach the computer. It helps the computer understand how different things are connected and related to each other, like how a dog is an animal, or how a tree has leaves! The tree model helps the computer remember all the different things it has learned and how they fit together, like a big puzzle. This makes it easier for the computer to answer questions or figure things out based on what it has learned before.
 
-Each picture shows the toy in a different state, with some buttons and levers pressed and others not pressed. The lines between the pictures show how the toy changes when you press a button or pull a lever.
+**Why is the tree model property important?**
 
-By looking at all the pictures together, you can see all the different ways the toy can change, and how it changes from one state to another. This can help you understand how the toy works and how to use it.
+The tree model property is important because it helps the computer understand how things are related to each other, like a big puzzle. Just like when we learn new things, we need to remember how they fit with things we already know. The tree model helps the computer do this too, by showing how different words and rules are connected. This helps the computer make sense of all the things it has learned and answer questions or figure things out based on what it already knows.
 
-In the same way, the finite tree model helps people understand how programs and processes work by showing all the different ways they can change and how they change from one state to another.
+Just like a tree that starts in the ground beginning with one seed, if we follow the seed as it grows the roots to the trunk to the many branches and then to the many leaves, we can see all the things that are connected to each other that start from one seed! It is like a family with a lot of family members that all came from one parent, one beginning place, the seed (and in description logic, we call this the node!).
 
-An example:Imagine you're playing a game where you have to guess a number between 1 and 10. The game will tell you if your guess is too high or too low, and you have to keep guessinguntil you get the right answer.
+**Why might it be unimportant?**
 
-We can represent this game as a finite tree model. The starting point is when you make your first guess, which is like the "root" of the tree. Depending on whether your guess is too high or too low, the tree branches off into two different paths.
+The tree model property might be unimportant if there are not very many family members to build a tree with! If there is only one parent or two family members, it wouldn’t really be a big tree huh? So if there are not a lot of words or rules to teach the computer, the tree model property might be the most important thing to use.
 
-If your guess is too high, you go down one path where you make a lower guess. If your guess is too low, you go down the other path where you make a higher guess. 
-
-This branching continues until you finally guess the right number, which is like reaching a "leaf" node in the tree.
-
-By using the finite tree model to represent the guessing game, we can see all the different possible paths that the game can take, and how the game progresses from one guess to the next.
-
-In the same way, the finite tree model helps people understand how programs and processes work by showing all the different ways they can change and how they change from one state to another.
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
