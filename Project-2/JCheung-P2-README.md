@@ -320,9 +320,9 @@ The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=
 
 **EL15 Answer:**
 
-The finite model property is like playing with blocks. Imagine you have a bunch of blocks with different shapes and colors. You can use these blocks to build different things, like a house or a tower.
+The finite model property is like playing with blocks. Imagine you have a bunch of blocks with different shapes and colors. You can use these blocks to build different things, like a house or a tower. The things you build are called models. 
 
-Now imagine you have lots and lots of blocks, more than you could ever count! You might think it's impossible to build something with all of them, but the finite model property says that you can still build something with just a few of them that will be like having all of them. The little things you build tell you what is real and true!
+Now imagine you have lots and lots of blocks, more than you could ever count! You might think it's impossible to build something with all of them, but the finite model property says that you can still build something with just a few of them that will be like having all of them. The little things you build, the models, can tell you what is real and true.
 
 In the same way, the finite model property says that if we have a lot of ideas or things we want to say, we can still find a way to understand them by just looking at a few examples. This helps us learn and understand things even when they seem really big and complicated! 
 
@@ -331,16 +331,16 @@ In the same way, the finite model property says that if we have a lot of ideas o
 The finite model property is important because it helps us understand big and complicated ideas by using just a few examples. It's like having a magic trick that lets us learn things faster and easier!
 
 Think of it like building with blocks again. If you have a lot of blocks, you might not know where to start or what to build. But if you have just a few blocks, you can build something simple and then add more blocks as you go. This helps you learn how to build bigger things over time.
+
 In the same way, the finite model property helps us start learning about big ideas with simple examples, and then we can build on that knowledge to understand more complex things. It's like a stepping stone that helps us get to where we want to go, and it's an important tool for learning and discovering new things.
 
-Looking at the bigger picture, the finite model property helps us see what is real and true with a few, small amount of steps, rather than taking steps forever. Have you ever thought about what it would be like to have to keep on taking steps or building blocks forever? There is a word for that, it’s called infinity! Infinity goes on and on and never ever stops! 
+Looking at the bigger picture, the finite model property helps us see what is real and true in our model with a few, small amount of steps, rather than taking steps forever. Have you ever thought about what it would be like to have to keep on taking steps or building blocks forever? There is a word for that, it’s called infinity! Infinity goes on and on and never ever stops! 
 
 The finite model property helps our thinking and proving things more efficient and effective. This just means we don’t have to do as much and we don’t have to work as hard to do a really good and awesome job when talking about what is real and true.
 
 **Why might this be unimportant?**
 
 The finite model property might be unimportant because if you did have to build something that went on for forever (infinity), then it would not be able to tell you what is real or true because the finite model property is limited; it can only use some steps to tell you what is real or true, it can only use a small amount of steps to build something.
-
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
