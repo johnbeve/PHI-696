@@ -45,8 +45,9 @@ In mereology, x overlaps y iff x and y have a part which is the same (they have 
 
 We need to translate this sentence into DL: Oxy = ∃z.(Pzx ^ Pzy)
 
-**O ≡ ∃P¯.(∃P)
-  O ≡ ∃iP.(∃P.T)**
+**O ≡ ∃P¯.(∃P)**
+
+**O ≡ ∃iP.(∃P.T)**
 
 **(e)  D that says that x and y are disjoint**
 
