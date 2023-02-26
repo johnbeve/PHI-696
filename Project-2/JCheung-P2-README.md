@@ -296,11 +296,11 @@ in I2
 
 The first one reads (equivalent to in first-order logic: ∀x∃y(r(x,y)∧Cy)): all x has a r-filler y instantiating C.
   
-The second one reads(equivalent to in first-order logic: ∀x∀y(r(x,y)→Cy)): all r-fillers ys of all x instantiate C.  
+The second one reads (equivalent to in first-order logic: ∀x∀y(r(x,y)→Cy)): all r-fillers ys of all x instantiate C.  
   
 **(b) ∃r-.C and ∀r-.C**  
 
-The first one reads(equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): there is a thing y r-related to all xs, (or, all xs are r-inverse-related to y) and this thing falls under concept C.
+The first one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): there is a thing y r-related to all xs, (or, all xs are r-inverse-related to y) and this thing falls under concept C.
   
 The second one reads(equivalent to in first-order logic: ∀x∀y(r-(x,y)→Cy), or ∀x∀y(r(y,x)→Cy)): if there is a thing r-related to all xs, (or, all xs are r-inverse-related to all ys) this thing falls under concept C.
   
@@ -312,31 +312,35 @@ The second one reads: role r connects all the xs to no more than n elements, and
   
 **(d) ∃r-.C and ∃r-.{a}**  
 
-The first one reads(equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): for all xs, there is at least a thing y, which is r-related to it, and which falls under concept C.
+The first one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧Cy), or ∀x∃y(r(y,x)∧Cy)): for all xs, there is at least a thing y, which is r-related to it, and which falls under concept C.
   
-The second one reads(equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=a)), or ∀x∃y(r(y,x)∧(y=a))): for all xs, there is element a, which is r-related to it.
+The second one reads (equivalent to in first-order logic: ∀x∃y(r-(x,y)∧(y=a)), or ∀x∃y(r(y,x)∧(y=a))): for all xs, there is element a, which is r-related to it.
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-**EL15** (I will come back to this and revise!)
+**EL15 Answer:**
 
-The finite model property means that if you want to prove something in a game or puzzle, you don't have to use too many toys or blocks, just a few of them will be enough. This makes it easier to solve the game or puzzle and saves time.
+The finite model property is like playing with blocks. Imagine you have a bunch of blocks with different shapes and colors. You can use these blocks to build different things, like a house or a tower.
 
-Imagine you have a game with two toy animals, a cat and a dog. The rules of the game are that the cat is always hungry, and the dog is always friendly. You want to prove that if the cat is hungry, then the dog is not hungry.
+Now imagine you have lots and lots of blocks, more than you could ever count! You might think it's impossible to build something with all of them, but the finite model property says that you can still build something with just a few of them that will be like having all of them. The little things you build tell you what is real and true!
 
-One way to prove this would be to use all the possible combinations of hunger and friendliness for the cat and the dog, which would require an infinite number of possibilities. Infinite is the biggest number ever that never ends! It goes on forever! But because the game has the finite model proper
+In the same way, the finite model property says that if we have a lot of ideas or things we want to say, we can still find a way to understand them by just looking at a few examples. This helps us learn and understand things even when they seem really big and complicated! 
 
-**Finite Model Property** (Full explanation)
+**Why is this important?!**
 
-The finite model property is a property of a logical system or a formal language that means that every sentence that is true in all models of the system or language is also logically equivalent to a sentence that is true in some finite model of the system or language.
+The finite model property is important because it helps us understand big and complicated ideas by using just a few examples. It's like having a magic trick that lets us learn things faster and easier!
 
-In other words, a logical system or formal language has the finite model property if every true sentence can be proved using only a finite number of objects or elements, rather than requiring an infinite number of objects. This is a desirable property for logical systems or formal languages, as it allows for more effective and efficient reasoning and proof methods.
+Think of it like building with blocks again. If you have a lot of blocks, you might not know where to start or what to build. But if you have just a few blocks, you can build something simple and then add more blocks as you go. This helps you learn how to build bigger things over time.
+In the same way, the finite model property helps us start learning about big ideas with simple examples, and then we can build on that knowledge to understand more complex things. It's like a stepping stone that helps us get to where we want to go, and it's an important tool for learning and discovering new things.
 
-The finite model property is closely related to other concepts in logic and computer science, such as decidability and computability. Many important logical systems, such as first-order logic, have the finite model property, while others, such as second-order logic, do not.
+Looking at the bigger picture, the finite model property helps us see what is real and true with a few, small amount of steps, rather than taking steps forever. Have you ever thought about what it would be like to have to keep on taking steps or building blocks forever? There is a word for that, it’s called infinity! Infinity goes on and on and never ever stops! 
 
-**Simplified**
+The finite model property helps our thinking and proving things more efficient and effective. This just means we don’t have to do as much and we don’t have to work as hard to do a really good and awesome job when talking about what is real and true.
 
-The finite model property means that if something is true in a logical system or language, it can be shown to be true using only a finite number of objects or elements, instead of needing an infinite number. This makes reasoning and proving things more efficient and effective.
+**Why might this be unimportant?**
+
+The finite model property might be unimportant because if you did have to build something that went on for forever (infinity), then it would not be able to tell you what is real or true because the finite model property is limited; it can only use some steps to tell you what is real or true, it can only use a small amount of steps to build something.
+
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important.
 
