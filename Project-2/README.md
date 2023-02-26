@@ -103,13 +103,12 @@ Limb: {Hand, Severed_Hand}
 - Now, sometimes we don't want to limit the members of these clubs. Then it's more about making sure there can be space for everybody, even if that takes more work. When we're thinking about clubs like this, we don't need the finite model property so much.
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
-"...ALC has the tree model property; i.e., every satisfiable concept has a tree model."
+- One way logicians (logical people) think about what we're interested is by picturing it like it's the trunk of a tree. 
+- A tree has lots of different branches that go in different directions. These branches _extend away_ from the trunk, but they're a part of the whole tree just like every other part is. The ends of these branches grow into more specific parts of what we want to think about, like fruits or leaves. These are connected to the whole rest of the tree by the branches. 
+- As the tree grows, us logicians get to collect what we're interested in and look at it all together. Looking at a tree can make complicated problems easier to figure out.
+- Sometimes, though, if we tried to make a tree out of what we're looking at, it would be a small, weak tree. Then we'll find other ways of putting the parts together instead of trying to grow one. Situations like these don't need the tree model property. 
 
-- The most important part of logic is seeing if something is true. One way logicians (logical people) do this is by thinking about what we're interested in like it's the trunk of a tree. 
-- A tree has lots of different branches that go in different directions. These branches _extend away_ from the trunk, but they're a part of the whole tree just like every other part is.
 ...
-
-
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
 
