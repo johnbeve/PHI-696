@@ -236,4 +236,23 @@ We inserted information about which individuals are involved, how the relevant r
   (e) There are no parts between a and g in common
 
 Provide a screenshot of your results here. 
+
+I can't insert the images, but I got this to work. My solution was to make individuals identical to and b. I then inserted what I want to be true about a and b into these individuals, so that the reasoner would recognize that, since they're identical, these facts must also be true of a and b. Here's everything I did:
+
+A: make it the same individual as d
+
+B: make it the same individual as h
+
+C: make it overlap with b and make it a part of a
+
+D: it should be the same individual as a. Make it a part of f, disjoint with e, overlap c, a proper part of b, a part of b, and disjoint with g
+
+E: I didn’t do anything to e
+
+F: I didn’t do anything to f
+
+G: I didn’t do anything to g
+
+H: it should be the same individual as b. Make it a part of f
+
 ```
