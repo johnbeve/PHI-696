@@ -252,7 +252,7 @@ E: I didn’t do anything to e
 F: I didn’t do anything to f
 
 G: I didn’t do anything to g
-
+ 
 H: it should be the same individual as b. Make it a part of f
 
 ```
