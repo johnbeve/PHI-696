@@ -78,8 +78,7 @@ Limb: {Hand, Severed_Hand}
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. 
 
 - I feel like this could be done by contrasting (bisimulating?) two solitary sets of relations.
-- Looking at the third page of this pdf https://lat.inf.tu-dresden.de/teaching/ws2013-2014/DL/handout3.pdf tells me an empty relation 0 is also always a bisimulation.
-
+- Looking at the third page of this pdf https://lat.inf.tu-dresden.de/teaching/ws2013-2014/DL/handout3.pdf tells me an empty relation 0 could also work here.
 
 6. Explain the difference - using natural language - between the description logic expressions:
 (a) ∃r.C and ∀r.C
@@ -89,18 +88,27 @@ Limb: {Hand, Severed_Hand}
 - 'C' is a concept, which in ALC is synonymous to a class, set, or type. The inverse role relation means that 'C is being r'd by all xs' ( ∃r-.C) or 'only being r'd by all xs' (∀r-.C)
 
 (c) <=nr and <=nr.C
-- '<=n' in either case is a number restriction meaning 'fewer or equal to n instances'. The first expression specifies there are fewer than or equal to n instances of the relation 'r', while the second is an element of the concept C set and therefore means there are 'fewer than or equal to n instances of the relation r bearing in C'.
+- '<=n' in either case is a number restriction meaning 'fewer or equal to n instances'. The first expression specifies there are fewer than or equal to n instances of relation 'r's bearers, while the second is an element of the concept C set and therefore means there are 'fewer than or equal to n instances of the relation r bearing in a member of concept C'.
 
 (d) ∃r-.C and ∃r-.{a} 
 - An inverse role is focusing on the variable that is being related to in the syntax. 'C' is a concept, which in ALC is synonymous to a class, set, or type. There could be multiple instances of C being 'r'd'. '{a}', on the other hand, is an atomic concept. It is the only one of its kind. It is also being 'r'd' by some variable, but there are no interchangeable entities just like it.
+...
+- After help from Karl, I now know that ∃r-.C refers to all members of some concept C being r'd by every instance of some variable. ∃r-.{a} means the individual a is being r'd by every instance of some variable.
   
 ```
 
 7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 - I got help here from https://vimeo.com/65392670 and https://philosophy.stackexchange.com/questions/15525/how-is-first-order-logic-complete-but-not-decidable#:~:text=First%2Dorder%20logic%20is%20complete,or%20is%20not%20logically%20entailed. 
+
 - Languages in logic are like special clubs, and these clubs can be used to make new clubs about whatever we're interested in. Sometimes, us logicians (logical people) want to know if something new can be part of a club or not. We can test it out by treating what we're interested in like a new member, and seeing if it gets along with the other members. If we can count the number of steps it takes before we can tell if everybody gets along or not, our club has the finite model property.
+
 - The finite model property is important because it gives us a helpful routine that makes figuring out these clubs a lot simpler. Sometimes all we need is three members to tell us they can't handle a new member. 
 - Now, sometimes we don't want to limit the members of these clubs. Then it's more about making sure there can be space for everybody, even if that takes more work. When we're thinking about clubs like this, we don't need the finite model property so much.
+...
+- Here are some notes from Jieming: "...it seems if we define a club member as, say being interested in xxx, then, even though there is no limit requirement to the number of club members, it can also have the finite model property."
+- Here is a note from Karl: "Finite model property (FMP): Any satisfiable concept can be satisfied by a finite model. Tree model property (TMP): Any satisfiable concept can be satisfied by a tree model. When I read Baadar’s book, I find the following points: (1) Finite model property (FMP) can be used to design a decidable algorithm for the satisfiability of its concepts.
+...
+
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 - One way logicians (logical people) think about what we're interested is by picturing it like it's the trunk of a tree. 
@@ -108,14 +116,14 @@ Limb: {Hand, Severed_Hand}
 - As the tree grows, us logicians get to collect what we're interested in and look at it all together. We can add our own branches, more fruits, or even ask computers to lend a hand. Looking at a tree can make complicated problems easier to figure out.
 - Sometimes, though, if we tried to make a tree out of what we're looking at, it wouldn't help us that much. Then we'll find other ways of putting the parts together instead of trying to grow one. 
 ...
+- Here is a note from Jieming: "...from one end to another end, or from one point to another point, through the branches, there is one way and only one way to go. Thus, if a structure has the tree model property, it can determine whether one point in a relation falls into some specific branches, which means whether the object (represented by the point), falls into some specific concepts."
+- Here is a note from Karl: "...TMP is crucial to tableau-based algorithms for the consistency check of knowledge base and applied ontology. Most of applied ontologies, especially those BFO-based ones, have TMP, allowing that their consistency can be checked by tableau reasonings."
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. 
 
-- Since parthood is a subclass of overlap, and overlap is symmetric, this means parthood is also symmetric. It "inherits" the qualities of the broader property
-- This means A is a part of C because C is a part of A.
-- So, C must overlap A as well because they both bear the broader overlap property.
-- The reasoner in Protege does it is by applying ALC "syntax expansion rules" to the given ontology knowledge base, following to the logical conclusions in order to 'complete' the A-box. In this case, it's using the subsumption rule explained on page 84 of Baader et. al.
-- Many thanks to Ali and Giacomo :-)
+- So, C must overlap A as well because C is a part of A and they both bear the broader overlap property (Many thanks to Karl for correcting me here).
+- The reasoner in Protege figures this out by applying ALC "syntax expansion rules" to the given ontology knowledge base, following to the logical conclusions in order to 'complete' the A-box. In this case, it's using the subsumption rule explained on page 84 of Baader et. al.
+- Many thanks to Ali and Giacomo for their explanations :-)
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```(a) a is a proper part of b...
