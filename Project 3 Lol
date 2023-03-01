@@ -46,13 +46,21 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
+  - Occurrent
   (b) Chair of the UB Philosophy Department
+  - Continuant (role)
   (c) SARS-CoV-2
+  - Continuant (object)
   (d) Mexico City
+  - Continuant
   (e) The trunk of a minivan
+  - Continuant
   (f) Occupation
+  - Depends, the position (formal title) is a continuant, but the work done (one's occupation of their time) is an occurrent.
   (g) Ocean
+  - Continuant
   (h) Lake
+  - Continuant
 ```
 
 7. True or False; explain your answers:
@@ -60,12 +68,25 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   (c) An organization may have another organization as part.
+  - True: if we assume the opposite ("An organization CANNOT have another organization as part.") then I would not be able to make friends in my classes or work in groups.
+  - Large-scale social institutions only exist insofar as the smaller social organizations constituting them exist.
+  
   (d) An organization may have no members as part. 
+  - True: if nobody attends Anime Club on a given week, it still exists, both as a formal title and as an empty room.
+  - Unless its founders or relevant organizers dissolve it after weeks of nobody attending, Anime Club continues to exist as an organization with no members.
+  
   (e) Any site is partially bounded by some instance of Material Entity.
+  
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
+  
   (g) A glass vase cushioned with packing tape for all time, has the disposition to break. 
+  - True: the glass vase itself has the disposition to break, regardless of individual circumstance.
+  - The 'vase-and-packing-tape' is an instance of a new type of 'cushioned object', which may not have the disposition to break.
+  
   (h) Spacetime is a class in BFO.
+  
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+  
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
