@@ -3,10 +3,12 @@
 Your third project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
 
 ```
-For any question involving the use of Protege, please be sure to import Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl) and the Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
+For any question involving the use of Protege, please be sure to import:
+1. Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl)
+2. The Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
 ```
 
-1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
+1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
   (a)  Reflexive
   (b)  Transitive 
@@ -15,7 +17,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (e)  Symmetric and Reflexive
 ```
 
-2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
+2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
 ```
   (a)  Irreflexive
   (b)  Transitive 
@@ -63,7 +65,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (d) An organization may have no members as part. 
   (e) Any site is partially bounded by some instance of Material Entity.
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
-  (g) A glass vase cushioned with packing tape for all time, has the disposition to break. 
+  (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
   (h) Spacetime is a class in BFO.
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
 ```
