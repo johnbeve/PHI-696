@@ -20,8 +20,8 @@ For any question involving the use of Protege, please be sure to import:
       -Aligned_with. If a block A is placed in alignment with block B, then it's true that A is aligned with B and B is aligned with A. This works for political alignments. If one party is aligned with another, the reverse is also true. Otherwise, they weren't really in alignment.
       
   (d)  Functional 
-      -Quality_of. This is a subcategory of Characteristic_of, which is treated as functional. Given this, quality_of ought to be as well. A particular smile is related only to a particular face. (*note, I contradict myself later)
-      
+      -Has_relative_magnitude. Relative to some entity, and object has a single, particular magnitude.
+       
   (e)  Symmetric and Reflexive
       -Simultaneous_with. I've already explained why this should be reflexive. It's also reflexive, since if t1 is simultaneous with t2, then t2 is also simultaneous with t1.
       
@@ -49,7 +49,11 @@ For any question involving the use of Protege, please be sure to import:
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  
+  
   (b) Every liver has some cell as part at all times it exists.
+  
+  
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant are married at each point in a three year span. 
 ```
@@ -57,7 +61,18 @@ For any question involving the use of Protege, please be sure to import:
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  ∀x (Tx→(∃y(Hsy∧Ay))∧(Wx→~∃y(Hsy∧Ay)))
+  T: is a Tuesday
+  H: has a
+  A: is an arm
+  W: is a Wednesday
+  
   (b) Every liver has some cell as part at all times it exists.
+  ∀x∃y(Lx→Cy∧Pyx)
+  L: is a liver
+  C: is a cell
+  P: is a part of
+  
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
 ```
@@ -68,26 +83,50 @@ For any question involving the use of Protege, please be sure to import:
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
+  -generically dependent continuent
   (b) Chair of the UB Philosophy Department
+  -role
   (c) SARS-CoV-2
+  -object
   (d) Mexico City
+  -object aggregate
   (e) The trunk of a minivan
+  -fiat object part
   (f) Occupation
+  -role
   (g) Ocean
+  -object aggregate
   (h) Lake
+  -object aggregate
+  
 ```
 
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+  True, thoughts are not material, since they can have different properties from the material brain, and they are a part of material organisms. Or, a nostrile is an immaterial part of a material organism.
+  
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   (c) An organization may have another organization as part.
+  True,
+  
   (d) An organization may have no members as part. 
+  False, definition excludes this
+  
   (e) Any site is partially bounded by some instance of Material Entity.
+  False, definition excludes this
+  
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
+  False, definition excludes this, that sucks 
+  
   (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
+  True
+  
   (h) Spacetime is a class in BFO.
+  False, it's a spatiotemporal region
+  
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+  True, any subclass of two-dimensional continuant fiat boundary
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
