@@ -1,5 +1,6 @@
 # Project 3
 
+
 Your third project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
 
 ```
@@ -35,8 +36,12 @@ For any question involving the use of Protege, please be sure to import:
 ```
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
+
+⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∃ ∀ ∧ →
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  ∀x(Tx → ∃y(Hsy ∧ Ay)) ∧ (Wx → ¬∃y(Hsy ∧ Ay))
+  
   (b) Every liver has some cell as part at all times it exists.
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
