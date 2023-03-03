@@ -43,6 +43,8 @@ For any question involving the use of Protege, please be sure to import:
   ∀x(Tx → ∃y(Hsy ∧ Ay)) ∧ (Wx → ¬∃y(Hsy ∧ Ay))
   
   (b) Every liver has some cell as part at all times it exists.
+  ∀x∃y(Lx → Cy ∧ Pyx)
+  
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
 ```
