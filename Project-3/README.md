@@ -11,19 +11,39 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
   (a)  Reflexive
+      -Simultaneous_with. Any time is simultaneous with itself. It wouldn't make sense for there to be a time that occurs at a different time from itself.
+      
   (b)  Transitive 
+      -Causally_influences. If one entity causally influences one thing, and it causally influences another, then the original has causally influenced the last, albeit indirectly.
+      
   (c)  Symmetric
+      -Aligned_with. If a block A is placed in alignment with block B, then it's true that A is aligned with B and B is aligned with A. This works for political alignments. If one party is aligned with another, the reverse is also true. Otherwise, they weren't really in alignment.
+      
   (d)  Functional 
+      -Quality_of. This is a subcategory of Characteristic_of, which is treated as functional. Given this, quality_of ought to be as well. A particular smile is related only to a particular face. (*note, I contradict myself later)
+      
   (e)  Symmetric and Reflexive
+      -Simultaneous_with. I've already explained why this should be reflexive. It's also reflexive, since if t1 is simultaneous with t2, then t2 is also simultaneous with t1.
+      
 ```
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
 ```
   (a)  Irreflexive
+      -Has_role_in_modelling. Imagine a machine that is designed to model aspects of itself. It can be used to study itself, in virtue of its ability to reflect aspects of itself.
+      
   (b)  Transitive 
+      -Aligned_with. Imagine two lines of blocks that intersect at block B. Call one row 'Vertical' and the other 'Horizontal'. A is a block in Vertical, but not Horizontal. C is a block in Horizontal, but not Vertical. And B is in both Vertical and Horizontal. A is aligned with B, since they're in the same row, and B is aligned with C for the same reason, but A is not aligned with B.
+      
   (c)  Asymmetric
+      -Has_role_in_modelling. Imagine two machines that are designed to model aspects of eachother. They can be used to study eachother, in virtue of their ability to reflect aspects of eachother.
+  
   (d)  Functional 
+      -Phenotype_of. The color of an eye is a phenotype of the eye and of the person it belongs to. As a result, there is not exactly one entity it's in this relation to.
+  
   (e)  Inverse Functional
+      -Has_characteristic. A smile is a characteristic of a face, but also of a person. So characteristic_of is non-functional. So has_characteristic is not inverse functional.
+      
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
