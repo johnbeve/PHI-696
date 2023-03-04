@@ -41,22 +41,30 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
-
+"the content of an rdf file"
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
   - Occurrent
+  
   (b) Chair of the UB Philosophy Department
-  - Continuant (role)
+  - Role
+  -- Furniture chairs inside the UB Philosophy Department fiat object part of UB's campus are objects.
+  
   (c) SARS-CoV-2
-  - Continuant (object)
+  - Object
+  
   (d) Mexico City
   - Continuant
+  
   (e) The trunk of a minivan
   - Continuant
+  
   (f) Occupation
-  - Depends, the position (formal title) is a continuant, but the work done (one's occupation of their time) is an occurrent.
+  - Depends, the position (formal title) is a role, such as "Chair of the UB Philosophy Department"
+  - the work done (one's occupation of their time) is an occurrent.
+  
   (g) Ocean
   - Continuant
   (h) Lake
@@ -76,17 +84,24 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - Unless its founders or relevant organizers dissolve it after weeks of nobody attending, Anime Club continues to exist as an organization with no members.
   
   (e) Any site is partially bounded by some instance of Material Entity.
-  - I cannot tell if this
+  - True: a fully immaterial site, one not bounded to anything 'out there', cannot exist in the world. 
+  - I am under the impression that a site is a 'de jure' entity; it only exists because we pay special attention to it/ give it a name.
+  - We cannot demarcate a site around something wholly immaterial (Smith, 108). 
   
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
+  - False: function is a specifically dependent quality; it is unique to the continuant which bears it.
+  - Many other objects can be placed under the table, like a brick, or two other, thinner books.
+  - Because stabilizing a table is a generic quality, the book has acquired a new role.
   
   (g) A glass vase cushioned with packing tape for all time, has the disposition to break. 
   - True: the glass vase itself has the disposition to break, regardless of individual circumstance.
   - The 'vase-and-packing-tape' is an instance of a new type of 'cushioned object', which may not have the disposition to break.
   
   (h) Spacetime is a class in BFO.
+  - False: I cannot provide an explanation using theories in physics but I have an intuition that spacetime cannot be represented in BFO because a spacial region is a continuant while a temporal region is an occurent.
   
-  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO.
+  - 
   
 ```
 
