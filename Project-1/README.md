@@ -139,9 +139,16 @@ T	T	T	T	T
   ```
 
 
-5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both.
+ 
+B ≡ M ⊓ ∃p2¯.Person
+O= parent_of (∃parent_of=1)
 
-B= Male^∃Parent_of.(∃parent_of>=2). O= parent_of (∃parent_of=1) O^~B B^~O Jason: B (Mary Ann, Jason) (Mary Ann, Mona) Killian: O Amanda: Parent_of Killian Jason: (w,B) Mary Ann: Z Mona: Y Killian: (O,x) Amanda: v parent: (z,v) brother: w Only child: x child: w,y,x parent_of: zw,zy,vx Male: x,w
+Tom: B 
+Joe: B 
+Jill: O
+(Jill, Tom): parent_of
+(Jill, Joe): parent_of
 
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
