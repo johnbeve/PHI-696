@@ -275,4 +275,6 @@ x > y, x > z > y
 (10) (¬Px ∧ ¬Qx)	6,7,8,9 contradiction
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
+
+Both kinds of proofs 
  
