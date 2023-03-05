@@ -1,0 +1,162 @@
+# Project 3
+
+Your third project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
+
+```
+For any question involving the use of Protege, please be sure to import Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl) and the Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
+```
+
+1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
+```
+  (a)  Reflexive
+Concretizes
+  This should be reflexive because any object which concretizes something is a concretization of itself. For instance, a specific bird may be a concretization of a type "bird" and will also be a concretization of itself as a specific bird.
+  (b)  Transitive 
+Correlated with
+  This should be transitive because any situation where a factor is correlated with a specific thing which is then correlated with another thing will be such that the first is correlated with the third. For example, if hot days are correlated with a lot of sunlight and a lot of sunlight is correlated with healthier plant growth, then hot days would then be correlated with healthier plant growth.
+  (c)  Symmetric
+  Differs in
+  This should be symmetric because any relation where one part differs from the other will be such that the other part will also differ with the first. For example, if a pot of water differs from a pot of ice in their temperature, then the pot of ice will differ from the pot of water in their temperature.
+  (d)  Functional 
+  Has characterizing marker set
+  This should be functional because there is only one characterizing marker set for any given cell type. Since the markers uniquely identify that cell type, they will only produce the relevant cell type when that relation is present. As an example of this, a cell type may only have the markers of being black and porous. In such a case, only the cell type which has these qualities would have this characterizing marker set. 
+  (e)  Symmetric and Reflexive
+   Correlates with
+  This should be both symmetric and reflexive because any thing which has a correlated relationship with another thing will be both such that the other thing has a correlated relationship with it and such that it is correlated with itself. To use an example, if rain is correlated with cloudy weather, then cloudy weather will be correlated with rain. Since they both occur together when rain occurs, they will have a correlated relationship. Similarly, rain will naturally be correlated with itself. When rain occurs, rain occurs alongside itself. This, while trivial, means that any thing will correlate with itself since its occurrence will move with its own occurrence
+```
+
+2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
+```
+  (a)  Irreflexive
+  Has role in modeling
+  This should not be irreflexive because a biological, experimental, or computational artifact can be used to model both something else and itself. For example, we may create a model which represents agents in order to model how they interact with each other under such-and-such conditions. These agents will be used to model something else, but they also model themselves as computational agents. We have little reason to do this in the process of modeling like this, but they can be used to model themselves as part of an effort to understand the specifics of the model and computational agents themselves.
+  (b)  Transitive 
+  Aligned with
+  This should not be transitive because it is possible for an object to be aligned with a second object but not aligned with a third object. For example, we may have a mirror aligned with another mirror such that each reflect the other. The angle of this alignment, however, does not necessitate that if the second mirror is also aligned in a similar way with a third mirror then the first mirror will also be aligned with the third. The angle of the first alignment may be such that, while the second mirror is aligned with the third, the first is out of alignment with the third.
+  (c)  Asymmetric
+ Has role in modeling
+  This should not be asymmetric because, while a biological, experimental, or computational artifact can be used to model a separate entity, we may also use the entity to model the artifacts. We may be interested in modeling entities through the artifacts, but we may also be interested in using the entities to understand the artifacts. In that way, for example, we may use the actions of real life agents to understand the decisions and considerations used to produce and utilize a computational agents. 
+  (d)  Functional 
+  Characteristic of
+  This should not be functional because, in a relationship between a characteristic and its bearer where the characteristic depends on the bearer for its existence, it is possible for a characteristic to have multiple bearers. Since a functional object property requires that it only output only one possible bearer in this case, it would contradict the property for it to have multiple bearers. As an example, the characteristic "weighs 50 pounds" will have multiple bearers. This may include boxes of office supplies, a piece of furniture, etc.,  but it will mean that this characteristic is a characteristic of multiple bearers. This means that there is more than one value for the characteristic of relation, meaning that it should not be functional.
+  (e)  Inverse Functional
+  Has characteristic
+  This should be inverse functional because, in a relationship where a bearer has a characteristic which depends on the bearer for its existence, there will be more than one characteristic which the bearer will have. Since an inverse functional object property requires that there be only one input in the form of a characteristic into the bearer, this will mean that the bearer can only bear one characteristic. As an example, it is possible for a person to bear the characteristics of "is 6 feet tall" and "has a beard." This will mean that the has characteristic relation will have more than a value of 1 or 0. As such, the has characteristic relation should not be inverse functional. 
+```
+
+3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
+```
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday.
+  Sally is instance_of object
+Tuesday is instance_of one-dimensional temporal region 
+Wednesday is an instance of one-dimensional temporal region 
+Arm is an instance of fiat object part
+“Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+“Sally participates in having no arms on Wednesday” is an instance of occurrent
+“Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday”
+
+  (b) Every liver has some cell as part at all times it exists.
+  Liver has_part_at_all_times Cell
+  
+  (c) John was a child, then an adult, then a senior. 
+  John is an instance_of object
+childhood is an instance_of occurrent.
+adulthood is an instance_of occurrent.
+seniorhood is an instance_of occurrent.
+“John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
+
+  (d) Goofus and Gallant are married at each point in a three year span. 
+  Goofus is an instance_of object
+Gallant is an instance_of object
+Marriage is an instance_of occurent
+“Three years span 1” is an instance_of one-dimensional temporal region.
+If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
+
+```
+
+4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
+```
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday.
+  ∃(x)(Sx^(Tx^~Wx)) 
+  S=Is Sally 
+  T=Has an arm on Tuesday 
+  W=Has an arm on Wednesday
+  (b) Every liver has some cell as part at all times it exists.
+  ∀(x)(Lx->∃(y)(Cy^Pyx))
+  L=Is a liver 
+  C=Is a cell 
+  P=_is a part of_
+  
+  (c) John was a child, then an adult, then a senior.
+∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
+j = John
+E xy = being earlier than
+C (x, t) = being a child at t
+A (x, t) = being an adult at t
+S (x, t) = being a senior at t
+
+  (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.
+  
+∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+M(x, t) = being married at t
+Y(t) = belongs to 3 year span 1
+g1 = Goofus
+g2 = Gallant
+D(t) = t is a day
+
+```
+
+5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+
+
+6. Using Protege, place these in the BFO hierarchy where you think they fit best:
+```
+  (a) Bach's Well-Tempered Clavier
+  Generically Dependent Continuant
+  (b) Chair of the UB Philosophy Department
+  Role
+  (c) SARS-CoV-2
+  Object
+  (d) Mexico City
+  Object Aggregate
+  (e) The trunk of a minivan
+  Fiat Object Part
+  (f) Occupation
+  Role
+  (g) Ocean
+  Object Aggregate
+  (h) Lake
+  Object Aggregate
+```
+
+7. True or False; explain your answers:
+```
+  (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+  True. A material entity has some portion of matter as proper or improper continuant part. These parts don't need to be material. For example thoughts are immaterial but can be understood as a part of the material person. 
+  (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
+  False. 
+  (c) An organization may have another organization as part.
+  True. Organizations break off separate organizations to perform different functions all of the time. A charity organization for finding housing for the homeless might break off local and regional organizations to better serve people at various locations for example.
+  (d) An organization may have no members as part. 
+  True. Organizations can continue their existence even after losing all members for a time. For example, the Soviet Union continued to exist for a time even after all member states left the organization. It's continuation, then, depended not on its members but instead on other factors like the organizational structure and rules.
+  (e) Any site is partially bounded by some instance of Material Entity.
+  True. All examples of sites used in the BFO Protege consist of gaps between material entities. Gaps such as this, while separate from their surrounding material entities, will be partially defined by those material entities. For example, the Grand Canyon is specifically a gap defined by surrounding cliffs.
+  (f) A book placed under the leg of a wobbly table has acquired a new function. 
+  False. The book may have been primarily used to read or write in, but it was always a function of it that it could take up space and act as a solid base for another object. Function is not limited by its purpose of creation, and instead includes its ability to hold up a table or any other such object by virtue of its physical make-up.
+  (g) A glass vase cushioned with packing tape for all time, has the disposition to break.
+  True. Being cushioned with packing tape does not change the dispositions of the vase itself. 
+  (h) Spacetime is a class in BFO.
+  False. The spatiotemporal region covers this, but this itself is not a class.
+  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+  False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
+```
+
+8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
+
+9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning.
+
+Pellet should be used when we don't want our work to start all over again everytime we change something. We may be trying to figure out, for example, the rules for a new game we are playing. In that situation, we probably don't want to go back to the start of the instructions every time we learn a new part of the rules. Instead, we would want to take each new rule we learn about, bring it in with the rules we already know about, think about what actions and rules the new rule would affect, and then keep going. It's very annoying to have to redo all of the work we have already done each time we learn something new, so we are better off using something that lets us combine everything as we go.
+
+We may not want to use this, however, at the very beginning of learning this new game. When we only have a few rules we know and are trying to get a feel for everything, it helps us to keep everything in sight as we learn. In that case, starting over lets us put things in their context and bring them forward as we get a baseline for everything.
+
+10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
