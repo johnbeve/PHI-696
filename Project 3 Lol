@@ -7,7 +7,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
-```
+``` - I need to learn more about object properties, let me get back to you...
   (a)  Reflexive
   (b)  Transitive 
   (c)  Symmetric
@@ -35,7 +35,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  ∃Tues.B(S,A)∧∃Wed.B(S,¬A)
+  ∃Tues.B(S,A) ∧ Wed.B(S,¬A)
   - 'There exists a Tuesday with Sally bodying an arm and there is a Wednesday with Sally bodying a not-arm.'
   
   (b) Every liver has some cell as part at all times it exists.
@@ -44,6 +44,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - I don't know how to represent "at all times it exists" in FOL; I was thinking "all livers do not have a not-cell" but that either doesn't make sense, is redundant, or both.
   
   (c) John was a child, then an adult, then a senior. 
+  ∃John.Child ∧ John.Grown ∧ John.Old ∧ John.¬(Child ∧ Grown ∧ Old)
+  - 'There exists John as child and John as grown and John as old, and John not-as child and grown and old.'
+  - I don't know how to represent the "was" and "then" relations in FOL; I was thinking 
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
   
