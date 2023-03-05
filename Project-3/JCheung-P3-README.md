@@ -18,15 +18,15 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 
 **(a)  Reflexive**
 
-The object property, “immediate transformation of”, should have the reflexive characteristic listed.
+The object property, “overlaps”, should have the reflexive characteristic listed.
 
-It’s definition states: “x immediate transformation of y iff x immediately succeeds y temporally at a time boundary t, and all of the matter present in x at t is present in y at t, and all the matter in y at t is present in x at t”.
+It’s definition states: x overlaps y if and only if there exists some z such that x has part z and z part of y.
 
-Reflexivity is the characteristic that expresses the relation that an entity be related to itself. Although, x and y constitute the same matter and it can be implied that x and y do not share the same identity at a particular time t, the “immediate transformation of” relation is reflexive because it relates back to the same matter that constitutes both x and y.
+Reflexivity is the characteristic that expresses the relation that an entity be related to itself. 
 
-Therefore, the object property “immediate transformation of” should have reflexive as a listed characteristic.
+The object property “overlaps” should have reflexive as a listed characteristic since an object shares itself (and parts of itself) with itself. 
 
-<img width="1032" alt="P31A" src="https://user-images.githubusercontent.com/123851163/222936204-feea5b05-a0fe-433b-8549-f1f74221477e.png">
+<img width="781" alt="P31A" src="https://user-images.githubusercontent.com/123851163/222987850-eb25244f-853f-446b-a9d5-90123729f67a.png">
 
 
 
@@ -80,39 +80,15 @@ Therefore, the object property “has target end location” should have functio
 
 **(e)  Symmetric and Reflexive**
 
-The object property, “connects”, should have the symmetric and reflexive characteristics listed. 
+The object property, “simultaneous with”, should have the symmetric and reflexive characteristic listed. 
 
-It’s definition states: “c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system.
+It’s definition states: t1 simultaneous_with t2 iff:=  t1 before_or_simultaneous_with t2  and not (t1 before t2).
 
-That is, c connects a and b iff: 
+It’s reflexive, since any time must be simultaneous with itself. And it’s symmetric, since, if t1 is simultaneous with t2, then t2 must be simultaneous with t1.
 
-a, b, c ∈ G {  
+Therefore, the object property “simultaneous with” should have functional as a listed characteristic.
 
-c = c 
-
-a ~ b ⊓ b ~ a 
-
-a ⊑ b
-
-b ⊑ a
-
-a ⊑ c  
-
-c ⊑ a
-
-b ⊑ c
-
-c ⊑ b 
-
-}
-
-A symmetric property relation is instanced where entities share the same property of which, its inverse is itself. a, b, and c belong to the same system set G and correspond to each other. a and b are similar to one another and both correspond to c as the connective. c is symmetric because its inverse is itself. Thus, a, b, and c all possess a symmetric property relation with one another found in c, “connects”, and should have the symmetric characteristic listed.
-
-A reflexive property relation is instanced where an entity is related or equal to itself. For an entity c to possess the “connects” object property characteristic, every entity c in a given set A must therefore be related and/or equal to itself, i.e. c=c. The object property “connects” should relate back to any entity c within a given class in identifying itself as the connective. Thus, the object property “connects” should have the reflexive characteristic listed as well. 
-
-In sum, the object property “connects” should have both the symmetric and reflexive characteristics listed as it instances both property relations in its definition. 
-
-<img width="1030" alt="P31E" src="https://user-images.githubusercontent.com/123851163/222936279-65fc73a7-6b8b-4a79-849f-338515572986.png">
+<img width="694" alt="P31E" src="https://user-images.githubusercontent.com/123851163/222987724-43178b05-8f6d-458d-9f68-9feaadabfad0.png">
 
 
 
@@ -129,13 +105,15 @@ In sum, the object property “connects” should have both the symmetric and re
 
 **(a)  Irreflexive**
 
-The object property, “has skeleton”, should not have the irreflexive property listed.
+The object property, “has role in modeling”, should not have the irreflexive property listed.
 
-It’s definition states: “A relation between a segment or subdivision of an organism and the maximal subdivision of material entities that provides structural support for that segment or subdivision.”
+It’s definition states: “A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.” 
 
-An irreflexive property relation is one such that an entity cannot relate to itself. If the “has skeleton” irreflexive property relation were true and if in the case of an individual, Jaron, does indeed have a skeleton, it would then be said that this relation of having a skeleton could not be related back to the individual, Jaron. This, however, is false. An individual can be instanced by a “has skeleton” relation reflexively, i.e. relating back to itself. Thus, although the “has skeleton” object property has the irreflexive characteristic listed, it should not. 
+Imagine a machine that is designed to model aspects of itself. It can be used to study itself, in virtue of its ability to reflect aspects of itself. However, an irreflexive property relation is one such that an entity cannot relate to itself.
+ 
+Thus, although the object property, “has role in modeling”, has the irreflexive property listed, it should not. 
 
-<img width="1034" alt="P32A" src="https://user-images.githubusercontent.com/123851163/222936297-07f82078-4056-4d24-9bf1-c7ae78cf1617.png">
+<img width="1030" alt="P32C" src="https://user-images.githubusercontent.com/123851163/222936322-e9e38139-5fb5-4823-abb3-9c7e78a24c42.png">
 
 
 
@@ -233,6 +211,54 @@ Thus, although the “has characteristic” object property has the inverse func
   (d) Goofus and Gallant are married at each point in a three year span. 
 ```
 
+**(a) Sally has an arm Tuesday but does not have an arm Wednesday.**
+
+Sally is instance_of object
+Tuesday is instance_of one-dimensional temporal region 
+Wednesday is an instance of one-dimensional temporal region 
+Arm is an instance of fiat object part
+“Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+“Sally participates in having no arms on Wednesday” is an instance of occurrent
+“Sally participates in having at most one arm on Wednesday” is an instance of occurrent
+
+Due to the vagueness of the statement above, we have narrowed the possible answers to the following two cases:
+
+“Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday”
+“Sally participates in having at least one arm on Tuesday precedes Sally participates in having at most one arm on Wednesday”
+
+**(b) Every liver has some cell as part at all times it exists.**
+
+Search liver here: https://ontobee.org
+
+We already have cell in the ontology.
+Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
+https://ontobee.org/ontology/UBERON?iri=http://purl.obolibrary.org/obo/UBERON_0002107
+
+Argument according to authority BS for the object property has_part_at_all_times: https://youtu.be/fkkWkTIxrNQ
+
+Liver has_part_at_all_times Cell
+
+**(c) John was a child, then an adult, then a senior.**
+
+John is an instance_of object
+childhood is an instance_of occurrent.
+adulthood is an instance_of occurrent.
+seniorhood is an instance_of occurrent.
+
+“John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
+
+**(d) Goofus and Gallant are married at each point in a three year span.**
+
+Goofus is an instance_of object
+Gallant is an instance_of object
+Marriage is an instance_of occurent
+“Three years span 1” is an instance_of one-dimensional temporal region.
+Notice that the original phrase doesn’t say anything about Goofus and Gallant being married to each other, and we won’t represent such a fact.
+
+If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
+
+
+
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
@@ -240,6 +266,42 @@ Thus, although the “has characteristic” object property has the inverse func
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
 ```
+
+**(a) Sally has an arm Tuesday but does not have an arm Wednesday.**
+
+ ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+  T: Tuesday
+  H: has
+  A: arm
+  W: Wednesday
+  s: Sally
+
+
+
+**(b) Every liver has some cell as part at all times it exists.**  
+
+  ∀x∃y(Lx→Cy∧Pyx)
+  L: liver
+  C: cell
+  P: part of
+
+
+  
+**(c) John was a child, then an adult, then a senior.**
+
+j = John
+E xy = being earlier than
+C (x, t) = being a child at t
+A (x, t) = being an adult at t
+S (x, t) = being a senior at t
+∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
+
+
+
+**(d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.**
+
+
+
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
