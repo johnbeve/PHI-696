@@ -35,9 +35,18 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  ∃Tues.B(S,A)∧∃Wed.B(S,¬A)
+  - 'There exists a Tuesday with Sally bodying an arm and there is a Wednesday with Sally bodying a not-arm.'
+  
   (b) Every liver has some cell as part at all times it exists.
+  ∀Liver.C
+  - 'All Livers have a Cell'
+  - I don't know how to represent "at all times it exists" in FOL; I was thinking "all livers do not have a not-cell" but that either doesn't make sense, is redundant, or both.
+  
   (c) John was a child, then an adult, then a senior. 
+  
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
+  
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
@@ -64,8 +73,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - fiat object part
   
   (f) Occupation
-  - Depends, the position (formal title) is a role, such as "Chair of the UB Philosophy Department"
-  - the work done (one's occupation of their time) is an occurrent.
+  - Depends, the position, as in the formal title, is a role. 
+  - The conditions and expectations set around a position are generically dependent continuants about the role.
+  - the actual work done, one's occupation of their time, is a process.
   
   (g) Ocean
   - fiat object part
@@ -73,18 +83,21 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (h) Lake
   - fiat object part
   
+- My answers for (g) and (h) are informed by the attached article: https://journals.sagepub.com/doi/pdf/10.1177/0263775817700395
+  
 ```
 
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   - True: I think holes and cavities are immaterial entities.
+  - My answer here is informed by chapter 5 of the BFO textbook as well as the attached slides: https://buffalo.app.box.com/s/6wmxnd9vvuhd9ubrldeptaerydqzkbct
   
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-  - 
+  - True: an imaginary friend is in a symmetric parthood relationship with the mind of the child who imagines it.
   
   (c) An organization may have another organization as part.
-  - True: if we assume the opposite ("An organization CANNOT have another organization as part.") then I would never make friends in my classes or work in groups.
+  - True: if we assume the opposite ("An organization CANNOT have another organization as part"), then I would never make friends in my classes or work in groups.
   - Many social organizations only exist insofar as the smaller social organizations constituting them continue to exist.
   
   (d) An organization may have no members as part. 
