@@ -88,7 +88,7 @@ That is, c connects a and b iff:
 
 a, b, c ∈ G {  
 
-c=c 
+c = c 
 
 a ~ b ⊓ b ~ a 
 
