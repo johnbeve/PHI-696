@@ -141,11 +141,21 @@ T	T	T	T	T
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
 
+B= Male^∃Parent_of.(∃parent_of>=2). O= parent_of (∃parent_of=1) O^~B B^~O Jason: B (Mary Ann, Jason) (Mary Ann, Mona) Killian: O Amanda: Parent_of Killian Jason: (w,B) Mary Ann: Z Mona: Y Killian: (O,x) Amanda: v parent: (z,v) brother: w Only child: x child: w,y,x parent_of: zw,zy,vx Male: x,w
+
 6. Explain the difference - using natural language - between the first-order prefixes:
   ```
   (a) ∃x∀y and ∀x∃y
+  ∃x∀y = there exists some x such that for all y
+  ∀x∃y = for all x there exists some y
+  
   (b) ∃x∀y∃z and ∀x∃y∀z 
+  ∃x∀y∃z = there exists some x such that for all y there exists some z
+  ∀x∃y∀z = for all x there exists some y such that for all z
+  
   (c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+  ∀x∃y∀z∃w = for all x there exists some y such that for all z there exists some w
+  ∃x∀y∃z∀w = there exists some x for all y such that for some z there exists all w 
 ```
 	
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
