@@ -12,10 +12,24 @@ Tip #4: Work together as a team.
 1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
 ```
   (a)  PP that says that x is a proper part of y
+  PP ≡ P ⊓ ¬P¯
+  
   (b)  iPP that says that y is a proper part of x
+  iPP ≡ PP¯ =>
+  iPP ≡ (P ⊓ ¬P¯)¯
+
+  iPP ≡ ¬P ⊓ P¯
+
   (c)  iP that says that x has y as part 
+  iP ≡ P¯
+  
   (d)  O that says that x overlaps y
+  O ≡ ∃P¯.(∃P)
+  O ≡ ∃iP.(∃P.⊤)
+  
   (e)  D that says that x and y are disjoint 
+  D ≡ ¬O
+  
 ```
 
 2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
@@ -23,7 +37,11 @@ Tip #4: Work together as a team.
 3. Translate the following first-order logic axioms into ALCI: 
 ```
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+∃R.(∀R.(∀R¯))
+
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+∃R¯.(∃R.⊤) ⊓ ∃R.⊤
+
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 ```
