@@ -204,32 +204,76 @@ x		x
 	
 9. Using a natural deduction proof generator - such as the one found here `https://proofs.openlogicproject.org/` - provide natural deduction proofs for each of De Morgan's laws. 
 (a)
-1. ¬(¬Pa ∨ ¬Qa)	assumption
-2. ~(Pa ^ Qa) assumption
-3.   (Pa ∧ Qa)	1, ~v	
-4.  ¬(Pa ∧ Qa)  2,3 contradiction
-(b)	
-1. ¬(¬Pa ∧ ¬Qa)	assumption
-2. ~(Pa v Qa)   assumption
-3. (Pa ∨ Qa)	1, ~^	
-4. ¬(Pa ∨ Qa)   2,3 contradiction
+1. Show: ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+2. 	Show: ∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))    
+3.           	Show: ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)
+4.              ¬(Px ∧ Qx)		    			Assumption CD
+5.              	Show: (¬Px ∨ ¬Qx)   
+6.                  ~(¬Px ∨ ¬Qx)	        		Assumption ID
+7.                              Show: Px   				
+8.                               ~Px	  			Assumption ID
+9.                               ~Px V ~Qx       		8, Addition
+10.                                              		6, 9, ID
+11.                     	Show: Qx   
+12.                             ~Qx	  			Assumption ID
+13.                             ~Px V ~Qx       		12, Addition
+14.                                     			6, 13, ID
+15.                      	Px ∧ Qx	               		7, 11, Adjunction
+16.                                                             4, 15, ID
+17.                                             	        5, CD
+18.                                             		3, UD
+19.		                                                2, UD
+****Note, I'm not including the boxes in future derivations, since they're so tedious to make in this program
+(b)
+1. Show: ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+2.	Show: ∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+3. 		Show: ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)
+4. 		¬(Px ∨ Qx)					Assumption CD
+5.			Show: (¬Px ∧ ¬Qx)
+6.			~(¬Px ∧ ¬Qx)				Assumption ID
+7.				Show: ~Px
+8.				Px				Assumption ID, Double Negation
+9.				Px V Qx				8, Addition
+10.								4, 9 ID
+11. 				Show: ~Qx
+12.				Qx				Assumption ID, Double Negation
+13.				Px V Qx				12, Addition
+14.								4, 13, ID
+15.				~Px ∧ ¬Qx			7, 11, Addition
+16.								15, Direct Derivation
+17. 								5, CD
+18.								3, UD
+19.								2, UD
 (c)
-1.	¬¬(Pa ∧ Qa)	assumptIon
-2.      ~Pa v ~Qa       assumption
-3.	Pa ∧ Qa	1	1, dne
-4.		Px	2	
-5.		Qx	2	
-6.	¬Pa ∨ ¬Qa	4,5, 2 contradiction
-
+1. Show: ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+2. 	Show: ∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+3. 		Show: (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)
+4. 		(¬Px ∨ ¬Qx)					Assumption CD
+5. 			Show: ¬(Px ∧ Qx)
+6. 			(Px ∧ Qx)				Assumption ID, Double Negation
+7. 			Px					6, Simplification
+8.			~~Px					7, Double Negation
+9.			~Qx					4, 8, MTP
+10.			Qx					6, Simplification
+11.								9, 10, ID
+12. 								5, CD
+13. 								3, UD
+14.								2, UD
 (d)
-1.	¬¬(Pa ∨ Qa) assumptIon
-2.      ~Pa ^ ~Qa   assumption
-3.	Pa ∨ Qa	1 DNE	
-4.		¬Pa	2 DS	
-5.		Qa	2 DS	
-6.		¬Qa	2 DS	
-7.		Pa	2 DS	
-8.	¬Pa ∧ ¬Qa	4, 5, 6, 7, 2 Contradiction
+1. Show: ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+2. 	Show: ∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+3. 		Show: (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)
+4.		(¬Px ∧ ¬Qx)					Assumption CD
+5.		~Px						4, Simplification
+6.		~Qx						4, Simplification
+7.			Show: ¬(Px ∨ Qx)
+8.			(Px ∨ Qx)				Assumption ID, Double Negation
+9.			Qx					5, 8, MTP
+10.								6, 9, ID
+11.								7, CD
+12.								3, UD
+13.								2, UD
+```
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
 The tree proofs tended to be longer and work through the whole of the equation down to the atomic formulas. They would begin by supposing the negation of the whole formula and working down to the contradictions in those formulas. 
