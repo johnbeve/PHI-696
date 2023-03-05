@@ -168,7 +168,13 @@ Jill: O
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+for all x there exists some y such that for all z
+x > y, x > z < y
+
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+there exists some x for all y such that for all z
+x > y, x > z > y
+
 ```
 	
 8. Using an online tableau proof generator - such as the one found here `https://www.umsu.de/trees/` - provide tree proofs of the following entailments, which are known as the De Morgan's laws:
