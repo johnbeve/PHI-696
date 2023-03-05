@@ -8,23 +8,58 @@ For any question involving the use of Protege, please be sure to import:
 2. The Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
 ```
 
-1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
-```
+1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
+  
   (a)  Reflexive
+  Answer: part of
+  
+  
   (b)  Transitive 
+  
+  
+  
   (c)  Symmetric
+  
+  Answer: spatially coextensive with
+  In BFO and RO, the property means that x spatially_coextensive_with y if and only if x and y have the same location. Since x always has the same location with x, so the property should be symmetric.
+  
+  
   (d)  Functional 
+  
+  Answer: function of
+  Since function of is subProperty of characteristic of , and the RO characteristic of is functional, functional of should be functional. For example, Mike's heart' beating is function of Mike's heart. 
+  
   (e)  Symmetric and Reflexive
-```
+  
+  Answer: spatially coextensive with
+  Since x always has the same location with x, and if x spatially coextensive with y, y spatially coextensive with x, so the property should be symmetric and reflexive.
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
-```
+
   (a)  Irreflexive
+  
+  Answer: partially overlaps
+  
   (b)  Transitive 
+  
+  Answer: aligned with
+  In BFO and RO, the property "aligned with" is transitive, which means if a is aligned with b, and b is aligned with c, then a is aligned with c. In addition, aligned with can be applied to both occurrent entities, say processes, and continuant entities, such as individuals with blood relationships.
+  
+  The counterexample can be the cases that involves different possible worlds. For example, m is aligned with n in the actural world, and n is aligned with q in a possible world, then it may not be the case that m is aligned with q, say Many is aligned with Mike in blood relation, and Otto would be aligned with Mary in a possible world if Mary gave birth to Otto. Then Otto is not aligned with Mike. 
+  
+  
   (c)  Asymmetric
-  (d)  Functional 
+  (d)  Functional
+  
+  Answer: characteristic of 
+  The definition is the relation between a spefically dependent continaunt (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence. The RO characteristic is functional, which means, if x is characteristic of y, there is only one bearer y for any x. 
+  
+  However, the RO should not be functional because 
+   
+  
+  
   (e)  Inverse Functional
-```
+  
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
