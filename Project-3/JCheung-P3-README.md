@@ -214,16 +214,23 @@ Thus, although the “has characteristic” object property has the inverse func
 **(a) Sally has an arm Tuesday but does not have an arm Wednesday.**
 
 Sally is instance_of object
+
 Tuesday is instance_of one-dimensional temporal region 
+
 Wednesday is an instance of one-dimensional temporal region 
+
 Arm is an instance of fiat object part
+
 “Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+
 “Sally participates in having no arms on Wednesday” is an instance of occurrent
+
 “Sally participates in having at most one arm on Wednesday” is an instance of occurrent
 
 Due to the vagueness of the statement above, we have narrowed the possible answers to the following two cases:
 
 “Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday”
+
 “Sally participates in having at least one arm on Tuesday precedes Sally participates in having at most one arm on Wednesday”
 
 **(b) Every liver has some cell as part at all times it exists.**
@@ -231,6 +238,7 @@ Due to the vagueness of the statement above, we have narrowed the possible answe
 Search liver here: https://ontobee.org
 
 We already have cell in the ontology.
+
 Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
 https://ontobee.org/ontology/UBERON?iri=http://purl.obolibrary.org/obo/UBERON_0002107
 
@@ -241,8 +249,11 @@ Liver has_part_at_all_times Cell
 **(c) John was a child, then an adult, then a senior.**
 
 John is an instance_of object
+
 childhood is an instance_of occurrent.
+
 adulthood is an instance_of occurrent.
+
 seniorhood is an instance_of occurrent.
 
 “John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
@@ -250,9 +261,13 @@ seniorhood is an instance_of occurrent.
 **(d) Goofus and Gallant are married at each point in a three year span.**
 
 Goofus is an instance_of object
+
 Gallant is an instance_of object
+
 Marriage is an instance_of occurent
+
 “Three years span 1” is an instance_of one-dimensional temporal region.
+
 Notice that the original phrase doesn’t say anything about Goofus and Gallant being married to each other, and we won’t represent such a fact.
 
 If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
@@ -270,10 +285,15 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 **(a) Sally has an arm Tuesday but does not have an arm Wednesday.**
 
  ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+ 
   T: Tuesday
+  
   H: has
+  
   A: arm
+  
   W: Wednesday
+  
   s: Sally
 
 
@@ -281,8 +301,11 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 **(b) Every liver has some cell as part at all times it exists.**  
 
   ∀x∃y(Lx→Cy∧Pyx)
+  
   L: liver
+  
   C: cell
+  
   P: part of
 
 
@@ -290,16 +313,34 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 **(c) John was a child, then an adult, then a senior.**
 
 j = John
+
 E xy = being earlier than
+
 C (x, t) = being a child at t
+
 A (x, t) = being an adult at t
+
 S (x, t) = being a senior at t
+
 ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
 
 
 
 **(d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.**
 
+Again, notice we are not modeling that Goofus and Gallant are married to each other.
+
+M(x, t) = being married at t
+
+Y(t) = belongs to 3 year span 1
+
+g1 = Goofus
+
+g2 = Gallant
+
+D(t) = t is a day
+
+∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
 
 
 
