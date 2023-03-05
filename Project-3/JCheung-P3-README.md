@@ -283,8 +283,6 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 ```
 
 **(a) Sally has an arm Tuesday but does not have an arm Wednesday.**
-
- ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
  
   T: Tuesday
   
@@ -296,11 +294,11 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   s: Sally
 
+ ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+
 
 
 **(b) Every liver has some cell as part at all times it exists.**  
-
-  ∀x∃y(Lx→Cy∧Pyx)
   
   L: liver
   
@@ -308,8 +306,10 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   P: part of
 
+  ∀x∃y(Lx→Cy∧Pyx)
 
-  
+
+
 **(c) John was a child, then an adult, then a senior.**
 
 j = John
