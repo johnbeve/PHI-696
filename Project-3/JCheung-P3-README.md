@@ -62,7 +62,7 @@ Therefore, the object property “partially overlaps” should have symmetric as
 
 
 
-**(d)  Functional **
+**(d)  Functional**
 
 The object property, “has target end location”, should have the functional characteristic listed. 
 
@@ -90,7 +90,7 @@ a, b, c ∈ G {
 
 c=c 
 
-a~b ⊓ b~a 
+a ~ b ⊓ b ~ a 
 
 a ⊑ b
 
