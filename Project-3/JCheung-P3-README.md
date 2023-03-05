@@ -14,7 +14,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (d)  Functional 
   (e)  Symmetric and Reflexive
 ```
-  (a)  Reflexive 
+
+
+**(a)  Reflexive**
 
 The object property, “immediate transformation of”, should have the reflexive characteristic listed.
 
@@ -24,9 +26,11 @@ Reflexivity is the characteristic that expresses the relation that an entity be 
 
 Therefore, the object property “immediate transformation of” should have reflexive as a listed characteristic.
 
- 
+<img width="1032" alt="P31A" src="https://user-images.githubusercontent.com/123851163/222936204-feea5b05-a0fe-433b-8549-f1f74221477e.png">
 
-  (b)  Transitive 
+
+
+**(b)  Transitive**
 
 The object property, “existence ends with”, should have the transitive characteristic listed. 
 
@@ -38,9 +42,11 @@ Thus, any entity x that ends at a shared equivalent time point with entity y, an
 
 Therefore, the object property “existence ends with” should have transitive as a listed characteristic. 
 
- 
+<img width="1031" alt="P31B" src="https://user-images.githubusercontent.com/123851163/222936215-5455cf17-c6f4-4d46-b22b-52e5d15f4374.png">
 
-  (c)  Symmetric
+
+
+**(c)  Symmetric**
 
 The object property, “partially overlaps”, should have the symmetric characteristic listed. 
 
@@ -52,9 +58,11 @@ In this case, the “partially overlaps” symmetric relation is found in z. z i
 
 Therefore, the object property “partially overlaps” should have symmetric as a listed characteristic. 
 
- 
+ <img width="1033" alt="P31C" src="https://user-images.githubusercontent.com/123851163/222936242-3ec80825-ca0c-4ba0-baa0-9c044b3da926.png">
 
-  (d)  Functional 
+
+
+**(d)  Functional **
 
 The object property, “has target end location”, should have the functional characteristic listed. 
 
@@ -66,25 +74,36 @@ In the case of the object property “has target end location”, there is at mo
 
 Therefore, the object property “has target end location” should have functional as a listed characteristic.
 
+<img width="1030" alt="P31D" src="https://user-images.githubusercontent.com/123851163/222936263-b264f4a2-f479-4955-b105-0143657c452b.png">
 
  
 
-  (e)  Symmetric and Reflexive
+**(e)  Symmetric and Reflexive**
 
 The object property, “connects”, should have the symmetric and reflexive characteristics listed. 
 
 It’s definition states: “c connects a if and only if there exist some b such that a and b are similar parts of the same system, and c connects b, specifically, c connects a with b. When one structure connects two others it unites some aspect of the function or role they play within the system.
 
 That is, c connects a and b iff: 
+
 a, b, c ∈ G {  
+
 c=c 
+
 a~b ⊓ b~a 
+
 a ⊑ b
+
 b ⊑ a
+
 a ⊑ c  
+
 c ⊑ a
+
 b ⊑ c
+
 c ⊑ b 
+
 }
 
 A symmetric property relation is instanced where entities share the same property of which, its inverse is itself. a, b, and c belong to the same system set G and correspond to each other. a and b are similar to one another and both correspond to c as the connective. c is symmetric because its inverse is itself. Thus, a, b, and c all possess a symmetric property relation with one another found in c, “connects”, and should have the symmetric characteristic listed.
@@ -93,7 +112,7 @@ A reflexive property relation is instanced where an entity is related or equal t
 
 In sum, the object property “connects” should have both the symmetric and reflexive characteristics listed as it instances both property relations in its definition. 
 
- 
+<img width="1030" alt="P31E" src="https://user-images.githubusercontent.com/123851163/222936279-65fc73a7-6b8b-4a79-849f-338515572986.png">
 
 
 
@@ -105,7 +124,10 @@ In sum, the object property “connects” should have both the symmetric and re
   (d)  Functional 
   (e)  Inverse Functional
 ```
-  (a)  Irreflexive
+
+
+
+**(a)  Irreflexive**
 
 The object property, “has skeleton”, should not have the irreflexive property listed.
 
@@ -113,9 +135,11 @@ It’s definition states: “A relation between a segment or subdivision of an o
 
 An irreflexive property relation is one such that an entity cannot relate to itself. If the “has skeleton” irreflexive property relation were true and if in the case of an individual, Jaron, does indeed have a skeleton, it would then be said that this relation of having a skeleton could not be related back to the individual, Jaron. This, however, is false. An individual can be instanced by a “has skeleton” relation reflexively, i.e. relating back to itself. Thus, although the “has skeleton” object property has the irreflexive characteristic listed, it should not. 
 
- 
+<img width="1034" alt="P32A" src="https://user-images.githubusercontent.com/123851163/222936297-07f82078-4056-4d24-9bf1-c7ae78cf1617.png">
 
-  (b)  Transitive 
+
+
+**(b)  Transitive**
 
 The object property, “aligned with”, should not have the transitive property listed.
 
@@ -131,9 +155,11 @@ Moreover, aligned with could also mean an overlapping relation, rather than shar
 
 Thus, because (1) there is no clear definition, (2) the label, “aligned with”, is ambiguous, and (3) pragmatically speaking, the term has been rendered obsolete, I recommend that the transitive characteristic be unlisted. It is not clear that “aligned with” is transitive. For the reasons cited above with examples, both intransitive bordering relations and overlapping relationships can be inferred by its label and yet, the object property is not clear whether it means to represent both kinds of relations. 
 
- 
+<img width="1035" alt="P32B" src="https://user-images.githubusercontent.com/123851163/222936312-cd2578ed-ef6a-404a-8f71-571865d9f038.png">
 
-  (c)  Asymmetric
+
+
+**(c)  Asymmetric**
 
 The object property, “has role in modeling”, should not have the asymmetric property listed.
 
@@ -148,9 +174,11 @@ In order to have a wide ranging and flexible “has role in modeling” object p
 
 Thus, although the “has role in modeling” object property has the asymmetric characteristic listed (likely for pragmatic purposes specific to modeling ontologies with distinct ends), I argue that it would be better to dispense with it if one’s aim is to represent a wider domain of possible symmetric/asymmetric relations between artifacts with specific modeling roles and entities. Moreover, a more robust and comprehensive ontology would be representable as a result of unlisting the asymmetric characteristic. 
 
- 
+<img width="1030" alt="P32C" src="https://user-images.githubusercontent.com/123851163/222936322-e9e38139-5fb5-4823-abb3-9c7e78a24c42.png">
 
-  (d)  Functional 
+
+
+**(d)  Functional**
 
 The object property, “characteristic of”, should not have the functional property listed.
 
@@ -171,9 +199,11 @@ However, I must make a case for unlisting the functional characteristic. If I wa
 
 Thus, although the “characteristic of” object property has the functional characteristic listed likely for pragmatic purposes, I argue that it would be better to dispense with it if one’s aim is to represent relations that are one to many, many to one, or many to many. 
 
- 
+<img width="1032" alt="P32D" src="https://user-images.githubusercontent.com/123851163/222936331-15219ce7-c549-46e1-b0ea-fa095dae3a74.png">
 
-  (e)  Inverse Functional
+
+
+**(e)  Inverse Functional**
 
 The object property, “has characteristic”, should not have the inverse functional property listed.
 
@@ -191,7 +221,7 @@ As discussed in (d), it is inferred that as “characteristic of” was declared
 
 Thus, although the “has characteristic” object property has the inverse functional characteristic listed likely for pragmatic purposes, I argue that it would be better to dispense with it if one’s aim is to represent relations that are many to one, one to many, or many to many. 
 
- 
+<img width="1032" alt="P32E" src="https://user-images.githubusercontent.com/123851163/222936345-25a7f173-2123-4069-8a6d-5fefaeaee69f.png">
 
 
 
