@@ -276,5 +276,6 @@ x > y, x > z > y
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs. 
 
-Both kinds of proofs 
+Both proofs deduce some kind of contradiction, but in different ways.  8a is a longer proof than 9a. Feedback from Josh (thank you!) also states that 9a does not require us to go down to the atomic parts of the formula, and stops at more complex contradictions.
+
  
