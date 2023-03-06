@@ -137,8 +137,11 @@ For any question involving the use of Protege, please be sure to import:
   Object
 
 7. True or False; explain your answers:
-```
+
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+  
+  True. 
+  
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   (c) An organization may have another organization as part.
   (d) An organization may have no members as part. 
