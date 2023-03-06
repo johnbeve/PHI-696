@@ -23,7 +23,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (d)  Functional 
  
+ 
   (e)  Symmetric and Reflexive
+ - "overlaps" seems symmetric and reflexive to me (I got help from the project 3 Google doc on this one)
   
 ```
 
@@ -33,9 +35,15 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (b)  Transitive 
   (c)  Asymmetric
  -  "has role in modeling" is an asymmetric relationship between information about an entity and the entity of interest.
- 
+ - I feel like if the entity of interest is also information, the two could hold a symmetric relationship.
+ - Like, does the information in the left circle of a venn diagram have a role in modeling the right side?
+
   (d)  Functional 
+ - 
+ 
   (e)  Inverse Functional
+ - "has characteristic" is an inverse-functional relationship between a quality and its bearer.
+ 
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
