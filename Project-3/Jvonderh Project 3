@@ -148,7 +148,7 @@ Network is_a object aggregate
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   True. A material entity has some portion of matter as proper or improper continuant part. These parts don't need to be material. For example thoughts are immaterial but can be understood as a part of the material person. 
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-  False. 
+  False. An immaterial entity is immaterial, so it may be concretized in a material entity or otherwise but may not have it as part. For example, a thought may be an immaterial entity which has a material entity as a subject, but that subject is either not material (i.e is a representation of a material thing) or is not a part of that thought.
   (c) An organization may have another organization as part.
   True. Organizations break off separate organizations to perform different functions all of the time. A charity organization for finding housing for the homeless might break off local and regional organizations to better serve people at various locations for example.
   (d) An organization may have no members as part. 
@@ -165,7 +165,9 @@ Network is_a object aggregate
   False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
 ```
 
-8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
+8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace. 
+
+This
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning.
 
