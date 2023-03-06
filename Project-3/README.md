@@ -11,17 +11,21 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
   
   (a)  Reflexive
-  Answer: part of
+  Answer: spatially coextensive with
+  the property means that x spatially_coextensive_with y if and only if x and y have the same location. So the property should be reflexive.
   
   
   (b)  Transitive 
   
-  
+  Answer: connecting branch of
   
   (c)  Symmetric
   
   Answer: spatially coextensive with
-  In BFO and RO, the property means that x spatially_coextensive_with y if and only if x and y have the same location. Since x always has the same location with x, so the property should be symmetric.
+  In BFO and RO, the property means that x spatially_coextensive_with y if and only if x and y have the same location. x have the same location with y, so the property should be symmetric.
+ 
+  part of
+  Because x is also part_of x, so part of is symmetric. 
   
   
   (d)  Functional 
@@ -49,6 +53,10 @@ For any question involving the use of Protege, please be sure to import:
   
   
   (c)  Asymmetric
+  
+  
+  
+  
   (d)  Functional
   
   Answer: characteristic of 
@@ -62,12 +70,23 @@ For any question involving the use of Protege, please be sure to import:
   
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
-```
+
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  
+    ¬ (an arm Occurrent_part_of Sally at Tuesday) ⊓ (an arm Occurrent_part_of Sally at Wednesday)
+  
   (b) Every liver has some cell as part at all times it exists.
+  
+  ∃ cell (∀.Continuant_part_of liver)
+  
   (c) John was a child, then an adult, then a senior. 
+  
+  (Childhood Occurrent_part_of John's life) Aligned_with (Adulthood Occurrent_part_of John's life) Aligned_with (Seniorhood Occurent_part_of John's life)
+  
   (d) Goofus and Gallant are married at each point in a three year span. 
-```
+  
+  ((Goofus Marriage_with Gallant during 3 years) Occurrent_part_of Goofus's life) ⊓ ((Goofus Marriage_with Gallant during 3 years) Occurrent_part_of Gallant's life) 
+
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
