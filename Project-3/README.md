@@ -89,27 +89,52 @@ For any question involving the use of Protege, please be sure to import:
 
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
-```
+
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  
+    
+  
   (b) Every liver has some cell as part at all times it exists.
   (c) John was a child, then an adult, then a senior. 
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
-```
+
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
-```
+
   (a) Bach's Well-Tempered Clavier
+  
+  instance_of Object
+  
   (b) Chair of the UB Philosophy Department
+  
+  instance_of Role
+  
   (c) SARS-CoV-2
+  
+  instance_of Object/Creature
+  
   (d) Mexico City
+  
+  instance_of Site
+  
   (e) The trunk of a minivan
+  
+  Fiat_objecty_part
+  
   (f) Occupation
+  
+  History
+  
   (g) Ocean
+  
+  Object
+  
   (h) Lake
-```
+  
+  Object
 
 7. True or False; explain your answers:
 ```
