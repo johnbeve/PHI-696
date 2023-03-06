@@ -11,7 +11,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (a)  Reflexive
   (b)  Transitive 
   (c)  Symmetric
-  (d)  Functional ~~~~
+  (d)  Functional
   (e)  Symmetric and Reflexive
 ```
 
@@ -234,7 +234,7 @@ This graph represents the following key relations:
 
 **Answer:** 
 
-![picture 1](proj_Q6.PNG) 
+![picture 1](https://github.com/peihongx/PHI-696/blob/Peihong_Karl_proj_3/Project-3/proj_Q6.png) 
 
 **[7]** True or False; explain your answers:
 ```
