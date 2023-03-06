@@ -346,6 +346,41 @@ D(t) = t is a day
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
+Content is an instance_of generic dependent continuant
+
+File is an instance_of generic dependent continuant
+
+File 1 Turtle implements content 1
+
+File 2 XML implements content 1
+
+Computer 1 is bearer of File 1 and File 2
+
+Computer 1 is an instance_of material entity
+
+Computer 2 is 
+
+Computer 2 is an instance_of material entity
+
+Computer 3 is 
+
+Computer 3 is an instance_of material entity
+
+Computer 1 2 and 3 are part of Network 1
+
+Network 1 is an instance_of Network
+
+Network is_a object aggregate
+
+<img width="626" alt="P35" src="https://user-images.githubusercontent.com/123851163/223025071-52289c92-820e-4113-a32f-3c53db03c5db.png">
+
+(Comment: This is a graph based on Mermaid and the above blackboard work. Simply speaking, This graph represents the following key relations:
+
+– RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
+– Computer 1 enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers 2 and 3 as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers 1 and 2 to Computer 3.
+– Finally, computers 1, 2, and 3 are all parts_of network I, which is instance_of Object Aggregate.)
+
+
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -358,6 +393,23 @@ D(t) = t is a day
   (g) Ocean
   (h) Lake
 ```
+(a) Generically dependent continuant
+
+(b) Role
+
+(c) Object
+
+(d) Object aggregate
+
+(e) Fiat object part
+
+(f) Role
+
+(g) Object aggregate
+
+(h) Object aggregate
+
+
 
 7. True or False; explain your answers:
 ```
@@ -371,10 +423,58 @@ D(t) = t is a day
   (h) Spacetime is a class in BFO.
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
 ```
+(a) True. The elucidation says that a material entity has some portion of matter as proper or improper continuant part. It doesn’t say all of its parts must be material. Ex. a person’s thoughts, even if immaterial, is a part of the material person. Material and immaterial entities are disjoint, but that does not prevent one from having a part that’s the other.
+
+(b) False. I can’t think of any examples that would fit this.
+
+(c) True. For example, a political committee can have a subcommittee as a part. 
+
+(d) True. The debate club could lose all its members while still be being recognized by the school.
+
+(e) True. The wording on the elucidation is a little confusing, but I think it’s implying that all sites are partially or wholly bounded by a material entity.
+
+(f) False. The elucidation excludes this by saying that the function is due to the physical make-up of the object. Since nothing about the make-up changed, the book did not gain any new functions. If the book has the function of supporting the table, this is a function it has always had, even if it wasn’t intended to support the table.
+
+(g) True. Dispositions are in virtue of the bearer’s physical make-up, not its environment.
+
+(h) False. This is covered by spatiotemporal region.
+
+(i) False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
+
+
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
+<img width="717" alt="P38" src="https://user-images.githubusercontent.com/123851163/223024645-615a7a41-99ce-4fb9-a7f0-13a077c0871f.png">
+
+(Comment: This is a graph based on Mermaid, representing the following relations:
+– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+–  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
+– A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– Change in John’s speed: John's Speed is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
+– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.) 
+
+
+
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
+
+ELI5: Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
+
+In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
  
+<img width="625" alt="P310" src="https://user-images.githubusercontent.com/123851163/223024994-787ba5b9-0ccf-490c-9eac-b3def1b8b1ca.png">
+
+Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
+
+As a result, we find that there are 7 sorts of cases where a pair of object property characteristics cannot be combined: 
+
+(1) The following 3 pairs cannot be combined because of a logical contradiction: 
+ 
+ Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.
+ 
+(2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
+ 
+Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
+
