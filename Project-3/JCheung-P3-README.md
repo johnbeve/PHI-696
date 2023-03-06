@@ -485,5 +485,5 @@ As a result, we find that there are 7 sorts of cases where a pair of object prop
  
 (2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
  
-Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
+Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive. 
 
