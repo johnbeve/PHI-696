@@ -108,6 +108,20 @@ D(t) = t is a day
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
+Content is an instance_of generic dependent continuant
+File is an instance_of generic dependent continuant
+File 1 Turtle implements content 1
+File 2 XML implements content 1
+Computer 1 is bearer of File 1 and File 2
+Computer 1 is an instance_of material entity
+Computer 2 is 
+Computer 2 is an instance_of material entity
+Computer 3 is 
+Computer 3 is an instance_of material entity
+Computer 1 2 and 3 are part of Network 1
+Network 1 is an instance_of Network
+Network is_a object aggregate
+
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
