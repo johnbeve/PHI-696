@@ -7,12 +7,24 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
-``` - I need to learn more about object properties, let me get back to you...
+``` 
   (a)  Reflexive
+  - "has characteristic" should be a reflexive object property because everything has itself as a characteristic. 
+  - Having oneself as a characteristic is the nature of identity; I have myself as a characteristic, and being myself distinguishes me from other people and things.
+  
   (b)  Transitive 
+ - "immersed in" should be a transitive object property.
+ - If object a is immersed in fluid b, and fluid b is immersed in fluid c, then object a is immersed in fluid c.
+ - I am also interpreting "immersed in" as one type of the "located in" relation, which is listed as a transitive object property.
+ 
   (c)  Symmetric
+ - I am confused about the "before or simultaneous with" relation because I do not understand why those relationships are not kept separate.
+ - "simultaneous with" should definitely be a symmetric temporal relation.
+  
   (d)  Functional 
+ 
   (e)  Symmetric and Reflexive
+  
 ```
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
@@ -20,6 +32,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (a)  Irreflexive
   (b)  Transitive 
   (c)  Asymmetric
+ -  "has role in modeling" is an asymmetric relationship between information about an entity and the entity of interest.
+ 
   (d)  Functional 
   (e)  Inverse Functional
 ```
