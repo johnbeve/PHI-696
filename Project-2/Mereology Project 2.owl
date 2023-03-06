@@ -64,16 +64,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
     </Declaration>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#D"/>
-        <NamedIndividual IRI="#a"/>
-        <NamedIndividual IRI="#e"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#D"/>
-        <NamedIndividual IRI="#a"/>
-        <NamedIndividual IRI="#g"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#iP"/>
         <NamedIndividual IRI="#b"/>
         <NamedIndividual IRI="#a"/>
@@ -94,9 +84,19 @@
         <NamedIndividual IRI="#a"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#D"/>
+        <NamedIndividual IRI="#e"/>
+        <NamedIndividual IRI="#a"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#iP"/>
         <NamedIndividual IRI="#f"/>
         <NamedIndividual IRI="#b"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#D"/>
+        <NamedIndividual IRI="#g"/>
+        <NamedIndividual IRI="#a"/>
     </ObjectPropertyAssertion>
     <NegativeObjectPropertyAssertion>
         <ObjectProperty IRI="#P"/>
