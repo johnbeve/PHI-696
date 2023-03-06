@@ -93,21 +93,20 @@ T	T	T	T	T
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  B= Parent_of: (zx, zy) Male^∃Parent_of.(∃parent_of>=2).
-  Male: (x)
+  Not interpretable under ALC in V. No way to indicate a child_of relation, so there is no way to express a sibling relation.
   (b)  A that says that x is an aunt of y
-  A: Parent_of: (zw, zx, wy) ~Male^(∃parent_of.(∃parent_of>=1).^~∃parent_of.(>=1).)
+  Not interpretable under ALC in V. No way to indicate a child_of relation, so there is no way to express a sibling relation.
   (c)  C that says that x and y are cousins
-  C: parent_of: (zx, wy, vw, vz) ∃Parent_of.(∃parent_of>=2).^∃Parent_of.(∃parent_of>=1).^∃Parent_of.(∃parent_of>=1).
+  Not interpretable under ALC in V. No way to indicate a child_of relation, so there is no way to express a sibling relation.
   (d)  O that says that x is an only child 
-  O= parent_of (∃parent_of=1) 
+ Not interpretable under ALC in V. No way to indicate a child_of relation or a limited number of children, so there is no way to express that there is one and only one child.
   (e)  T that says that x has exactly two brothers 
-  T= Parent_of: (wx,wy,wz) ∃parent_of.(∃Parent_of=3)^Male(∃Male>=2)
-  Male: (y,z)
+  Not interpretable under ALC in V. No way to indicate a child_of relation, so there is no way to express a sibling relation.
   ```
 
 
 5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+I will use ALCN formulas for B and O so that this can be completed. Without ALCN or AlCI resources it is not possible to interpret any of the above, so I have made this assumption so that it can be completed.
 B= Male^∃Parent_of.(∃parent_of>=2).
 O= parent_of (∃parent_of=1)
 O^~B
