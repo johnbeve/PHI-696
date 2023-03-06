@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/bfo/2019-08-26/bfo.owl" uri="https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1678058277847" name="http://www.semanticweb.org/karlx/ontologies/2023/2/BFO-RO" uri="Proj_3RO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1678058277847" name="http://www.semanticweb.org/karlx/ontologies/2023/2/untitled-ontology-45" uri="eeeee.owl"/>
+    </group>
+</catalog>
