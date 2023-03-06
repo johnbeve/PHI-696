@@ -184,7 +184,7 @@ End realizes slow running speed
 Beginning precedes Middle
 Middle Precedes End
 Speed is a quality of John's Running
-Slow, Normal, and Fast are instances of speed
+Slow, Normal, and Fast are instances_of speed
 John's Speed at Beginning is decreased_in_magnitude_relative_to John's Speed at Middle
 John's speed at Middle is increased_in_magnitude_relative_to John's Speed at End
 John's speed at End is decreased_in_magnitude_relative_to John's Speed at Beginning
