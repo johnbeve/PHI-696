@@ -26,7 +26,7 @@ Reflexivity is the characteristic that expresses the relation that an entity be 
 
 The object property “overlaps” should have reflexive as a listed characteristic since an object shares itself (and parts of itself) with itself. 
 
-<img width="781" alt="P31A" src="https://user-images.githubusercontent.com/123851163/222987850-eb25244f-853f-446b-a9d5-90123729f67a.png">
+<img width="1031" alt="P31A" src="https://user-images.githubusercontent.com/123851163/223026735-973ca57d-9091-42d0-a639-52f568e77e6b.png">
 
 
 
@@ -88,7 +88,7 @@ It’s reflexive, since any time must be simultaneous with itself. And it’s sy
 
 Therefore, the object property “simultaneous with” should have functional as a listed characteristic.
 
-<img width="694" alt="P31E" src="https://user-images.githubusercontent.com/123851163/222987724-43178b05-8f6d-458d-9f68-9feaadabfad0.png">
+<img width="1030" alt="P31E" src="https://user-images.githubusercontent.com/123851163/223026767-b87679fc-a2b8-48c4-b7a5-db6bb72b7e28.png">
 
 
 
@@ -377,7 +377,9 @@ Network is_a object aggregate
 (Comment: This is a graph based on Mermaid and the above blackboard work. Simply speaking, This graph represents the following key relations:
 
 – RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
+
 – Computer 1 enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers 2 and 3 as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers 1 and 2 to Computer 3.
+
 – Finally, computers 1, 2, and 3 are all parts_of network I, which is instance_of Object Aggregate.)
 
 
@@ -447,12 +449,17 @@ Network is_a object aggregate
 
 <img width="717" alt="P38" src="https://user-images.githubusercontent.com/123851163/223024645-615a7a41-99ce-4fb9-a7f0-13a077c0871f.png">
 
-(Comment: This is a graph based on Mermaid, representing the following relations:
+This is a graph based on Mermaid, representing the following relations:
+
 – John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+
 –  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
+
 – A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+
 – Change in John’s speed: John's Speed is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
-– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.) 
+
+– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.
 
 
 
@@ -462,9 +469,11 @@ ELI5: Imagine you are playing with some building blocks to build a tower. Every 
 
 In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
 
+
+
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
  
-<img width="625" alt="P310" src="https://user-images.githubusercontent.com/123851163/223024994-787ba5b9-0ccf-490c-9eac-b3def1b8b1ca.png">
+<img width="627" alt="P310" src="https://user-images.githubusercontent.com/123851163/223025907-3f18f238-361e-40ed-a3f2-262053d381d3.png">
 
 Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
 
