@@ -142,6 +142,7 @@ Male: x,w
 7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
 ```
 ```
 ```mermaid
