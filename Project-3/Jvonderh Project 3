@@ -160,3 +160,23 @@ Pellet should be used when we don't want our work to start all over again everyt
 We may not want to use this, however, at the very beginning of learning this new game. When we only have a few rules we know and are trying to get a feel for everything, it helps us to keep everything in sight as we learn. In that case, starting over lets us put things in their context and bring them forward as we get a baseline for everything.
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+
+Pairwise  | Functional | Inverse Functional | Transitive | Symmetric | Asymmetric | Reflexive | Irreflexive |
+----------------------------------------------------------------------------------------------|-------------|
+Functional| N/a        | Yes                | No         | Yes       | Yes        | Yes       | Yes         |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Inverse   | Yes        | N/a                | No         | Yes       | Yes        | Yes       | Yes         |
+Functional|            |                    |            |           |            |           |             |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Transitive| No         | No                 | N/a        | Yes       | No         | Yes       | No          |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Symmetric | Yes        | Yes                | Yes        | N/a       | No         | Yes       | Yes         |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Asymmetric| Yes        | Yes                | No         | No        | N/a        | No        | Yes         |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Reflexive | Yes        | Yes                | Yes        | Yes       | No         | N/a       | No          |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+Irreflexi-| Yes        | Yes                | No         | Yes       | Yes        | No        | N/a         |
+ve        |            |                    |            |           |            |           |             |
+----------|------------|--------------------|------------|-----------|------------|-----------|-------------|
+
