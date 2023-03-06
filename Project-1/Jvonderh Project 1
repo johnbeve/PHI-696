@@ -143,8 +143,8 @@ Male: x,w
 ```
 ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-```
-```
+
+
 ```mermaid
 graph LR;
     X1-->Y1;
@@ -152,8 +152,8 @@ graph LR;
     Y2-->Z1;
     X2-->Y2;
 ```
-```
-```
+
+
 
 ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
