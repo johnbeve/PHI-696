@@ -148,7 +148,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - I have an intuition that spacetime cannot be represented in BFO because a spacial region is a continuant while a temporal region is an occurent.
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO.
-  - 
+  - I support Finn's assertion in the project 3 google doc that any of the given fiat boundary subclasses can be further subclassified according to a given domain and according to different granularities.
+  - Like, measurements of a fiat boundary could subclassify them further, for example.
   
 ```
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
