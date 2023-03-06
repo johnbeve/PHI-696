@@ -50,35 +50,88 @@ For any question involving the use of Protege, please be sure to import:
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
+  -ambiguous, I'm interpreting this as her having no arms on Wednesday
+  
+  Sally is instance_of object
+  Tuesday is an instance_of one-dimensional temporal region 
+  Wednesday is an instance of one-dimensional temporal region 
+  Arm is an instance of fiat object part
+  “Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+  “Sally participates in having no arms on Wednesday” is an instance of occurrent
+  “Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday”
   
   (b) Every liver has some cell as part at all times it exists.
   
+  Liver has_part_at_all_times Cell
   
   (c) John was a child, then an adult, then a senior. 
-  (d) Goofus and Gallant are married at each point in a three year span. 
+  
+  John is an instance_of object
+  childhood is an instance_of occurrent.
+  adulthood is an instance_of occurrent.
+  seniorhood is an instance_of occurrent.
+  “John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
+  
+  (d) Goofus and Gallant are married at each point in a three year span.
+  
+  Goofus is an instance_of object
+  Gallant is an instance_of object
+  Marriage is an instance_of occurent
+  “Three years span 1” is an instance_of one-dimensional temporal region.
+  If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
+
 ```
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  ∀x (Tx→(∃y(Hsy∧Ay))∧(Wx→~∃y(Hsy∧Ay)))
-  T: is a Tuesday
-  H: has a
-  A: is an arm
-  W: is a Wednesday
+  ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+  T: Tuesday
+  H: has
+  A: arm
+  W: Wednesday
+  s: Sally
   
   (b) Every liver has some cell as part at all times it exists.
   ∀x∃y(Lx→Cy∧Pyx)
-  L: is a liver
-  C: is a cell
-  P: is a part of
+  L: liver
+  C: cell
+  P: part of
   
   (c) John was a child, then an adult, then a senior. 
-  (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
+ j = John
+ E xy = is earlier than
+ C (x, t) = being a child at t
+ A (x, t) = being an adult at t
+ S (x, t) = being a senior at t
+ ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
+
+  (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.
+ M(x, t) = being married at t
+ Y(t) = belongs to 3 year span 1
+ g1 = Goofus
+ g2 = Gallant
+ D(t) = t is a day
+ ∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+
+  
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
+Content is an instance_of generic dependent continuant
+File is an instance_of generic dependent continuant
+File 1 Turtle implements content 1
+File 2 XML implements content 1
+Computer 1 is bearer of File 1 and File 2
+Computer 1 is an instance_of material entity
+Computer 2 is 
+Computer 2 is an instance_of material entity
+Computer 3 is 
+Computer 3 is an instance_of material entity
+Computer 1 2 and 3 are part of Network 1
+Network 1 is an instance_of Network
+Network is_a object aggregate
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -104,33 +157,55 @@ For any question involving the use of Protege, please be sure to import:
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
-  True, thoughts are not material, since they can have different properties from the material brain, and they are a part of material organisms. Or, a nostrile is an immaterial part of a material organism.
-  
+  True. The elucidation says that a material entity has some portion of matter as proper or improper continuant part. It doesn’t say all of its parts must be material. Ex. a person’s thoughts, even if immaterial, is a part of the material person. Material and immaterial entities are disjoint, but that does not prevent one from having a part that’s the other.  
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
+  False. I can’t think of any examples that would fit this.
+  
   (c) An organization may have another organization as part.
-  True,
+  True. For example, a political committee can have a subcommittee as a part. 
   
   (d) An organization may have no members as part. 
-  False, definition excludes this
+  True. The debate club could lose all its members while still be being recognized by the school.
   
   (e) Any site is partially bounded by some instance of Material Entity.
-  False, definition excludes this
+  True. The wording on the elucidation is a little confusing, but I think it’s implying that all sites are partially or wholly bounded by a material entity.
   
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
-  False, definition excludes this, that sucks 
+  False. The elucidation excludes this by saying the potential disposition must be a product of its physical make-up that was either through evolution or intentional design. It wasn’t intentionally designed for this task, so this doesn’t count. But I personally don’t like saying that. I figure objects can acquire functions that weren’t intended.
   
   (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
-  True
+  True. Dispositions are in virtue of the bearer’s physical make-up, not its environment.
   
   (h) Spacetime is a class in BFO.
   False, it's a spatiotemporal region
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
-  True, any subclass of two-dimensional continuant fiat boundary
+  False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
+– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+–  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
+– A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– Change in John’s speed: John's Speed is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
+– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.)
+
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
+Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
+In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+
+
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+
+|             | Functional| Inverse Fun | Transitive | Symmetric | Asymmetric | Reflexive | Irreflexive |
+|-------------|-----------|-------------|------------|-----------|------------|-----------|-------------|
+| Functional  | empty     | Yes         | No         | Yes       | Yes        | Yes       | Yes         |
+| Inverse Fun | Yes       | empty       | No         | Yes       | Yes        | Yes       | Yes         |
+| Transitive  | No        | No          | empty      | Yes       | No         | Yes       | No          |
+| Symmetric   | Yes       | Yes         | Yes        | empty     | No         | Yes       | Yes         |
+| Asymmetric  | Yes       | Yes         | No         | No        | empty      | No        | Yes         |
+| Reflexive   | Yes       | Yes         | Yes        | Yes       | No         | empty     | No          |
+| Irreflexive | Yes       | Yes         | No         | Yes       | Yes        | No        | empty       |
+
