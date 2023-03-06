@@ -112,11 +112,15 @@ Content is an instance_of generic dependent continuant
 File is an instance_of generic dependent continuant
 File 1 Turtle implements content 1
 File 2 XML implements content 1
+Files 1 and 2 are output of Computer 1
 Computer 1 is bearer of File 1 and File 2
 Computer 1 is an instance_of material entity
-Computer 2 is 
+Computer 1 sends output to Computers 2 and 3
+File 1 is input of Computer 2
+Computer 2 receives input from Computer 1
 Computer 2 is an instance_of material entity
-Computer 3 is 
+File 2 is input of Computer 3
+Computer 3 receives input from Computer 1
 Computer 3 is an instance_of material entity
 Computer 1 2 and 3 are part of Network 1
 Network 1 is an instance_of Network
@@ -167,7 +171,25 @@ Network is_a object aggregate
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace. 
 
-This
+John is an instance_of object
+John's Running is an instance_of process
+John participates in John's Running
+John bears running speeds of slow, normal, and fast
+Slow, normal, and fast running speeds are instances_of dispositions
+John’s running occurs in 3-hours, which is instance_of one-dimensional temporal region.
+John's running consists of three temporal parts: Beginning, Middle, and End
+Beginning realizes normal running speed
+Middle realizes fast running speed
+End realizes slow running speed
+Beginning precedes Middle
+Middle Precedes End
+Speed is a quality of John's Running
+Slow, Normal, and Fast are instances of speed
+John's Speed at Beginning is decreased_in_magnitude_relative_to John's Speed at Middle
+John's speed at Middle is increased_in_magnitude_relative_to John's Speed at End
+John's speed at End is decreased_in_magnitude_relative_to John's Speed at Beginning
+
+
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning.
 
