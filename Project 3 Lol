@@ -10,7 +10,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ``` 
   (a)  Reflexive
   - "has characteristic" should be a reflexive object property because everything has itself as a characteristic. 
-  - Having oneself as a characteristic is the nature of identity; I have myself as a characteristic, and being myself distinguishes me from other people and things.
+  -  I have myself as a characteristic: being myself distinguishes me from other people and things.
   
   (b)  Transitive 
  - "immersed in" should be a transitive object property.
@@ -49,9 +49,16 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  - There is a process profile describing Sally's arm (an object) as part_of Sally's body (an object) on Tuesday (...), then (...( being separate from her body within the next 24 hours.
+  
   (b) Every liver has some cell as part at all times it exists.
+  
   (c) John was a child, then an adult, then a senior. 
+  - There is a process profile describing John's lifespan (process) using three discrete chunks (...).
+  - There is John's childhood (...), followed by (...) John's adult life (...), followed by John's senior years (...)
+  
   (d) Goofus and Gallant are married at each point in a three year span. 
+  
 ```
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
