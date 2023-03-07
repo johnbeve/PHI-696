@@ -54,7 +54,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (b) Every liver has some cell as part at all times it exists.
   
   (c) John was a child, then an adult, then a senior. 
-  - There is a process profile describing John's lifespan (process) using three discrete chunks (...).
+  - There is a history of John's life, modeling John's lifespan (process profile) as three discrete chunks (...).
   - There is John's childhood (...), followed by (...) John's adult life (...), followed by John's senior years (...)
   
   (d) Goofus and Gallant are married at each point in a three year span. 
