@@ -259,7 +259,7 @@ This graph represents the following key relations:
 
 (d) True. An entity can be an organization if it has members that play specific types of roles *at some time*. So the identity of an organization would not be undermined if it has no members only at some but not all times.
 
-(e) False. A site, according to its definition in BFO, may be a three-dimensional immaterial part of an immaterial entity (partially or wholly) bounded by a material entity. In this case, the case in question may be itself not partially bounded by a material entity.
+(e) False. A site, according to its definition in BFO, may be a three-dimensional immaterial part of an immaterial entity (partially or wholly) bounded by a material entity. In this case, the site in question may be itself not partially bounded by a material entity.
 
 (f) False. A function is a disposition that exists in virtue of the bearer’s physical make-up and this physical make-up is something the bearer possesses **because it came into being**. So nothing can acquire a new function after its becoming.
 
