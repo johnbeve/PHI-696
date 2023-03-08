@@ -92,6 +92,8 @@ Finite model property is important because it can be used to design a decidable 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
+In seeing an example for the above question (Jeiming's response), I'll give this one a go:
+
 Baader definition of tree model property:
 "ALC has the tree model property, i.e., if T is an ALC TBox and C an ALC concept such that C is satisfiable with respect to T , then C has a tree model with respect to T." (Baader, 65)
 
