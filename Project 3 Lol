@@ -22,10 +22,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  - "simultaneous with" should definitely be a symmetric temporal relation.
   
   (d)  Functional 
- 
+ - I think "has prototype" should be a functional object property.
+ - If a prototype is "some instance of a 'canonical'" entity, I am assuming there is only one prototype for every entity of interest.
  
   (e)  Symmetric and Reflexive
- - "overlaps" seems symmetric and reflexive to me (I got help from the project 3 Google doc on this one)
+ - "overlaps" seems symmetric and reflexive to me (I got help from the project 3 Google doc on this one).
   
 ```
 
@@ -39,10 +40,13 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  - Like, does the information in the left circle of a venn diagram have a role in modeling the right side?
 
   (d)  Functional 
- - 
+ - "characteristic of" is a functional relationship between a characteristic and the relevant bearer.
+ - Isn't a functional object property limited to only a singular two-place relation? like, according to RO, a bearer can only have at most one characteristic?
+ - I am confused about this object property because I believe a bearer can have as many characteristics as anybody feels like identifying.
  
   (e)  Inverse Functional
- - "has characteristic" is an inverse-functional relationship between a quality and its bearer.
+ - "has characteristic" is an inverse-functional relationship between a bearer and the relevant characteristic.
+ - I am confused about this object property because I believe a bearer can have as many characteristics as anybody feels like identifying.
  
 ```
 
