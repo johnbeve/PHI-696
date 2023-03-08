@@ -37,6 +37,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  - The relation is specifically designed to exist between items and collections, so what about a collection with only one item in it?
  
   (b)  Transitive 
+ - I actually cannot find any relations listed in RO that I take issue with having the transitive object property.
+ - I do support Karl's justification for unlisting "ends after" as transitive due to the existence of time-traveling-to-kill-your-grandfather paradox.
+ - I do support Jaron's justification for unlisting "aligned with" as transitive due to the existence of non-transitive alignment relations like overlap and adjacency.
  
   (c)  Asymmetric
  -  "has role in modeling" is an asymmetric relationship between information about an entity and the entity of interest.
@@ -57,7 +60,15 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  - There is a process profile describing Sally's arm (an object) as part_of Sally's body (an object) on Tuesday (...), then separate (...) from her body within the next 24 hours.
+  - Sally_arm instance_of fiat object part
+  - Sally_body instance_of object
+  - Sally_arm part_of Sally_body
+  ...
+  - Sally_limbloss instance_of process profile 
+  - Tuesday instance_of one-dimensional temporal region
+  - Wednesday instance_of one_dimensional temporal region
+  
+  as part_of Sally's body on Tuesday (...), then separate (...) from her body within the next 24 hours.
   
   (b) Every liver has some cell as part at all times it exists.
   
@@ -90,7 +101,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
-- "the content of an rdf file"
+- "the content of an rdf file" instance_of generically dependent continuant
+- 'Turtle Serialization' instance_of generically dependent continuant
+- 'XML Serialization' instance_of generically dependent continuant
+- "the content of an rdf file" PARTHOOD
+- "the content of an rdf file" PARTHOOD
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -138,13 +153,17 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   - True: an imaginary friend is in a symmetric parthood relationship with the mind of the child who imagines it.
   - This is also written as being the case on page 112 of the BFO textbook.
+ 
+ ...
+  - Giacomo pointed out how the classes of material and immaterial entities are disjoint, according to BFO.
+  - If this is the case, the answers to both (a) and (b) above are false. 
   
   (c) An organization may have another organization as part.
   - True: if we assume the opposite ("An organization CANNOT have another organization as part"), then I would never make friends in my classes or work in groups.
-  - Many social organizations only exist insofar as the smaller social organizations constituting them continue to exist.
+  - Many social organizations only exist insofar as the smaller social organizations constituting them exist as stable entities.
   
   (d) An organization may have no members as part. 
-  - True: if nobody attends Anime Club on a given week, it still exists, both as a formal title and as an empty room.
+  - True: if nobody attends Anime Club on a given week, it still exists, both as a formal organization and as an empty room.
   - Unless its founders or relevant organizers dissolve it after weeks of nobody attending, Anime Club continues to exist as an organization with no members.
   
   (e) Any site is partially bounded by some instance of Material Entity.
@@ -163,7 +182,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (h) Spacetime is a class in BFO.
   - False: I cannot provide an explanation using theories in physics.
-  - I have an intuition that spacetime cannot be represented in BFO because a spacial region is a continuant while a temporal region is an occurent.
+  - I have an intuition that spacetime cannot be represented in BFO because a spacial region is a continuant while a temporal region is an occurrent.
+
+...
+  - Looking at BFO in Protege I can now see that "spatiotemporal region" is an occurrent class in bfo made for regions of spacetime.
+  - Spacetime itself is not a class.
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO.
   - I support Finn's assertion in the project 3 google doc that any of the given fiat boundary subclasses can be further subclassified according to a given domain and according to different granularities.
@@ -171,11 +194,14 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
 ```
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
-John is_a object
-John_run is_a process
-John_runtime is_a generically dependent continuant
-John_runpace is_a process profile with parts warmup, stride and cooldown
-John_runner'shigh is_a quality
+- John instance_of object
+- John_run instance_of process
+- John_runtime instance_of generically dependent continuant
+- John_runpace instance_of process profile
+ - John_runpace_warmup part_of John_runpace 
+ - John_runpace_stride part_of John_runpace 
+ - John_runpace_cooldown part_of John_runpace 
+- John_runner'shigh is_a quality
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
