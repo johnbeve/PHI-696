@@ -92,36 +92,40 @@ Finite model property is important because it can be used to design a decidable 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
-Basically, a tree model is a model whose graph representation is a tree." (Baader, 63)
-A tree model is a graphical representation that takes the form of a tree, i.e. contains nodes which branch out and connect to another node.  The nodes, formally called 
-
+Baader definition of tree model property:
 "ALC has the tree model property, i.e., if T is an ALC TBox and C an ALC concept such that C is satisfiable with respect to T , then C has a tree model with respect to T." (Baader, 65)
 
-
-
-Concept: represent sets of elements and can be viewed as unary predicates (Baader, 11)
+What is a concept? A representation of sets of elements and can be viewed as unary predicates (Baader, 11)
 - Concepts are built from concept names (i.e. Person, Course) and role names (i.e. teaches, studies) (Baader, 11)
 - The set a concept represents is called its extension (Baader, 11)
 
-A concept is a representation of things, i.e. a set of elemenets, and can be viewed as single properties of the things.  Concepts contain two elements: 1) concept names (names which label the "thing," i.e. "teacher" or "student"), and 2) concept roles (binary relations which conjoin the things, or the concept names).  An extension of a concept is the set of names and roles that the concept represents. 
+In other words ... A concept is a representation of things, i.e. a set of elemenets, and can be viewed as single properties of the things.  Concepts contain two elements: 1) concept names (names which label the "thing," i.e. "teacher" or "student"), and 2) concept roles (binary relations which conjoin the things, or the concept names).  An extension of a concept is the set of names and roles that the concept represents. 
 
-The TBox, or terminological box: "The TBox represents knowledge about the structure of the domain (similar to a database schema)" (Baader, 1)
+What is a TBox? "The TBox represents knowledge about the structure of the domain (similar to a database schema)" (Baader, 1)
 Examples: What is a teacher?  What is a student?  What is a course? 
-The TBox, or terminological box, details the information of knowedge about what is contained by the domain, or the scope and structure, of by a concept and its extension. For example, who is a teacher, who is a student, and similar concept names fill out the TBox.  This is used to provide information about the structure, which is composed though defining each concept name within a particular concept.
 
-Unpacked/Thorough Definition of tree model property:
+In other words ... The TBox, or terminological box, details the information of knowedge about what is contained by the domain, or the scope and structure, of by a concept and its extension. For example, who is a teacher, who is a student, and similar concept names fill out the TBox.  This is used to provide information about the structure, which is composed though defining each concept name within a particular concept.
+
+Returning now to unpack Baader's original defintion of tree model property:
 ALC has the tree model property, ie.e., if T is an ALC TBox (terminology box which describes/represents the strucutre of the domain) and C is an ALC concept (represents a set of elements that can be viewed as unary predicates, composed of concept names and role names) such that C is satisfiable with respect to T, then C has a tree model with respect to T.
 
-"Note that, in case the model we start with has a cycle, the tree constructed in the proof is an infinite tree, i.e., it has infinitely many nodes.
-Although ALC has the finite model property and the tree model property, it does not have the finite tree model property. In fact, it is easy to see that the concept A does not have a finite tree model with respect to the TBox {A ∃r.A}" (Baader, 66)
+To explain as if you were five ...
+
+You have a bag full of writing utensils.  In your bag, there are multiple kinds of writing utensils in this bag: markers, highlighters, crayons, mechanical pencils, and pens.  Accordingly, there are this many of each writing utensil in the bag: 10 markers, 2 highlighers, 15 crayons, 1 mechanical pencils, and 2 pens.  You would like to know exactly what writing utensils you have in Your Bag.  To see the extend of your writing utensils, you take them all out of the bag and sort them into five distinct piles, grouping accordingly: markers, highlighters, crayons, mechanical pencils, and pens. Now you are able to see the entirety of your writing utensils, or your complete set of writing utensils.
+
+Your Bag of Writing Utensils represents the concept, C.  T, the ALC TBox, is represented by the five different kinds of writing utensils: markers, highlighters, crayons, mechanical pencils, and pens.  Delaney describes concept satisfiability in the following way:  A concept is statisfiable so long as the concept is true under some assignment of values or on some intrepretation.  In assigning names to each writing utensil, we have filled out the TBox associated with the concept of Your Bag of Writing Utensils. The concept is true under this assignment/interpretation - Your Bag of Writing Utensils is complete/satified through the assignment and organization by type of writing utensil.  
+
+In dividing up Your Bag of Writing Utensils, we have created something of a tree model.  Representationally, this can look like your (empty) bag at the top connected by five distinct strings to five distinct piles of utensils.  In this simple model, there are five branches of Writing Utensils.
+
+The tree model property is probably important in situations where you may find something that does not belong in Your Bag of Utensils, thus making the concept unsatisfiable (maybe?).  For example, you may find a coin in Your Bag.  This is not a writing utensil and should not belong in Your Bag, or under the concept of Your Bag of Writing Utensils. Coin is not in the domain of writing utensils. 
+
 
 Additions to the tree model property:
 "Finally, the tree model property proved in the last section of this chapter implies that ALC cannot enforce cyclic role relationships." (Baader, 55)
+I'm not sure exactly what a cyclical role relationship looks like, but there seems to be no cyclical role connecting the kinds of writing utensils with Your Bag.  Each kind is directly related (so, not cyclically related?) to the concept.
+
 "It should also be noted that, in our definition of a tree model, we do not consider edge labels." (Baader, 66)
-
-Infinite trees:
-"Finally, let us point out that the tree model property can also be used to show decidability of satisfiability of concepts with respect to TBoxes in ALC, using the so-called automata-based approach. The automata used in this approach are automata working on infinite trees." (Baader, 66)
-
+I'm also not sure what an edge label is, but a google search seems to connect the idea of edge labels with the idea of cyclical role relationships, so I am assume they are connected.  If so, they are not relevant to the specifications of the example provided above (unless they are, in some way, and I'm not aware). 
 
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
