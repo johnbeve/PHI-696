@@ -33,7 +33,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
 ```
   (a)  Irreflexive
+ - I'm a little confused about the irreflexive property of the "has member" relation.
+ - The relation is specifically designed to exist between items and collections, so what about a collection with only one item in it?
+ 
   (b)  Transitive 
+ 
   (c)  Asymmetric
  -  "has role in modeling" is an asymmetric relationship between information about an entity and the entity of interest.
  - I feel like if the entity of interest is also information, the two could hold a symmetric relationship.
@@ -53,13 +57,13 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  - There is a process profile describing Sally's arm (an object) as part_of Sally's body (an object) on Tuesday (...), then (...( being separate from her body within the next 24 hours.
+  - There is a process profile describing Sally's arm (an object) as part_of Sally's body (an object) on Tuesday (...), then separate (...) from her body within the next 24 hours.
   
   (b) Every liver has some cell as part at all times it exists.
   
   (c) John was a child, then an adult, then a senior. 
   - There is a history of John's life, modeling John's lifespan (process profile) as three discrete chunks (...).
-  - There is John's childhood (...), followed by (...) John's adult life (...), followed by John's senior years (...)
+  - The history consists of John's childhood (...), followed by (causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
   
   (d) Goofus and Gallant are married at each point in a three year span. 
   
@@ -86,7 +90,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
-"the content of an rdf file"
+- "the content of an rdf file"
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
