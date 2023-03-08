@@ -103,6 +103,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (e) The trunk of a minivan
   - fiat object part
+  - page 113 lists "the trunk of your car" as an example of a site.
   
   (f) Occupation
   - Depends, the position, as in the formal title, is a role. 
@@ -115,7 +116,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (h) Lake
   - fiat object part
   
-- My answers for (g) and (h) are informed by the attached article: https://journals.sagepub.com/doi/pdf/10.1177/0263775817700395
+- My answers for (g) and (h) are informed by the attached article: https://journals.sagepub.com/doi/pdf/10.1177/0263775817700395.
+- I've heard Giacomo and Ali categorize both oceans and lakes as sites according to BFO.
   
 ```
 
@@ -127,6 +129,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   - True: an imaginary friend is in a symmetric parthood relationship with the mind of the child who imagines it.
+  - This is also written as being the case on page 112 of the BFO textbook.
   
   (c) An organization may have another organization as part.
   - True: if we assume the opposite ("An organization CANNOT have another organization as part"), then I would never make friends in my classes or work in groups.
