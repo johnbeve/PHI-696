@@ -74,7 +74,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (c) John was a child, then an adult, then a senior. 
   ∃John.Child ∧ John.Grown ∧ John.Old ∧ John.¬(Child ∧ Grown ∧ Old)
-  - 'There exists John as child and John as grown and John as old, and John not-as child and grown and old.'
+  - 'There exists John as child and John as grown and John as old, and John not-as (child and grown and old), and none of these variables equal each other.'
   - I don't know how to represent the "was" and "then" relations in FOL; I was thinking 
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
@@ -117,7 +117,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - fiat object part
   
 - My answers for (g) and (h) are informed by the attached article: https://journals.sagepub.com/doi/pdf/10.1177/0263775817700395.
-- I've heard Giacomo and Ali categorize both oceans and lakes as sites according to BFO.
+- I've heard Giacomo and Ali categorize both oceans and lakes as sites according to BFO. I support this categorization.
   
 ```
 
