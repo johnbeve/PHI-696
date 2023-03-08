@@ -92,6 +92,24 @@ Finite model property is important because it can be used to design a decidable 
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
+
+"Finally, the tree model property proved in the last section of this chapter implies that ALC cannot enforce cyclic role relationships." (Baader, 55)
+
+"For the purpose of this section, a tree is a directed graph G = (V,E) such that
+• V contains a unique root, i.e., a node vr ∈ V such that there is no v ∈ V with (v, vr) ∈ E;
+• every node v ∈ V \{vr} has a unique predecessor, i.e., there is a unique node v ∈ V such that (v, v) ∈ E.
+
+Basically, a tree model is a model whose graph representation is a tree." (Baader, 63)
+
+"ALC has the tree model property, i.e., if T is an ALC TBox and C an ALC concept such that C is satisfiable with respect to T , then C has a tree model with respect to T." (Baader, 65)
+
+"Note that, in case the model we start with has a cycle, the tree constructed in the proof is an infinite tree, i.e., it has infinitely many nodes.
+Although ALC has the finite model property and the tree model property, it does not have the finite tree model property. In fact, it is easy to see that the concept A does not have a finite tree model with respect to the TBox {A ∃r.A}" (Baader, 66)
+
+"It should also be noted that, in our definition of a tree model, we do not consider edge labels." (Baader, 66)
+
+"Finally, let us point out that the tree model property can also be used to show decidability of satisfiability of concepts with respect to TBoxes in ALC, using the so-called automata-based approach. The automata used in this approach are automata working on infinite trees." (Baader, 66)
+
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
