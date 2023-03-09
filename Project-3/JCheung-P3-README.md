@@ -86,7 +86,7 @@ It’s definition states: t1 simultaneous_with t2 iff:=  t1 before_or_simultaneo
 
 It’s reflexive, since any time must be simultaneous with itself. And it’s symmetric, since, if t1 is simultaneous with t2, then t2 must be simultaneous with t1.
 
-Therefore, the object property “simultaneous with” should have functional as a listed characteristic.
+Therefore, the object property “simultaneous with” should have symmetric and reflexive as a listed characteristic.
 
 <img width="1030" alt="P31E" src="https://user-images.githubusercontent.com/123851163/223026767-b87679fc-a2b8-48c4-b7a5-db6bb72b7e28.png">
 
@@ -395,21 +395,23 @@ Network is_a object aggregate
   (g) Ocean
   (h) Lake
 ```
-(a) Generically dependent continuant
+
+(a) Three possible answers: Generically dependent continuant (e.g. computer files), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
+
 
 (b) Role
 
-(c) Object
+(c) Object/Material entity (e.g. virus) or disposition (e.g. disease symptoms)
 
-(d) Object aggregate
+(d) Site or 2D/3D spatial region (e.g. map or mapping)
 
-(e) Fiat object part
+(e) Site or fiat object part
 
 (f) Role
 
-(g) Object aggregate
+(g) Site or 2D/3D spatial region
 
-(h) Object aggregate
+(h) Site or 2D/3D spatial region
 
 
 
@@ -425,15 +427,16 @@ Network is_a object aggregate
   (h) Spacetime is a class in BFO.
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
 ```
-(a) True. The elucidation says that a material entity has some portion of matter as proper or improper continuant part. It doesn’t say all of its parts must be material. Ex. a person’s thoughts, even if immaterial, is a part of the material person. Material and immaterial entities are disjoint, but that does not prevent one from having a part that’s the other.
 
-(b) False. I can’t think of any examples that would fit this.
+(a) True. Smith’s textbook: “Immaterial entities listed under 1. (boundaries and sites) are in some cases continuant parts of their material” (108).
+
+(b) False. An instance of immaterial entity cannot have an instance of material entity as part. Though in (a) a material entity can have an instance of immaterial entity as part, its inverse is asymmetric and therefore cannot. 
 
 (c) True. For example, a political committee can have a subcommittee as a part. 
 
-(d) True. The debate club could lose all its members while still be being recognized by the school.
+(d) Two answers: If the debate club is viewed as a role, on this account, the answer would be **true** as the debate club could lose all its members while still being recognized by the school. If the debate club is viewed as an object aggregate, on this account, the asnswer would be **false** because as an object aggregate is the sum of its parts, by virtue of losing its members, it loses its necessary parts to being an object aggregate.
 
-(e) True. The wording on the elucidation is a little confusing, but I think it’s implying that all sites are partially or wholly bounded by a material entity.
+(e) False. You can identify a specified space and it could still be surrounded by space without touching any material entity.
 
 (f) False. The elucidation excludes this by saying that the function is due to the physical make-up of the object. Since nothing about the make-up changed, the book did not gain any new functions. If the book has the function of supporting the table, this is a function it has always had, even if it wasn’t intended to support the table.
 
@@ -441,7 +444,7 @@ Network is_a object aggregate
 
 (h) False. This is covered by spatiotemporal region.
 
-(i) False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
+(i) False. "Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilities. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it" (from the BFO file in Protege). 
 
 
 
