@@ -82,7 +82,9 @@ Note: "Sally does not have an arm" is ambiguous because it can also be read as "
 
 Cell is_a material entity
 
-**Result**: Liver has_part_at_all_times Cell.
+**Result**: Liver has_part_at_all_times Cell. 
+
+Note: **"has_part_at_all_times"** has been used by Professor Barry Smith to deal with similar cases. 
 
 (c) Childhood is_a Occurrent
 
@@ -357,13 +359,13 @@ So if you have a very large set of data or ontology, and the data set or ontolog
 
 | *Pairwise* | Functional | InverseFun | Transitive | Symmetric | Asymmetric | Reflexive | Irreflexive |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Functional** | (*empty*) | YES | NO | YES | YES | YES | YES |
-| **InverseFun** | YES | (*empty*) | NO | YES | YES | YES | YES |
-| **Transitive** | NO | NO | (*empty*) | YES | NO | YES | NO |
-| **Symmetric** | YES | YES | YES | (*empty*) | NO | YES | YES |
-| **Asymmetric** | YES | YES | NO | NO | (*empty*) | NO | YES |
-| **Reflexive** | YES | YES | YES | YES | NO | (*empty*) | NO |
-| **Irreflexive** | YES | YES | NO | YES | YES | NO | (*empty*) |
+| **Functional** | (*N/A*) | YES | NO | YES | YES | YES | YES |
+| **InverseFun** | YES | (*N/A*) | NO | YES | YES | YES | YES |
+| **Transitive** | NO | NO | (*N/A*) | YES | NO | YES | NO |
+| **Symmetric** | YES | YES | YES | (*N/A*) | NO | YES | YES |
+| **Asymmetric** | YES | YES | NO | NO | (*N/A*) | NO | YES |
+| **Reflexive** | YES | YES | YES | YES | NO | (*N/A*) | NO |
+| **Irreflexive** | YES | YES | NO | YES | YES | NO | (*N/A*) |
 
 
 **Note**: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
