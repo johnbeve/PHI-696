@@ -234,7 +234,21 @@ This graph represents the following key relations:
 
 **Answer:** 
 
-![picture 1](https://github.com/peihongx/PHI-696/blob/Peihong_Karl_proj_3/Project-3/proj_Q6.png) 
+(a) Bach's Well-Tempered Clavier is_a Generically Dependent Continunat.
+
+(b) Chair of the UB Philosophy Department is_a Role.
+
+(c) SARS-CoV-2, as a disease, is_a Disposition.
+
+(d) Mexico City is_a Site.
+
+(e) The trunk of a minivan is_a Fiat Object Part.
+
+(f) Occupation is_a Role.
+
+(g) Ocean is_a Site.
+
+(h) Lake is_a Site.
 
 **[7]** True or False; explain your answers:
 ```
@@ -267,7 +281,7 @@ This graph represents the following key relations:
 
 (h) False. Strictly speaking, Spatiotemporal Region is a class in BFO, and Spacetime is nothing but the whole of all spatiotemporal regions.
 
-(i) False. Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it. 
+(i) False. As its entry in BFO file says, Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilites. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it. 
 
 
 **[8]** Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, starting slowly, speeding up during the middle, then ending the run at a slower pace.  
@@ -290,32 +304,42 @@ H(John's Middle Stage) -->|is_a|D(Process)
 G(John's Final Stage) -->|is_a|D(Process)
 E(John's Running) -->|occurs_in|I(this 3 hours)
 I(this 3 hours)-->|instance_of|J(1-D Temporal region)
-K(Speed) --> |is_a|L(Disposition)
-C(Running) --> |realizes|K(Speed)
-M(John's Speed 1) -->|instance_of|K(Speed)
-N(John's Speed 2) -->|instance_of|K(Speed)
-O(John's Speed 3) -->|instance_of|K(Speed)
-F(John's Beginning Stage) -->|realizes|M(John's Speed 1)
-H(John's Middle Stage) -->|realizes|N(John's Speed 2)
-G(John's Final Stage) -->|realizes|O(John's Speed 3)
-A(John) -->|bears|M(John's Speed 1)
-A(John) -->|bears|N(John's Speed 2)
-A(John) -->|bears|O(John's Speed 3)
-M(John's Speed 1) -->|decreased_in_magnitude_relative_to|N(John's Speed 2)
-N(John's Speed 2) -->|increased_in_magnitude_relative_to|O(John's Speed 3)
+I(this 3 hours) -->|has_part|P(t1)
+I(this 3 hours) -->|has_part|Q(t2)
+I(this 3 hours) -->|has_part|R(t3)
+P(t1) -->|instance_of|J(1-D Temporal region)
+Q(t2) -->|instance_of|J(1-D Temporal region)
+R(t3) -->|instance_of|J(1-D Temporal region)
+P(t1) -->|precedes|Q(t2)
+Q(t2) -->|precedes|R(t3)
+F(John's Beginning Stage) -->|occurs_in|P(t1)
+H(John's Middle Stage) -->|occurs_in|Q(t2)
+G(John's Final Stage) -->|occurs_in|R(t3)
+K(Speed) --> |is_a|L(Quality)
+B(Object) -->|has_characteristic|L(Quality) 
+M(John's average speed 1) -->|instance_of|K(Speed)
+N(John's average speed 2) -->|instance_of|K(Speed)
+O(John's average speed 3) -->|instance_of|K(Speed)
+A(John) -->|has_characteristic_at_t1|M(John's average speed 1)
+A(John) -->|has_characteristic_at_t2|N(John's average speed 2)
+A(John) -->|has_characteristic_at_t3|O(John's average speed 3)
+M(John's average speed 1) -->|decreased_in_magnitude_relative_to|N(John's average speed 2)
+N(John's average speed 2) -->|increased_in_magnitude_relative_to|O(John's average speed 3)
+H(John's Middle Stage) -->|has_part|S(John's accelerating)
+G(John's Final Stage) -->|has_part|T(John's decelerating) 
+S(John's accelerating) -->|is_a|D(Process)
+T(John's decelerating) -->|is_a|D(Process)
 ```
 
  This is a graph based on Mermaid, representing the following relations:
 
-– John (as an Object) *participates_in* John’s running (as a process), and John *bears* John’s speeds 1, 2, and 3, all of which are instances of *dispositions*.
+– John (as an Object) *participates_in* John’s running (as a process), and John *has_characteristic_at_t1* John’s average speed 1, and John *has_characteristic_at_t2* John’s average speed 2, and John *has_characteristic_at_t3* John’s average speed 3. All of these speeds are instances of *Quality*.
 
 –  John’s running includes 3 *temporal parts*: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage *precedes* John’s middle stage which *precedes* John’s final stage.
 
-– A process *realizes* one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– John’s running occurs_in *this 3-hour*, which is instance_of one-dimensional temporal region. This 3-hour also includes 3 *temporal parts*: t1, t2, and t3, each of which is also instance_of one-dimensional temporal region. Besides, t1 *precedes* t2, and t2 *precedes* t3. Moreover, John’s beginning stage occurs_in t1, John’s middle stage occurs_in t2, and John’s final stage occurs_in t3.
 
-– Change in John’s speed: John's Speed is *decreased_in_magnitude_relative_to* John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is *increased_in_magnitude_relative_to* John's Speed 3 (that is, speed 2＞speed 3)
-
-– John’s running occurs in *this 3-hour*, which is instance_of one-dimensional temporal region.
+– Change in John’s speed: John's average speed 1 is *decreased_in_magnitude_relative_to* John's average speed 2 (that is, speed 1＜speed 2), and John's average speed 2 is *increased_in_magnitude_relative_to* John's average speed 3 (that is, speed 2＞speed 3). Moreover, John's Middle Stage has_part John's accelerating, and John's Final Stage has_part John's decelerating.
 
 **[9]** The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
@@ -348,7 +372,7 @@ As a result, we find that there are 7 sorts of cases where a pair of object prop
 
 (1) The following 3 pairs cannot be combined because of a logical contradiction:
 
-*Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.*
+*Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive & Irreflexive.*
 
 (2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes **non-simple** (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
 
