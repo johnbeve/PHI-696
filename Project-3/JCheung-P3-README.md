@@ -52,7 +52,7 @@ The object property, “partially overlaps”, should have the symmetric charact
 
 It’s definition states: “x partially overlaps y iff there exists some z such that z is part of x and z is part of y, and it is also the case that neither x is part of y or y is part of x”.
 
-A symmetric characteristic is a relation such that given any elements a and b of set G, if a~b, then b~a. Another way to think of symmetry is that the property has itself as an inverse, so if individual a is related to individual b then individual a must also be related to individual y along the same property.
+A symmetric characteristic is a relation such that given any elements a and b of set G, if a ~ b, then b ~ a. Another way to think of symmetry is that the property has itself as an inverse, so if individual a is related to individual b then individual a must also be related to individual y along the same property.
 
 In this case, the “partially overlaps” symmetric relation is found in z. z is congruent with z and its inverse is z. Thus, z is a symmetrical relation, although x is neither a part of y, nor is y a part of x. 
 
