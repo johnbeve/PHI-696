@@ -374,15 +374,17 @@ Network 1 is an instance_of Network
 
 Network is_a object aggregate
 
-<img width="626" alt="P35" src="https://user-images.githubusercontent.com/123851163/223025071-52289c92-820e-4113-a32f-3c53db03c5db.png">
 
-(Comment: This is a graph based on Mermaid and the above blackboard work. Simply speaking, This graph represents the following key relations:
+
+The following graph is based on Mermaid and represents the following key relations:
 
 – RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
 
 – Computer 1 enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers 2 and 3 as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers 1 and 2 to Computer 3.
 
 – Finally, computers 1, 2, and 3 are all parts_of network I, which is instance_of Object Aggregate.)
+
+<img width="626" alt="P35" src="https://user-images.githubusercontent.com/123851163/223025071-52289c92-820e-4113-a32f-3c53db03c5db.png">
 
 
 
@@ -452,19 +454,19 @@ Network is_a object aggregate
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
-<img width="717" alt="P38" src="https://user-images.githubusercontent.com/123851163/223024645-615a7a41-99ce-4fb9-a7f0-13a077c0871f.png">
+ This is a graph based on Mermaid, representing the following relations:
 
-This is a graph based on Mermaid, representing the following relations:
+– John (as an Object) participates_in John’s running (as a process), and John has_characteristic_at_t1 John’s average speed 1, and John has_characteristic_at_t2 John’s average speed 2, and John has_characteristic_at_t3 John’s average speed 3. All of these speeds are instances of Quality. 
 
-– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+(Note: A line with two nodes in Mermaid is to represent a triple [subject, predicate, object], so I don’t know how to use Mermaid to express an ordered set of 4 elements like “John [1] has_characteristic [2] John’s average speed 1 [3] at t1 [4]”. At present what I can do is to insert the temporal parameter into the predicate “has_characteristic”.)
 
 –  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
 
-– A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– John’s running occurs_in this 3-hour, which is instance_of one-dimensional temporal region. This 3-hour also includes 3 temporal parts: t1, t2, and t3, each of which is also instance_of one-dimensional temporal region. Besides, t1 precedes t2, and t2 precedes t3. Moreover, John’s beginning stage occurs_in t1, John’s middle stage occurs_in t2, and John’s final stage occurs_in t3.
 
-– Change in John’s speed: John's Speed is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
+– Change in John’s speed: John's average speed 1 is decreased_in_magnitude_relative_to John's average speed 2 (that is, speed 1＜speed 2), and John's average speed 2 is increased_in_magnitude_relative_to John's average speed 3 (that is, speed 2＞speed 3). Moreover, John's Middle Stage has_part John's accelerating, and John's Final Stage has_part John's decelerating. John’s accelerating and his decelerating are both instances of process.
 
-– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.
+<img width="1419" alt="P38" src="https://user-images.githubusercontent.com/123851163/223915598-fc6ba9c5-33f2-4e91-97b2-752708c6c09a.png">
 
 
 
