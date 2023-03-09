@@ -127,7 +127,9 @@ Due to the fact that there lacks a definition and “aligned with” is insuffic
 
 Transitivity means that if individual x is related to individual y, and individual y is related to individual z, then individual x will be related to individual z. In other words, a single “hop” is implied over a chain of two along a given property if that property is transitive. 
 
-Based on its label, one cannot infer that “aligned with” necessitates a transitive relation between x and z. For example, x may share a border with y, y may share a border with z, but x may not share a border with z. It would be said that x is aligned with y (i.e. shares a border), but x is not aligned with z. 
+Based on its label, one cannot infer that “aligned with” necessitates a transitive relation between x and z. For example, x may be aligned with y, y may be aligned with z, but x may not be aligned with z. It would be said that x is aligned with y (i.e. shares a border), but x is not aligned with z. 
+
+Imagine two lines of blocks that intersect at block B. Call one row 'Vertical' and the other 'Horizontal'. A is a block in Vertical, but not Horizontal. C is a block in Horizontal, but not Vertical. And B is in both Vertical and Horizontal. A is aligned with B, since they're in the same row, and B is aligned with C for the same reason, but A is not aligned with B.
 
 Moreover, aligned with could also mean an overlapping relation, rather than sharing a border. This further problematizes the vagueness of the term. 
 
