@@ -90,7 +90,11 @@ For any question involving the use of Protege, please be sure to import:
 
 ```
 
-5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.  
+
+
+![PXL_20230310_200733169 MP](https://user-images.githubusercontent.com/123913163/224419366-526d0357-ae37-4561-aa6a-d87cabc230e1.jpg)
+
 
 There seems to be something missing in this graph such that the Turtle and XML are not connected to computer 1, computer 2, and computer 3.  To understand this problem, I drew out the mermaid graph attached on the shared Google Doc (attached). Although it does not appear in the drawing, there should be two arrows drawn to computer 1 from both Turtle serialization and XML serialization labeled "output of."  Additionally, there should be two arrows drawn to computers 2 and 3 from both serializations labeled "receives."
 
