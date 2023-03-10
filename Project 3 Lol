@@ -84,15 +84,20 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (c) John was a child, then an adult, then a senior. 
 - John instance_of object
+- John_childhood instance_of process
+- John_adulthood instance_of process
+- John_goldenyears instance_of process
 - JohnStory instance_of history
 ...
-- John_childhood part_of Johnstory
-- John_adulthood part_of Johnstory
-- John_goldenyears part_of Johnstory
+- JohnStory occurs_in John
+- John_childhood part_of JohnStory
+- John_adulthood part_of JohnStory
+- John_goldenyears part_of JohnStory
 ...
-- I need to be thorough about the history component
-- I need to explain the order of Johnstory parts
-- John's childhood (...), followed by (causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
+- John_childhood precedes John_adulthood
+- John_adulthood precedes John_goldenyears
+...
+(causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
   
   (d) Goofus and Gallant are married at each point in a three year span. 
  - Goofus instance_of object
@@ -106,7 +111,15 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  - Love4Goofus similar_in_magnitude_relative_to Love4Gallant
  - GooGall_marriage occupies_spatiotemporal_region 3_years
  ...
- - 
+ - After referencing the project 3 Google doc, I can now see it is the case that the statement does not specify Goofus and Gallant are married to each other.
+ - My work here should hopefully reflect this:
+ ...
+ - Goo_marriage instance_of process
+ - Gall_marriage instance_of process
+ - Goo_marriage occupies_spatiotemporal_region 3_years
+ - Gall_marriage occupies_spatiotemporal_region 3_years
+ - Goofus partner_in Goo_marriage
+ - Gallant partner_in Gall_marriage
   
 ```
 
