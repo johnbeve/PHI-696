@@ -11,7 +11,6 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
   (a)  Reflexive
-  Identical with
   (b)  Transitive 
   (c)  Symmetric
   (d)  Functional 
