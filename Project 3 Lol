@@ -11,6 +11,10 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (a)  Reflexive
   - "has characteristic" should be a reflexive object property because everything has itself as a characteristic. 
   -  I have myself as a characteristic: being myself distinguishes me from other people and things.
+  ...
+ - I was informed by Giacomo on the Project 3 Google Doc that this relation holds between a specifically dependent continuant and an independent continuant, which necessitates the two belong to different classes.
+  ...
+ 
   
   (b)  Transitive 
  - "immersed in" should be a transitive object property.
@@ -63,20 +67,46 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - Sally_arm instance_of fiat object part
   - Sally_body instance_of object
   - Sally_arm part_of Sally_body
+  - Sally_arm disjoint_with Limbless_Sally
   ...
-  - Sally_limbloss instance_of process profile 
+  - Sally_limbloss instance_of process 
   - Tuesday instance_of one-dimensional temporal region
   - Wednesday instance_of one_dimensional temporal region
-  
-  as part_of Sally's body on Tuesday (...), then separate (...) from her body within the next 24 hours.
+  ...
+ - Sally_body involved_in Sally_limbloss
+ - Sally_limbloss has_output Limbless_Sally 
+ - Sally_limbloss occurs_in Wednesday
+ - Tuesday precedes Wednesday
   
   (b) Every liver has some cell as part at all times it exists.
+ - Liver instance_of material anatomical entity
+ - "Liver has_part_at_all_times Cell" (from project 3 Google Doc) 
   
   (c) John was a child, then an adult, then a senior. 
-  - There is a history of John's life, modeling John's lifespan (process profile) as three discrete chunks (...).
-  - The history consists of John's childhood (...), followed by (causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
+- John instance_of object
+- JohnStory instance_of history
+...
+- John_childhood part_of Johnstory
+- John_adulthood part_of Johnstory
+- John_goldenyears part_of Johnstory
+...
+- I need to be thorough about the history component
+- I need to explain the order of Johnstory parts
+- John's childhood (...), followed by (causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
   
   (d) Goofus and Gallant are married at each point in a three year span. 
+ - Goofus instance_of object
+ - Gallant instance_of object
+ ...
+ - 3_years instance_of spatiotemporal region
+ ...
+ - GooGall_marriage instance_of process
+ - Love4Goofus part_of GooGall_marriage
+ - Love4Gallant part_of GooGall_marriage
+ - Love4Goofus similar_in_magnitude_relative_to Love4Gallant
+ - GooGall_marriage occupies_spatiotemporal_region 3_years
+ ...
+ - 
   
 ```
 
@@ -95,6 +125,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   ∃John.Child ∧ John.Grown ∧ John.Old ∧ John.¬(Child ∧ Grown ∧ Old)
   - 'There exists John as child and John as grown and John as old, and John not-as (child and grown and old), and none of these variables equal each other.'
   - I don't know how to represent the "was" and "then" relations in FOL; I was thinking 
+  ...
+  - I should look at perhaps using disjunctions instead of conjunctions here.
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
   
