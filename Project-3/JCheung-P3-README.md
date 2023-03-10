@@ -262,11 +262,13 @@ seniorhood is an instance_of occurrent.
 
 **(d) Goofus and Gallant are married at each point in a three year span.**
 
-Goofus is an instance_of object
+Goofus is an instance_of object.
 
-Gallant is an instance_of object
+Gallant is an instance_of object.
 
-Marriage is an instance_of occurent
+Marriage is an instance_of occurent.
+
+T1 is an instance_of zero-dimensional temporal region.
 
 “Three years span 1” is an instance_of one-dimensional temporal region.
 
