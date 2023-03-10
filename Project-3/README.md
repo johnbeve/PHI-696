@@ -30,9 +30,17 @@ For any question involving the use of Protege, please be sure to import:
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday.
+  
   (b) Every liver has some cell as part at all times it exists.
+  Liver has_part_at_all_times some Cell
+  
   (c) John was a child, then an adult, then a senior. 
+  John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.
+  
   (d) Goofus and Gallant are married at each point in a three year span. 
+  Goofus spouse_of Gallant at t1
+  
 ```
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
@@ -40,16 +48,51 @@ For any question involving the use of Protege, please be sure to import:
 ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ C ¬ ≡ ≠ ≥ ≤ ∃ ∀ ∧ →
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  ∀x(Tx → ∃y(Hsy ∧ Ay)) ∧ (Wx → ¬∃y(Hsy ∧ Ay))
+  ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+  
+  Where:   
+  T: Tuesday
+  H: has
+  A: arm
+  W: Wednesday
+  s: Sally
+
   
   (b) Every liver has some cell as part at all times it exists.
-  ∀x∃y(Lx → Cy ∧ Pyx)
+   ∀x∃y(Lx→Cy∧Pyx)
+   
+  Where:
+  L: liver
+  C: cell
+  P: part of
   
   (c) John was a child, then an adult, then a senior. 
+  ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
+  
+  Where:
+  j = John
+  E (x, y) = being earlier than
+  C (x, t) = being a child at t
+  A (x, t) = being an adult at t
+  S (x, t) = being a senior at t
+
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
+  ∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+  
+  Where:
+  M(x, t) = being married at t
+  Y(t) = belongs to 3 year span 1
+  g1 = Goofus
+  g2 = Gallant
+  D(t) = t is a day
+  
+  Something I am curious about in this question (but am not sure how to represent) is how to incorporate that Goofus and Gallant have been married for three years to   each other.  It seems that "married" can be an instance or a relation to me.  Does "married" need to be represented by a relation to say that Goofus and Gallant are married to each other?
+
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+
+There seems to be something missing in this graph such that the Turtle and XML are not connected to computer 1, computer 2, and computer 3.  To understand this problem, I drew out the mermaid graph attached on the shared Google Doc (attached). Although it does not appear in the drawing, there should be two arrows drawn to computer 1 from both Turtle serialization and XML serialization labeled "output of."  Additionally, there should be two arrows drawn to computers 2 and 3 from both serializations labeled "receives."
 
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
