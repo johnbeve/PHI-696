@@ -247,5 +247,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - John_runner'shigh is_a quality
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
+- Here is a little blurb about Incremental Reasoning from https://www.oxfordsemantic.tech/glossary/incremental-reasoning#:~:text=Reasoning%20performed%20in%20response%20to,the%20amount%20of%20recomputations%20needed:
+- Incremental reasoning is "Reasoning performed in response to updates by minimising the amount of recomputations needed".
+
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
