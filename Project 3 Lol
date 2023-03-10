@@ -96,6 +96,10 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ...
 - John_childhood causally_upstream_of John_adulthood
 - John_adulthood causally_upstream_of John_goldenyears
+...
+- Alternatively:
+- John_childhood precedes John_adulthood
+- John_adulthood precedes John_goldenyears
   
   (d) Goofus and Gallant are married at each point in a three year span. 
  - Goofus instance_of object
@@ -144,11 +148,21 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
-- "the content of an rdf file" instance_of generically dependent continuant
-- 'Turtle Serialization' instance_of generically dependent continuant
-- 'XML Serialization' instance_of generically dependent continuant
-- "the content of an rdf file" PARTHOOD
-- "the content of an rdf file" PARTHOOD
+- rdf_stuff instance_of generically dependent continuant
+- Turtle_Serialization instance_of specifically dependent continuant
+- XML_Serialization instance_of specifically dependent continuant
+...
+- rdf_stuff is_concretized_as Turtle_Serialization
+- rdf_stuff is_concretized_as XML_Serialization
+...
+Alternatively:
+- rdf_stuff generically_depends_on Turtle_Serialization
+- rdf_stuff generically_depends_on XML_Serialization
+...
+- Computer1 instance_of object
+- Computer2 instance_of object
+- Computer3 instance_of object
+...
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -186,7 +200,6 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - I've heard Giacomo and Ali categorize both oceans and lakes as sites according to BFO. I support this categorization.
   
 ```
-
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
@@ -196,10 +209,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   - True: an imaginary friend is in a symmetric parthood relationship with the mind of the child who imagines it.
   - This is also written as being the case on page 112 of the BFO textbook.
- 
  ...
   - Giacomo pointed out how the classes of material and immaterial entities are disjoint, according to BFO.
-  - If this is the case, the answers to both (a) and (b) above are false. 
+  - If this is the case, my answers to both (a) and (b) above are false. 
   
   (c) An organization may have another organization as part.
   - True: if we assume the opposite ("An organization CANNOT have another organization as part"), then I would never make friends in my classes or work in groups.
@@ -240,10 +252,12 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - John instance_of object
 - John_run instance_of process
 - John_runtime instance_of generically dependent continuant
+...
 - John_runpace instance_of process profile
- - John_runpace_warmup part_of John_runpace 
- - John_runpace_stride part_of John_runpace 
- - John_runpace_cooldown part_of John_runpace 
+- John_runpace_warmup part_of John_runpace 
+- John_runpace_stride part_of John_runpace 
+- John_runpace_cooldown part_of John_runpace 
+...
 - John_runner'shigh is_a quality
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
