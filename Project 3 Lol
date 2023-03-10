@@ -103,21 +103,21 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  - Goofus instance_of object
  - Gallant instance_of object
  ...
- - 3_years instance_of spatiotemporal region
+ - 3_years instance_of one-dimensional temporal region
  ...
  - GooGall_marriage instance_of process
  - Love4Goofus part_of GooGall_marriage
  - Love4Gallant part_of GooGall_marriage
  - Love4Goofus similar_in_magnitude_relative_to Love4Gallant
- - GooGall_marriage occupies_spatiotemporal_region 3_years
+ - GooGall_marriage occurs_in 3_years
  ...
  - After referencing the project 3 Google doc, I can now see it is the case that the statement does not specify Goofus and Gallant are married to each other.
  - My work here should hopefully reflect this:
  ...
  - Goo_marriage instance_of process
  - Gall_marriage instance_of process
- - Goo_marriage occupies_spatiotemporal_region 3_years
- - Gall_marriage occupies_spatiotemporal_region 3_years
+ - Goo_marriage occurs_in 3_years
+ - Gall_marriage occurs_in 3_years
  - Goofus partner_in Goo_marriage
  - Gallant partner_in Gall_marriage
   
