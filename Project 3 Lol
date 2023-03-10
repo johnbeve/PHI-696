@@ -94,10 +94,8 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - John_adulthood part_of JohnStory
 - John_goldenyears part_of JohnStory
 ...
-- John_childhood precedes John_adulthood
-- John_adulthood precedes John_goldenyears
-...
-(causally upstream or coincident with) John's adult life (...), followed by (causally upstream or coincident with) John's senior years (...).
+- John_childhood causally_upstream_of John_adulthood
+- John_adulthood causally_upstream_of John_goldenyears
   
   (d) Goofus and Gallant are married at each point in a three year span. 
  - Goofus instance_of object
