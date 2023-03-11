@@ -173,19 +173,19 @@ For any question involving the use of Protege, please be sure to import:
   
   (e) The trunk of a minivan
   
-  Fiat_objecty_part
+  instance of Fiat_objecty_part
   
   (f) Occupation
   
-  History
+  instance of Role
   
   (g) Ocean
   
-  Object
+  instance of Site
   
   (h) Lake
   
-  Object
+  instance of Site
 
 7. True or False; explain your answers:
 
