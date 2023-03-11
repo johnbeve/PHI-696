@@ -1,0 +1,344 @@
+Project 1
+
+Your first project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch.
+
+—
+Tip #1: Carefully study the Hedman selections assigned, as several of the questions are taken directly from the textbook. 
+
+Tip #2: Google is your friend. An important skill to pick up in this class is recognizing when to think hard and when to think smart. You might find answers to some of the questions below simply by googling; you might find pieces of answers to parts of some question below, which will need to be combined; then again, you might not find any help at all because the questions are more novel than they initially appear. I encourage you to use existing resources as guidance, but be careful. My reputation for asking students tricky questions is well-earned. 
+
+Tip #3: Work _together_ to solve these problems, even for initial submissions and when you do, document this in github. For example, you might feel like you nearly have answers to question 1, but would love another pair of eyes. You can then open a post in your local github account, and tag folks from class requesting they check out your work. 
+
+Tip #4: The work we do is challenging; that should be assumed. You are smart enough to be here; that should also be assumed. We have neither time nor space for shaming, but all of time and space for praising. Be cognizant of how your messages might be received, and err on the side of caution. It is hard to surmise intent from text alone. For my part, I treat text only communications the way modern musicals are written: Little subtext; emotions on the sleeve.
+—
+
+Note: The standard interpretation of the logical symbols - "∨", "∧", "→", "¬", "∀", "∃" - is assumed throughout. 
+— 
+
+1. Provide the truth tables for each of the following propositional logic formulas. State whether each is a tautology, a contradiction, or contingent:
+
+(a) (¬A→B)∨((A∧¬C)→B)
+Tautology
+
+A     B     C                  ((¬A → B) ∨ ((A ∧ ¬C) → B))
+____________________________________________________________
+F     F     F                               T
+F     F     T                               T
+F     T     F                               T
+F     T     T                               T
+T     F     F                               T
+T     F     T                               T
+T     T     F                               T
+T     T     T                               T
+
+
+(b) (A→B)∧(A→¬B)
+Contingent 
+
+A     B     ((A → B) ∧ (A → ¬B))
+___________________________________
+F     F               T
+F     T               T
+T     F               F
+T     T               F
+
+
+(c) (A→(B∨C))∨(C→¬A) 
+Tautology
+
+A     B      C                ((A → (B ∨ C)) ∨ (C → ¬A))
+__________________________________________________________
+F     F      F                             T
+F     F      T                             T
+F     T      F                             T
+F     T      T                             T
+T     F      F                             T
+T     F      T                             T
+T     T      F                             T
+T     T      T                             T
+
+
+(d) ((A→B)∧C)∨(A∧D)
+Contingent
+
+A     B      C      D            (((A → B) ∧ C) ∨ (A ∧ D))
+____________________________________________________________
+F     F      F      F                           F
+F     F      F      T                           F
+F     F      T      F                           T
+F     F      T      T                           T
+F     T      F      F                           F
+F     T      F      T                           F
+F     T      T      F                           T
+F     T      T      T                           T
+T     F      F      F                           F
+T     F      F      T                           T
+T     F      T      F                           F
+T     F      T      T                           T
+T     T      F      F                           F
+T     T      F      T                           T
+T     T      T      F                           T
+T     T      T      T                           T
+
+
+
+2. A literal is an atomic formula or the negation of an atomic formula. We say a formula is in conjunctive normal form (CNF) if it is the conjunction of the disjunction of literals. Find propositional logic formulas in CNF equivalent to each of the following:
+
+(a) (A→B)→C
+
+  (A v C) ^ (~B v C)     CNF
+
+(b) (A→(BvC))v(C→~A)
+
+  Already a tautology; CNF 
+  A v ~B
+
+(c) (¬A^¬B^C)v(¬A^¬C)v(B^C)vA
+
+  Already a tautology; CNF  
+  A v ~A
+
+
+3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why:
+
+(a)  B(x,y) that says that x is a brother of y 
+
+  Def.   ∃x∃y∃z(P(z,y)^P(z,x)^¬Fx^¬(y=x))
+
+(b)  A(x,y) that says that x is an aunt of y  
+
+  Def.   ∃w∃x∃y∃z(P(w,z)^P(w,x)^P(z,y)^¬(z=x)^F(x))
+
+(c)  C(x,y) that says that x and y are cousins   
+
+  Def.  ∃v∃w∃x∃y∃z(P(v,w)^P(v,z)^P(w,x)^P(z,y)^¬(w=z)^(x=y))
+
+(d)  O(x) that says that x is an only child  
+
+  Def.  ∃x∃y∀z(P(y,z)→z=x)
+
+(e)  T(x) that says that x has exactly two brothers
+
+  Def.  ∃v∃w∃x∃y∀z(P(v,x)^P(v,w)^¬F(w)^P(v,y)^¬F(y)^∀z((P(v,z)^¬F(z))→((z=x)v(z=w)v(z=y))))
+
+
+4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". 
+Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, 
+explain why:
+
+(a)  B that says that x is a brother of y
+
+$B ≡ M\sqcap ∃parentOf^-.(∃parentOf\ge2)$
+B ≡ M ⊓ ∃parentOf^-.(∃parentOf≥2)
+
+(b)  A that says that x is an aunt of y
+
+$A ≡ ¬M\sqcap ∃parentOf^-.((∃parentOf.(∃parentOf.M\sqcup ¬M))\sqcap∃parentOf\ge2)$
+A ≡ M ⊓ ∃parentOf^-. (∃parentOf.(≥22parentOf.(parentOfM ⊔ ¬M) ⊓ ∃parentOf≥2)
+
+(c)  C that says that x and y are cousins
+
+$C ≡ ∃parentOf^-.(∃parentOf^-.(\ge2parentOf.(parentOf.M\sqcup ¬M)))$
+C ≡ ∃parentOf^-.(∃parentOf^-.(≥22parentOf.(parentOf M ⊔ ¬M))
+
+(d)  O that says that x is an only child  
+
+$O ≡ ∃parentOf^-.(∃parentOf\le1)$
+O ≡ ∃parentOf^-.(∃parentOf.≤1)
+
+(e)  T that says that x has exactly two brothers
+
+$T ≡ (M\sqcap ∃parentOf^-.(\le3∃parentOf.M \sqcap \ ge3∃parentOf.M)) \sqcup (¬M\sqcap ∃parentOf^-.(\le2 ∃parentOf.M \sqcap \ge2 ∃parentOf.M))$
+T ≡ M ⊓ ∃parentOf^-.(≤3∃parentOf. M) ⊔ (¬M ⊓ ∃parentOf^-.(≤2∃parentOf^-.M ⊓ ≥ 2∃parentOf^-.M))
+
+
+
+5. Select two formulas defined in ALC from question 4 to form the basis of a T-Box. Supplement this T-box with whatever other axioms you like, 
+as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a model of K. This may be graphical or symbolic or both.
+
+K = (T, A)      
+
+(a)  B that says that [w] is a brother of [w]
+(b)  A that says that [y] is an aunt of [w]
+
+T.box= {Brother ⊆ Male    (TBox.a)
+	      Aunt ⊆ ~Male}		  (TBox.b)
+
+A.box=  {John: Bro ∩ male            (Ax1)
+         Paul: Bro ∩ male            (Ax2)
+         Jane: Aunt ∩ ~Male          (Ax3) 
+         (Joan, John): parent_of     (Ax4)
+         (Joan, Paul): parent_of     (Ax5)
+         (Jane, John): aunt_of}      (Ax6)
+
+ΔI = {w, x, y, z}
+
+John = w
+Paul = x
+Jane = y
+Joan = z
+
+Male = {w, x}
+Female/Other non-male: {y,z}
+
+Brother = {w, x}
+Aunt = {y}
+Nephew = {w}
+Parent_of = {(z,w), (z,x)}
+Aunt_of = {(y,w), (y,x)}  
+
+
+
+6. Explain the difference - using natural language - between the first-order prefixes:
+
+(a) ∃x∀y and ∀x∃y
+
+  ∃x∀y means “there is or exists some x such that for all y…”, and ∀x∃y means “For all x, there is some y that…”
+
+(b) ∃x∀y∃z and ∀x∃y∀z 
+
+  ∃x∀y∃z means “there is an x for all y, there is some z such that…”, whereas ∀x∃y∀z means “for all x there is some y, so that for all z…” 
+
+(c) ∀x∃y∀z∃w and ∃x∀y∃z∀w
+
+  ∀x∃y∀z∃w means “for all x there is some y for all z, there exists some w such that…”,  and ∃x∀y∃z∀w means “there is some x such that for all y, 
+  there is some z such that for all w…”
+
+
+
+7. Show that the following sentences are not equivalent by exhibiting a graph that models one but not both of these sentences:
+
+∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+
+graph LR 
+
+  0 ----> 1 ----> 2
+   `--------------^
+
+  U: {0,1,2}
+  R: {(0,1), (0,2), (1,2)}
+
+
+
+8. Using an online tableau proof generator - such as the one found here https://www.umsu.de/trees/ - provide tree proofs of the following entailments, 
+which are known as the De Morgan's laws:
+
+(a) ∀x∀y(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
+
+<img src="blob:chrome-untrusted://media-app/55dfa8c9-4008-4723-9c14-e4c8b00119b0" alt="Project1_8a.png"/>
+
+(b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
+
+<img src="blob:chrome-untrusted://media-app/194c99fb-ce2a-4179-993c-c32977d41d22" alt="Project1_8b.png"/>
+
+(c) ∀x∀y((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
+
+<img src="blob:chrome-untrusted://media-app/881a5014-e7c7-4e8a-8486-c618d6fc2ce1" alt="Project1_8c.png"/>
+
+(d) ∀x∀y((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))
+
+<img src="blob:chrome-untrusted://media-app/70839ba3-e6ee-4825-a3bf-0af154c94388" alt="Project1_8d.png"/>
+
+
+
+9. Using a natural deduction proof generator - such as the one found here https://proofs.openlogicproject.org/ - provide natural deduction proofs for each of De Morgan's laws.
+
+(a) ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)
+
+Premisses        Line      Proposition                        Rule*
+  1	            (1)	    ¬(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))	        A
+  1	            (2)	    ¬(Px ∧ Qx) ∧ ¬(¬Px ∨ ¬Qx)	         1→R
+  1	            (3)	    ¬(Px ∧ Qx)	                        2∧B
+  1	            (4)	    ¬(¬Px ∨ ¬Qx)	                      2∧B
+  1	            (5)	    ¬¬Px ∧ ¬¬Qx	                        4 De Morgan
+  1	            (6)	    ¬¬Px	                               5∧B
+  1	            (7)	    ¬¬Qx	                               5∧B
+  1	            (8)	    Qx	                                 7DN
+  1	            (9)	    Px	                                 6DN
+  1	            (10)	  ¬Px ∨ ¬Qx	                          3 De Morgan
+  11	          (11)	  ¬Px	                                 A
+  11,1	        (12)	  ¬Px ∧ Px	                          11,9∧E
+  13	          (13)	  ¬Qx	                                 A
+  13,1	        (14)	  ¬Qx ∧ Qx	                          13,8∧E
+  13,1	        (15)	  ¬Px ∧ Px	                          14 e.f.q.
+  1	            (16)  	¬Px ∧ Px	                          10,11,12,13,15∨B
+                (17)	  ¬¬(¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))	     1,16RAA
+                (18)	  ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx)	         17DN
+
+   *n.b., re rule abbv./annotations Cf: https://www.erpelstolz.at/gateway//prover.html
+
+
+(b) ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)
+
+Premisses	      Line	      Proposition	                        Rule
+1	              (1)	      ¬(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))	           A
+1	              (2)	      ¬(Px ∨ Qx) ∧ ¬(¬Px ∧ ¬Qx)	            1→R
+1	              (3)	      ¬(Px ∨ Qx)	                           2∧B
+1	              (4)	      ¬(¬Px ∧ ¬Qx)	                         2∧B
+1	              (5)	      ¬¬Px ∨ ¬¬Qx	                           4 De Morgan
+6	              (6)	      ¬¬Px	                                  A
+6	              (7)	      Px	                                    6DN
+1	              (8)	      ¬Px ∧ ¬Qx	                             3 De Morgan
+1	              (9)	      ¬Px	                                    8∧B
+1	              (10)	    ¬Qx 	                                  8∧B
+1,6	            (11)	    ¬Px ∧ Px	                             9,7∧E
+12	            (12)	    ¬¬Qx	                                  A
+12	            (13)	    Qx	                                    12DN
+1	              (14)	    ¬Px ∧ ¬Qx 	                           3 De Morgan
+1	              (15)	    ¬Px 	                                  14∧B
+1	              (16)	    ¬Qx 	                                  14∧B
+1,12	          (17)	    ¬Qx ∧ Qx	                             16,13∧E
+1,12	          (18)	    ¬Px ∧ Px	                             17 e.f.q.
+1	              (19)	    ¬Px ∧ Px	                             5,6,11,12,18∨B
+                (20)	    ¬¬(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))	        1,19RAA
+                (21)	    ¬(Px ∨ Qx) → (¬Px ∧ ¬Qx)	            20DN
+
+
+(c) (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)
+
+Premisses	      Line	        Proposition	                       Rule
+1	              (1)	      ¬((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))	            A
+1	              (2)	      (¬Px ∨ ¬Qx) ∧ ¬¬(Px ∧ Qx)	            1→R
+1	              (3)     	¬Px ∨ ¬Qx	                              2∧B
+1	              (4)	      ¬¬(Px ∧ Qx)	                            2∧B
+1	              (5)	      Px ∧ Qx	                                4DN
+1	              (6)	      Px	                                     5∧B
+1	              (7)	      Qx	                                     5∧B
+8	              (8)	      ¬Px	                                      A
+8,1	            (9)       ¬Px ∧ Px                              	 8,6∧E
+10	            (10)	    ¬Qx	                                      A
+10,1	          (11)	    ¬Qx ∧ Qx	                               10,7∧E
+10,1	          (12)	    ¬Px ∧ Px	                               11 e.f.q.
+1	              (13)      ¬Px ∧ Px	                               3,8,9,10,12∨B
+                (14)	    ¬¬((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))	          1,13RAA
+                (15)	    (¬Px ∨ ¬Qx) → ¬(Px ∧ Qx)	              14DN
+
+
+(d) (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)
+
+Premisses	      Line	          Proposition	                     Rule
+1	              (1)	          ¬((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))	        A
+1	              (2)	          ¬Px ∧ ¬Qx ∧ ¬¬(Px ∨ Qx)	           1→R
+1	              (3)	          ¬Px ∧ ¬Qx	                           2∧B
+1             	(4)	          ¬¬(Px ∨ Qx)	                         2∧B
+1	              (5)	          Px ∨ Qx	                             4DN
+6	              (6)	          Px	                                  A
+1	              (7)	          ¬Px	                                  3∧B
+1	              (8)         	¬Qx	                                  3∧B
+1,6	            (9)	          ¬Px ∧ Px	                           7,6∧E
+10	            (10)	         Qx	                                  A
+1	              (11)          ¬Px	                                  3∧B
+1	              (12)	         ¬Qx	                                3∧B
+1,10	          (13)	         ¬Qx ∧ Qx	                           12,10∧E
+1,10	          (14)	         ¬Px ∧ Px	                           13 e.f.q.
+1	              (15)	         ¬Px ∧ Px	                           5,6,9,10,14∨B
+                (16)	         ¬¬((¬Px ∧ ¬Qx) → ¬(Px ∨ Qx))	      1,15RAA
+                (17)	         (¬Px ∧ ¬Qx) → ¬(Px ∨ Qx)	          16DN
+
+
+
+10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs.
+
+The main difference or contrast between the tree-proofs in question 9 and the natural deduction proofs in question 10 is that the tree proofs omit the rules/justifications that signal each step of the proof. The natural deductions, by contrast, do not. In fact, the proof generator I used for question 10 annotated rather heavily.
