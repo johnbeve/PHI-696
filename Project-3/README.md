@@ -41,32 +41,34 @@ For any question involving the use of Protege, please be sure to import:
 
   (a)  Irreflexive
   
-  Answer: partially overlaps
+  Answer: has role in modeling  
+  The definition says: A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.
+   The irreflexive property relation is such that an entity having the property cannot relate to itself. However, if a machine that is designed to model aspects of itself. It can be used to study itself, in virtue of its ability to reflect aspects of itself. 
   
   (b)  Transitive 
   
   Answer: aligned with
   In BFO and RO, the property "aligned with" is transitive, which means if a is aligned with b, and b is aligned with c, then a is aligned with c. In addition, aligned with can be applied to both occurrent entities, say processes, and continuant entities, such as individuals with blood relationships.
   
-  The counterexample can be the cases that involves different possible worlds. For example, m is aligned with n in the actural world, and n is aligned with q in a possible world, then it may not be the case that m is aligned with q, say Many is aligned with Mike in blood relation, and Otto would be aligned with Mary in a possible world if Mary gave birth to Otto. Then Otto is not aligned with Mike. 
-  
+  The counterexample can be the cases that involves possible worlds. For example, m is aligned with n in the actural world, and n is aligned with q in a possible world, then it may not be the case that m is aligned with q, say Many is aligned with Mike in blood relation, and Otto would be aligned with Mary in a possible world if Mary gave birth to Otto. Then Otto is not aligned with Mike. 
   
   (c)  Asymmetric
   
-  
-  
+  Answer: has role in modeling.
+  The definition: A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.
+  If the declared characteristic of an artifact x is universally declared to be asymmetric to an entity y, then it follows that there are no such cases where the relationship between artifact x and entity y is symmetric. But it is possible that an artifact x's relation to entity y may be in some cases symmetric.  
   
   (d)  Functional
   
   Answer: characteristic of 
-  The definition is the relation between a spefically dependent continaunt (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence. The RO characteristic is functional, which means, if x is characteristic of y, there is only one bearer y for any x. 
-  
-  However, the RO should not be functional because 
-   
-  
+  The definition: a relation between a spefically dependent continaunt (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence. The RO "characteristic of" is functional, which means, if x is characteristic of y, there is only one bearer y for any x. However, for a given individual, the property "characteristic of" can have more values. Take the Moon as an example, not only cold is characteristic of the Moon, but round is also characteristic of the Moon. 
+     
   
   (e)  Inverse Functional
   
+  Answer: has charcteristic 
+  The definition is the inverse of “characteristic of”. This answer relies on what was said in (d), but is its inversion. 
+
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 
