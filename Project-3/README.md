@@ -74,29 +74,60 @@ For any question involving the use of Protege, please be sure to import:
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-    ¬ (an arm Occurrent_part_of Sally at Tuesday) ⊓ (an arm Occurrent_part_of Sally at Wednesday)
-  
+   Answer:  Sally participates in having at least one arm on Tuesday  precedes  Sally participates in having no arms on Wednesday
+   
+           Sally is instance_of object
+           Tuesday is instance_of one-dimensional temporal region 
+           Wednesday is an instance of one-dimensional temporal region 
+           Arm is an instance of fiat object part
+           “Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+           “Sally participates in having no arms on Wednesday” is an instance of occurrent
+   
   (b) Every liver has some cell as part at all times it exists.
   
-  ∃ cell (∀.Continuant_part_of liver)
+   Answer: Liver has_part_at_all_times Cell
+   
+   Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
+   We have already had Cell in the Ontology. 
   
   (c) John was a child, then an adult, then a senior. 
   
-  (Childhood Occurrent_part_of John's life) Aligned_with (Adulthood Occurrent_part_of John's life) Aligned_with (Seniorhood Occurent_part_of John's life)
+  Answer:  John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood
+  
+     John is an instance_of object
+     childhood is an instance_of occurrent.
+     adulthood is an instance_of occurrent.
+     seniorhood is an instance_of occurrent.
+      ¬ (adulthood overlaps seniorhood) 
   
   (d) Goofus and Gallant are married at each point in a three year span. 
   
-  ((Goofus Marriage_with Gallant during 3 years) Occurrent_part_of Goofus's life) ⊓ ((Goofus Marriage_with Gallant during 3 years) Occurrent_part_of Gallant's life) 
-
+  Answer: Goofus participates in marriage at t1  and  Galland participates in marriage at t1.
+  
+   Goofus is an instance_of object
+   Gallant is an instance_of object
+   Marriage is an instance_of occurrent
+   “Three years span 1” is an instance_of one-dimensional temporal region.
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-    
-  
+   ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+    T: Tuesday
+    H: has
+    A: arm
+    W: Wednesday
+    s: Sally
+ 
   (b) Every liver has some cell as part at all times it exists.
+   
+   
+  
   (c) John was a child, then an adult, then a senior. 
+  
+  
+  
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
 
 
