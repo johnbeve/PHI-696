@@ -11,27 +11,26 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
   
   (a)  Reflexive
-  Answer: spatially coextensive with
-  the property means that x spatially_coextensive_with y if and only if x and y have the same location. So the property should be reflexive.
-  
-  
+  Answer: overlaps
+  The definition says: x overlaps y if and only if there exists some z such that x has part z and z part of y.
+  The object property “overlaps” should be reflexive, if an object has a part which is also a part of other object, the former object must has at least such a part overlaps with itself. So the object property "overlaps" is reflexive. 
+  Apartment 202 and Apartment 203 share one adjoining wall. 202 overlaps 203 because they have the wall as a part of both 202 and 203. Besides, 202 also overlaps itself, since any part of 202 is also a part of itself. 
+
   (b)  Transitive 
-  
-  Answer: connecting branch of
+  Answer: branching part of 
+  The definition says: x is a branching part of y if and only if x is part of y and x is connected directly or indirectly to the main stem of y.
+  "branching part of" should be transitive because if a branching_part_of b and y branching_part_of c, then, first, a part_of b, and b part_of c, and second, a is connected directly or indirectly to the main stem of b, and b is connected directly or indirectly to the main stem of c.                       Since part_of(instance level) is transitive, so is connected directly or indirectly to the main stem, a branching_part_of c. 
   
   (c)  Symmetric
   
-  Answer: spatially coextensive with
-  In BFO and RO, the property means that x spatially_coextensive_with y if and only if x and y have the same location. x have the same location with y, so the property should be symmetric.
- 
-  part of
-  Because x is also part_of x, so part of is symmetric. 
-  
+  Answer: aligned with
+  If x aligned_with y, x is at the same line with y. So, y is at the same line with x too. 
+  Therefore, "aligned with" should be symmetric. 
   
   (d)  Functional 
   
-  Answer: function of
-  Since function of is subProperty of characteristic of , and the RO characteristic of is functional, functional of should be functional. For example, Mike's heart' beating is function of Mike's heart. 
+  Answer: has end location  
+  "has end location" should be functional, since for whatever location there can only be one end.
   
   (e)  Symmetric and Reflexive
   
