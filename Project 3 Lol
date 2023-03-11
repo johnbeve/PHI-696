@@ -13,8 +13,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   -  I have myself as a characteristic: being myself distinguishes me from other people and things.
   ...
  - I was informed by Giacomo on the Project 3 Google Doc that this relation holds between a specifically dependent continuant and an independent continuant, which necessitates the two belong to different classes.
-  ...
- 
+ ...
+ - Many of the mereotopological relations in RO could be reflexive, but aren't.
+ - Ali and Jaron pointed out "overlaps" by explaining how an object is always perfectly overlapped with itself by virtue of the site it is contained in.
+ - I think their point tracks on to relations like "coincident with" and "colocalizes with".
+ - A process or entity is always perfectly coincident or colocalized with itself because of its identity.
   
   (b)  Transitive 
  - "immersed in" should be a transitive object property.
@@ -39,6 +42,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (a)  Irreflexive
  - I'm a little confused about the irreflexive property of the "has member" relation.
  - The relation is specifically designed to exist between items and collections, so what about a collection with only one item in it?
+ - Can an object not be classed both as an 'item' and as a 'collection' of only itself?
  
   (b)  Transitive 
  - I actually cannot find any relations listed in RO that I take issue with having the transitive object property.
@@ -48,7 +52,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (c)  Asymmetric
  -  "has role in modeling" is an asymmetric relationship between information about an entity and the entity of interest.
  - I feel like if the entity of interest is also information, the two could hold a symmetric relationship.
- - Like, does the information in the left circle of a venn diagram have a role in modeling the right side?
+ - Like, does the information in the left circle of a venn diagram not have a role in modeling the right side?
 
   (d)  Functional 
  - "characteristic of" is a functional relationship between a characteristic and the relevant bearer.
@@ -145,17 +149,14 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
   
+  
 ```
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 - rdf_stuff instance_of generically dependent continuant
-- Turtle_Serialization instance_of specifically dependent continuant
-- XML_Serialization instance_of specifically dependent continuant
+- Turtle_Serialization instance_of generically dependent continuant
+- XML_Serialization instance_of generically dependent continuant
 ...
-- rdf_stuff is_concretized_as Turtle_Serialization
-- rdf_stuff is_concretized_as XML_Serialization
-...
-Alternatively:
 - rdf_stuff generically_depends_on Turtle_Serialization
 - rdf_stuff generically_depends_on XML_Serialization
 ...
@@ -163,6 +164,9 @@ Alternatively:
 - Computer2 instance_of object
 - Computer3 instance_of object
 ...
+- Wifi_network instance_of object aggregate (project 3 document)
+- Computer1 
+
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -251,6 +255,7 @@ Alternatively:
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 - John instance_of object
 - John_run instance_of process
+- John participates_in John_run
 - John_runtime instance_of generically dependent continuant
 ...
 - John_runpace instance_of process profile
@@ -258,11 +263,32 @@ Alternatively:
 - John_runpace_stride part_of John_runpace 
 - John_runpace_cooldown part_of John_runpace 
 ...
-- John_runner'shigh is_a quality
+- John_runnerhigh is_a quality
+- John has_characteristic John_runnerhigh
+^^ How would I add temporal parameters to this, clarifying that John only has a runners high after John_run is completed?
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 - Here is a little blurb about Incremental Reasoning from https://www.oxfordsemantic.tech/glossary/incremental-reasoning#:~:text=Reasoning%20performed%20in%20response%20to,the%20amount%20of%20recomputations%20needed:
 - Incremental reasoning is "Reasoning performed in response to updates by minimising the amount of recomputations needed".
+...
+- This is the "Background of Pellet Reasoner" from the Project 3 google doc rephrased so that a 5-year-old could (hopefully) follow along:
+
+- What do you know about cats? Cats have some unique characteristics, like how some are calicos.
+- They also have some characteristics that we know are shared with other animals.
+- Pellet can figure out some facts about cats based on these shared characteristics.
+- For example, if we say that cats are mammals, Pellet can infer that cats have warm blood.
+- Pellet is able to make the connection on its own because all mammals have warm blood, so if a cat is a mammal it must have warm blood too.
+
+- Pellet works using a special language called the "Web Ontology Language" (OWL).
+- This language lets us describe what we're interested in in a way that everybody, including computers, can figure out. This includes details like characteristics and connections.
+
+- Did you know that the first known cat name that we have is Nedjem, from Ancient Egypt? It means 'sweetie' or 'pleasant'.
+- When you really stop to think about it, there's actually a lot of information in this one little piece of trivia. 
+- Some cats have names, Ancient Egypt existed at one point, and every name can have a meaning.
+- When you hear new facts like this, your brain automatically can take the fact apart like a puzzle, and put the pieces with other information like it.
+- You don't start reminding yourself of everything you know about cats, Ancient Egypt, and names.
+- Pellet can do the same thing. Incremental reasoning means Pellet focuses on new information, without reminding itself what it has stored already.
+
 
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
