@@ -289,6 +289,17 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - You don't start reminding yourself of everything you know about cats, Ancient Egypt, and names.
 - Pellet can do the same thing. Incremental reasoning means Pellet focuses on new information, without reminding itself what it has stored already.
 
+- Incremental reasoning has different parts to it:
+- Dependency tracking looks at the facts that are required for a piece of information to keep being true.
+- This is called consistency, and its really important in order to figure things out.
+- Pellet tracking dependency lets it pay attention to important changes to the information so that it can make sure everything stays consistent.
 
+- Pellet also has a really vast, really fast memory. 
+- Caching lets Pellet 'go back and remember' what its already figured out when it needs to use the information on something new.
+- This way, little changes don't cause big problems down the road. 
+- Pellet can just take the information it needs when needed, and make its own connections without too much effort.
+
+-  Pellet can be really helpful when many different people to want to share what they know.
+- Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving a lot easier.
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
