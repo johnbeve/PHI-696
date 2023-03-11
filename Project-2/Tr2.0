@@ -88,7 +88,7 @@ Symbols: ∀ ∃ ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡ ¬ → ∨ ∧ ¯
 
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-∃R.∀R ⊓ ∀R
+∃R.(∀R.T) ⊓ ∀R.T
 
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
