@@ -313,7 +313,7 @@ Functional and Inverse Functional relations limit the count of possible bearers 
 Transitive relationships can only exist with at least 3 variables, which is contradictory to the existence of a functional/inverse functional relation.
 
 - b.) Asymmetric and Transitive
-Asymmetry means that if xRy, then y CANNOT R x
+Asymmetry means that if xRy, and yRz then z CANNOT R x.
 
 
 - c.) Asymmetric and Reflexive
@@ -322,17 +322,17 @@ This is inherently a symmetric relation because its bearer is identical to itsel
 xRx = xRx
 
 - d.) Asymmetric and Symmetric
- This is a contradiction; the two properties are inversions of each other, and cannot apply to the same relation.
+ This is a contradiction; the two properties are negations of each other, and cannot apply to the same relation.
  
  - e.) Irreflexive and Transitive
  Irreflexivity means a relation cannot be related to itself. Transitivity means a relation can be transferred to other variables.
  Here's a source I'm using: https://math.stackexchange.com/questions/1123463/is-an-irreflexive-and-transitive-set-an-anti-symmetric-set
- If x is related to y, and y is related to z
- xRy
- yRz
- xRz
- 
- 
+ An irreflexive and transitive relation is possible; 'precedes' is a good example of a relation that could be said to have both properties.
+ I asked Karl why Proteges reasoners return an error, and he told me its because reasoners can only work with "simple properties".
+ I turned to the legends at Stack Overflow and found this source: https://www.w3.org/TR/owl2-syntax/#Global_Restrictions_on_Axioms_in_OWL_2_DL
+ The property is non-simple because it relies on "property chains" of more than two predicates.
+ 'Precedes' being both irreflexive and transitive would mean a reasoner would need to 'hold' every (indirectly) related predicate when reasoning with such a relation.
+ This proves to be too much for OWL DL.
  
  - f.) Irreflexive and Reflexive.
  See 10d.
