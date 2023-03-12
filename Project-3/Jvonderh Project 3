@@ -9,11 +9,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
 ```
   (a)  Reflexive
-Concretizes
-  This should be reflexive because any object which concretizes something is a concretization of itself. For instance, a specific bird may be a concretization of a type "bird" and will also be a concretization of itself as a specific bird.
+Simultaneous with
+  This should be reflexive because any object which is simultaneous with something will also be simultaneous with itself. For instance, a lightning strike which is simultaenous with a clock chime will also be simultaneous with itself.
   (b)  Transitive 
 Correlated with
-  This should be transitive because any situation where a factor is correlated with a specific thing which is then correlated with another thing will be such that the first is correlated with the third. For example, if hot days are correlated with a lot of sunlight and a lot of sunlight is correlated with healthier plant growth, then hot days would then be correlated with healthier plant growth.
+  This should be transitive because any situation where a statistical factor is correlated with another statistical factor which is then correlated with another statistical factor will be such that the first is correlated with the third. For example, if the number of hot days is correlated with a higher than average amount of sunlight and a higher than average amount of sunlight is correlated with a greater amount of plant growth, then the number of hot days would then be correlated with a greater amount of plant growth.
   (c)  Symmetric
   Differs in
   This should be symmetric because any relation where one part differs from the other will be such that the other part will also differ with the first. For example, if a pot of water differs from a pot of ice in their temperature, then the pot of ice will differ from the pot of water in their temperature.
@@ -22,7 +22,7 @@ Correlated with
   This should be functional because there is only one characterizing marker set for any given cell type. Since the markers uniquely identify that cell type, they will only produce the relevant cell type when that relation is present. As an example of this, a cell type may only have the markers of being black and porous. In such a case, only the cell type which has these qualities would have this characterizing marker set. 
   (e)  Symmetric and Reflexive
    Correlates with
-  This should be both symmetric and reflexive because any thing which has a correlated relationship with another thing will be both such that the other thing has a correlated relationship with it and such that it is correlated with itself. To use an example, if rain is correlated with cloudy weather, then cloudy weather will be correlated with rain. Since they both occur together when rain occurs, they will have a correlated relationship. Similarly, rain will naturally be correlated with itself. When rain occurs, rain occurs alongside itself. This, while trivial, means that any thing will correlate with itself since its occurrence will move with its own occurrence
+  This should be both symmetric and reflexive because any statistical factor which has a correlated relationship with another factor will be both such that the other factor has a correlated relationship with it and such that it is correlated with itself. To use an example, if rainfall is correlated with cloudy weather, then cloudy weather will be correlated with rainfall. Since they both occur together when rain occurs, they will have a correlated relationship. Similarly, rain will naturally be correlated with itself. When rain occurs, rain occurs alongside itself. This, while trivial, means that any thing will correlate with itself since its occurrence will move with its own occurrence.
 ```
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
@@ -41,7 +41,7 @@ Correlated with
   This should not be functional because, in a relationship between a characteristic and its bearer where the characteristic depends on the bearer for its existence, it is possible for a characteristic to have multiple bearers. Since a functional object property requires that it only output only one possible bearer in this case, it would contradict the property for it to have multiple bearers. As an example, the characteristic "weighs 50 pounds" will have multiple bearers. This may include boxes of office supplies, a piece of furniture, etc.,  but it will mean that this characteristic is a characteristic of multiple bearers. This means that there is more than one value for the characteristic of relation, meaning that it should not be functional.
   (e)  Inverse Functional
   Has characteristic
-  This should be inverse functional because, in a relationship where a bearer has a characteristic which depends on the bearer for its existence, there will be more than one characteristic which the bearer will have. Since an inverse functional object property requires that there be only one input in the form of a characteristic into the bearer, this will mean that the bearer can only bear one characteristic. As an example, it is possible for a person to bear the characteristics of "is 6 feet tall" and "has a beard." This will mean that the has characteristic relation will have more than a value of 1 or 0. As such, the has characteristic relation should not be inverse functional. 
+  This should not be inverse functional because, in a relationship where a bearer has a characteristic which depends on the bearer for its existence, there will be more than one characteristic which the bearer will have. Since an inverse functional object property requires that there be only one input in the form of a characteristic into the bearer, for any characteristic at most one bearer can bear it. As an example, it is possible for multiple people to bear the characteristic of "has a beard." This will mean that the has characteristic relation will have more than a value of 1 or 0. As such, the has characteristic relation should not be inverse functional. 
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
@@ -60,9 +60,9 @@ Arm is an instance of fiat object part
   
   (c) John was a child, then an adult, then a senior. 
   John is an instance_of object
-childhood is an instance_of occurrent.
-adulthood is an instance_of occurrent.
-seniorhood is an instance_of occurrent.
+John's childhood is an instance_of occurrent.
+John's adulthood is an instance_of occurrent.
+John's seniorhood is an instance_of occurrent.
 “John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
 
   (d) Goofus and Gallant are married at each point in a three year span. 
@@ -77,8 +77,8 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday.
-  ∃(x)(Sx^(Tx^~Wx)) 
-  S=Is Sally 
+  ∃(x)(x=s^(Tx^~Wx)) 
+  s=Sally 
   T=Has an arm on Tuesday 
   W=Has an arm on Wednesday
   (b) Every liver has some cell as part at all times it exists.
@@ -89,7 +89,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   (c) John was a child, then an adult, then a senior.
 ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
-j = John
+J = John
 E xy = being earlier than
 C (x, t) = being a child at t
 A (x, t) = being an adult at t
@@ -134,7 +134,7 @@ Network is_a object aggregate
   (b) Chair of the UB Philosophy Department
   Role
   (c) SARS-CoV-2
-  Object
+  Disposition
   (d) Mexico City
   Object Aggregate
   (e) The trunk of a minivan
@@ -152,13 +152,13 @@ Network is_a object aggregate
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   True. A material entity has some portion of matter as proper or improper continuant part. These parts don't need to be material. For example thoughts are immaterial but can be understood as a part of the material person. 
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-  False. An immaterial entity is immaterial, so it may be concretized in a material entity or otherwise but may not have it as part. For example, a thought may be an immaterial entity which has a material entity as a subject, but that subject is either not material (i.e is a representation of a material thing) or is not a part of that thought.
+  False. An immaterial entity is immaterial, so it may be represented in a material entity or otherwise but may not have it as part. For example, a thought may be an immaterial entity which has a material entity as a subject, but that subject is either not material (i.e is a representation of a material thing) or is not a part of that thought.
   (c) An organization may have another organization as part.
   True. Organizations break off separate organizations to perform different functions all of the time. A charity organization for finding housing for the homeless might break off local and regional organizations to better serve people at various locations for example.
   (d) An organization may have no members as part. 
   True. Organizations can continue their existence even after losing all members for a time. For example, the Soviet Union continued to exist for a time even after all member states left the organization. It's continuation, then, depended not on its members but instead on other factors like the organizational structure and rules.
   (e) Any site is partially bounded by some instance of Material Entity.
-  True. All examples of sites used in the BFO Protege consist of gaps between material entities. Gaps such as this, while separate from their surrounding material entities, will be partially defined by those material entities. For example, the Grand Canyon is specifically a gap defined by surrounding cliffs.
+  False. It is possible for a site to only be a part of an immaterial entity without being itself bounded by a material entity.
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
   False. The book may have been primarily used to read or write in, but it was always a function of it that it could take up space and act as a solid base for another object. Function is not limited by its purpose of creation, and instead includes its ability to hold up a table or any other such object by virtue of its physical make-up.
   (g) A glass vase cushioned with packing tape for all time, has the disposition to break.
@@ -178,13 +178,21 @@ John bears running speeds of slow, normal, and fast
 Slow, normal, and fast running speeds are instances_of dispositions
 John’s running occurs in 3-hours, which is instance_of one-dimensional temporal region.
 John's running consists of three temporal parts: Beginning, Middle, and End
+Beginning, Middle, and End are instances_of one-dimensional temporal regions
 Beginning realizes normal running speed
 Middle realizes fast running speed
 End realizes slow running speed
 Beginning precedes Middle
 Middle Precedes End
+Middle has_part John's accelerating
+End has_part John's decelerating
+John’s accelerating is an instance_of process
+John's decelerating is an instance_of process
 Speed is a quality of John's Running
 Slow, Normal, and Fast are instances_of speed
+John has has_characteristic_at_Beginning of Normal
+John has has_characteristic_at_Middle of Fast
+John has has_characteristic_at_End of Slow
 John's Speed at Beginning is decreased_in_magnitude_relative_to John's Speed at Middle
 John's speed at Middle is increased_in_magnitude_relative_to John's Speed at End
 John's speed at End is decreased_in_magnitude_relative_to John's Speed at Beginning
