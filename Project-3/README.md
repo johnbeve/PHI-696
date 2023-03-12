@@ -233,3 +233,35 @@ For any question involving the use of Protege, please be sure to import:
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 
+```
+-----------------------------------------------------------------------------------------------------
+pairwise   | Functional | InverseFun | Transitiv | Symmetric | Asymmetric | Reflexive | Irreflexive |
+-----------------------------------------------------------------------------------------------------
+Functional |            |    Y       |    N      |     Y     |     Y      |     Y     |      Y      |
+-----------------------------------------------------------------------------------------------------
+InverseFun |     Y      |            |    N      |     Y     |     Y      |     Y     |      Y      |
+-----------------------------------------------------------------------------------------------------
+Transitive |     N      |    N       |           |     Y     |     N      |     Y     |      N      |
+-----------------------------------------------------------------------------------------------------
+Symmetric  |     Y      |    Y       |     Y     |           |     N      |     Y     |      Y      |
+-----------------------------------------------------------------------------------------------------
+Asymmetric |     Y      |    Y       |     N     |     N     |            |     N     |      Y      |
+-----------------------------------------------------------------------------------------------------
+Reflexive  |     Y      |    Y       |     Y     |     Y     |     N      |           |      N      |
+-----------------------------------------------------------------------------------------------------
+Irreflexive|     Y      |    Y       |     N     |     Y     |     Y      |     N     |             |
+-----------------------------------------------------------------------------------------------------
+
+```
+
+Note: In the above table, there are 21 different possibilities of combinations in total. "Y" represents a case where a pair of object property characteristics can be combined, and "N" represents a case where a pair of object property characteristics cannot be combined.
+
+In short, there are 7 pairs cannot be combined.
+Among them, Asymmetric & Reflexive, Asymmetric & Symmetric, Reflexive & Irreflexive cannot be combined because of the logically contradiction. 
+Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive cannot be combined because the cases are beyond the capacity limit of the reasoner. 
+
+
+
+
+
+
