@@ -6,7 +6,7 @@ Your third project will require you to answer each of the 10 questions below.  Y
 For any question involving the use of Protege, please be sure to import Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl) and the Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
 ```
 
-1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
+**1.** In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
 ```
   (a)  Reflexive
   (b)  Transitive 
@@ -93,7 +93,7 @@ Therefore, the object property “simultaneous with” should have symmetric and
 
 
 
-2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
+**2.** In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
 ```
   (a)  Irreflexive
   (b)  Transitive 
@@ -206,7 +206,7 @@ Thus, although the “has characteristic” object property has the inverse func
 
 
 
-3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
+**3.** Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   (b) Every liver has some cell as part at all times it exists.
@@ -282,7 +282,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 
 
 
-4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
+**4.** Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   (b) Every liver has some cell as part at all times it exists.
@@ -349,7 +349,7 @@ D(t) = t is a day
 
 
 
-5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+**5.** Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
 **The following model graph is based on Mermaid and represents the following key relations:**
 
@@ -363,7 +363,7 @@ D(t) = t is a day
 
 
 
-6. Using Protege, place these in the BFO hierarchy where you think they fit best:
+**6.** Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
   (b) Chair of the UB Philosophy Department
@@ -393,7 +393,7 @@ D(t) = t is a day
 
 
 
-7. True or False; explain your answers:
+**7.** True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
@@ -426,7 +426,7 @@ D(t) = t is a day
 
 
 
-8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
+**8.** Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
 **The following model graph is based on Mermaid and represents the following key relations:**
 
@@ -444,7 +444,7 @@ D(t) = t is a day
 
 
 
-9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
+**9.** The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
 **EL15:**
 
@@ -460,7 +460,7 @@ So, just like how a smart helper can help us build a big puzzle step by step, th
 
 
 
-10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+**10.** Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
  
  |   **Pairwise**  | **Functional** | **InverseFun** | **Transitive** | **Symmetric** | **Asymmetric** | **Reflexive** | **Irreflexive** |
 |:-----------:|:----------:|:----------:|:----------:|:---------:|:----------:|:---------:|:-----------:|
