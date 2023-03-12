@@ -19,13 +19,13 @@ For any question involving the use of Protege, please be sure to import:
   (b)  Transitive 
   Answer: branching part of 
   The definition says: x is a branching part of y if and only if x is part of y and x is connected directly or indirectly to the main stem of y.
-  "branching part of" should be transitive because if a branching_part_of b and y branching_part_of c, then, first, a part_of b, and b part_of c, and second, a is connected directly or indirectly to the main stem of b, and b is connected directly or indirectly to the main stem of c.                       Since part_of(instance level) is transitive, so is connected directly or indirectly to the main stem, a branching_part_of c. 
+  "branching part of" should be transitive because if a branching_part_of b and b branching_part_of c, then, first, a part_of b, and b part_of c, and second, a is connected directly or indirectly to the main stem of b, and b is connected directly or indirectly to the main stem of c.                       Since part_of(instance level) is transitive, so is connected directly or indirectly to the main stem, a branching_part_of c. 
   
   (c)  Symmetric
   
-  Answer: aligned with
-  If x aligned_with y, x is at the same line with y. So, y is at the same line with x too. 
-  Therefore, "aligned with" should be symmetric. 
+  Answer: partially overlaps
+  The definition: x partially overlaps y iff there exists some z such that z is part of x and z is part of y, and it is also the case that neither x is part of y or y is part of x. As a result, in any case where x partially_overlaps y, there must be a z that is part_of both x and y in which z is not identical with x or y. Therefore for x, y, partially overlaps can be inverse applied, which means y necessarily partially_overlap x. 
+
   
   (d)  Functional 
   
@@ -50,18 +50,19 @@ For any question involving the use of Protege, please be sure to import:
   Answer: aligned with
   In BFO and RO, the property "aligned with" is transitive, which means if a is aligned with b, and b is aligned with c, then a is aligned with c. In addition, aligned with can be applied to both occurrent entities, say processes, and continuant entities, such as individuals with blood relationships.
   
-  The counterexample can be the cases that involves possible worlds. For example, m is aligned with n in the actural world, and n is aligned with q in a possible world, then it may not be the case that m is aligned with q, say Many is aligned with Mike in blood relation, and Otto would be aligned with Mary in a possible world if Mary gave birth to Otto. Then Otto is not aligned with Mike. 
+  The counterexample can be the cases that involves possible worlds. For example, m is aligned with n in the actural world, and n is aligned with q in a possible world, then it may not be the case that m is aligned with q. 
   
   (c)  Asymmetric
   
   Answer: has role in modeling.
   The definition: A relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.
-  If the declared characteristic of an artifact x is universally declared to be asymmetric to an entity y, then it follows that there are no such cases where the relationship between artifact x and entity y is symmetric. But it is possible that an artifact x's relation to entity y may be in some cases symmetric.  
-  
+  If a relational quality between artifact x and y is asymmetric per se, then it follows that there are no such cases where the relationship between artifact x and entity y is symmetric. But it is possible that an artifact x's relation to entity y may be in some cases symmetric.  
+ 
+
   (d)  Functional
   
   Answer: characteristic of 
-  The definition: a relation between a spefically dependent continaunt (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence. The RO "characteristic of" is functional, which means, if x is characteristic of y, there is only one bearer y for any x. However, for a given individual, the property "characteristic of" can have more values. Take the Moon as an example, not only cold is characteristic of the Moon, but round is also characteristic of the Moon. 
+  The definition: a relation between a spefically dependent continaunt (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence. The RO "characteristic of" is functional, which means, if x is characteristic of y, there is only one bearer y for any x. However, for a given characteristic, there can be more than one bearer. 
      
   
   (e)  Inverse Functional
@@ -74,7 +75,7 @@ For any question involving the use of Protege, please be sure to import:
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-   Answer:  Sally participates in having at least one arm on Tuesday  precedes  Sally participates in having no arms on Wednesday
+   Answer:  "Sally participates in having at least one arm on Tuesday" precedes "Sally participates in having no arms on Wednesday"
    
            Sally is instance_of object
            Tuesday is instance_of one-dimensional temporal region 
@@ -95,10 +96,9 @@ For any question involving the use of Protege, please be sure to import:
   Answer:  John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood
   
      John is an instance_of object
-     childhood is an instance_of occurrent.
-     adulthood is an instance_of occurrent.
-     seniorhood is an instance_of occurrent.
-      ¬ (adulthood overlaps seniorhood) 
+     John's childhood is an instance_of occurrent.
+     John's adulthood is an instance_of occurrent.
+     John's seniorhood is an instance_of occurrent.
   
   (d) Goofus and Gallant are married at each point in a three year span. 
   
@@ -135,9 +135,8 @@ For any question involving the use of Protege, please be sure to import:
   C (x, t) = being a child at t
   A (x, t) = being an adult at t
   S (x, t) = being a senior at t
-  O (t2, t3)= t2 overlaps t3.
   
-  ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3)) ∧  ¬ O (t2, t3)) 
+  ∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3)) 
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
      
@@ -213,15 +212,15 @@ Note: this work was borrowed from Karl's example in the team work.
 
   (a) Bach's Well-Tempered Clavier
   
-  instance_of Object
+  instance_of Generically_dependent_continuant
   
   (b) Chair of the UB Philosophy Department
   
-  instance_of Role
+  is_a Role
   
   (c) SARS-CoV-2
   
-  instance_of Object/Creature
+  is_a Object, can also be a BFO: Deposition, if it is regarded as a disease.
   
   (d) Mexico City
   
@@ -229,7 +228,7 @@ Note: this work was borrowed from Karl's example in the team work.
   
   (e) The trunk of a minivan
   
-  instance of Fiat_objecty_part
+  is_a Fiat_objecty_part
   
   (f) Occupation
   
@@ -252,7 +251,7 @@ Note: this work was borrowed from Karl's example in the team work.
 
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   
-  False. 
+  False. According to its definition in BFO, any immaterial entity contains no material entities as parts (Arp, Smith & Spear 2015: 107).
   
   (c) An organization may have another organization as part.
   
@@ -277,11 +276,12 @@ Note: this work was borrowed from Karl's example in the team work.
   
   (h) Spacetime is a class in BFO.
   
-  False. Spacetime is just a reference system.
+  False. Spacetime is the whole of spatiotemporal regions (it can be a reference system), and the latter belongs to a BFO class: Spatiotemporal Region.
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
-  False. 
-
+  False. As its entry in BFO file says, Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all 
+  possibilities. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one-dimensional continuant fiat boundary 
+  that doesn't overlap it.
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
