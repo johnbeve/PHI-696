@@ -152,6 +152,62 @@ For any question involving the use of Protege, please be sure to import:
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
+```mermaid
+
+graph LR
+
+A([Computer a]) -- enable --> D([Data Transmission])
+
+A -- instance_of--> E([Compter])
+
+A --part_of-->F([Network 1])
+
+B([Computer b])--instance_of-->E
+
+B--participate_in-->I([Data Reception])
+
+B--part_of-->F
+
+C([Computer c])--instance_of-->E
+
+C--participate_in-->I
+
+C--part_of-->F
+
+D--ends_with-->I
+
+E--is_carrier_of-->K([XML Seriazation])
+
+E--part_of-->J([Network])
+
+E--is_a-->H([Object])
+
+E--is_carrier_of-->L([Turtle Seriazation])
+
+E--is_carrier_of-->G([RDF File Content])
+
+F--instance_of-->J
+
+G--is_a-->N([Generally Dependent Continaunt])
+
+G--has_model-->L([Turtle Seriazation])
+
+G--has_model-->K
+
+J--is_a-->M([Object Aggregate])
+
+L--is_a-->N
+
+K--is_a-->N
+
+
+```
+
+1. RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
+2. Computer a enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers b and c as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers a to Computer b and c.
+3. Computers a, b, and c are all parts_of network I, which is instance_of Object Aggregate.
+
+Note: this work was borrowed from Karl's example in the team work. 
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 
