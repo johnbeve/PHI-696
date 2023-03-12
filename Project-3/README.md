@@ -207,8 +207,6 @@ K--is_a-->N
 2. Computer a enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers b and c as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers a to Computer b and c.
 3. Computers a, b, and c are all parts_of network I, which is instance_of Object Aggregate.
 
-Note: this work was borrowed from Karl's example in the team work. 
-
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 
   (a) Bach's Well-Tempered Clavier
