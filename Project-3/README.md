@@ -312,7 +312,7 @@ C--starts_with-->N([John's Final Stage])
 
 C--starts_at-->F([John's Beginning Stage])
 
-C--occurs_in-->D([This Three Hours])
+C--occurs_in-->D([This Three-hours])
 
 D--has_part-->O([T3])
 
@@ -369,6 +369,29 @@ R--is_a-->T
 S--is_a-->T
 
 ```
+
+The above graph represents the following relations:
+
+John (as an Object) participates_in John’s Running (as a process).
+John has_characteristic_at_t1 John’s Average Speed 1.
+John has_characteristic_at_t2 John’s Average Speed 2.
+John has_characteristic_at_t3 John’s Average Speed 3. 
+All of these speeds are instances of Quality. 
+
+John’s running includes 3 temporal parts: 
+John’s Beginning Stage, John’s Middle Stage, and John’s Final Stage, each of which is a process. 
+John’s Beginning Stage precedes John’s Middle Stage which precedes John’s Final Stage.
+
+John’s running occurs_in This 3-hour, which is instance_of 1-D Temporal Region. 
+This 3-hour includes 3 temporal parts: T1, T2, and T3, each of which is also instance_of 1-D Temporal Region. Besides, T1 precedes T2, and T2 precedes T3. 
+John’s Beginning Stage occurs_in T1, John’s Middle Stage occurs_in T2, and John’s Final Stage occurs_in T3.
+
+Change in John’s speed: 
+John's Average Speed 1 is decreased_in_magnitude_relative_to John's Average Speed 2 (that is, speed 1＜speed 2)
+John's Average Speed 2 is increased_in_magnitude_relative_to John's Average Speed 3 (that is, speed 2＞speed 3). 
+John's Middle Stage has_part John's Accelerating
+John's Final Stage has_part John's Decelerating. 
+John’s Accelerating and John's Decelerating are both instances of Process.
 
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
