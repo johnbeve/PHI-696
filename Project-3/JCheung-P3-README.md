@@ -16,6 +16,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 ```
 
 
+
 **(a)  Reflexive**
 
 The object property, “overlaps”, should have the reflexive characteristic listed.
@@ -235,6 +236,7 @@ Due to the vagueness of the statement above, we have narrowed the possible answe
 
 “Sally participates in having at least one arm on Tuesday precedes Sally participates in having at most one arm on Wednesday”
 
+
 **(b) Every liver has some cell as part at all times it exists.**
 
 Search liver here: https://ontobee.org
@@ -248,6 +250,7 @@ Argument according to authority BS for the object property has_part_at_all_times
 
 Liver has_part_at_all_times Cell
 
+
 **(c) John was a child, then an adult, then a senior.**
 
 John is an instance_of object
@@ -259,6 +262,7 @@ adulthood is an instance_of occurrent.
 seniorhood is an instance_of occurrent.
 
 “John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
+
 
 **(d) Goofus and Gallant are married at each point in a three year span.**
 
@@ -298,8 +302,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   s: Sally
 
- ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
-
+**∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))**
 
 
 **(b) Every liver has some cell as part at all times it exists.**  
@@ -310,8 +313,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   P: part of
 
-  ∀x∃y(Lx→Cy∧Pyx)
-
+**∀x∃y(Lx→Cy∧Pyx)**
 
 
 **(c) John was a child, then an adult, then a senior.**
@@ -326,8 +328,7 @@ A (x, t) = being an adult at t
 
 S (x, t) = being a senior at t
 
-∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
-
+**∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))**
 
 
 **(d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.**
@@ -344,41 +345,13 @@ g2 = Gallant
 
 D(t) = t is a day
 
-∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+**∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))**
 
 
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
-Content is an instance_of generic dependent continuant
-
-File is an instance_of generic dependent continuant
-
-File 1 Turtle implements content 1
-
-File 2 XML implements content 1
-
-Computer 1 is bearer of File 1 and File 2
-
-Computer 1 is an instance_of material entity
-
-Computer 2 is 
-
-Computer 2 is an instance_of material entity
-
-Computer 3 is 
-
-Computer 3 is an instance_of material entity
-
-Computer 1 2 and 3 are part of Network 1
-
-Network 1 is an instance_of Network
-
-Network is_a object aggregate
-
-
-
-The following graph is based on Mermaid and represents the following key relations:
+**The following model graph is based on Mermaid and represents the following key relations:**
 
 – RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
 
@@ -404,7 +377,6 @@ The following graph is based on Mermaid and represents the following key relatio
 
 (a) Three possible answers: Generically dependent continuant (e.g. the music composition), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
 
-
 (b) Role
 
 (c) Object/Material entity (e.g. virus) or disposition (e.g. disease symptoms)
@@ -415,9 +387,9 @@ The following graph is based on Mermaid and represents the following key relatio
 
 (f) Role
 
-(g) Object aggregate, site, or 2D/3D spatial region
+(g) Site or 2D/3D spatial region
 
-(h) Object aggregate, site, or 2D/3D spatial region
+(h) Site, or 2D/3D spatial region
 
 
 
@@ -456,7 +428,7 @@ The following graph is based on Mermaid and represents the following key relatio
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
- This is a graph based on Mermaid, representing the following relations:
+**The following model graph is based on Mermaid and represents the following key relations:**
 
 – John (as an Object) participates_in John’s running (as a process), and John has_characteristic_at_t1 John’s average speed 1, and John has_characteristic_at_t2 John’s average speed 2, and John has_characteristic_at_t3 John’s average speed 3. All of these speeds are instances of Quality. 
 
@@ -484,13 +456,13 @@ In the same way, when we use Pellet to reason about an ontology, we don't need t
  
  |   **Pairwise**  | **Functional** | **InverseFun** | **Transitive** | **Symmetric** | **Asymmetric** | **Reflexive** | **Irreflexive** |
 |:-----------:|:----------:|:----------:|:----------:|:---------:|:----------:|:---------:|:-----------:|
-|  **Functional** |   (empty)  |     YES    |     NO     |    YES    |     YES    |    YES    |     YES     |
-|  **InverseFun** |     YES    |   (empty)  |     NO     |    YES    |     YES    |    YES    |     YES     |
-|  **Transitive** |     NO     |     NO     |   (empty)  |    YES    |     NO     |    YES    |      NO     |
-|  **Symmetric**  |     YES    |     YES    |     YES    |  (empty)  |     NO     |    YES    |     YES     |
-|  **Asymmetric** |     YES    |     YES    |     NO     |     NO    |   (empty)  |     NO    |     YES     |
-|  **Reflexive**  |     YES    |     YES    |     YES    |    YES    |     NO     |  (empty)  |      NO     |
-| **Irreflexive** |     YES    |     YES    |     NO     |    YES    |     YES    |     NO    |   (empty)   |
+|  **Functional** |   N/A  |     YES    |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **InverseFun** |     YES    |   N/A  |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **Transitive** |     NO     |     NO     |   N/A  |    YES    |     NO     |    YES    |      NO     |
+|  **Symmetric**  |     YES    |     YES    |     YES    |  N/A  |     NO     |    YES    |     YES     |
+|  **Asymmetric** |     YES    |     YES    |     NO     |     NO    |   N/A  |     NO    |     YES     |
+|  **Reflexive**  |     YES    |     YES    |     YES    |    YES    |     NO     |  N/A  |      NO     |
+| **Irreflexive** |     YES    |     YES    |     NO     |    YES    |     YES    |     NO    |   N/A   |
  
 
 In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
