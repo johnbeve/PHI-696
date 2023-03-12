@@ -240,36 +240,12 @@ See attached picture: image 0.
 
   first step: ∀x((¬Px ∨ ¬Qx) → ¬(Px ∧ Qx))
    
- 1. ¬Pa ∨ ¬Qa          premise
-   2. ¬¬(Pa ∧ Qa)        assumption
-   3. Pa ∧ Qa            ¬E2
-   4. Pa                ∧E3
-   5. Qa                ∧E3
-   6. ⊥                ⊥I 1,4,5
- 7. ¬¬¬(Pa ∧ Qa)      ¬I 2-6
- 8. ¬(Pa ∧ Qa)        VE 1-7
- 9. ∀x(¬Px ∨ ¬Qx) → ¬(Px ∧ Qx) →I1-8
- 
+![picture 4](image-1.jpeg)
 
 
   Second step: ∀x ( ¬(Px ∧ Qx) → (¬Px ∨ ¬Qx))
  
- 1.  ¬(Pa ∧ Qa)               premise
-    2.  ¬(¬Pa ∨ ¬Qa)             assumption
-       3.  ¬Pa                   assumption 
-       4.  ¬Pa ∨ ¬Qa              ∨I3
-       5. ⊥                    ⊥I2,4
-    6. Pa                      ⊥I3-5
-       7. ¬Qa                    assmuption
-       8. ¬Pa ∨ ¬Qa               ∨I7
-       9. ⊥                    ⊥I2,8
-    10. Qa                     ⊥I 7-9
-    11. Pa ∧ Qa                 ∧I6,10
-    12. ⊥                      ⊥I1,11
-13. ¬¬(¬Pa ∨ ¬Qa)              ⊥I2-12         
-14. ¬Pa ∨ ¬Qa                  ¬E13
-15.  ¬(Pa ^ Qa)→( ¬Pa V ¬Qa)   →I1-14
-16. ∀x( ¬(Px ∧ Qx)→( ¬Px v ¬Qx)  ∀I 16
+ ![picture 3](image-2.jpeg)
 
 
 Third step:  ∀x ( ¬(Px v Qx) → (¬Px  ∧  ¬Qx))
