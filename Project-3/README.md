@@ -286,6 +286,91 @@ Note: this work was borrowed from Karl's example in the team work.
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
+```mermaid
+
+graph LR
+
+A([John])--instance_of-->K([Object])
+
+A--has_characteristic_at_t3-->H([John's Average Speed 3])
+
+A--has_characteristic_at_t2-->E([John's Average Speed 2])
+
+A--has_characteristic_at_t1-->B([John's Average Speed 1])
+
+A--participates_in-->C([John's Running])
+
+B--decreased_in_magnitude_relative_to-->E
+
+B--instance_of-->L([Speed])
+
+C--instance_of-->M([Running])
+
+C--has_part-->I([John's Middle Stage])
+
+C--starts_with-->N([John's Final Stage])
+
+C--starts_at-->F([John's Beginning Stage])
+
+C--occurs_in-->D([This Three Hours])
+
+D--has_part-->O([T3])
+
+D--has_part-->J([T2])
+
+D--has_part-->G([T1])
+
+D--instance_of-->Q([1-D Temporal Region])
+
+E--increased_in_magnitude_relative_to-->H
+
+E--instance_of-->L
+
+F--precedes-->I
+
+G--occurs_in-->F
+
+F--is_a-->T([Process])
+
+G--precedes-->J
+
+G--instance_of-->Q
+
+H--instance_of-->L
+
+I--has_part-->R([John's Acceleration])
+
+I--is_a-->T
+
+I--precedes-->N
+
+I--occurs_in-->J
+
+J--precedes-->O
+
+J--instance_of-->Q
+
+K--has_characteristic-->P([Quality])
+
+P--is_a-->L
+
+M--is_a-->T
+
+N--has_part-->S([John's Deceleration])
+
+N--is_a-->T
+
+N--occurs_in-->O
+
+O--instance_of-->Q
+
+R--is_a-->T
+
+S--is_a-->T
+
+```
+
+
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
 ChatGPT's answer
