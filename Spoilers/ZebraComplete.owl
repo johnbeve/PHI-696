@@ -1,0 +1,907 @@
+@prefix : <hhttps://ncor.org/zebra_puzzle#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://ncor.org/zebra_puzzle> .
+
+<https://ncor.org/zebra_puzzle> rdf:type owl:Ontology ;
+                                 dc:creator "John Beverley"^^xsd:string ;
+                                 dc:description "The scope of this knowledge graph is specific to the domain described by the \"Zebra Puzzle\", sometimes known as \"Einstein's Puzzle\"."@en ;
+                                 rdfs:comment """1. There are five houses.
+2. The Englishman lives in the red house.
+3. The Spaniard owns the dog.
+4. Coffee is drunk in the green house.
+5. The Ukrainian drinks tea.
+6. The green house is immediately to the right of the ivory house.
+7. The Old Gold smoker owns a snail.
+8. Kools are smoked in the yellow house.
+9. Milk is drunk in the middle house.
+10. The Norwegian lives in the first house.
+11. The man who smokes Chesterfields lives in the house next to the man with the fox.
+12. Kools are smoked in a house next to the house where the horse is kept. 
+13. The Lucky Strike smoker drinks orange juice.
+14. The Japanese person smokes Parliaments.
+15. The Norwegian lives next to the blue house.
+
+Question A: Who drinks water? 
+Question B: Who owns the zebra?"""@en ,
+                                              """Note 1: Each house is painted exactly one color; each house is painted a different color. 
+Note 2: Each house has exactly one human occupant of distinct nationality and exactly one distinct pet is owned by that human. 
+Note 3: Each human occupant drinks exactly one distinct beverage and smokes exactly one distinct brand of cigarettes."""@en ;
+                                 rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Zebra_Puzzle"@en .
+
+dc:creator rdf:type owl:AnnotationProperty .
+
+dc:date rdf:type owl:AnnotationProperty .
+
+dc:description rdf:type owl:AnnotationProperty .
+
+:drinks rdf:type owl:ObjectProperty ;
+        owl:inverseOf <https://ncor.org/zebra_puzzle#0001707> ;
+        rdf:type owl:FunctionalProperty ,
+                 owl:InverseFunctionalProperty ;
+        rdfs:domain :Man ;
+        rdfs:range :Beverage ;
+        dc:creator "John Beverley"^^xsd:string ;
+        rdfs:label "drinks"@en .
+
+:lives_in rdf:type owl:ObjectProperty ;
+          owl:inverseOf <https://ncor.org/zebra_puzzle#0001702> ;
+          rdf:type owl:FunctionalProperty ,
+                   owl:InverseFunctionalProperty ;
+          rdfs:domain :Man ;
+          rdfs:range :House ;
+          dc:creator "John Beverley"^^xsd:string ;
+          rdfs:label "lives_in"@en .
+
+:owns rdf:type owl:ObjectProperty ;
+      owl:inverseOf <https://ncor.org/zebra_puzzle#0001705> ;
+      rdf:type owl:FunctionalProperty ,
+               owl:InverseFunctionalProperty ;
+      rdfs:domain :Man ;
+      rdfs:range :Pet ;
+      dc:creator "John Beverley"^^xsd:string ;
+      rdfs:label "owns"@en .
+
+:smokes rdf:type owl:ObjectProperty ;
+        owl:inverseOf <https://ncor.org/zebra_puzzle#0001703> ;
+        rdf:type owl:FunctionalProperty ,
+                 owl:InverseFunctionalProperty ;
+        rdfs:domain :Man ;
+        rdfs:range :Cigarette ;
+        dc:creator "John Beverley"^^xsd:string ;
+        rdfs:label "smokes"@en .
+
+<https://ncor.org/zebra_puzzle#0001700> rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf <https://ncor.org/zebra_puzzle#0001704> ;
+                                        rdf:type owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :Color ;
+                                        rdfs:range :House ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "color_of"@en .
+
+<https://ncor.org/zebra_puzzle#0001701> rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf <https://ncor.org/zebra_puzzle#0001706> ;
+                                        rdf:type owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :House ;
+                                        rdfs:range :House ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "left_of"@en .
+
+<https://ncor.org/zebra_puzzle#0001702> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :House ;
+                                        rdfs:range :Man ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "home_of"@en .
+
+<https://ncor.org/zebra_puzzle#0001703> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :Cigarette ;
+                                        rdfs:range :Man ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "smoked_by"@en .
+
+<https://ncor.org/zebra_puzzle#0001704> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :House ;
+                                        rdfs:range :Color ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "has_color"@en .
+
+<https://ncor.org/zebra_puzzle#0001705> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :Pet ;
+                                        rdfs:range :Man ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "owned_by"@en .
+
+<https://ncor.org/zebra_puzzle#0001706> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :House ;
+                                        rdfs:range :House ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "right_of"@en .
+
+<https://ncor.org/zebra_puzzle#0001707> rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ,
+                                                 owl:InverseFunctionalProperty ;
+                                        rdfs:domain :Beverage ;
+                                        rdfs:range :Man ;
+                                        dc:creator "John Beverley"^^xsd:string ;
+                                        rdfs:label "drunk_by"@en .
+
+:Beverage rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( [ rdf:type owl:Class ;
+                                                owl:oneOf ( :coffee
+                                                          )
+                                              ]
+                                              [ rdf:type owl:Class ;
+                                                owl:oneOf ( :milk
+                                                          )
+                                              ]
+                                              [ rdf:type owl:Class ;
+                                                owl:oneOf ( :orange_juice
+                                                          )
+                                              ]
+                                              [ rdf:type owl:Class ;
+                                                owl:oneOf ( :tea
+                                                          )
+                                              ]
+                                              [ rdf:type owl:Class ;
+                                                owl:oneOf ( :water
+                                                          )
+                                              ]
+                                            )
+                              ] ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://ncor.org/zebra_puzzle#0001707> ;
+                            owl:someValuesFrom :Man
+                          ] ;
+          dc:creator "John Beverley"^^xsd:string ;
+          rdfs:label "Beverage"@en .
+
+:Cigarette rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( [ rdf:type owl:Class ;
+                                                 owl:oneOf ( :chesterfields
+                                                           )
+                                               ]
+                                               [ rdf:type owl:Class ;
+                                                 owl:oneOf ( :kools
+                                                           )
+                                               ]
+                                               [ rdf:type owl:Class ;
+                                                 owl:oneOf ( :lucky_strikes
+                                                           )
+                                               ]
+                                               [ rdf:type owl:Class ;
+                                                 owl:oneOf ( :old_gold
+                                                           )
+                                               ]
+                                               [ rdf:type owl:Class ;
+                                                 owl:oneOf ( :parliaments
+                                                           )
+                                               ]
+                                             )
+                               ] ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                             owl:someValuesFrom :Man
+                           ] ;
+           dc:creator "John Beverley"^^xsd:string ;
+           rdfs:label "Cigarette"@en .
+
+:Color rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:unionOf ( [ rdf:type owl:Class ;
+                                             owl:oneOf ( :blue
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :green
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :ivory
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :red
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :yellow
+                                                       )
+                                           ]
+                                         )
+                           ] ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001700> ;
+                         owl:someValuesFrom :House
+                       ] ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "Color"@en .
+
+:House rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:unionOf ( [ rdf:type owl:Class ;
+                                             owl:oneOf ( :house_1
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :house_2
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :house_3
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :house_4
+                                                       )
+                                           ]
+                                           [ rdf:type owl:Class ;
+                                             owl:oneOf ( :house_5
+                                                       )
+                                           ]
+                                         )
+                           ] ;
+       rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                owl:someValuesFrom :Man
+                                              ]
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                owl:someValuesFrom :Color
+                                              ]
+                                            ) ;
+                         rdf:type owl:Class
+                       ] ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "House"@en .
+
+:Man rdf:type owl:Class ;
+     owl:equivalentClass [ rdf:type owl:Class ;
+                           owl:unionOf ( [ rdf:type owl:Class ;
+                                           owl:oneOf ( :englishman
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :japanese
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :norwegian
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :spaniard
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :ukrainian
+                                                     )
+                                         ]
+                                       )
+                         ] ;
+     rdfs:subClassOf [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                              owl:onProperty :drinks ;
+                                              owl:someValuesFrom :Beverage
+                                            ]
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:someValuesFrom :House
+                                            ]
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :owns ;
+                                              owl:someValuesFrom :Pet
+                                            ]
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :smokes ;
+                                              owl:someValuesFrom :Cigarette
+                                            ]
+                                          ) ;
+                       rdf:type owl:Class
+                     ] ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "Man"@en .
+
+:Pet rdf:type owl:Class ;
+     owl:equivalentClass [ rdf:type owl:Class ;
+                           owl:unionOf ( [ rdf:type owl:Class ;
+                                           owl:oneOf ( :dog
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :fox
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :horse
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :snail
+                                                     )
+                                         ]
+                                         [ rdf:type owl:Class ;
+                                           owl:oneOf ( :zebra
+                                                     )
+                                         ]
+                                       )
+                         ] ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty <https://ncor.org/zebra_puzzle#0001705> ;
+                       owl:someValuesFrom :Man
+                     ] ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "Pet"@en .
+
+:blue rdf:type owl:NamedIndividual ,
+               :Color ;
+      dc:creator "John Beverley"^^xsd:string ;
+      rdfs:label "blue"@en .
+
+:chesterfields rdf:type owl:NamedIndividual ,
+                        :Cigarette ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                          owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                               owl:onProperty :lives_in ;
+                                               owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                    owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                                                    owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                              owl:onProperty :owns ;
+                                                                                                                              owl:hasValue :fox
+                                                                                                                            ]
+                                                                                                       ]
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                                                    owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                         owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                              owl:onProperty :owns ;
+                                                                                                                              owl:hasValue :fox
+                                                                                                                            ]
+                                                                                                       ]
+                                                                                  ]
+                                                                                )
+                                                                  ]
+                                             ]
+                        ] ;
+               dc:creator "John Beverley"^^xsd:string ;
+               rdfs:label "chesterfields"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :chesterfields ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :owns ;
+                                                                                                                             owl:hasValue :fox
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :owns ;
+                                                                                                                             owl:hasValue :fox
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                 ]
+                                                                               )
+                                                                 ]
+                                            ]
+                       ] ;
+ ] .
+
+:coffee rdf:type owl:NamedIndividual ,
+                 :Beverage ,
+                 [ rdf:type owl:Restriction ;
+                   owl:onProperty <https://ncor.org/zebra_puzzle#0001707> ;
+                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                        owl:onProperty :lives_in ;
+                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                             owl:hasValue :green
+                                                           ]
+                                      ]
+                 ] ;
+        dc:creator "John Beverley"^^xsd:string ;
+        rdfs:label "coffee"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :coffee ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001707> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                   owl:hasValue :green
+                                                                 ]
+                                            ]
+                       ] ;
+ ] .
+
+:dog rdf:type owl:NamedIndividual ,
+              :Pet ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "dog"@en .
+
+:englishman rdf:type owl:NamedIndividual ,
+                     :Man ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :lives_in ;
+                       owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                            owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                            owl:hasValue :red
+                                          ]
+                     ] ;
+            dc:creator "John Beverley"^^xsd:string ;
+            rdfs:label "englishman"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :englishman ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty :lives_in ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                              owl:hasValue :red
+                                            ]
+                       ] ;
+ ] .
+
+:fox rdf:type owl:NamedIndividual ,
+              :Pet ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "fox"@en .
+
+:green rdf:type owl:NamedIndividual ,
+                :Color ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty <https://ncor.org/zebra_puzzle#0001700> ;
+                  owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                       owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                       owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                            owl:hasValue :ivory
+                                                          ]
+                                     ]
+                ] ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "green"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :green ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001700> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                   owl:hasValue :ivory
+                                                                 ]
+                                            ]
+                       ] ;
+ ] .
+
+:horse rdf:type owl:NamedIndividual ,
+                :Pet ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "horse"@en .
+
+:house_1 rdf:type owl:NamedIndividual ,
+                  :House ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                    owl:cardinality "0"^^xsd:nonNegativeInteger
+                  ] ;
+         dc:creator "John Beverley"^^xsd:string ;
+         rdfs:label "house_1"@en .
+
+:house_2 rdf:type owl:NamedIndividual ,
+                  :House ;
+         <https://ncor.org/zebra_puzzle#0001701> :house_1 ;
+         dc:creator "John Beverley"^^xsd:string ;
+         rdfs:label "house_2"@en .
+
+:house_3 rdf:type owl:NamedIndividual ,
+                  :House ;
+         <https://ncor.org/zebra_puzzle#0001701> :house_2 ;
+         dc:creator "John Beverley"^^xsd:string ;
+         rdfs:label "house_3"@en .
+
+:house_4 rdf:type owl:NamedIndividual ,
+                  :House ;
+         <https://ncor.org/zebra_puzzle#0001701> :house_3 ;
+         dc:creator "John Beverley"^^xsd:string ;
+         rdfs:label "house_4"@en .
+
+:house_5 rdf:type owl:NamedIndividual ,
+                  :House ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                    owl:cardinality "0"^^xsd:nonNegativeInteger
+                  ] ;
+         <https://ncor.org/zebra_puzzle#0001701> :house_4 ;
+         dc:creator "John Beverley"^^xsd:string ;
+         rdfs:label "house_5"@en .
+
+:ivory rdf:type owl:NamedIndividual ,
+                :Color ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "ivory"@en .
+
+:japanese rdf:type owl:NamedIndividual ,
+                   :Man ;
+          :smokes :parliaments ;
+          dc:creator "John Beverley"^^xsd:string ;
+          rdfs:label "japanese"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :japanese ;
+   owl:annotatedProperty :smokes ;
+   owl:annotatedTarget :parliaments ;
+ ] .
+
+:kools rdf:type owl:NamedIndividual ,
+                :Cigarette ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                  owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                       owl:onProperty :lives_in ;
+                                       owl:someValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                                            owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                 owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty :owns ;
+                                                                                                                      owl:hasValue :horse
+                                                                                                                    ]
+                                                                                               ]
+                                                                          ]
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                                            owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                 owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                 owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty :owns ;
+                                                                                                                      owl:hasValue :horse
+                                                                                                                    ]
+                                                                                               ]
+                                                                          ]
+                                                                        )
+                                                          ]
+                                     ]
+                ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                  owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                       owl:onProperty :lives_in ;
+                                       owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                            owl:hasValue :yellow
+                                                          ]
+                                     ]
+                ] ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "kools"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :kools ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :owns ;
+                                                                                                                             owl:hasValue :horse
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty <https://ncor.org/zebra_puzzle#0001702> ;
+                                                                                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :owns ;
+                                                                                                                             owl:hasValue :horse
+                                                                                                                           ]
+                                                                                                      ]
+                                                                                 ]
+                                                                               )
+                                                                 ]
+                                            ]
+                       ] ;
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :kools ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                   owl:hasValue :yellow
+                                                                 ]
+                                            ]
+                       ] ;
+ ] .
+
+:lucky_strikes rdf:type owl:NamedIndividual ,
+                        :Cigarette ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                          owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                               owl:onProperty :drinks ;
+                                               owl:hasValue :orange_juice
+                                             ]
+                        ] ;
+               dc:creator "John Beverley"^^xsd:string ;
+               rdfs:label "lucky_strikes"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :lucky_strikes ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :drinks ;
+                                              owl:hasValue :orange_juice
+                                            ]
+                       ] ;
+ ] .
+
+:milk rdf:type owl:NamedIndividual ,
+               :Beverage ,
+               [ rdf:type owl:Restriction ;
+                 owl:onProperty <https://ncor.org/zebra_puzzle#0001707> ;
+                 owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                      owl:onProperty :lives_in ;
+                                      owl:hasValue :house_3
+                                    ]
+               ] ;
+      dc:creator "John Beverley"^^xsd:string ;
+      rdfs:label "milk"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :milk ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001707> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :lives_in ;
+                                              owl:hasValue :house_3
+                                            ]
+                       ] ;
+ ] .
+
+:norwegian rdf:type owl:NamedIndividual ,
+                    :Man ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :lives_in ;
+                      owl:someValuesFrom [ rdf:type owl:Class ;
+                                           owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                           owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                                owl:hasValue :blue
+                                                                              ]
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                           owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                                owl:hasValue :blue
+                                                                              ]
+                                                         ]
+                                                       )
+                                         ]
+                    ] ;
+           :lives_in :house_1 ;
+           dc:creator "John Beverley"^^xsd:string ;
+           rdfs:label "norwegian"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :norwegian ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty :lives_in ;
+                         owl:someValuesFrom [ rdf:type owl:Class ;
+                                              owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://ncor.org/zebra_puzzle#0001701> ;
+                                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                                   owl:hasValue :blue
+                                                                                 ]
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://ncor.org/zebra_puzzle#0001706> ;
+                                                              owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <https://ncor.org/zebra_puzzle#0001704> ;
+                                                                                   owl:hasValue :blue
+                                                                                 ]
+                                                            ]
+                                                          )
+                                            ]
+                       ] ;
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :norwegian ;
+   owl:annotatedProperty :lives_in ;
+   owl:annotatedTarget :house_1 ;
+ ] .
+
+:old_gold rdf:type owl:NamedIndividual ,
+                   :Cigarette ,
+                   [ rdf:type owl:Restriction ;
+                     owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                     owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                          owl:onProperty :owns ;
+                                          owl:hasValue :snail
+                                        ]
+                   ] ;
+          dc:creator "John Beverley"^^xsd:string ;
+          rdfs:label "old_gold"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :old_gold ;
+   owl:annotatedProperty rdf:type ;
+   owl:annotatedTarget [ rdf:type owl:Restriction ;
+                         owl:onProperty <https://ncor.org/zebra_puzzle#0001703> ;
+                         owl:someValuesFrom [ rdf:type owl:Restriction ;
+                                              owl:onProperty :owns ;
+                                              owl:hasValue :snail
+                                            ]
+                       ] ;
+ ] .
+
+:orange_juice rdf:type owl:NamedIndividual ,
+                       :Beverage ;
+              dc:creator "John Beverley"^^xsd:string ;
+              rdfs:label "orange_juice"@en .
+
+:parliaments rdf:type owl:NamedIndividual ,
+                      :Cigarette ;
+             dc:creator "John Beverley"^^xsd:string ;
+             rdfs:label "parliaments"@en .
+
+:red rdf:type owl:NamedIndividual ,
+              :Color ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "red"@en .
+
+:snail rdf:type owl:NamedIndividual ,
+                :Pet ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "snail"@en .
+
+:spaniard rdf:type owl:NamedIndividual ,
+                   :Man ;
+          :owns :dog ;
+          dc:creator "John Beverley"^^xsd:string ;
+          rdfs:label "spaniard"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :spaniard ;
+   owl:annotatedProperty :owns ;
+   owl:annotatedTarget :dog ;
+ ] .
+
+:tea rdf:type owl:NamedIndividual ,
+              :Beverage ;
+     dc:creator "John Beverley"^^xsd:string ;
+     rdfs:label "tea"@en .
+
+:ukrainian rdf:type owl:NamedIndividual ,
+                    :Man ;
+           :drinks :tea ;
+           dc:creator "John Beverley"^^xsd:string ;
+           rdfs:label "ukrainian"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :ukrainian ;
+   owl:annotatedProperty :drinks ;
+   owl:annotatedTarget :tea ;
+ ] .
+
+:water rdf:type owl:NamedIndividual ,
+                :Beverage ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "water"@en .
+
+:yellow rdf:type owl:NamedIndividual ,
+                 :Color ;
+        dc:creator "John Beverley"^^xsd:string ;
+        rdfs:label "yellow"@en .
+
+:zebra rdf:type owl:NamedIndividual ,
+                :Pet ;
+       dc:creator "John Beverley"^^xsd:string ;
+       rdfs:label "zebra"@en .
+
+#    General axioms
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Beverage
+                :Cigarette
+                :Color
+                :House
+                :Man
+                :Pet
+              )
+] .
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :blue
+                        :chesterfields
+                        :coffee
+                        :dog
+                        :englishman
+                        :fox
+                        :green
+                        :horse
+                        :house_1
+                        :house_2
+                        :house_3
+                        :house_4
+                        :house_5
+                        :ivory
+                        :japanese
+                        :kools
+                        :lucky_strikes
+                        :milk
+                        :norwegian
+                        :old_gold
+                        :orange_juice
+                        :parliaments
+                        :red
+                        :snail
+                        :spaniard
+                        :tea
+                        :ukrainian
+                        :water
+                        :yellow
+                        :zebra
+                      )
+] .
