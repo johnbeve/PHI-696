@@ -88,7 +88,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   P=_is a part of_
   
   (c) John was a child, then an adult, then a senior.
-∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
+∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
 J = John
 E xy = being earlier than
 C (x, t) = being a child at t
