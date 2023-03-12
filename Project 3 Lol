@@ -305,20 +305,40 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Karl made a really thorough chart and put it in the Project 3 Google doc, so I don't feel the need to make my own.
 - I am instead going to attempt to explain why certain properties cannot be combined:
 - a.) Transitive and Functional/InverseFunctional 
+Functional and Inverse Functional relations limit the count of possible bearers in the relation to at most 1.
+Transitive relationships can only exist with at least 3 variables, which is contradictory to the existence of a functional/inverse functional relation.
 
 - b.) Asymmetric and Transitive
+Asymmetry means that if xRy, then y CANNOT R x
+
 
 - c.) Asymmetric and Reflexive
 A reflexive object property relates a variable to itself. 
-This is inherently a symmetric relation because its bearers must be identical to each other, both as objects and as participating.
+This is inherently a symmetric relation because its bearer is identical to itself, both as an object and as a participant in the relation.
+xRx = xRx
 
 - d.) Asymmetric and Symmetric
  This is a contradiction; the two properties are inversions of each other, and cannot apply to the same relation.
  
  - e.) Irreflexive and Transitive
+ Irreflexivity means a relation cannot be related to itself. Transitivity means a relation can be transferred to other variables.
+ Here's a source I'm using: https://math.stackexchange.com/questions/1123463/is-an-irreflexive-and-transitive-set-an-anti-symmetric-set
+ If x is related to y, and y is related to z
+ xRy
+ yRz
+ xRz
+ 
+ 
  
  - f.) Irreflexive and Reflexive.
  See 10d.
+ 
+ - g(Bonus).) The combination of Functional and Inverse Functional can be reasoned with, which shows me the difference between negation and inversion.
+ A relation that only has one incoming and one outgoing variable is a unique relation. 
+ It would imply that the only existence of the relation in the ontology only applies to two variables, or only one variable in a reflexive relation to itself.
+ On the other hand, the combination of properties with their negated forms yields a contradiction.
+ This is because it is impossible to bear and not-bear a relation simultaneously. 
+ Bearing a relation alongside its opposite simply means there is a 'twofoldedness' to the relation.
  
 
 
