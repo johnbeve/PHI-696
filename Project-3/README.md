@@ -75,7 +75,7 @@ For any question involving the use of Protege, please be sure to import:
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-   Answer:  "Sally participates in having at least one arm on Tuesday" precedes "Sally participates in having no arms on Wednesday"
+   Answer:  "Sally participates in having at least one arm on Tuesday" and "Sally participates in having no arms on Wednesday"
    
            Sally is instance_of object
            Tuesday is instance_of one-dimensional temporal region 
@@ -83,6 +83,7 @@ For any question involving the use of Protege, please be sure to import:
            Arm is an instance of fiat object part
            “Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
            “Sally participates in having no arms on Wednesday” is an instance of occurrent
+           We don't know whether Tuesday precedes Wednesday. 
    
   (b) Every liver has some cell as part at all times it exists.
   
