@@ -446,9 +446,17 @@ D(t) = t is a day
 
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
-ELI5: Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
+**EL15:**
 
-In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+Do you remember the last time we talked, we learned about how description logic, the finite model property, and tree model property are ways of teaching computers about the world using words and rules? Well there is another way that we can use description logic to help a computer understand the world better, the Pellet reasoner and its use of incremental reasoning! 
+
+The Pellet reasoner in Protégé is like a very smart helper that can help computers understand things better and faster. If we want to create a big puzzle of things that belong to a bunch of different categories, the Pellet reasoner can help us figure out where to put each piece in the puzzle! 
+
+Incremental reasoning is another fancy term that means that we don’t have to solve the whole puzzle at once! Instead, we can add pieces to the puzzle one by one, and the Pellet reasoner will help us figure out where each piece goes. This is like building a puzzle step by step, and asking the Pellet reasoner to help us each time we add a new piece. The Pellet reasoner was taught to do this step by step puzzle building so that it can do it naturally on its own and learn something new each step of the way. As it builds the puzzle, it learns and doesn’t have to go backward to remind itself of what it had already built—it has a super powered brain giving it amazing learning and memory abilities! Isn’t that amazing?! This means that the Pellet reasoner can save a lot of time and energy by not having to go back and relearn parts of the puzzle it had helped with. 
+
+We should use the Pellet reasoner for incremental reasoning when we have a big puzzle with lots of pieces that belong to different categories, and we want to make sure that each piece is in the right place. Sometimes, we might not be sure where a piece belongs, and that’s where the Pellet reasoner can really help computers and us out! 
+
+So, just like how a smart helper can help us build a big puzzle step by step, the Pellet reasoner can help computers and us figure out where each piece goes in our big puzzle of things that belong to different categories. 
 
 
 
