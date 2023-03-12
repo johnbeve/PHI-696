@@ -302,5 +302,26 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving a lot easier.
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
-- Karl made a really thorough chart and put it in the Project 3 Google doc
-- I am going to attempt to explain why certain properties cannot be combined.
+- Karl made a really thorough chart and put it in the Project 3 Google doc, so I don't feel the need to make my own.
+- I am instead going to attempt to explain why certain properties cannot be combined:
+- a.) Transitive and Functional/InverseFunctional 
+
+- b.) Asymmetric and Transitive
+
+- c.) Asymmetric and Reflexive
+A reflexive object property relates a variable to itself. 
+This is inherently a symmetric relation because its bearers must be identical to each other, both as objects and as participating.
+
+- d.) Asymmetric and Symmetric
+ This is a contradiction; the two properties are inversions of each other, and cannot apply to the same relation.
+ 
+ - e.) Irreflexive and Transitive
+ 
+ - f.) Irreflexive and Reflexive.
+ See 10d.
+ 
+
+
+
+
+
