@@ -402,7 +402,7 @@ The following graph is based on Mermaid and represents the following key relatio
   (h) Lake
 ```
 
-(a) Three possible answers: Generically dependent continuant (e.g. computer files), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
+(a) Three possible answers: Generically dependent continuant (e.g. the music composition), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
 
 
 (b) Role
@@ -415,9 +415,9 @@ The following graph is based on Mermaid and represents the following key relatio
 
 (f) Role
 
-(g) Site or 2D/3D spatial region
+(g) Object aggregate, site, or 2D/3D spatial region
 
-(h) Site or 2D/3D spatial region
+(h) Object aggregate, site, or 2D/3D spatial region
 
 
 
@@ -482,15 +482,24 @@ In the same way, when we use Pellet to reason about an ontology, we don't need t
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
  
-<img width="627" alt="P310" src="https://user-images.githubusercontent.com/123851163/223025907-3f18f238-361e-40ed-a3f2-262053d381d3.png">
+ |   **Pairwise**  | **Functional** | **InverseFun** | **Transitive** | **Symmetric** | **Asymmetric** | **Reflexive** | **Irreflexive** |
+|:-----------:|:----------:|:----------:|:----------:|:---------:|:----------:|:---------:|:-----------:|
+|  **Functional** |   (empty)  |     YES    |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **InverseFun** |     YES    |   (empty)  |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **Transitive** |     NO     |     NO     |   (empty)  |    YES    |     NO     |    YES    |      NO     |
+|  **Symmetric**  |     YES    |     YES    |     YES    |  (empty)  |     NO     |    YES    |     YES     |
+|  **Asymmetric** |     YES    |     YES    |     NO     |     NO    |   (empty)  |     NO    |     YES     |
+|  **Reflexive**  |     YES    |     YES    |     YES    |    YES    |     NO     |  (empty)  |      NO     |
+| **Irreflexive** |     YES    |     YES    |     NO     |    YES    |     YES    |     NO    |   (empty)   |
+ 
 
-Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
+In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
 
-As a result, we find that there are 7 sorts of cases where a pair of object property characteristics cannot be combined: 
+As a result, we found that there are 7 sorts of cases where a pair of object property characteristics cannot be combined: 
 
 (1) The following 3 pairs cannot be combined because of a logical contradiction: 
  
- Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.
+Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.
  
 (2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
  
