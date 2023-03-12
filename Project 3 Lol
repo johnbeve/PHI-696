@@ -61,7 +61,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
  
   (e)  Inverse Functional
  - "has characteristic" is an inverse-functional relationship between a bearer and the relevant characteristic.
- - I am confused about this object property because I believe a bearer can have as many characteristics as anybody feels like identifying.
+ - I am confused about this object property because I believe an identical characteristic can have many bearers, as many characteristics are able to be shared.
  
 ```
 
@@ -143,11 +143,15 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (c) John was a child, then an adult, then a senior. 
   ∃John.Child ∧ John.Grown ∧ John.Old ∧ John.¬(Child ∧ Grown ∧ Old)
   - 'There exists John as child and John as grown and John as old, and John not-as (child and grown and old), and none of these variables equal each other.'
-  - I don't know how to represent the "was" and "then" relations in FOL; I was thinking 
+  - I don't know how to represent 'pasthood' ("was" and "then") relations in FOL 
   ...
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
-  - There exists Y with Y(n = 3) with There exists Marriage with All Goofus R(F,x) with All Gallant R(L,y)
+  - ∃Y ⊓ Y(n = 3) ⊓ ∃M ⊓ ∀{F}.M({F},{x}) ⊓ ∀{L}.M({L},{y})
+  class Y = year
+  relation M = marriage
+  individual F = Goofus
+  individual L = Gallant
   
 ```
 
