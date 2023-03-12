@@ -145,10 +145,9 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   - 'There exists John as child and John as grown and John as old, and John not-as (child and grown and old), and none of these variables equal each other.'
   - I don't know how to represent the "was" and "then" relations in FOL; I was thinking 
   ...
-  - I should look at perhaps using disjunctions instead of conjunctions here.
   
   (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
-  
+  - There exists Y with Y(n = 3) with There exists Marriage with All Goofus R(F,x) with All Gallant R(L,y)
   
 ```
 
@@ -303,3 +302,5 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving a lot easier.
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+- Karl made a really thorough chart and put it in the Project 3 Google doc
+- I am going to attempt to explain why certain properties cannot be combined.
