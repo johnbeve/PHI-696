@@ -284,6 +284,7 @@ K--is_a-->N
   possibilities. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one-dimensional continuant fiat boundary 
   that doesn't overlap it.
 
+
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
 ```mermaid
