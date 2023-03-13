@@ -29,7 +29,7 @@ For any question involving the use of Protege, please be sure to import:
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
 ```
-  (a)  Irreflexive
+  (a)  Irreflexive 
       -Has_role_in_modelling. Imagine a machine that is designed to model aspects of itself. It can be used to study itself, in virtue of its ability to reflect aspects of itself.
       
   (b)  Transitive 
