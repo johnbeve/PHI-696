@@ -6,7 +6,7 @@ Your third project will require you to answer each of the 10 questions below.  Y
 For any question involving the use of Protege, please be sure to import Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl) and the Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
 ```
 
-1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
+**1.** In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
 ```
   (a)  Reflexive
   (b)  Transitive 
@@ -14,6 +14,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (d)  Functional 
   (e)  Symmetric and Reflexive
 ```
+
 
 
 **(a)  Reflexive**
@@ -52,7 +53,7 @@ The object property, “partially overlaps”, should have the symmetric charact
 
 It’s definition states: “x partially overlaps y iff there exists some z such that z is part of x and z is part of y, and it is also the case that neither x is part of y or y is part of x”.
 
-A symmetric characteristic is a relation such that given any elements a and b of set G, if a~b, then b~a. Another way to think of symmetry is that the property has itself as an inverse, so if individual a is related to individual b then individual a must also be related to individual y along the same property.
+A symmetric characteristic is a relation such that given any elements a and b of set G, if a ~ b, then b ~ a. Another way to think of symmetry is that the property has itself as an inverse, so if individual a is related to individual b then individual a must also be related to individual y along the same property.
 
 In this case, the “partially overlaps” symmetric relation is found in z. z is congruent with z and its inverse is z. Thus, z is a symmetrical relation, although x is neither a part of y, nor is y a part of x. 
 
@@ -86,13 +87,13 @@ It’s definition states: t1 simultaneous_with t2 iff:=  t1 before_or_simultaneo
 
 It’s reflexive, since any time must be simultaneous with itself. And it’s symmetric, since, if t1 is simultaneous with t2, then t2 must be simultaneous with t1.
 
-Therefore, the object property “simultaneous with” should have functional as a listed characteristic.
+Therefore, the object property “simultaneous with” should have symmetric and reflexive as a listed characteristic.
 
 <img width="1030" alt="P31E" src="https://user-images.githubusercontent.com/123851163/223026767-b87679fc-a2b8-48c4-b7a5-db6bb72b7e28.png">
 
 
 
-2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
+**2.** In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
 ```
   (a)  Irreflexive
   (b)  Transitive 
@@ -127,7 +128,9 @@ Due to the fact that there lacks a definition and “aligned with” is insuffic
 
 Transitivity means that if individual x is related to individual y, and individual y is related to individual z, then individual x will be related to individual z. In other words, a single “hop” is implied over a chain of two along a given property if that property is transitive. 
 
-Based on its label, one cannot infer that “aligned with” necessitates a transitive relation between x and z. For example, x may share a border with y, y may share a border with z, but x may not share a border with z. It would be said that x is aligned with y (i.e. shares a border), but x is not aligned with z. 
+Based on its label, one cannot infer that “aligned with” necessitates a transitive relation between x and z. For example, x may be aligned with y, y may be aligned with z, but x may not be aligned with z. It would be said that x is aligned with y (i.e. shares a border), but x is not aligned with z. 
+
+Imagine two lines of blocks that intersect at block B. Call one row 'Vertical' and the other 'Horizontal'. A is a block in Vertical, but not Horizontal. C is a block in Horizontal, but not Vertical. And B is in both Vertical and Horizontal. A is aligned with B, since they're in the same row, and B is aligned with C for the same reason, but A is not aligned with B.
 
 Moreover, aligned with could also mean an overlapping relation, rather than sharing a border. This further problematizes the vagueness of the term. 
 
@@ -203,7 +206,7 @@ Thus, although the “has characteristic” object property has the inverse func
 
 
 
-3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
+**3.** Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   (b) Every liver has some cell as part at all times it exists.
@@ -233,6 +236,7 @@ Due to the vagueness of the statement above, we have narrowed the possible answe
 
 “Sally participates in having at least one arm on Tuesday precedes Sally participates in having at most one arm on Wednesday”
 
+
 **(b) Every liver has some cell as part at all times it exists.**
 
 Search liver here: https://ontobee.org
@@ -246,6 +250,7 @@ Argument according to authority BS for the object property has_part_at_all_times
 
 Liver has_part_at_all_times Cell
 
+
 **(c) John was a child, then an adult, then a senior.**
 
 John is an instance_of object
@@ -258,13 +263,16 @@ seniorhood is an instance_of occurrent.
 
 “John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
 
+
 **(d) Goofus and Gallant are married at each point in a three year span.**
 
-Goofus is an instance_of object
+Goofus is an instance_of object.
 
-Gallant is an instance_of object
+Gallant is an instance_of object.
 
-Marriage is an instance_of occurent
+Marriage is an instance_of occurent.
+
+T1 is an instance_of zero-dimensional temporal region.
 
 “Three years span 1” is an instance_of one-dimensional temporal region.
 
@@ -274,7 +282,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
 
 
 
-4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
+**4.** Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 ```
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   (b) Every liver has some cell as part at all times it exists.
@@ -294,8 +302,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   s: Sally
 
- ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
-
+**∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))**
 
 
 **(b) Every liver has some cell as part at all times it exists.**  
@@ -306,8 +313,7 @@ If zero-dimensional temporal region t1 is part_of the one-dimensional temporal r
   
   P: part of
 
-  ∀x∃y(Lx→Cy∧Pyx)
-
+**∀x∃y(Lx→Cy∧Pyx)**
 
 
 **(c) John was a child, then an adult, then a senior.**
@@ -322,8 +328,7 @@ A (x, t) = being an adult at t
 
 S (x, t) = being a senior at t
 
-∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))
-
+**∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t1, t3))**
 
 
 **(d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married.**
@@ -340,41 +345,13 @@ g2 = Gallant
 
 D(t) = t is a day
 
-∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+**∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))**
 
 
 
-5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+**5.** Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
-Content is an instance_of generic dependent continuant
-
-File is an instance_of generic dependent continuant
-
-File 1 Turtle implements content 1
-
-File 2 XML implements content 1
-
-Computer 1 is bearer of File 1 and File 2
-
-Computer 1 is an instance_of material entity
-
-Computer 2 is 
-
-Computer 2 is an instance_of material entity
-
-Computer 3 is 
-
-Computer 3 is an instance_of material entity
-
-Computer 1 2 and 3 are part of Network 1
-
-Network 1 is an instance_of Network
-
-Network is_a object aggregate
-
-<img width="626" alt="P35" src="https://user-images.githubusercontent.com/123851163/223025071-52289c92-820e-4113-a32f-3c53db03c5db.png">
-
-(Comment: This is a graph based on Mermaid and the above blackboard work. Simply speaking, This graph represents the following key relations:
+**The following model graph is based on Mermaid and represents the following key relations:**
 
 – RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
 
@@ -382,9 +359,11 @@ Network is_a object aggregate
 
 – Finally, computers 1, 2, and 3 are all parts_of network I, which is instance_of Object Aggregate.)
 
+<img width="626" alt="P35" src="https://user-images.githubusercontent.com/123851163/223025071-52289c92-820e-4113-a32f-3c53db03c5db.png">
 
 
-6. Using Protege, place these in the BFO hierarchy where you think they fit best:
+
+**6.** Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
   (b) Chair of the UB Philosophy Department
@@ -395,25 +374,26 @@ Network is_a object aggregate
   (g) Ocean
   (h) Lake
 ```
-(a) Generically dependent continuant
+
+(a) Three possible answers: Generically dependent continuant (e.g. the music composition), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
 
 (b) Role
 
-(c) Object
+(c) Object/Material entity (e.g. virus) or disposition (e.g. disease symptoms)
 
-(d) Object aggregate
+(d) Site or 2D/3D spatial region (e.g. map or mapping)
 
-(e) Fiat object part
+(e) Site or fiat object part
 
 (f) Role
 
-(g) Object aggregate
+(g) Site or 2D/3D spatial region
 
-(h) Object aggregate
+(h) Site or 2D/3D spatial region
 
 
 
-7. True or False; explain your answers:
+**7.** True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
@@ -425,15 +405,16 @@ Network is_a object aggregate
   (h) Spacetime is a class in BFO.
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
 ```
-(a) True. The elucidation says that a material entity has some portion of matter as proper or improper continuant part. It doesn’t say all of its parts must be material. Ex. a person’s thoughts, even if immaterial, is a part of the material person. Material and immaterial entities are disjoint, but that does not prevent one from having a part that’s the other.
 
-(b) False. I can’t think of any examples that would fit this.
+(a) True. Smith’s textbook: “Immaterial entities listed under 1. (boundaries and sites) are in some cases continuant parts of their material” (108).
+
+(b) False. An instance of immaterial entity cannot have an instance of material entity as part. Though in (a) a material entity can have an instance of immaterial entity as part, its inverse is asymmetric and therefore cannot. 
 
 (c) True. For example, a political committee can have a subcommittee as a part. 
 
-(d) True. The debate club could lose all its members while still be being recognized by the school.
+(d) Two answers: If the debate club is viewed as a role, on this account, the answer would be **true** as the debate club could lose all its members while still being recognized by the school. If the debate club is viewed as an object aggregate, on this account, the asnswer would be **false** because as an object aggregate is the sum of its parts, by virtue of losing its members, it loses its necessary parts to being an object aggregate.
 
-(e) True. The wording on the elucidation is a little confusing, but I think it’s implying that all sites are partially or wholly bounded by a material entity.
+(e) False. You can identify a specified space and it could still be surrounded by space without touching any material entity.
 
 (f) False. The elucidation excludes this by saying that the function is due to the physical make-up of the object. Since nothing about the make-up changed, the book did not gain any new functions. If the book has the function of supporting the table, this is a function it has always had, even if it wasn’t intended to support the table.
 
@@ -441,49 +422,66 @@ Network is_a object aggregate
 
 (h) False. This is covered by spatiotemporal region.
 
-(i) False. We could construct any number of subclasses of zero-, one-, or two-dimensional continuant fiat boundaries, which would be subclasses of continuant fiat boundary.
+(i) False. "Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilities. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it" (from the BFO file in Protege). 
 
 
 
-8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
+**8.** Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
-<img width="717" alt="P38" src="https://user-images.githubusercontent.com/123851163/223024645-615a7a41-99ce-4fb9-a7f0-13a077c0871f.png">
+**The following model graph is based on Mermaid and represents the following key relations:**
 
-This is a graph based on Mermaid, representing the following relations:
+– John (as an Object) participates_in John’s running (as a process), and John has_characteristic_at_t1 John’s average speed 1, and John has_characteristic_at_t2 John’s average speed 2, and John has_characteristic_at_t3 John’s average speed 3. All of these speeds are instances of Quality. 
 
-– John (as an Object) participates_in John’s running (as a process), and John bears John’s speeds 1, 2, and 3, all of which are instances of dispositions.
+(Note: A line with two nodes in Mermaid is to represent a triple [subject, predicate, object], so I don’t know how to use Mermaid to express an ordered set of 4 elements like “John [1] has_characteristic [2] John’s average speed 1 [3] at t1 [4]”. At present what I can do is to insert the temporal parameter into the predicate “has_characteristic”.)
 
 –  John’s running includes 3 temporal parts: John’s beginning stage, John’s middle stage, and John’s final stage, each of which is a process. Besides, John’s beginning stage precedes John’s middle stage which precedes John’s final stage.
 
-– A process realizes one’s disposition. So John’s beginning stage realizes John’s speed 1, John’s middle stage realizes John’s speed 2, and John’s final stage realizes John’s speed 3.
+– John’s running occurs_in this 3-hour, which is instance_of one-dimensional temporal region. This 3-hour also includes 3 temporal parts: t1, t2, and t3, each of which is also instance_of one-dimensional temporal region. Besides, t1 precedes t2, and t2 precedes t3. Moreover, John’s beginning stage occurs_in t1, John’s middle stage occurs_in t2, and John’s final stage occurs_in t3.
 
-– Change in John’s speed: John's Speed is decreased_in_magnitude_relative_to John's Speed 2 (that is, speed 1＜speed 2), and John's Speed 2 is increased_in_magnitude_relative_to John's Speed 3 (that is, speed 2＞speed 3)
+– Change in John’s speed: John's average speed 1 is decreased_in_magnitude_relative_to John's average speed 2 (that is, speed 1＜speed 2), and John's average speed 2 is increased_in_magnitude_relative_to John's average speed 3 (that is, speed 2＞speed 3). Moreover, John's Middle Stage has_part John's accelerating, and John's Final Stage has_part John's decelerating. John’s accelerating and his decelerating are both instances of process.
 
-– John’s running occurs in this 3-hour, which is instance_of one-dimensional temporal region.
-
-
-
-9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
-
-ELI5: Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
-
-In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+<img width="1419" alt="P38" src="https://user-images.githubusercontent.com/123851163/223915598-fc6ba9c5-33f2-4e91-97b2-752708c6c09a.png">
 
 
 
-10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+**9.** The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
+
+**EL15:**
+
+Do you remember the last time we talked, we learned about how description logic, the finite model property, and tree model property are ways of teaching computers about the world using words and rules? Well there is another way that we can use description logic to help a computer understand the world better, the Pellet reasoner and its use of incremental reasoning! 
+
+The Pellet reasoner in Protégé is like a very smart helper that can help computers understand things better and faster. If we want to create a big puzzle of things that belong to a bunch of different categories, the Pellet reasoner can help us figure out where to put each piece in the puzzle! 
+
+Incremental reasoning is another fancy term that means that we don’t have to solve the whole puzzle at once! Instead, we can add pieces to the puzzle one by one, and the Pellet reasoner will help us figure out where each piece goes. This is like building a puzzle step by step, and asking the Pellet reasoner to help us each time we add a new piece. The Pellet reasoner was taught to do this step by step puzzle building so that it can do it naturally on its own and learn something new each step of the way. As it builds the puzzle, it learns and doesn’t have to go backward to remind itself of what it had already built—it has a super powered brain giving it amazing learning and memory abilities! Isn’t that amazing?! This means that the Pellet reasoner can save a lot of time and energy by not having to go back and relearn parts of the puzzle it had helped with. 
+
+We should use the Pellet reasoner for incremental reasoning when we have a big puzzle with lots of pieces that belong to different categories, and we want to make sure that each piece is in the right place. Sometimes, we might not be sure where a piece belongs, and that’s where the Pellet reasoner can really help computers and us out! 
+
+So, just like how a smart helper can help us build a big puzzle step by step, the Pellet reasoner can help computers and us figure out where each piece goes in our big puzzle of things that belong to different categories. 
+
+
+
+**10.** Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
  
-<img width="627" alt="P310" src="https://user-images.githubusercontent.com/123851163/223025907-3f18f238-361e-40ed-a3f2-262053d381d3.png">
+ |   **Pairwise**  | **Functional** | **InverseFun** | **Transitive** | **Symmetric** | **Asymmetric** | **Reflexive** | **Irreflexive** |
+|:-----------:|:----------:|:----------:|:----------:|:---------:|:----------:|:---------:|:-----------:|
+|  **Functional** |   N/A  |     YES    |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **InverseFun** |     YES    |   N/A  |     NO     |    YES    |     YES    |    YES    |     YES     |
+|  **Transitive** |     NO     |     NO     |   N/A  |    YES    |     NO     |    YES    |      NO     |
+|  **Symmetric**  |     YES    |     YES    |     YES    |  N/A  |     NO     |    YES    |     YES     |
+|  **Asymmetric** |     YES    |     YES    |     NO     |     NO    |   N/A  |     NO    |     YES     |
+|  **Reflexive**  |     YES    |     YES    |     YES    |    YES    |     NO     |  N/A  |      NO     |
+| **Irreflexive** |     YES    |     YES    |     NO     |    YES    |     YES    |     NO    |   N/A   |
+ 
 
-Note: In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
+In the above table, there are 21 different sorts of possibilities in total. We use "Yes" to represent a case where a pair of object property characteristics can be combined, and "No" to represent a case where a pair of object property characteristics cannot be combined.
 
-As a result, we find that there are 7 sorts of cases where a pair of object property characteristics cannot be combined: 
+As a result, we found that there are 7 sorts of cases where a pair of object property characteristics cannot be combined: 
 
 (1) The following 3 pairs cannot be combined because of a logical contradiction: 
  
- Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.
+Asymmetric & Reflexive, Asymmetric & Symmetric, and Reflexive-Irreflexive.
  
 (2) The following 4 pairs cannot be combined because of a more subtle factor. That is, an assertion of transitivity leads to a result that the target object property becomes non-simple (see Baader's book: section 8.1, page 211), so it is beyond the capacity limit of the reasoner:
  
-Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive.
+Transitive & Functional, Transitive & Inverse Functional, Transitive & Asymmetric, and Transitive & Irreflexive. 
 
