@@ -258,7 +258,8 @@ K--is_a-->N
   
   (d) An organization may have no members as part. 
   
-  True. If a club, say chess club in a school is viewed as a role,  the chess club could lose all its members while still being recognized by the school. 
+  True. If a club, say chess club in a school is viewed as a role,  the chess club could lose all its members while still being recognized by
+  the school. 
   
   (e) Any site is partially bounded by some instance of Material Entity.
   
@@ -275,7 +276,8 @@ K--is_a-->N
   
   (h) Spacetime is a class in BFO.
   
-  False. Spacetime is the whole of spatiotemporal regions (it can be a reference system), and the latter belongs to a BFO class: Spatiotemporal Region.
+  False. Spacetime is the whole of spatiotemporal regions (it can be a reference system), and the latter belongs to a BFO class: 
+  Spatiotemporal Region.
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
   False. As its entry in BFO file says, Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all 
