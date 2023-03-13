@@ -168,8 +168,16 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Computer3 instance_of object
 ...
 - Wifi_network instance_of object aggregate (project 3 document)
-- Computer1 
-
+- Wifi_network connects Computer1
+- Computer1 connected_to Computer2
+- Computer1 connected_to Computer3
+...
+- Turtle_Serialization generically_depends_on Computer1
+- XML_Serialization generically_depends_on Computer1
+- Turtle_Serialization generically_depends_on Computer2
+- XML_Serialization generically_depends_on Computer2
+- Turtle_Serialization generically_depends_on Computer3
+- XML_Serialization generically_depends_on Computer3
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -303,7 +311,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Pellet can just take the information it needs when needed, and make its own connections without too much effort.
 
 -  Pellet can be really helpful when many different people to want to share what they know.
-- Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving a lot easier.
+- Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving easier because they help make sure everybody is on the same page.
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
 - Karl made a really thorough chart and put it in the Project 3 Google doc, so I don't feel the need to make my own.
@@ -314,7 +322,10 @@ Transitive relationships can only exist with at least 3 variables, which is cont
 
 - b.) Asymmetric and Transitive
 Asymmetry means that if xRy, and yRz then z CANNOT R x.
-
+I found a helpful explanation at the discussion here: https://math.stackexchange.com/questions/2354390/is-a-transitive-asymmetric-relation-a-partial-order
+I found that "A relation being transitive and asymmetric is equivalent to it being transitive and irreflexive, and so either can be used as a definition."
+I explored the difference between simple and non-simple relations a little further in my answer for 10e below.
+Because proteges reasoners can only use "simple properties", a relation with both the asymmetric and the transitive object property will be too much for OWL DL. 
 
 - c.) Asymmetric and Reflexive
 A reflexive object property relates a variable to itself. 
@@ -331,8 +342,7 @@ xRx = xRx
  I asked Karl why Proteges reasoners return an error, and he told me its because reasoners can only work with "simple properties".
  I turned to the legends at Stack Overflow and found this source: https://www.w3.org/TR/owl2-syntax/#Global_Restrictions_on_Axioms_in_OWL_2_DL
  The property is non-simple because it relies on "property chains" of more than two predicates.
- 'Precedes' being both irreflexive and transitive would mean a reasoner would need to 'hold' every (indirectly) related predicate when reasoning with such a relation.
- This proves to be too much for OWL DL.
+ 'Precedes' being both irreflexive and transitive would mean OWL DL reasoners would need to 'hold' onto too many (indirectly) related predicates.
  
  - f.) Irreflexive and Reflexive.
  See 10d.
