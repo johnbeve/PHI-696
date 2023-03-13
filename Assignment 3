@@ -120,22 +120,11 @@ For any question involving the use of Protege, please be sure to import:
 
 5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
 
-Content is an instance_of generic dependent continuant
-File is an instance_of generic dependent continuant
-File 1 Turtle implements content 1
-File 2 XML implements content 1
-Computer 1 is bearer of File 1 and File 2
-Computer 1 is an instance_of material entity
-Computer 2 is 
-Computer 2 is an instance_of material entity
-Computer 3 is 
-Computer 3 is an instance_of material entity
-Computer 1 2 and 3 are part of Network 1
-Network 1 is an instance_of Network
-Network is_a object aggregate
-
--is output of
--is sent to
+RDF File Content, Turtle Serialization and XML Serialization are all generically dependent continuants. RDF File Content has_model Turtle Serialization and XML Serialization. And Computer is carrier_of both the serializations.
+Computer 1, 2, and 3 are all instance_of Computer. Computer 1 enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers 2 and 3 as participants. 
+Computers 1, 2, and 3 are all parts_of network I, which is instance_of Network, which is_a Object Aggregate.)
+Turtle Serialization and XML Serialization is output_of Computer 1
+Computer 2 and 3 has_input Turtle and XML Serialization.
 
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
@@ -162,6 +151,7 @@ Network is_a object aggregate
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
   True. The elucidation says that a material entity has some portion of matter as proper or improper continuant part. It doesn’t say all of its parts must be material. Ex. a person’s thoughts, even if immaterial, is a part of the material person. Material and immaterial entities are disjoint, but that does not prevent one from having a part that’s the other.  
+  
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   False. I can’t think of any examples that would fit this.
   
@@ -172,7 +162,7 @@ Network is_a object aggregate
   True. The debate club could lose all its members while still be being recognized by the school.
   
   (e) Any site is partially bounded by some instance of Material Entity.
-  True. The wording on the elucidation is a little confusing, but I think it’s implying that all sites are partially or wholly bounded by a material entity.
+  False, though I think BFO is trying to imply that it's true. Based on the description they give, a site could fail to be partially bounded by a material entity if it's a part of some immaterial entity. If they intend to allow parts to not be materially bounded, then they're in the strange position of saying sites can fail to be materially bounded only if the site is a part of something larger that is at least partially materially bounded. That just seems like a weird, unmotivated view to me
   
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
   False. The elucidation excludes this by saying the potential disposition must be a product of its physical make-up that was either through evolution or intentional design. It wasn’t intentionally designed for this task, so this doesn’t count. But I personally don’t like saying that. I figure objects can acquire functions that weren’t intended.
