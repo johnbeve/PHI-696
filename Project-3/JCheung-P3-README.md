@@ -389,7 +389,7 @@ D(t) = t is a day
 
 (g) Site or 2D/3D spatial region
 
-(h) Site, or 2D/3D spatial region
+(h) Site or 2D/3D spatial region
 
 
 
