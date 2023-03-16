@@ -57,11 +57,11 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   (d)  Functional 
  - "characteristic of" is a functional relationship between a characteristic and the relevant bearer.
  - Isn't a functional object property limited to only a singular two-place relation? like, according to RO, a bearer can only have at most one characteristic?
- - I am confused about this object property because I believe a bearer can have as many characteristics as anybody feels like identifying.
+ - I am confused about this object property because I believe a bearer could have an infinite number of characteristics
  
   (e)  Inverse Functional
  - "has characteristic" is an inverse-functional relationship between a bearer and the relevant characteristic.
- - I am confused about this object property because I believe an identical characteristic can have many bearers, as many characteristics are able to be shared.
+ - I am confused about this object property because I believe many general characteristics can have multiple bearers.
  
 ```
 
@@ -210,7 +210,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (h) Lake
   - fiat object part
-  
+...
 - My answers for (g) and (h) are informed by the attached article: https://journals.sagepub.com/doi/pdf/10.1177/0263775817700395.
 - I've heard Giacomo and Ali categorize both oceans and lakes as sites according to BFO. I support this categorization.
   
@@ -223,10 +223,10 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
   - True: an imaginary friend is in a symmetric parthood relationship with the mind of the child who imagines it.
-  - This is also written as being the case on page 112 of the BFO textbook.
+  - My take is informed by page 112 of the BFO textbook.
  ...
   - Giacomo pointed out how the classes of material and immaterial entities are disjoint, according to BFO.
-  - If this is the case, my answers to both (a) and (b) above are false. 
+  - If this is the case, my answers to both (a) and (b) above are false... am stuck now
   
   (c) An organization may have another organization as part.
   - True: if we assume the opposite ("An organization CANNOT have another organization as part"), then I would never make friends in my classes or work in groups.
@@ -238,7 +238,7 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (e) Any site is partially bounded by some instance of Material Entity.
   - True: a fully immaterial site, one not bounded to anything 'out there', cannot exist in the world. 
-  - I am under the impression that a site is a 'de jure' entity; it only exists because we pay special attention to it/ give it a name.
+  - I am under the impression that a site is a 'de jure' entity; it only exists because we pay special attention to it.
   - We cannot demarcate a site around something wholly immaterial. 
   
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
@@ -248,15 +248,14 @@ For any question involving the use of Protege, please be sure to import Basic Fo
   
   (g) A glass vase cushioned with packing tape for all time, has the disposition to break. 
   - True: the glass vase itself has the disposition to break, regardless of individual circumstance.
-  - The 'vase-and-packing-tape' is an instance of a new type of 'cushioned object', which may not have the disposition to break.
+  - The 'vase-and-packing-tape' could be an instance of a new type of 'cushioned object', which may not have the disposition to break.
   
   (h) Spacetime is a class in BFO.
   - False: I cannot provide an explanation using theories in physics.
   - I have an intuition that spacetime cannot be represented in BFO because a spacial region is a continuant while a temporal region is an occurrent.
-
 ...
   - Looking at BFO in Protege I can now see that "spatiotemporal region" is an occurrent class in bfo made for regions of spacetime.
-  - Spacetime itself is not a class.
+  - Spacetime itself cannot be an instance of a region (unsure).
   
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO.
   - I support Finn's assertion in the project 3 google doc that any of the given fiat boundary subclasses can be further subclassified according to a given domain and according to different granularities.
@@ -283,33 +282,29 @@ For any question involving the use of Protege, please be sure to import Basic Fo
 - Incremental reasoning is "Reasoning performed in response to updates by minimising the amount of recomputations needed".
 ...
 - This is the "Background of Pellet Reasoner" from the Project 3 google doc rephrased so that a 5-year-old could (hopefully) follow along:
-
-- What do you know about cats? Cats have some unique characteristics, like how some are calicos.
-- They also have some characteristics that we know are shared with other animals.
-- Pellet can figure out some facts about cats based on these shared characteristics.
+- What do you know about cats? Cats have some unique characteristics, like being a calico, but they also share some characteristics with other animals.
+- Pellet can figure out some facts about cats only by knowing the shared characteristics.
 - For example, if we say that cats are mammals, Pellet can infer that cats have warm blood.
-- Pellet is able to make the connection on its own because all mammals have warm blood, so if a cat is a mammal it must have warm blood too.
-
+- It can make the connection on its own because all mammals have warm blood, so if a cat is a mammal it must have warm blood too.
+...
 - Pellet works using a special language called the "Web Ontology Language" (OWL).
 - This language lets us describe what we're interested in in a way that everybody, including computers, can figure out. This includes details like characteristics and connections.
-
+...
 - Did you know that the first known cat name that we have is Nedjem, from Ancient Egypt? It means 'sweetie' or 'pleasant'.
-- When you really stop to think about it, there's actually a lot of information in this one little piece of trivia. 
-- Some cats have names, Ancient Egypt existed at one point, and every name can have a meaning.
+- When you really stop to think about it, there's actually a lot of information in this one little piece of trivia: some cats have names, Ancient Egypt existed at one point, and every name can have a meaning.
 - When you hear new facts like this, your brain automatically can take the fact apart like a puzzle, and put the pieces with other information like it.
 - You don't start reminding yourself of everything you know about cats, Ancient Egypt, and names.
-- Pellet can do the same thing. Incremental reasoning means Pellet focuses on new information, without reminding itself what it has stored already.
-
+- Pellet can do the same thing. Incremental reasoning means Pellet can only focus on new information, without reminding itself what it has stored already.
+...
 - Incremental reasoning has different parts to it:
 - Dependency tracking looks at the facts that are required for a piece of information to keep being true.
 - This is called consistency, and its really important in order to figure things out.
 - Pellet tracking dependency lets it pay attention to important changes to the information so that it can make sure everything stays consistent.
-
+...
 - Pellet also has a really vast, really fast memory. 
-- Caching lets Pellet 'go back and remember' what its already figured out when it needs to use the information on something new.
-- This way, little changes don't cause big problems down the road. 
-- Pellet can just take the information it needs when needed, and make its own connections without too much effort.
-
+- Caching lets Pellet 'go back and remember' what its already figured out once it needs the information for something new.
+- This means little changes to existing information won't cause big problems down the road. Pellet just finds the information when needed, and make its own connections without too much effort.
+...
 -  Pellet can be really helpful when many different people to want to share what they know.
 - Pellet helps us develop big storage systems of information called "semantic web services", which make problem solving easier because they help make sure everybody is on the same page.
 
@@ -333,7 +328,7 @@ This is inherently a symmetric relation because its bearer is identical to itsel
 xRx = xRx
 
 - d.) Asymmetric and Symmetric
- This is a contradiction; the two properties are negations of each other, and cannot apply to the same relation.
+ This is a contradiction; the two properties negate each other, and cannot apply to the same relation.
  
  - e.) Irreflexive and Transitive
  Irreflexivity means a relation cannot be related to itself. Transitivity means a relation can be transferred to other variables.
@@ -342,20 +337,14 @@ xRx = xRx
  I asked Karl why Proteges reasoners return an error, and he told me its because reasoners can only work with "simple properties".
  I turned to the legends at Stack Overflow and found this source: https://www.w3.org/TR/owl2-syntax/#Global_Restrictions_on_Axioms_in_OWL_2_DL
  The property is non-simple because it relies on "property chains" of more than two predicates.
- 'Precedes' being both irreflexive and transitive would mean OWL DL reasoners would need to 'hold' onto too many (indirectly) related predicates.
+ I guess a 'Precedes' relation being both irreflexive and transitive would mean OWL DL reasoners have to 'hold' onto too many indirectly related predicates.
  
  - f.) Irreflexive and Reflexive.
  See 10d.
  
- - g(Bonus).) The combination of Functional and Inverse Functional can be reasoned with, which shows me the difference between negation and inversion.
- A relation that only has one incoming and one outgoing variable is a unique relation. 
- It would imply that the only existence of the relation in the ontology only applies to two variables, or only one variable in a reflexive relation to itself.
+ - g(Bonus).) The combination of Functional and Inverse Functional can be reasoned with; this shows the difference between negation and inversion.
+ A relation that only has one incoming and one outgoing variable is a unique or solitary relation. 
+ It would imply that the relation in the ontology only applies to two variables, or with only one variable in a reflexive relation to itself.
  On the other hand, the combination of properties with their negated forms yields a contradiction.
  This is because it is impossible to bear and not-bear a relation simultaneously. 
  Bearing a relation alongside its opposite simply means there is a 'twofoldedness' to the relation.
- 
-
-
-
-
-
