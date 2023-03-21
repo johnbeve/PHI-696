@@ -134,6 +134,13 @@ I'm also not sure what an edge label is, but a google search seems to connect th
 
 ![Protege](https://user-images.githubusercontent.com/123913163/226708867-68c34a98-aaa4-41aa-b518-10ed04c77ee4.jpg)
 
+From the google doc: The tableau method starts from a Knowledge Base, i.e. the assertions we made through the Protege editor about individuals and between classes. We then build a tree. Each node in the tree represents a possible interpretation, and the branches represent the different ways in which the interpretation can be extended. It then expands the assertions by using different rules. For example the disjunction rule to check all the possible cases (see Baader from page 71 to 73) and other rules for subsumption, etc. (see Baader pag. 84). What we are doing is basically constructing a set of possible interpretations where all the possible inferences from T-box are drawn, as well as all the possible concept memberships are tried.
+As a result, the reasoner will notice the logical relations between the concepts we asserted for individuals through Protege. It will see that c is a part of a, and since parthood is subsumed by overlap, it will apply the subsumption rule explained at page 84 in Baader et al. This will add a new fact, that c overlaps a. 
+
+In other words, we input the knowledge we have (assertions?) and allow Protege to take care of the logic which gives us our answer. 
+
+I returned to pages 71-73 in Baader to try to understand this better.  This is not mentioned in the response above, but does this describe "checking ABox consistency?"  Page 72 states "This algorithm is very simple because, when the TBox is empty, the expansion rules only need to explicate the semantics of the concepts occurring in concept assertions in A. Moreover, because these rules syntactically decompose concepts, the algorithm naturally terminates when all concepts have been fully decomposed."  I can interpret this quote according to what is stated above (from the google doc) such that logical (expansion?) rules are applied to assertions (Knowledge Base?) and run through each possible interpretation until there are no further possible outcomes (decomposed?).  
+
 
 10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
 ```
