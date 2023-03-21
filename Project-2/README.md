@@ -150,3 +150,6 @@ I returned to pages 71-73 in Baader to try to understand this better.  This is n
   (e) There are no parts between a and g in common
 ```
 Provide a screenshot of your results here. 
+
+![Protege again](https://user-images.githubusercontent.com/123913163/226721969-27d05294-5ff6-405e-94d0-fb12a7864c48.jpg)
+
