@@ -51,7 +51,15 @@ For any question involving the use of Protege, please be sure to import:
 
   
   (d)  Functional 
+Object property: characteristic of 
+The definition of “characteristic of” in Protege states: “a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence.”
+This object property seems very cagey as a functional relation, which I’m sure is 1) helpful and 2) intentional in the ontology.  However, the definition of a functional relation includes that: “if multiple individuals are specified as values for the property then these values will be inferred to denote the same object” (http://protegeproject.github.io/protege/views/object-property-characteristics/).  This bothers me for the property of “characteristic of.”
+If it is possible for a thing to be “characteristic of” multiple objects, will this be even more problematic?  The definition of the object property in Protege may eliminate this concern. But this seems too restrictive or reductionary for a concept like “characteristic of.”  It is characteristic of myself (and many others) to enjoy rum, but this relation should not then designate each rum-enjoyer as the same object.  
+
   (e)  Inverse Functional
+  Object property: has characteristic
+  The only Inverse Functional object property in Protege is "has characteristic," the inverse property of "characteristic of."  My reasoning for not marking "has charactertistic" as Inverse Functional is therefore similar to my reasoning above for "characteristic of." Part of the definition of Inverse Functional includes: "In other words, there can be at most one incoming relationship along the property for that individual. Note that, if multiple individuals are specified as incoming values for the property then these values will be inferred to denote the same object" (http://protegeproject.github.io/protege/views/object-property-characteristics/).  My problem is with how restrictive this relation is when combined with the definition of the object property "has characteristic."
+ 
 ```
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
