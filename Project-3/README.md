@@ -11,7 +11,10 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
   (a)  Reflexive
-  (b)  Transitive 
+  (b)  Transitive
+  Object property: derives_from
+  Example: Because a new entity inherits a "significant portion" of the matter of the old entity as it (the new entity) comes into existence, this is (maybe) a transitive relation.  For example, if Cell A ceases to exist and derives Cell B (which then inherits a significant portion of Cell A), and Cell B then ceases to exist and derives Cell C (which then inherits a significant portion of Cell B), Cell C also inherits (to some degree) a portion of the original cell, Cell A.  This relation is transitive only if an amount of Cell A is inherited by Cell C after the derivation of Cell B and then, later, Cell C. 
+  
   (c)  Symmetric
   (d)  Functional 
   (e)  Symmetric and Reflexive
