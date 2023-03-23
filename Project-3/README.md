@@ -13,6 +13,8 @@ For any question involving the use of Protege, please be sure to import:
 ```
   (a)  Reflexive
   (b)  Transitive 
+  Object property: derives_from
+  Because this object property defines a relation in which a "significant" portion of the original entity is inherited by the entity that begins to exist as the original goes out of existence, this is (maybe) a transitive relation.  For example, if Cell B is derived from Cell A (the original cell), Cell B inherits a significant portion of Cell A. Later, when Cell C is derived from Cell B, Cell C inherits a significant portion of Cell B (which includes a significant portion of Cell A by definition).  Therefore, Cell C contains a significant portion (or at least some portion at this point of derivation) of Cell A, making this relation transitive.  If it is not the case that Cell C contains at least some portion of Cell A (the original Cell), then this relation is not transitive.
   (c)  Symmetric
   (d)  Functional 
   (e)  Symmetric and Reflexive
