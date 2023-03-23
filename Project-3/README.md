@@ -37,7 +37,13 @@ For any question involving the use of Protege, please be sure to import:
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
 ```
   (a)  Irreflexive
+  Object property: has member
+  This object property is defined by "a mereological relation between a collection and an item" in Protege.  If we allow a collection to include one or more things (such that one thing may be referred to as a "collection"), this property should be reflexive as all individuals can be related to itself.
+  
   (b)  Transitive 
+  Object propery: has branching part
+  I don't think "has branching part" should be transitive mostly because the inverse, "branching part of," is not transitive in Protege.  In any case, it doesn't seem to me that if A has branching part B and B has branching part C, then A has branching part C.  The C branch belongs to the B branch. but not the A branch. 
+  
   (c)  Asymmetric
   (d)  Functional 
   (e)  Inverse Functional
