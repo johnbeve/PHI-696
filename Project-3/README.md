@@ -45,6 +45,11 @@ For any question involving the use of Protege, please be sure to import:
   I don't think "has branching part" should be transitive mostly because the inverse, "branching part of," is not transitive in Protege.  In any case, it doesn't seem to me that if A has branching part B and B has branching part C, then A has branching part C.  The C branch belongs to the B branch. but not the A branch. 
   
   (c)  Asymmetric
+  Object property: has role in modeling
+  The only two object properties that I can find that are marked Asymmetric are "has skeleton" and "has role in modeling." It's really difficult to argue that "has       skeleton" is not an asymmetric property, but I did learn (from ChatGPT) that horseshoe crabs and armadillos (allegedly) have endoskeletons and exoskeletons.  This     could roughly be interpreted as the skeleton we traditionally think of, the endoskeleton, has its own skeleton, the exoskeleton, which seems slightly symmetric.  If   that's acceptable, "has skeleton" isn't an asymmetric property. 
+  The other object property, "has role in modeling," is defined in Protege by: “A relation between a biological, experimental, or computational artifact and an entity   it is used to study, in virtue of its replicating or approximating features of the studied entity.”  It's difficult to see how this is not an asymmetric relation       given the words "replication" and "approximating."  However, if we extend the word "model" to include things themselves, or, in other words, objects that are not       replicated, this could work.  The definition of model in this case would have to be interpreted more broadly (think "fashion model," where nothing is replicated but   some thing or object is being modeled). 
+
+  
   (d)  Functional 
   (e)  Inverse Functional
 ```
