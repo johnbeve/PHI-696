@@ -12,12 +12,26 @@ For any question involving the use of Protege, please be sure to import:
 1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege. 
 ```
   (a)  Reflexive
+  Object property: has_quality
+  I think this object property could be reflexive.  Protege states that "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence."  If "is the same height as" is a reflexive relation (as presented in David Braun's Modal Logic textbook), this seems consistent with the definition provided in Protege.  Consider, for example, the quality "is 5'8" tall."  This is a reflexive relation - if Katie has_quality 5'8" tall, i.e. Katie is 5'8", she bears this relation to herself (and all others who are 5'8" tall, but this is not required).  If there is no entity (or person, or instance, maybe?) that has the quality of being 5'8" tall, this relation/quality 1) does not exist and 2) is not reflexive. 
+  
   (b)  Transitive 
-  Object property: derives_from
+  Object property: derives from
   Because this object property defines a relation in which a "significant" portion of the original entity is inherited by the entity that begins to exist as the original goes out of existence, this is (maybe) a transitive relation.  For example, if Cell B is derived from Cell A (the original cell), Cell B inherits a significant portion of Cell A. Later, when Cell C is derived from Cell B, Cell C inherits a significant portion of Cell B (which includes a significant portion of Cell A by definition).  Therefore, Cell C contains a significant portion (or at least some portion at this point of derivation) of Cell A, making this relation transitive.  If it is not the case that Cell C contains at least some portion of Cell A (the original Cell), then this relation is not transitive.
+  
   (c)  Symmetric
+  Object Property: correlated with
+  If A is correlated with B then B must also be correlated with A, therefore the relation is symmetric.  Braun's Modal Logic textbook provides "married to" as an example of a symmetric relation, which seems to function similarly to the object propery "correlated_with," although maybe not perfectly (depending on the strength of the "statistical dependence" correlating the entities (as defined in Protege)).
+  
   (d)  Functional 
+  Object property: has primary input (or has primary output)
+  A relation is functional when there is at most one out going relationship along the property for an individual (http://protegeproject.github.io/protege/views/object-property-characteristics/).  If an input (or output) is primary, it is unique in the sense that there can only be one.  If this is true, it could be a functional relation, as there is at most one out going relationship.  I'm not sure if I've misinterpreted the definition of a functional relation.
+  
   (e)  Symmetric and Reflexive
+  Object property: simultaneous with
+  We could say that an event is simultaneous with itself (reflexive) and simultaneous with an second event that occurs at the same exact time (symmetric).  For example, the event of me driving home on Monday afternoon is simultaneous with itself and with the event of Bagel Jays closing - both events occur at 4pm.  I'm not sure how one might argue that an event cannot be temporally simultaneous with itself, so this should work. 
+  
+  
 ```
 
 2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. Note: It will be easiest to view the object properties in BFO and RO using Protege.
