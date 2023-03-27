@@ -1,3 +1,5 @@
+**Karl Project 4**
+
 **The SPARQL Library of Buffalo**
 
 [Codewars](https://www.codewars.com/dashboard) is a website designed to facilitate algorithmic training for various programming languages. Users supply problem statements and others provide coding solutions to those problems. For example, you might find a problem for Python such as: 
@@ -86,7 +88,7 @@ LIMIT 10
 
 ****
 
-**[2] Kata 3 Challenge SPARQL Version: Game Store - 20 points**
+**[2] Kata 4 Challenge SPARQL Version: Game Store - 10 points**
 
 
 After graduation, Jenny is now a new employee working at a local video game store. Unfortunately, her boss Mark is very rude and often picks fault with Jenny. Today when Mark found that Jenny was sitting down at her computer and gazed attentively at its screen, he said irritably to her: 
@@ -224,7 +226,7 @@ FILTER (?date >"2021-12-31"^^xsd:date)
 
 ****
 
-**[3] Kata 3 Challenge SQL Version: Game Store - 10 points**
+**[3] Kata 4 Challenge SQL Version: Game Store - 5 points**
 
 This is a SQL version of the challenge "Game Store". Given the same scenario description, please give any appropriate SQL query to model the above process of generating a data report of new games.
 
@@ -306,7 +308,7 @@ As we know, Jenny is working for a local video game store owned by Mark. Jenny s
 
 "It's not my fault." Jenny says impatiently, "It is our group decision!"
 
-"Ok, why don't you make more efforts for our group?" Mark says, "Now you have a new task. Write a sales report of our new introduced games. Pick the top 10 worst-sellers from them. Also, find the top 10 games which have the most episodes. Compare them and tells me *how many games with the most episodes have the worst selling performance.* Maybe we should introduce games with less episodes next time. You know, gamers are becoming lazier than before. BTW, don't give me their id numbers. I only want their English names!"
+"Ok, why don't you make more efforts for our group?" Mark says, "Now you have a new task. Write a sales report of our new introduced games. Pick the top 10 worst-sellers from them. Also, find the top 10 games which have the most episodes. Compare them and tell me *how many games with the most episodes have the worst selling performance.* Maybe we should introduce games with less episodes next time. You know, gamers are becoming lazier than before. BTW, don't give me their id numbers. I only want their English names!"
 
 Please write a *single* SPARQL query to output what Marks wants. How poor Jenny is! You may use the following namespaces: 
 
@@ -420,7 +422,7 @@ FROM (
 
 ****
 
-**[6] Kata 2 Challenge: Mars Base Commander - 25 points**
+**[6] Kata 3 Challenge: Mars Base Commander - 20 points**
 
 As the commander of a human base on Mars, and you are defending your base from the invasion of Mars natives. Those natives can convert themselves to human-like creatures so they often infiltrate your base and harm your soldiers. There are only two ways to enter your base, by either the elevator A or the elevator B. Each elevator have two main sorts of status: on_status or off_status. If an elevator has an on_status, then it is activated to move from a floor to another one; and if it has an off_status, then it must be either dormant or off. Two elevators are automatically controlled by a SPARQL-based control system so that all system commands will be received, sent and stored as RDF triples (s,p,o). Now you decide to introduce the following new rules to limit any external access to them:
 
@@ -430,7 +432,7 @@ Rule#2: If two elevators both have some on_status at the same time, then the con
 
 Rule#3: Each access to an elevator must be approved. If you want to take the elevator A or B, then you have to press the "start" button and enter your gene code and expected floor number. After that, your request will be processed by an AI system or a human agent. If your request is processed by an AI system, then an AI system of any security level can approve your request. But if your request is processed by a human agent, then only human agents of more than job grade 4 (for A) or 6 (for B) can approve it. After your request is approved, your elevator will get an on_status.
 
-Pleasue use SPARQL to construct the following rules. Moreover, you should also use daily data produced by the control system to query each elevator's daily abnormality rate(=the number of daily warnings/the number of total status) every day.
+Pleasue use SPARQL to construct the above rules. Moreover, you should also use daily data produced by the control system to query each elevator's daily abnormality rate(=the number of daily warnings/the number of total status) every day.
 
 All particular RDF resources are stored in the namespace *mars*. So be free to use terms like "mars:on_status", "mars:off_status", "mars:dormant" (state), "mars:off" (state), "mars:warning", "mars:elevator", "mars:elevatorA", "mars:elevatorB", "mars:genecode", mars:receiveCommand mars:start (command), mars:floorNumber(command) and so on. 
 
@@ -683,7 +685,7 @@ BIND(COUNT(?t3) / COUNT(?t1)+COUNT(?t2) AS ?abnormalityRate)
 
 ****
 
-**[7] Kata 3 Challenge SPAQRL VERSION - Geralt of Rivia - 20 points**
+**[7] Kata 4 Challenge SPAQRL VERSION - Geralt of Rivia - 10 points**
 
 Geralt of Rivia is one of the leading roles in the video game series The Witcher. Old witchers usually seek for little orphans and raise them. Then, those little children had to undergo a cruel ritual called “the Trial of the Grasses”, and only a few of them like Geralt finally survive it. After that, Geralt’s body has a mutation: Though he becomes infertile, he develops strong magical powers and a high resistance to injury and aging. Now Geralt becomes a sword master, and he often fights with monsters by virtue of his martial arts and magical spells. 
 
@@ -809,7 +811,7 @@ FILTER (?location IN (wit:Novigrad, wit:Oxenfurt, wit:Velen))
 
 ****
 
-**[8] Kata 3 Challenge SQRL VERSION - Geralt of Rivia - 10 points**
+**[8] Kata 4 Challenge SQL VERSION - Geralt of Rivia - 5 points**
 
 This is a SQL version of the challenge "Geralt of Rivia". Given the same scenario description, please use SQL to return *50 monster-hunting quests and 50 missing-people-finding quests* which are released in 1499 and ordered by difficulty levels in a descending way, respectively. List their  their names, release dates and difficulty levels, and  reward-difficulty ratios (defined as a quest's ratio of reward and difficulty level). Moreover, you should mark those *preferred ones* among them.
 
@@ -885,4 +887,260 @@ FROM
 
 ****
 
-**Total point**: 0 (challenge 1) + 20 (challenge 2) + 10(challenge 3) + 10 (challenge 4) + 5 (challenge 5) + 25(challenge 6) + 20 (challenge 7) + 10 (challenge 8) = 100 points
+**[9] Kata 4 Challenge - Life conditions of Confucius's present descendents - 10 points**
+
+Confucius is generally thought to be an important cultural symbol of China. Considering contributions of Confucius's cultural legacy for local tourism industry, the government of Confucius's hometown Qufu City decides to survey Confucius's present descendents there and subsidie them if they are in life trouble. Suppose we have two remote RDF datasets: One remote dataset (con:< http://confucius.org/ >) stores all data about Confucius's family via object properties *con:parentOf* and *con:name* , and another remote dataset (qufu:< http://qufu.org/ >) stores all data about all local residents's names, monthly incomes and monthly spendings in Food, Clothes, Housing, Transport and Other in 2022. Please write a SPARQL query to find Confucius's descendents who were born in the past 20 years and live in Qufu City, their average monthly income and their average monthly Engel coefficient in 2022.
+
+**Sample Solution**
+
+PREFIX con:< http://confucius.org/ >
+
+PREFIX qufu:< http://qufu.org/ >
+
+PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
+
+PREFIX rdfs: < http://www.w3.org/2000/01/rdf-schema# >
+
+SELECT ?name (SUM(?income) / 12 AS ?avgIncome) (SUM(?coefficient) / 12 AS ?avgCoefficient)
+
+WHERE
+
+{
+
+SERVICE < http://confucius.org/ >
+
+{
+  
+?s con:name "Confucius" ;
+
+   con:parentOf+ ?descendent .
+
+?descendent con:name ?name ;
+
+            con:birthDate ?date ;
+
+            con:currentAddress ?place .
+
+FILTER (?date>"2002-12-31"^^xsd:date)
+  
+FILTER (regex(?place,"Qufu","i"))
+
+}
+
+SERVICE < http://qufu.org/ >
+
+{
+
+?person rdfs:label ?name ;
+
+        qufu:monthlyIncome ?income ;
+
+        qufu:monthlyFoodSpending ?food ;
+
+        qufu:monthlyClothesSpending ?clothes ;
+
+        qufu:monthlyHousingSpending ?housing ;
+
+        qufu:monthlyTransportdSpending ?trans ;
+
+        qufu:monthlyOtherSpending ?other ;
+
+BIND (?food / (?food+?clothes+?housing+?trans+?other) AS ?coefficient)
+
+}
+
+}
+
+****
+
+**[10] Kata 4 Challenge SQL Version - Life conditions of Confucius's present descendents - 5 points**
+
+Suppose the above two datasets are converted into two tables: "family" and "Qufu_money". Please use a SQL query to find Confucius's descendents who were born in the past 20 years and live in Qufu City, their average monthly income and their average monthly Engel coefficient in 2022.
+
+**Sample Solution**
+
+WITH RECURSIVE confucius_descendants AS (
+  SELECT name, birthdate, address, monthly_income, monthly_spending_food, monthly_spending_clothes, monthly_spending_housing, monthly_spending_transport, monthly_spending_other
+
+  FROM family f
+
+  JOIN money m ON f.name = m.name
+
+  WHERE f.parent = 'Confucius' AND f.birthdate > "2002-12-31"^^xsd:date AND m.address = 'qufu'
+
+  UNION ALL
+
+  SELECT f.name, f.birthdate, f.address, m.monthly_income, m.monthly_spending_food, m.monthly_spending_clothes, m.monthly_spending_housing, m.monthly_spending_transport, m.monthly_spending_other
+
+  FROM family f
+
+  JOIN money m ON f.name = m.name
+
+  JOIN confucius_descendants cd ON f.parent = cd.name
+
+  WHERE f.birthdate > "2002-12-31"^^xsd:date AND m.address = 'qufu'
+
+)
+
+SELECT AVG(monthly_income) AS average_monthly_income, AVG(monthly_spending_food / (monthly_spending_food + monthly_spending_clothes + monthly_spending_housing + monthly_spending_transport + monthly_spending_other)) AS average_engel_coefficient
+
+FROM confucius_descendants
+
+****
+
+**[11] Kata 4 Challenge - Video Card Purchase - 10 points**
+
+VC (http://videocard.org/) is a database storing data of performances and prices of all video cards released by 3 companies Nvidia, Intel and AMD every day. In the same day, the same video card, for example, Nvidia 3060ti, have several different prices on different online stores like BestBuy, Amazon, B&H, NewEgg and so on. For any video card, we can assess its performance level by a performance scale from 1-100. Please use SPARQL to find the cheapest Nvidia video card which is over 500 dollars and the cheapest AMD card which is over 400 dollars, and tell us which among them has a better performance level. Don't use the (ORDER BY + LIMIT 1) trick here.
+
+**Sample Solution**
+
+PREFIX vc:< http://videocard.org/ >
+
+PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
+
+SELECT ?nvidia ?amd ?answer
+
+WHERE {
+
+  ?nvidia rdf:type vc:VideoCard ;
+
+          vc:publisher vc:Nvidia ;
+
+          vc:PerformanceLevel ?nvidia_perf ;
+
+          vc:hasPrice ?nvidia_price .
+
+  ?amd rdf:type vc:VideoCard ;
+
+       vc:publisher vc:AMD ;
+
+       vc:hasPerformanceLevel ?amd_perf ;
+
+       vc:hasPrice ?amd_price .
+  
+  FILTER(?nvidia_price > 500 && ?amd_price > 400)
+
+  {
+  
+    SELECT ?nvidia (MIN(?price) as ?min_price1)
+
+    WHERE {
+
+      ?nvidia rdf:type vc:VideoCard ;
+
+              vc:publisher vc:Nvidia ;
+      
+              vc:hasPrice ?price ;
+
+              vc:availableAt ?store .
+            
+    } GROUP BY ?nvidia
+  
+  }
+
+  {
+
+    SELECT ?amd (MIN(?price) as ?min_price2)
+
+    WHERE {
+    
+      ?amd rdf:type vc:VideoCard ;
+
+           vc:publisher vc:AMD ;
+      
+           vc:hasPrice ?price ;
+
+           vc:availableAt ?store .
+    
+    } GROUP BY ?amd
+
+  }
+
+  FILTER(?nvidia_price = ?min_price1 && ?amd_price = ?min_price2)
+
+  BIND(IF(?nvidia_perf > ?amd_perf, "nvidia is better", "AMD is better") AS ?answer)
+
+}
+
+****
+
+**[12] Kata 4 Challenge - Black Friday Deals - 10 points**
+
+Today is Black Friday, so lots of electronic products might have a special discount expressed by percent. As a programmer, Karl is maintaining a RDF-based remote database of Black Friday deals called "BF" (http://blackfridaydeals.org/). In this database, you can find every product's ID number, name, category (e.g. electronics, books, toys and so on), original_price and special_discount (if any), and discount_time (if any). However, the BF database has run for many years so it is becoming increasingly redundant and slow. Thus, Karl decides to delete all data about discount and discount_time of electronics before 2020. Then, Karl realizes that some credit cards may provide cashback rewards for certain categories of products on Black Friday, so he also wants to add some new data about credit cards, their names, and cashback ratios from another remote database called "CC" (http://creditcard.org/) to BF if their cashback ratio is more than 3%. Also, Karl expects to add the final price of each product after applying the cashback ratio, whether it has a special discount, helping BF users buy the cheapest products they want on Black Friday. Please use SPARQL to help Karl do this.
+
+**Sample Solution**
+
+PREFIX bf: < http://blackfridaydeals.org/ >
+
+PREFIX cc: < http://creditcard.org/ >
+
+DELETE {
+
+  ?product bf:special_discount ?discount ;
+
+           bf:discount_time ?time .
+
+}
+
+WHERE {
+
+  ?product a bf:product ;
+
+           bf:category cc:electronics .
+
+OPTIONAL
+
+{
+
+  ?product bf:special_discount ?discount ;
+
+           bf:discount_time ?time .
+
+}
+
+  FILTER(year(?time) < 2020)
+
+}
+
+INSERT {
+
+  ?card cc:name ?card_name ;
+  
+        cc:cashback_ratio ?ratio ;
+
+        cc:cashback_category ?category .
+  
+  ?product a bf:product ;
+
+           bf:final_price ?finalPrice .
+ 
+}
+
+WHERE {
+
+  SERVICE < http://creditcard.org/ > {
+
+    ?card a cc:creditCard ;
+
+          cc:name ?name ;
+
+          cc:cashback_category ?category ;
+
+          cc:cashback_ratio ?ratio .
+
+ 
+    FILTER(xsd:decimal(?ratio) > 0.03) 
+
+  }
+
+  ?product a bf:product ;
+
+           bf:category ?category .
+  
+BIND(IF(BOUND(?discount), ?price * (1 - ?discount) * (1 - ?ratio), ?price * (1 - ?ratio)) AS ?finalPrice)
+
+}
+
+****
+
+**Total point**: 0 (challenge 1, level 8) + 10 (challenge 2, level 4) + 5 (challenge 3, level 4 SQL) + 10 (challenge 4, level 4) + 5 (challenge 5, level 4 SQL) + 20 (challenge 6, level 3) + 10 (challenge 7, level 4) + 5 (challenge 8, level 4 SQL) + 10 (challenge 9, level 4) + 5 (challenge 10, level 4 SQL) + 10 (challenge 11, level 4) + 10 (challenge 12, level 4) = 100 points
