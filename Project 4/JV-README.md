@@ -113,6 +113,25 @@ WHERE {
 **Problem 4.**
 
 Setup prompt
+- A tour guide in western Michigan wants to create a new lighthouses tour, based on lighthouses that provide support for boats on Lake Michigan, but from Michigan's side and only on the lower peninsula.
+- Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
+
+```
+PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse .
+      ?facility touronto:located_in touronto:LowerPeninsulaMichigan .
+      ?facility touronto:nearby_location touronto:LakeMichigan .
+}
+```
+- Difficulty level: KATA-7
+- Running total points? (0 + 2 + 2 + 2) = 6
+
+**Problem 5.**
+
+Setup prompt
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
 - Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status
 
@@ -124,13 +143,13 @@ WHERE {
       ?printer itdev:manufactured_by itdev:Brother .
       ?printer itdev:device_status ?warningStatus .
       ?warningStatus itdev:severity_level “High” .
-      OPTIONAL SELECT { ?warningStatus itdev:toner_value “Low” .}
+      OPTIONAL SELECT { ?printer itdev:toner_value “Low” .}
 }
 ```
 - Difficulty level: KATA-6
-- Running total points? (0 + 2 + 2 + 3) = 7
+- Running total points? (0 + 2 + 2 + 2 + 3) = 9
 
-**Problem 5.**
+**Problem 6.**
 
 Setup prompt
 - A customer is searching for shelving and wants to filter results in a catalog online, with specific functionality and material type and within a price range.
@@ -138,12 +157,11 @@ Setup prompt
 
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX bfo: <http://purl.obolibrary.org/obo/bfo.owl>
 PREFIX homedev: <http://homeandgarden.com/ontology/>
 
 SELECT ?shelves ?salePriceValueUSD
 WHERE {
-  ?shelves bfo:instance_of homedev:Shelf ;
+  ?shelves ro:instance_of homedev:Shelf ;
            ro:bearer_of ?function ;
            ro:composed_primarily_ of ?material ;
            homedev:has_sale_price ?salePriceValueUSD .
@@ -152,7 +170,56 @@ WHERE {
           ?material = homedev:woodMaterial && 
           ?material != homedev:metalwireMaterial)
 }
-
 ```
 - Difficulty level: KATA-5
-- Running total points? (0 + 2 + 2 + 3 + 5) = 12
+- Running total points? (0 + 2 + 2 + 2 + 3 + 5) = 14
+
+
+**Problem 7.**
+
+Setup prompt
+- The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
+- Give the name of the institution and number of students of a post-secondary educational institution located in California with the highest enrollment of students (undergrad and grad together).
+```
+PREFIX onto-ed: <https://www.nj.gov/admin/oit/ontology/>
+
+SELECT ?institution (MAX(?totalEnrollment) AS ?topEnrollment)
+WHERE {
+  ?institution a onto-ed:EducationalInstitution ;
+               onto-ed:type "PostsecondaryEducation" ;
+               onto-ed:located_in_state "California" ;
+               onto-ed:enrollment_number ?postgradEnrollment ;
+               onto-ed:enrollment_number ?undergradEnrollment ;
+               BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
+}
+```
+- Difficulty level: KATA-5
+- Running total points? (0 + 2 + 2 + 2 + 3 + 5 + 5) = 19
+
+
+
+**Problem 8.**
+
+Setup prompt
+- Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
+- Display the name of the oldest 25 ziggurats, current country location, name of associated culture when it was formed, and estimated age. Order by estimated age, descending (or date of completion ascending).
+```
+PREFIX anthro: <http://anthropologywiki.org/schema/ontology/>
+
+SELECT ?zigguratName ?countryName ?cultureName ?estimatedCompletionDate
+WHERE {
+  ?ziggurat a anthro:Building ;
+            rdfs:type anthro:Ziggurat ;
+            anthro:location_in ?country ;
+            anthro:cultural_originator ?culture ;
+            anthro:formation_datecompleted ?estimatedCompletionDate .
+  ?country rdfs:label ?countryName .
+  ?culture rdfs:label ?cultureName .
+  FILTER(lang(?cultureName) = 'en')
+}
+ORDER BY ASC(?estimatedCompletionDate)
+LIMIT 25
+
+```
+- Difficulty level: KATA-4
+- Running total points? (0 + 2 + 2 + 2 + 3 + 5 + 5 +10) = 29
