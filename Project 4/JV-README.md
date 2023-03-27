@@ -7,8 +7,8 @@
 Comment: I've attempted 30 problems.
  - Kata-8's x 1 = 0
  - Kata-7's x 10 = 20
- - Kata-6's x 15 = 45
- - Kata-5's x 5 = 25
+ - Kata-6's x 10 = 30
+ - Kata-5's x 6 = 30
  - Kata-4's x 2 = 20
 
 **Problem 8-1.**
@@ -20,7 +20,7 @@ Setup prompt
 ```
 PREFIX ontocam: <https://aperturescience.org/onto/>
 
-SELECT ?deviceLabel ?productName ?modelValue ?manufacturer ?releaseDate
+SELECT ?productName ?modelValue ?manufacturer ?releaseDate
 WHERE {
       ?device ontocam:manufactured_by ontocam:Canon .
 }
@@ -32,7 +32,7 @@ WHERE {
 **Problem 7-1.**
 
 Setup prompt
-- List all of the people who have been president in the United States of America. The ontology does not have a 'president' class but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
+- List all of the people who have been president in the United States of America. The ontology does not have a 'president' class, but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
 - Who has been a president of the USA at some time?
 
 ```
@@ -126,17 +126,20 @@ WHERE {
 **Problem 7-6.**
 
 Setup prompt
-- Find all cameras manufacturerd by 
-- Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
+- Find all cameras manufacturerd by Fujifilm, released in the year 2020, and has a bluetooth connection function.
+- Return camera name (ontocam:productName), model number, release date
+- The following catalog contains camera products, according to their product name (ontocam:productName), model number (ontocam:modelValue), manufacturer (ontocam:manufacturer) and release date (ontocam:releaseDate).
 
 ```
 PREFIX ontocam: <https://aperturescience.org/onto/>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
-SELECT ?facility
+SELECT ?productName ?modelValue ?releaseDate
 WHERE {
-      ?facility rdf:type touronot:Lighthouse .
-      ?facility touronto:located_in touronto:LowerPeninsulaMichigan .
-      ?facility touronto:nearby_location touronto:LakeMichigan .
+      ?device ontocam:manufactured_by ontocam:Fujifilm ;
+      ?device rdfs:type ontocam:Camera ;
+      ?device ontocam:released_in_year "2020" ;
+      ?device ro:has_function ontocam:Bluetooth .
 }
 ```
 - Difficulty level: KATA-7
@@ -145,7 +148,24 @@ WHERE {
 
 Setup prompt
 - 
-- Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
+- L
+
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse .
+}
+```
+- Difficulty level: KATA-7
+
+**Problem 7-8.**
+
+Setup prompt
+- 
+- L
 
 ```
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
@@ -153,15 +173,45 @@ PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
 SELECT ?facility
 WHERE {
       ?facility rdf:type touronot:Lighthouse .
-      ?facility touronto:located_in touronto:LowerPeninsulaMichigan .
-      ?facility touronto:nearby_location touronto:LakeMichigan .
+}
+```
+- Difficulty level: KATA-7
+
+**Problem 7-9.**
+
+Setup prompt
+- 
+- L
+
+```
+PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse .
 }
 ```
 - Difficulty level: KATA-7
 
 
+**Problem 7-10.**
 
-**Problem 5.**
+Setup prompt
+- 
+- L
+
+```
+PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse .
+}
+```
+- Difficulty level: KATA-7
+
+
+**Problem 6-1.**
 
 Setup prompt
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
@@ -180,7 +230,44 @@ WHERE {
 ```
 - Difficulty level: KATA-6
 
-**Problem 6.**
+
+**Problem 5-1.**
+Setup prompt
+- List all senators or congresspersons who held office in a state that is not the state of their birthplace. Return both birthplace state and state in which they held office.
+- This query calls for a disjunction. Be sensitive to what is being negated.
+
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT * WHERE
+{
+{ SELECT ?person ?birthState ?officeState WHERE {
+      ?person ro:has_role ?SenatorRole ;
+      ?SenatorRole a ontopol:politicalOfficerRole ;
+      ?politicalOfficerRole ontopol:authority_in ?State ;
+      BIND (?State) AS ?officeState .
+      ?person ontopol:has_birthplace ?State ;
+      BIND (?State) AS ?birthState .
+      }
+}
+UNION
+{ SELECT ?person ?birthState ?officeState WHERE {
+      ?person ro:has_role ?congressPersonRole ;
+      ?congressPersonRole a ontopol:politicalOfficerRole ;
+      ?politicalOfficerRole ontopol:authority_in ?State ;
+      BIND (?State) AS ?officeState .
+      ?person ontopol:has_birthplace ?State ;
+      BIND (?State) AS ?birthState .
+      }
+}
+FILTER(?birthState != ?officeState)
+```
+- Difficulty level: KATA-5
+
+
+
+**Problem 5-2.**
 
 Setup prompt
 - A customer is searching for shelving and wants to filter results in a catalog online, with specific functionality and material type and within a price range.
@@ -190,9 +277,9 @@ Setup prompt
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?shelves ?salePriceValueUSD
+SELECT ?tallShelf ?salePriceValueUSD
 WHERE {
-  ?shelves ro:instance_of homedev:Shelf ;
+  ?shelf ro:instance_of homedev:Shelf ;
            ro:bearer_of ?function ;
            ro:composed_primarily_ of ?material ;
            homedev:has_sale_price ?salePriceValueUSD .
@@ -205,7 +292,7 @@ WHERE {
 - Difficulty level: KATA-5
 
 
-**Problem 7.**
+**Problem 5-3.**
 
 Setup prompt
 - The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
