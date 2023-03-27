@@ -4,16 +4,16 @@
 
 ** Jonathan's Kata's for SPARQL **
 
-Comment: I've attempted 30 problems.
+Comment: I've attempted almost 30 problems.
  - Kata-8's x 1 = 0
  - Kata-7's x 10 = 20
  - Kata-6's x 10 = 30
  - Kata-5's x 6 = 30
  - Kata-4's x 2 = 20
 
-**Problem 8-1.**
+My problems are given in the following format: "Problem [Kata level]-[instance]"
 
-Setup prompt
+**Problem 8-1.**
 - The following catalog contains camera products, according to their product name (ontocam:productName), model number (ontocam:modelValue), manufacturer (ontocam:manufacturer) and release date (ontocam:releaseDate).
 - Find all camera products manufactured by Canon, displaying their name, model number, release date.
 
@@ -25,13 +25,8 @@ WHERE {
       ?device ontocam:manufactured_by ontocam:Canon .
 }
 ```
-- Difficulty level: KATA-8
-- Running total points? 0
-
 
 **Problem 7-1.**
-
-Setup prompt
 - List all of the people who have been president in the United States of America. The ontology does not have a 'president' class, but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
 - Who has been a president of the USA at some time?
 
@@ -45,13 +40,9 @@ WHERE {
       ?PresidentialRole ontopol:authority_in ontopol:United_States.
     }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-2.**
-
-Setup prompt
-- List all of the furniture that has been recalled for reason of child safety. In this RDF model, all furniture has an active safety status of "Approved" or "Recalled".
-
+- List all of the furniture that has been recalled for reason of child safety. In this RDF model, all furniture has an active safety status of "Approved" or "Recalled" (they do not have a null value).
 ```
 PREFIX furnont: <https://fillingbetterhomes.org/oit/furnitureontology.owl>
 
@@ -62,11 +53,8 @@ WHERE {
             furnont:recalled_reason "Child Safety" .
     }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-3.**
-
-Setup prompt
 - A local militia group wants to rally potential troops for a coup and has access to the state of Oregon registry to look up demographic information. They only want to find males age 16 and older.
 - Find all males’ 16 years or older, and their mailing addresses.
 
@@ -83,14 +71,10 @@ WHERE {
       FILTER (?birthdate < "2007-03-27T00:00:00+05:30"^^xsd:dateTime)
 }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-4.**
-
-Setup prompt
 - A tour guide in western Michigan wants to create a new lighthouses tour, based on lighthouses that provide support for boats on Lake Michigan, but from Michigan's side and only on the lower peninsula.
 - Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
-
 ```
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
 
@@ -101,15 +85,10 @@ WHERE {
             touronto:nearby_location touronto:LakeMichigan .
 }
 ```
-- Difficulty level: KATA-7
-
 
 **Problem 7-5.**
-
-Setup prompt
 - The National Park and Recreation Department is concerned about recent adverse changes in natural habitat for the ruby-throated thrush. Find all parks that may be affected by these conservation efforts.
 - Return all parks that are the natural habits of ruby-throated thrush.
-
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
@@ -121,15 +100,10 @@ WHERE {
       touronto:naturalHabitat touronto:habitat_of zoo:rubyThroatedThrush .
 }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-6.**
-
-Setup prompt
-- Find all cameras manufacturerd by Fujifilm, released in the year 2020, and has a bluetooth connection function.
-- Return camera name (ontocam:productName), model number, release date
-- The following catalog contains camera products, according to their product name (ontocam:productName), model number (ontocam:modelValue), manufacturer (ontocam:manufacturer) and release date (ontocam:releaseDate).
-
+- Find all cameras manufacturerd by Fujifilm (ontocam:manufacturer), released in the year 2020, and has a bluetooth connection function.
+- Return camera name (ontocam:productName), model number (ontocam:modelValue), release date (ontocam:releaseDate).
 ```
 PREFIX ontocam: <https://aperturescience.org/onto/>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
@@ -142,12 +116,27 @@ WHERE {
       ?device ro:has_function ontocam:Bluetooth .
 }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-7.**
+- A store manager is assessing what summer furniture needs to be put on sale. First, she is interested only in those furniture that is designed for outdoors. Second, she wants to start with the type that has the most inventory. Third, she wants to limit the sale to the top 5 furniture models, irrespective of brand.
+- Return the furniture name, model, and current inventory, ordered by inventory descending, but only the five models with the greatest inventory.
 
-Setup prompt
-- 
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
+
+SELECT ?productName ?productModelValue ?inventoryValue
+WHERE {
+  ?product ro:instance_of homedev:outdoorFurniture ;
+           ro:bearer_of ?function ;
+           ro:composed_primarily_ of ?material ;
+           homedev:has_sale_price ?salePriceValueUSD .
+  FILTER (?function != homedev:twoShelf && 
+          ?salePriceValueUSD < 150 && 
+          ?material = homedev:woodMaterial && 
+          ?material != homedev:metalwireMaterial)
+}
+```
 - L
 
 ```
@@ -159,11 +148,8 @@ WHERE {
       ?facility rdf:type touronot:Lighthouse .
 }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-8.**
-
-Setup prompt
 - 
 - L
 
@@ -175,11 +161,8 @@ WHERE {
       ?facility rdf:type touronot:Lighthouse .
 }
 ```
-- Difficulty level: KATA-7
 
 **Problem 7-9.**
-
-Setup prompt
 - 
 - L
 
@@ -191,12 +174,8 @@ WHERE {
       ?facility rdf:type touronot:Lighthouse .
 }
 ```
-- Difficulty level: KATA-7
-
 
 **Problem 7-10.**
-
-Setup prompt
 - 
 - L
 
@@ -208,14 +187,10 @@ WHERE {
       ?facility rdf:type touronot:Lighthouse .
 }
 ```
-- Difficulty level: KATA-7
-
 
 **Problem 6-1.**
-
-Setup prompt
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
-- Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status
+- Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status.
 
 ```
 PREFIX itdev: <https://www.rando.org/ontology/>
@@ -228,14 +203,10 @@ WHERE {
       OPTIONAL SELECT { ?printer itdev:toner_value “Low” .}
 }
 ```
-- Difficulty level: KATA-6
-
 
 **Problem 5-1.**
-Setup prompt
 - List all senators or congresspersons who held office in a state that is not the state of their birthplace. Return both birthplace state and state in which they held office.
 - This query calls for a disjunction. Be sensitive to what is being negated.
-
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
@@ -263,16 +234,10 @@ UNION
 }
 FILTER(?birthState != ?officeState)
 ```
-- Difficulty level: KATA-5
-
-
 
 **Problem 5-2.**
-
-Setup prompt
 - A customer is searching for shelving and wants to filter results in a catalog online, with specific functionality and material type and within a price range.
 - Get the USD price for all shelves that are not two-shelf, that cost less than $150 USD, and are made out of wood rather than wire frame.
-
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX homedev: <http://homeandgarden.com/ontology/>
@@ -289,8 +254,6 @@ WHERE {
           ?material != homedev:metalwireMaterial)
 }
 ```
-- Difficulty level: KATA-5
-
 
 **Problem 5-3.**
 
