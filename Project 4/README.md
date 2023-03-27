@@ -45,3 +45,46 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
+
+Query 1. (Kata 8)
+
+Description (and problem):
+
+There is a dispute about when Buffalo_Bills was founded. Using a SPARQL query, to retrieve the date when Buffalo_Bills was founded. 
+
+
+Reference Solution (and answer):
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbp: <http://dbpedia.org/property/>
+
+SELECT ?date
+WHERE {
+  dbr:Buffalo_Bills dbp:founded ?date.
+}
+
+
+Query 2. (Kata 7)
+
+Description:
+
+Fangfang wants to find a lawyer dealing with divorce cases in Buffalo, New York state. Using a SPARQL query, to retrieve the list of lawyers who meet the requirements. 
+
+Using Wikidata Query Service to list only five lawyers who meet the requirements.
+
+#lawyers in Buffalo
+SELECT ?ind ?indLabel 
+WHERE 
+{                           
+  ?ind wdt:P31 wd:Q5.               # ind is an instance of humans
+  ?ind wdt:occ wd:Q40348.           # ind's occupation is being lawyer
+  ?ind wdt:P937 wd:Q40435.          # ind's workplace is in buffalo, New York state
+                
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
+}  
+
+LIMIT 5  # list only 5 lawyers.   
+
+
+
