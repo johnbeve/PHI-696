@@ -1,0 +1,27 @@
+Argle and Bargle are taking a college English class and their final project is doing a research project on Sigmund Freud, the famous psychologist.
+
+Find his dates of birth and death
+
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+select ?deathDate ?birthDate where {
+  dbr:Sigmund_Freud dbo:deathDate ?deathDate;
+ dbo:birthDate ?birthDate.
+}
+
+
+Find all of the books written by Sigmund Freud
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX ontology: <http://dbpedia.org/ontology/>
+
+select distinct ?s   
+where {
+?s rdf:type ontology:Book;
+  ontology:author dbpedia:Sigmund_Freud .
+}
+
+
