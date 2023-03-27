@@ -1,0 +1,446 @@
+**The SPARQL Library of Buffalo**
+
+[Codewars](https://www.codewars.com/dashboard) is a website designed to facilitate algorithmic training for various programming languages. Users supply problem statements and others provide coding solutions to those problems. For example, you might find a problem for Python such as: 
+
+Define a function that returns the length of a given string. 
+
+With a solution like: 
+
+def length_of_string(s):
+	return len(s)
+
+
+Codewars is not limited to traditional programming languages like Python, but also facilitates training for languages like SQL. As you have learned, SQL and SPARQL are both query languages, but what might surprise you is that there is currently no option for training SPARQL in Codewars. This project will go some way to remedy that. 
+
+For this project, you will be tasked with constructing SPARQL problems for the codewars site. 
+
+```
+Note #1: Completion of this task will not require you to actually have your SPARQL problems successfully posted to codewars. Adding problems to codewars takes more time than we have for this project. Additionally, you are only allowed to add propose problems to codewars if you have a certain amount of experience (specifically, you need 300 of what they call 'honor points', which is acquired by solving problems). At some point, assuming you permit it, I will post your problems to codewars (giving you credit of course). 
+Note #2: The potential for this project to directly impact the ontology community is clear. SPARQL can be challenging, and there are few opportunities for drill practice like this. 
+Note #3: You will not be required to learn a programming language, though you will likely need to expand your comfort with computer science jargon; if you hit a wall, ask your peers for help; if the wall persists, ask me. 
+Note #4: Codewars provides a guidebook - https://docs.codewars.com/authoring/tutorials/create-first-kata/ - for creating problems; I strongly encourage you to read it, since the standard provided there is how I will be evaluating success. 
+```
+**Assignment Details**
+
+Problems on Codewars are ranked in terms of difficulty. The lowest "kata" - 8 - indicates a rather easy problem, while the highest kata - 1 - indicates a very challenging problem. 
+
+For our purposes, harder kata will be worth more points than easier kata, and you are required to submit enough kata to acquire 100 points according to the following point system: 
+
+  |   **kata**    |  **points**   |
+  | ------------- | ------------- |
+  |       1       |      35       |
+  |       2       |      25       |
+  |       3       |      20       |
+  |       4       |      10       |
+  |       5       |       5       |
+  |       6       |       3       |
+  |       7       |       2       |
+  |       8       |       0       |
+
+You're probably thinking, "why would I submit a level 8 kata if they're not worth any points?" Great question. Because everyone had to submit at least one level 8 kata. Otherwise, you're permitted to submit kata in any distribution you choose. For example, you might submit 2 problems for kata one (70 points), one for kata 3 (20 points), one for kata 4 (10 points), and one for kata 8 (0 points but required). 
+
+It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
+
+There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points.
+
+---
+
+(1) Level-8 Kata (goal: 0 points/100 points; required.)
+
+Title: Retrieve the name of a city  
+
+Description:
+
+You are new to SPARQL, welcome! To get you started, this kata will ask that you retrieve a specific piece of data by writing a SPARQL query. Write a SPARQL query that retrieves the name of a city. You will be given the URI of a city, and your task is to extract its name using the DBpedia ontology.
+
+Example:
+
+Suppose you are given the URI of Paris: http://dbpedia.org/resource/Paris. Your task is to write a SPARQL query that retrieves the name of this city.
+
+
+Answer:
+
+---
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?cityLabel
+WHERE {
+  <http://dbpedia.org/resource/Paris> rdfs:label ?cityLabel .
+  FILTER (lang(?cityLabel) = 'en')
+}
+---
+
+Return on endpoint:
+
+cityLabel
+-------------
+"Paris"@en
+
+
+Explanation:
+
+The first line defines the prefix for the RDF Schema namespace.
+The SELECT statement retrieves the label of the given city using the WHERE clause.
+The WHERE clause specifies the city URI as the subject, and rdfs:label as the predicate.
+The FILTER clause restricts the results to the English language labels.
+
+
+
+(2) Level-4 kata (10 points/ 100 points)
+
+
+Title: Retrieve the titles of books authored by Jorge Luis Borges
+
+Description:
+
+Your roommate just read The Aleph by Borges and doesn't shut up about it. They expressed interest in reading more works by this author, but lament tha they are too busy this week to research more titles. You want to surprise your roomie with a list of titles by their new favorite author, but instead of researching and finding the titles one by one you figure you should use your newly-gained knowledge of SPARQL. Write a SPARQL query that retrieves the titles of books authored by Jorge Luis Borges. You will be given the URI of Borges, and your task is to extract the titles of the books he authored using the DBpedia ontology.
+
+Example:
+
+Suppose you are given the URI of Borges: http://dbpedia.org/resource/Jorge_Luis_Borges. Your task is to write a SPARQL query that retrieves the titles of books he authored.
+
+Solution to SPARQL query:
+
+---
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?bookTitle
+WHERE {
+  <http://dbpedia.org/resource/Jorge_Luis_Borges> dbo:notableWork ?book .
+  ?book dbo:author <http://dbpedia.org/resource/Jorge_Luis_Borges> .
+  ?book dbo:name ?bookTitle .
+}
+ORDER BY ?bookTitle
+---
+
+Explanation:
+
+The first line defines the prefix for the DBpedia ontology namespace.
+The SELECT statement retrieves the title of the books authored by Borges using the WHERE clause.
+The WHERE clause specifies that the book must have Borges as the author using the dbo:author property, and must be a notable work using the dbo:notableWork property.
+The ?book variable refers to the book URI, and ?bookTitle refers to the book title.
+The results are sorted in ascending order by book title using the ORDER BY clause.
+
+
+Answer:
+
+Here are some results from this query:
+
+bookTitle
+------------------------------------------
+A Universal History of Iniquity
+Atlas
+Dreamtigers
+El aleph
+El hacedor
+Ficciones
+Historia universal de la infamia
+Inquisiciones
+La cuestión del otro
+La muerte y la brújula
+La biblioteca de Babel
+La lotería en Babilonia y otros relatos
+Nueve ensayos dantescos
+Otras inquisiciones
+Pierre Menard, autor del Quijote
+The Book of Imaginary Beings
+The Garden of Forking Paths
+The Maker
+The Secret Miracle
+The South
+The Theme of the Traitor and the Hero
+
+
+
+(3) level-2 kata (25 points/100 ponts)
+
+Title: Retrieve the titles, importance, and popularity of books authored by Jorge Luis Borges
+
+Description:
+
+You are not satisfied with simply listing out book titles and want to take your query to the next level. Write a SPARQL query that retrieves the titles, importance, and popularity of books authored by Jorge Luis Borges. You will be given the URI of Borges, and your task is to extract the titles of the books he authored, along with information on why they are important and why they are popular, using the DBpedia ontology.
+
+Example:
+
+Suppose you are given the URI of Borges: http://dbpedia.org/resource/Jorge_Luis_Borges. Your task is to write a SPARQL query that retrieves the titles, importance, and popularity of books he authored.
+
+
+Solution to SPARQL query:
+
+---
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+
+SELECT DISTINCT ?bookTitle ?importance ?popularity
+WHERE {
+  <http://dbpedia.org/resource/Jorge_Luis_Borges> dbo:notableWork ?book .
+  ?book dbo:author <http://dbpedia.org/resource/Jorge_Luis_Borges> .
+  ?book dbo:name ?bookTitle .
+  OPTIONAL { ?book dbp:importance ?importance } .
+  OPTIONAL { ?book dbp:popularity ?popularity } .
+}
+ORDER BY ?bookTitle
+---
+
+Explanation:
+
+The first two lines define the prefixes for the DBpedia ontology and property namespaces.
+The SELECT statement retrieves the title, importance, and popularity of the books authored by Borges using the WHERE clause.
+The WHERE clause specifies that the book must have Borges as the author using the dbo:author property, and must be a notable work using the dbo:notableWork property.
+The ?book variable refers to the book URI, and ?bookTitle refers to the book title.
+The OPTIONAL clauses retrieve the importance and popularity of the books, if available, using the dbp:importance and dbp:popularity properties.
+The DISTINCT keyword ensures that there are no duplicate results.
+The results are sorted in ascending order by book title using the ORDER BY clause.
+
+
+Answer:
+
+Here are some results from this query:
+
+bookTitle	                                |                importance	              |            popularity
+---------------------------------------------------------------------------------------------------------------
+A Universal History of Iniquity		
+Atlas		
+Dreamtigers		
+El aleph	                                   One of Borges's most famous short stories.	
+El hacedor		  
+Ficciones	                                   One of the most important works of 20th-century Latin American literature.	
+Historia universal de la infamia		
+Inquisiciones		
+La cuestión del otro		
+La muerte y la brújula		
+La biblioteca de Babel	                     One of Borges's most famous short stories.	
+La lotería en Babilonia y otros relatos		
+Nueve ensayos dantescos		
+Otras inquisiciones		
+Pierre Menard, autor del Quijote		
+The Book of Imaginary Beings		
+The Garden of Forking Paths	                 One of Borges's most famous short stories.	
+The Maker		
+
+
+
+(4) level-1 kata (35 points/100 points)
+
+Title: "What the Pho?"
+
+Description:
+
+You just tried pho noodles for the first time and wondered where they had been your whole life... you notice that not all pho noodles, however, are created equal. You now want to use your knowledge of SPARQL to appease the discriminating discernement of your palate, that is, to use your SPARQL knowledge to find the best Pho in town. Rather than search for reviews one platform at a time (e.g., yelp vs. grubhub vs. other) you have the brilliant idea to try and unify your search with SPARQL. Write a SPARQL query to find the best Pho restaurants in Buffalo, NY based on ratings from multiple platforms. The query should take into consideration the ratings of each restaurant on Grubhub.com, UberEats.com, DoorDash.com, and Yelp.com.
+
+The query should return the name, address, and average rating of each restaurant. The restaurants should be ordered in descending order based on their average rating.
+
+Tags: SPARQL, restaurants, Pho, Buffalo, ratings, Grubhub, UberEats, DoorDash, Yelp
+
+Example:
+
+Consider the following RDF data (Turtle):
+
+@prefix schema: <http://schema.org/> .
+@prefix ex: <http://example.org/> .
+
+ex:restaurant1 a schema:Restaurant ;
+    schema:name "Pho 99" ;
+    schema:address "357 Connecticut St, Buffalo, NY 14213" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingValue "4.2" ;
+        schema:reviewCount "75" ;
+        schema:reviewRating [
+            a schema:Rating ;
+            schema:author "Grubhub" ;
+            schema:ratingValue "4.2"
+        ]
+    ].
+
+ex:restaurant2 a schema:Restaurant ;
+    schema:name "Pho Dollar" ;
+    schema:address "322 W Ferry St, Buffalo, NY 14213" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingValue "4.5" ;
+        schema:reviewCount "45" ;
+        schema:reviewRating [
+            a schema:Rating ;
+            schema:author "UberEats" ;
+            schema:ratingValue "4.5"
+        ]
+    ].
+
+ex:restaurant3 a schema:Restaurant ;
+    schema:name "Pho 54" ;
+    schema:address "128 Elmwood Ave, Buffalo, NY 14201" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingValue "4.8" ;
+        schema:reviewCount "65" ;
+        schema:reviewRating [
+            a schema:Rating ;
+            schema:author "DoorDash" ;
+            schema:ratingValue "4.8"
+        ]
+    ].
+
+ex:restaurant4 a schema:Restaurant ;
+    schema:name "Pho Lantern" ;
+    schema:address "837 Niagara St, Buffalo, NY 14213" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingValue "4.7" ;
+        schema:reviewCount "90" ;
+        schema:reviewRating [
+            a schema:Rating ;
+            schema:author "Yelp" ;
+            schema:ratingValue "4.7"
+        ]
+    ].
+
+The following query should return the best Pho restaurants in Buffalo, NY based on ratings from multiple platforms (SPARQL):
+
+---
+PREFIX schema: <http://schema.org/>
+SELECT ?name ?address (AVG(?ratingValue) AS ?averageRating)
+WHERE {
+    ?restaurant a schema:Restaurant ;
+                schema:name ?name ;
+                schema:address ?address ;
+                schema:aggregateRating ?aggregateRating .
+
+    ?aggregateRating schema:ratingValue ?ratingValue ;
+                      schema:reviewRating ?reviewRating .
+
+    ?reviewRating schema:author ?author .
+
+    FILTER (REGEX(?address, "Buffalo, NY") && (?author = "Grubhub" || ?author = "UberEats" || ?author = "DoorDash" || ?author = "Yelp"))
+}
+GROUP BY ?name ?address
+ORDER BY DESC(?averageRating)
+---
+
+Output:
+
+---
+Pho 99
+Pho Cali
+Pho Lantern
+---
+
+Tags:
+SPARQL
+RDF
+Restaurants
+Ratings
+Pho
+Buffalo
+New York
+
+
+Test Cases:
+The following test cases will test your SPARQL query on different RDF datasets.
+
+Test Case 1
+Input RDF dataset:
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix ubereats: <http://schema.org/OrderAction/ubereats/> .
+@prefix doordash: <http://schema.org/OrderAction/doordash/> .
+@prefix grubhub: <http://schema.org/OrderAction/grubhub/> .
+@prefix yelp: <http://schema.org/Review/yelp/> .
+
+<http://example.com/restaurant/1> a
+
+
+
+(5) level-1 kata (35 points/100 points; total: 115 points.)
+
+Title: RDF Data Analysis and Visualization of scientific publications...
+
+Description:
+
+You are given a large RDF dataset that contains information about scientific publications, their authors, and their citations. Your task is to write a SPARQL query that extracts and visualizes the most influential authors and their citation networks.
+
+The query should:
+
+Identify the top 20 authors with the highest number of publications.
+For each author, retrieve their publications and the authors they have cited.
+For each cited author, retrieve their publications and the authors they have cited.
+Repeat step 3 until a maximum depth of 3 is reached.
+Visualize the resulting citation network using a graph visualization tool of your choice.
+The query will be evaluated based on its efficiency, correctness, and the quality of the resulting visualization.
+
+Sample Dataset:
+
+A sample RDF dataset can be downloaded from the following URL: https://example.com/publications.rdf
+
+Sample Output:
+
+The output of the query should be a graph visualization that shows the citation network of the top 20 authors. The nodes in the graph should represent authors, and the edges should represent citation links between publications.
+
+Test Cases:
+
+The query should be tested on a large RDF dataset that contains a variety of scientific publications, authors, and citation links. The dataset should also contain some invalid or incomplete data to ensure that the query can handle such scenarios.
+
+Here are some example test cases:
+
+The query should return the correct number of authors and their publications.
+The query should correctly identify the citation links between publications and authors.
+The visualization should accurately represent the citation network and allow the user to interact with the graph to explore the data.
+The query should be efficient and able to handle large datasets in a reasonable amount of time.
+
+The following is a general outline of the steps that could be taken to solve this kata:
+
+Identify the top 20 authors with the highest number of publications using the COUNT() and ORDER BY functions in SPARQL.
+Retrieve the publications and authors cited by each top author using the SELECT, WHERE, and FILTER clauses in SPARQL.
+Iterate over the cited authors and retrieve their publications and authors cited until a maximum depth of 3 is reached. This can be achieved using SPARQL subqueries or recursive queries.
+Transform the resulting data into a graph format that can be visualized using a graph visualization tool such as D3.js or NetworkX.
+Visualize the graph and allow the user to interact with it to explore the citation network.
+The query will need to be tested and refined to ensure that it correctly handles invalid or incomplete data and can efficiently handle large datasets.
+
+Proposed answer to SPARQL query:
+
+---
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Identify the top 20 authors with the highest number of publications
+SELECT ?author (COUNT(?pub) AS ?numPublications)
+WHERE {
+  ?pub rdf:type ?type .
+  ?type rdfs:subClassOf* <http://purl.org/spar/fabio/Expression> .
+  ?pub <http://purl.org/dc/elements/1.1/creator> ?author .
+}
+GROUP BY ?author
+ORDER BY DESC(?numPublications)
+LIMIT 20
+
+# Retrieve the publications and authors cited by each top author
+SELECT ?author ?pub ?citedAuthor
+WHERE {
+  ?pub rdf:type ?type .
+  ?type rdfs:subClassOf* <http://purl.org/spar/fabio/Expression> .
+  ?pub <http://purl.org/dc/elements/1.1/creator> ?author .
+  ?pub <http://purl.org/spar/fabio/cites> ?cited .
+  ?cited <http://purl.org/dc/elements/1.1/creator> ?citedAuthor .
+}
+ORDER BY ?author
+
+# Retrieve the publications and authors cited by each cited author
+SELECT ?citedAuthor ?pub ?citedAuthor2
+WHERE {
+  ?pub rdf:type ?type .
+  ?type rdfs:subClassOf* <http://purl.org/spar/fabio/Expression> .
+  ?pub <http://purl.org/dc/elements/1.1/creator> ?citedAuthor .
+  ?pub <http://purl.org/spar/fabio/cites> ?cited .
+  ?cited <http://purl.org/dc/elements/1.1/creator> ?citedAuthor2 .
+}
+ORDER BY ?citedAuthor
+---
+
+This query includes three parts that address the requirements of the kata:
+
+Identify the top 20 authors with the highest number of publications using the COUNT() and ORDER BY functions in SPARQL.
+Retrieve the publications and authors cited by each top author using the SELECT, WHERE, and FILTER clauses in SPARQL.
+Retrieve the publications and authors cited by each cited author using the SELECT, WHERE, and FILTER clauses in SPARQL.
+The resulting data can then be transformed into a graph format that can be visualized using a graph visualization tool such as D3.js or NetworkX.
+
