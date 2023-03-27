@@ -128,24 +128,12 @@ PREFIX homedev: <http://homeandgarden.com/ontology/>
 SELECT ?productName ?productModelValue ?inventoryValue
 WHERE {
   ?product ro:instance_of homedev:outdoorFurniture ;
-           ro:bearer_of ?function ;
            ro:composed_primarily_ of ?material ;
            homedev:has_sale_price ?salePriceValueUSD .
   FILTER (?function != homedev:twoShelf && 
           ?salePriceValueUSD < 150 && 
           ?material = homedev:woodMaterial && 
           ?material != homedev:metalwireMaterial)
-}
-```
-- L
-
-```
-PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
-
-SELECT ?facility
-WHERE {
-      ?facility rdf:type touronot:Lighthouse .
 }
 ```
 
@@ -203,6 +191,46 @@ WHERE {
       OPTIONAL SELECT { ?printer itdev:toner_value “Low” .}
 }
 ```
+**Problem 6-2.**
+- A store manager is assessing what Summer furniture needs to be put on sale before the next season. First, she is interested only in those furniture that is designed for use outdoors. Second, she wants to start with the type that has the most inventory. Third, she wants to limit the sale to the top 20 furniture models, irrespective of brand or purpose. Fourth, she wants the manufacturer's suggested retail price (MSRP). Lastly, she wants to know what the price would be if that product were 40% off the MSRP.
+- Return the furniture name, model, and current inventory, ordered by inventory descending, but only the twenty products with the greatest inventory.
+
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
+
+SELECT ?productName ?productModelValue ?inventoryValue ?productMSRP ?tentativeSalePrice
+WHERE {
+  ?product ro:instance_of homedev:outdoorFurniture .
+  ?product ro:has_value homedev:inventoryValue .
+  BIND (?productMSRP * 0.8 AS ?tentativeSalePrice)
+}
+```
+**Problem 6-3.**
+Find all constructed languages present in written works, that are not Star Wars lore.
+
+**Problem 6-4.**
+Find all musicians born in 1960s, who were members of some grunge band that was based in Seattle.
+
+**Problem 6-5.**
+
+**Problem 6-6.**
+
+**Problem 6-7.**
+
+**Problem 6-8.**
+
+**Problem 6-9.**
+
+**Problem 6-10.**
+
+
+
+
+
+
+
+
 
 **Problem 5-1.**
 - List all senators or congresspersons who held office in a state that is not the state of their birthplace. Return both birthplace state and state in which they held office.
@@ -217,9 +245,9 @@ SELECT * WHERE
       ?person ro:has_role ?SenatorRole ;
       ?SenatorRole a ontopol:politicalOfficerRole ;
       ?politicalOfficerRole ontopol:authority_in ?State ;
-      BIND (?State) AS ?officeState .
+      BIND(?State AS ?officeState) .
       ?person ontopol:has_birthplace ?State ;
-      BIND (?State) AS ?birthState .
+      BIND(?State AS ?birthState) .
       }
 }
 UNION
@@ -227,9 +255,9 @@ UNION
       ?person ro:has_role ?congressPersonRole ;
       ?congressPersonRole a ontopol:politicalOfficerRole ;
       ?politicalOfficerRole ontopol:authority_in ?State ;
-      BIND (?State) AS ?officeState .
+      BIND(?State AS ?officeState) .
       ?person ontopol:has_birthplace ?State ;
-      BIND (?State) AS ?birthState .
+      BIND(?State AS ?birthState) .
       }
 }
 FILTER(?birthState != ?officeState)
@@ -256,8 +284,6 @@ WHERE {
 ```
 
 **Problem 5-3.**
-
-Setup prompt
 - The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
 - Give the name of the institution and number of students of a post-secondary educational institution located in California with the highest enrollment of students (undergrad and grad together).
 ```
@@ -273,12 +299,14 @@ WHERE {
                BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
 }
 ```
-- Difficulty level: KATA-5
 
+**Problem 5-4.**
+
+**Problem 5-5.**
+
+**Problem 5-6.**
 
 **Problem 4-1.**
-
-Setup prompt
 - Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
 - Display the name of the oldest 25 ziggurats, current country location, name of associated culture when it was formed, and estimated age. Order by estimated age, descending (or date of completion ascending).
 ```
@@ -297,14 +325,9 @@ WHERE {
 }
 ORDER BY ASC(?estimatedCompletionDate)
 LIMIT 25
-
 ```
-- Difficulty level: KATA-4
-
 
 **Problem 4-2.**
-
-Setup prompt
 - Find all public elections for president held in sovereign states that were formerly members of the USSR and not currently dissolved. Display the country and the winner as well.
 - Note: be sensitive to the open world assumption.
 ```
@@ -323,4 +346,3 @@ WHERE {
   FILTER (?status != "Dissolved") .
 }
 ```
-- Difficulty level: KATA-4
