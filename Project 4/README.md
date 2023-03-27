@@ -45,3 +45,64 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
+
+**Problem 1.**
+
+Setup prompt
+- Find all camera products manufactured by Canon, displaying their name (cam-ont:productName), model number (cam-ont:modelValue), release date (cam-ont:.
+
+Short query description / question
+- Who has been a president of the USA at some time?
+
+SPARQL solution
+```
+PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT ?subject
+WHERE {
+      ?subject obo:has_role ?PresidentialRole
+      ?PresidentialRole ontopol:authority_in ontopol:United_States.
+    }
+```
+
+
+Setup prompt
+- Find all people who have held office for some time as a president for the United States of America. Using OBO and Poli-Ont classes and relations.
+
+Short query description / question
+- Who has been a president of the USA at some time?
+
+SPARQL solution
+```
+PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT ?subject
+WHERE {
+      ?subject obo:has_role ?PresidentialRole
+      ?PresidentialRole ontopol:authority_in ontopol:United_States.
+    }
+```
+
+Difficulty: KATA LEVEL 8
+
+**Problem 2.**
+
+Setup prompt
+- Find all people who have held office for some time as a president for the United States of America. Using OBO and Poli-Ont classes and relations.
+
+Short query description / question
+- Who has been a president of the USA at some time?
+
+SPARQL solution
+```
+SELECT ?subject ?label
+WHERE {
+      ?subject obo:has_role ?PresidentialRole
+      ?PresidentialRole poli-ont:authority_in poli-ont:United_States.
+    }
+```
+
+**Problem 3.**
+
