@@ -6,10 +6,10 @@
 
 Comment: I've attempted almost 30 problems.
  - Kata-8's x 1 = 0
- - Kata-7's x 10 = 20
- - Kata-6's x 10 = 30
+ - Kata-7's x 8 = 20
+ - Kata-6's x 8 = 24
  - Kata-5's x 6 = 30
- - Kata-4's x 2 = 20
+ - Kata-4's x 3 = 30
 
 My problems are given in the following format: "Problem [Kata level]-[instance]"
 
@@ -118,63 +118,72 @@ WHERE {
 ```
 
 **Problem 7-7.**
-- A store manager is assessing what summer furniture needs to be put on sale. First, she is interested only in those furniture that is designed for outdoors. Second, she wants to start with the type that has the most inventory. Third, she wants to limit the sale to the top 5 furniture models, irrespective of brand.
-- Return the furniture name, model, and current inventory, ordered by inventory descending, but only the five models with the greatest inventory.
+- A catalog should display all lighting fixture models that have a multi-brightness function and can be connected as an Internet of Things device (IoT).
+- Return the product name, product model, current price, and current inventory that fit this criteria.
 
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?productName ?productModelValue ?inventoryValue
+SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
 WHERE {
-  ?product ro:instance_of homedev:outdoorFurniture ;
-           ro:composed_primarily_ of ?material ;
-           homedev:has_sale_price ?salePriceValueUSD .
-  FILTER (?function != homedev:twoShelf && 
-          ?salePriceValueUSD < 150 && 
-          ?material = homedev:woodMaterial && 
-          ?material != homedev:metalwireMaterial)
+        ?product ro:instance_of homedev:LightingFixture ;
+        ?product ro:has_function homedev:multiSettingBrightness ;
+        ?product ro:has_function homedev:internetOfThingsConnection .
 }
 ```
 
 **Problem 7-8.**
-- 
-- L
+- A sample ballot for a local county should display all candidates who are running in an upcoming election.
+- Return the candidate name, candidate's political affiliation, and candidate's website address.
 
 ```
-PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+borked
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?facility
+SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
 WHERE {
-      ?facility rdf:type touronot:Lighthouse .
+        ?product ro:instance_of homedev:LightingFixture ;
+        ?product ro:has_function homedev:multiSettingBrightness ;
+        ?product ro:has_function homedev:internetOfThingsConnection .
 }
 ```
 
 **Problem 7-9.**
-- 
-- L
+- A sample ballot for a local county should display all candidates who are running in an upcoming election.
+- Return the candidate name, candidate's political affiliation, and candidate's website address.
 
 ```
-PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+borked
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?facility
+SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
 WHERE {
-      ?facility rdf:type touronot:Lighthouse .
+        ?product ro:instance_of homedev:LightingFixture ;
+        ?product ro:has_function homedev:multiSettingBrightness ;
+        ?product ro:has_function homedev:internetOfThingsConnection .
 }
 ```
 
 **Problem 7-10.**
-- 
-- L
+- A sample ballot for a local county should display all candidates who are running in an upcoming election.
+- Return the candidate name, candidate's political affiliation, and candidate's website address.
 
 ```
-PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+borked
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?facility
+SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
 WHERE {
-      ?facility rdf:type touronot:Lighthouse .
+        ?product ro:instance_of homedev:LightingFixture ;
+        ?product ro:has_function homedev:multiSettingBrightness ;
+        ?product ro:has_function homedev:internetOfThingsConnection .
 }
 ```
+
 
 **Problem 6-1.**
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
@@ -301,6 +310,19 @@ WHERE {
 ```
 
 **Problem 5-4.**
+Register a block of unused VINs.
+
+Take fields from multiple tables to generate a unique VIN. The third field is a check-digit, which in this case will be "9". Your manufacturing plant will only be assigning 1000. Lastly, verify that the output is exactly 17 characters long.
+
+The order of VIN construction: 
+
+WMI (ontomobile:worldManufacturerIdentifier)
+Vehicle attributes (ontomobile
+Check digit
+Model year
+Plant code
+Sequential number
+
 
 **Problem 5-5.**
 
@@ -344,5 +366,37 @@ WHERE {
            dbp-prop:status ?status .
   
   FILTER (?status != "Dissolved") .
+}
+```
+
+**Problem 4.3**
+A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
+
+Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
+
+```
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ncit: <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT ?specimen ?age ?test_result ?state
+WHERE {
+  ?specimen a ncit:C7057, ?type .
+  FILTER (?type IN (obo:OBI_0000299, obo:OBI_0002026))  # blood or bone marrow
+  ?specimen dct:subject ?subject .
+  ?subject ncit:C16960 ?gender ;  # gender
+           ncit:C25197 ?age ;     # age
+           ncit:C32701 ?state .   # state
+  FILTER (?gender = ncit:C16576)   # female
+  FILTER (?age < 25^^xsd:integer)  # younger than 25
+  OPTIONAL {
+    ?subject ncit:C25194 ?test .  # cancer test
+    ?test ncit:C25195 ?test_result ;
+          ncit:C25196 ncit:C25205 .  # negative result
+  }
+  FILTER (!bound(?test_result))   # no positive cancer test
+  FILTER (?state IN (ncit:C34404, ncit:C34403, ncit:C34410, ncit:C34405))  # IL, IN, MI, or OH
 }
 ```
