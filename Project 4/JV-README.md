@@ -6,10 +6,10 @@
 
 Comment: I've attempted almost 30 problems.
  - Kata-8's x 1 = 0
- - Kata-7's x 8 = 20
- - Kata-6's x 8 = 24
- - Kata-5's x 6 = 30
- - Kata-4's x 3 = 30
+ - Kata-7's x 10 = 20
+ - Kata-6's x 5 = 15
+ - Kata-5's x 5 = 25
+ - Kata-4's x 4 = 40
 
 My problems are given in the following format: "Problem [Kata level]-[instance]"
 
@@ -151,37 +151,10 @@ WHERE {
 ```
 
 **Problem 7-9.**
-- A sample ballot for a local county should display all candidates who are running in an upcoming election.
-- Return the candidate name, candidate's political affiliation, and candidate's website address.
-
+- find all persons who have a passport issued, the person has not left the country, and the person is over the age of 25
+- borked: to be filled in
 ```
 borked
-PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX homedev: <http://homeandgarden.com/ontology/>
-
-SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
-WHERE {
-        ?product ro:instance_of homedev:LightingFixture ;
-        ?product ro:has_function homedev:multiSettingBrightness ;
-        ?product ro:has_function homedev:internetOfThingsConnection .
-}
-```
-
-**Problem 7-10.**
-- A sample ballot for a local county should display all candidates who are running in an upcoming election.
-- Return the candidate name, candidate's political affiliation, and candidate's website address.
-
-```
-borked
-PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX homedev: <http://homeandgarden.com/ontology/>
-
-SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
-WHERE {
-        ?product ro:instance_of homedev:LightingFixture ;
-        ?product ro:has_function homedev:multiSettingBrightness ;
-        ?product ro:has_function homedev:internetOfThingsConnection .
-}
 ```
 
 
@@ -217,31 +190,19 @@ WHERE {
 ```
 **Problem 6-3.**
 Find all constructed languages present in written works, that are not Star Wars lore.
+- borked: to be filled in
+```
+borked
+```
 
 **Problem 6-4.**
 Find all musicians born in 1960s, who were members of some grunge band that was based in Seattle.
+- borked: to be filled in
+```
+borked
+```
 
 **Problem 6-5.**
-
-**Problem 6-6.**
-
-**Problem 6-7.**
-
-**Problem 6-8.**
-
-**Problem 6-9.**
-
-**Problem 6-10.**
-
-
-
-
-
-
-
-
-
-**Problem 5-1.**
 - List all senators or congresspersons who held office in a state that is not the state of their birthplace. Return both birthplace state and state in which they held office.
 - This query calls for a disjunction. Be sensitive to what is being negated.
 ```
@@ -272,7 +233,15 @@ UNION
 FILTER(?birthState != ?officeState)
 ```
 
-**Problem 5-2.**
+**Problem 6-6.**
+- find all cars manufactured outside the USA, have 360 camera sensors, and rated by JD Power & Associates as having the highest rating in its class. Group by body type.
+- borked: to be filled in
+```
+borked
+```
+
+
+**Problem 5-1.**
 - A customer is searching for shelving and wants to filter results in a catalog online, with specific functionality and material type and within a price range.
 - Get the USD price for all shelves that are not two-shelf, that cost less than $150 USD, and are made out of wood rather than wire frame.
 ```
@@ -291,8 +260,7 @@ WHERE {
           ?material != homedev:metalwireMaterial)
 }
 ```
-
-**Problem 5-3.**
+**Problem 5-2.**
 - The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
 - Give the name of the institution and number of students of a post-secondary educational institution located in California with the highest enrollment of students (undergrad and grad together).
 ```
@@ -308,8 +276,7 @@ WHERE {
                BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
 }
 ```
-
-**Problem 5-4.**
+**Problem 5-3.**
 Register a block of unused VINs.
 
 Take fields from multiple tables to generate a unique VIN. The third field is a check-digit, which in this case will be "9". Your manufacturing plant will only be assigning 1000. Lastly, verify that the output is exactly 17 characters long.
@@ -324,9 +291,24 @@ Plant code
 Sequential number
 
 
-**Problem 5-5.**
+**Problem 5-4.**
+commerce: lettuce that was transported through AR or NE at risk for E Coli.
+construct: "recall" status for all such lettuce.
+- borked: to be filled in
+```
+borked
+```
 
-**Problem 5-6.**
+
+**Problem 5-5.**
+medical: person has genotype (string)
+         person has genotype (string)
+    construct: person has_predisposition testicularcancer
+- borked: to be filled in
+```
+borked
+``` 
+    
 
 **Problem 4-1.**
 - Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
@@ -400,3 +382,8 @@ WHERE {
   FILTER (?state IN (ncit:C34404, ncit:C34403, ncit:C34410, ncit:C34405))  # IL, IN, MI, or OH
 }
 ```
+**Problem 4.4**
+political: find all persons who are registered to a phone and that phone had GPS location US Capitol on January 6, 2022
+    filter: not anyone who holds political office or member of the press
+    filter: only those who have criminal record == True
+    assert: bearer of "FBI watchlist member role"
