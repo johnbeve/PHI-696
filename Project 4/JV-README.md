@@ -46,63 +46,113 @@ It is your responsibility and the responsibility of your peers reviewing your su
 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
 
+** Jonathan's Kata's for SPARQL **
+
+Comment: I've attempted 20 problems.
+
 **Problem 1.**
 
 Setup prompt
-- Find all camera products manufactured by Canon, displaying their name (cam-ont:productName), model number (cam-ont:modelValue), release date (cam-ont:.
+- The following catalog contains camera products, according to their product name (ontocam:productName), model number (ontocam:modelValue), manufacturer (ontocam:manufacturer) and release date (ontocam:releaseDate).
+- Find all camera products manufactured by Canon, displaying their name, model number, release date.
 
-Short query description / question
-- Who has been a president of the USA at some time?
-
-SPARQL solution
 ```
-PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+PREFIX ontocam: <https://aperturescience.org/onto/>
 
-SELECT ?subject
+SELECT ?deviceLabel ?productName ?modelValue ?manufacturer ?releaseDate
 WHERE {
-      ?subject obo:has_role ?PresidentialRole
-      ?PresidentialRole ontopol:authority_in ontopol:United_States.
-    }
+      ?device ontocam:manufactured_by ontocam:Canon .
+}
 ```
+- Difficulty level: KATA-8
+- Running total points? 0
 
-
-Setup prompt
-- Find all people who have held office for some time as a president for the United States of America. Using OBO and Poli-Ont classes and relations.
-
-Short query description / question
-- Who has been a president of the USA at some time?
-
-SPARQL solution
-```
-PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
-
-SELECT ?subject
-WHERE {
-      ?subject obo:has_role ?PresidentialRole
-      ?PresidentialRole ontopol:authority_in ontopol:United_States.
-    }
-```
-
-Difficulty: KATA LEVEL 8
 
 **Problem 2.**
 
 Setup prompt
-- Find all people who have held office for some time as a president for the United States of America. Using OBO and Poli-Ont classes and relations.
-
-Short query description / question
+- List all of the people who have been president in the United States of America. The ontology does not have a 'president' class but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
 - Who has been a president of the USA at some time?
 
-SPARQL solution
 ```
-SELECT ?subject ?label
+PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT ?subject
 WHERE {
       ?subject obo:has_role ?PresidentialRole
-      ?PresidentialRole poli-ont:authority_in poli-ont:United_States.
+      ?PresidentialRole ontopol:authority_in ontopol:United_States.
     }
 ```
+- Difficulty level: KATA-7
+- Running total points? (0 + 2) = 2
+
 
 **Problem 3.**
 
+Setup prompt
+- A local militia group wants to rally potential troops for a coup and has access to the state of Oregon registry to look up demographic information. They only want to find males age 16 and older.
+- Find all males’ 16 years or older, and their mailing addresses.
+
+```
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?subject ?mbox
+WHERE {
+      ?subject foaf:birthday ?birthDate .
+      ?subject foaf:gender “male” .
+      ?subject foaf:mbox ?mbox .
+      FILTER (?birthdate < "2007-03-27T00:00:00+05:30"^^xsd:dateTime)
+}
+```
+- Difficulty level: KATA-7
+- Running total points? (0 + 2 + 2) = 4
+
+**Problem 4.**
+
+Setup prompt
+- You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
+- Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status
+
+```
+PREFIX itdev: <https://www.rando.org/ontology/>
+ 
+SELECT ?printerDevice ?warningStatus
+WHERE {
+      ?printer itdev:manufactured_by itdev:Brother .
+      ?printer itdev:device_status ?warningStatus .
+      ?warningStatus itdev:severity_level “High” .
+      OPTIONAL SELECT { ?warningStatus itdev:toner_value “Low” .}
+}
+```
+- Difficulty level: KATA-6
+- Running total points? (0 + 2 + 2 + 3) = 7
+
+**Problem 5.**
+
+Setup prompt
+- A customer is searching for shelving and wants to filter results in a catalog online, with specific functionality and material type and within a price range.
+- Get the USD price for all shelves that are not two-shelf, that cost less than $150 USD, and are made out of wood rather than wire frame.
+
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX bfo: <http://purl.obolibrary.org/obo/bfo.owl>
+PREFIX homedev: <http://homeandgarden.com/ontology/>
+
+SELECT ?shelves ?salePriceValueUSD
+WHERE {
+  ?shelves bfo:instance_of homedev:Shelf ;
+           ro:bearer_of ?function ;
+           ro:composed_primarily_ of ?material ;
+           homedev:has_sale_price ?salePriceValueUSD .
+  FILTER (?function != homedev:twoShelf && 
+          ?salePriceValueUSD < 150 && 
+          ?material = homedev:woodMaterial && 
+          ?material != homedev:metalwireMaterial)
+}
+
+```
+- Difficulty level: KATA-5
+- Running total points? (0 + 2 + 2 + 3 + 5) = 12
