@@ -2,55 +2,16 @@
 
 [Codewars](https://www.codewars.com/dashboard) is a website designed to facilitate algorithmic training for various programming languages. Users supply problem statements and others provide coding solutions to those problems. For example, you might find a problem for Python such as: 
 
-```
-Define a function that returns the length of a given string. 
-```
-
-With a solution like: 
-
-```
-def length_of_string(s):
-	return len(s)
-```
-	
-Codewars is not limited to traditional programming languages like Python, but also facilitates training for languages like SQL. As you have learned, SQL and SPARQL are both query languages, but what might surprise you is that there is currently no option for training SPARQL in Codewars. This project will go some way to remedy that. 
-
-For this project, you will be tasked with constructing SPARQL problems for the codewars site. 
-
-```
-Note #1: Completion of this task will not require you to actually have your SPARQL problems successfully posted to codewars. Adding problems to codewars takes more time than we have for this project. Additionally, you are only allowed to add propose problems to codewars if you have a certain amount of experience (specifically, you need 300 of what they call 'honor points', which is acquired by solving problems). At some point, assuming you permit it, I will post your problems to codewars (giving you credit of course). 
-Note #2: The potential for this project to directly impact the ontology community is clear. SPARQL can be challenging, and there are few opportunities for drill practice like this. 
-Note #3: You will not be required to learn a programming language, though you will likely need to expand your comfort with computer science jargon; if you hit a wall, ask your peers for help; if the wall persists, ask me. 
-Note #4: Codewars provides a guidebook - https://docs.codewars.com/authoring/tutorials/create-first-kata/ - for creating problems; I strongly encourage you to read it, since the standard provided there is how I will be evaluating success. 
-```
-**Assignment Details**
-
-Problems on Codewars are ranked in terms of difficulty. The lowest "kata" - 8 - indicates a rather easy problem, while the highest kata - 1 - indicates a very challenging problem. 
-
-For our purposes, harder kata will be worth more points than easier kata, and you are required to submit enough kata to acquire 100 points according to the following point system: 
-
-  |   **kata**    |  **points**   |
-  | ------------- | ------------- |
-  |       1       |      35       |
-  |       2       |      25       |
-  |       3       |      20       |
-  |       4       |      10       |
-  |       5       |       5       |
-  |       6       |       3       |
-  |       7       |       2       |
-  |       8       |       0       |
-
-You're probably thinking, "why would I submit a level 8 kata if they're not worth any points?" Great question. Because everyone had to submit at least one level 8 kata. Otherwise, you're permitted to submit kata in any distribution you choose. For example, you might submit 2 problems for kata one (70 points), one for kata 3 (20 points), one for kata 4 (10 points), and one for kata 8 (0 points but required). 
-
-It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
-
-There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
-
 ** Jonathan's Kata's for SPARQL **
 
-Comment: I've attempted 20 problems.
+Comment: I've attempted 30 problems.
+ - Kata-8's x 1 = 0
+ - Kata-7's x 10 = 20
+ - Kata-6's x 15 = 45
+ - Kata-5's x 5 = 25
+ - Kata-4's x 2 = 20
 
-**Problem 1.**
+**Problem 8-1.**
 
 Setup prompt
 - The following catalog contains camera products, according to their product name (ontocam:productName), model number (ontocam:modelValue), manufacturer (ontocam:manufacturer) and release date (ontocam:releaseDate).
@@ -68,27 +29,42 @@ WHERE {
 - Running total points? 0
 
 
-**Problem 2.**
+**Problem 7-1.**
 
 Setup prompt
 - List all of the people who have been president in the United States of America. The ontology does not have a 'president' class but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
 - Who has been a president of the USA at some time?
 
 ```
-PREFIX obo: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 
 SELECT ?subject
 WHERE {
-      ?subject obo:has_role ?PresidentialRole
+      ?subject ro:has_role ?PresidentialRole ;
       ?PresidentialRole ontopol:authority_in ontopol:United_States.
     }
 ```
 - Difficulty level: KATA-7
-- Running total points? (0 + 2) = 2
 
+**Problem 7-2.**
 
-**Problem 3.**
+Setup prompt
+- List all of the furniture that has been recalled for reason of child safety. In this RDF model, all furniture has an active safety status of "Approved" or "Recalled".
+
+```
+PREFIX furnont: <https://fillingbetterhomes.org/oit/furnitureontology.owl>
+
+SELECT ?commonName ?safetyStatus
+WHERE {
+      ?furniture rdfs:label ?commonName ;
+            furnont:has_safety_status "Recalled" ;
+            furnont:recalled_reason "Child Safety" .
+    }
+```
+- Difficulty level: KATA-7
+
+**Problem 7-3.**
 
 Setup prompt
 - A local militia group wants to rally potential troops for a coup and has access to the state of Oregon registry to look up demographic information. They only want to find males age 16 and older.
@@ -101,19 +77,74 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?subject ?mbox
 WHERE {
-      ?subject foaf:birthday ?birthDate .
-      ?subject foaf:gender “male” .
-      ?subject foaf:mbox ?mbox .
+      ?subject foaf:birthday ?birthDate ;
+            foaf:gender “male” ;
+            foaf:mbox ?mbox .
       FILTER (?birthdate < "2007-03-27T00:00:00+05:30"^^xsd:dateTime)
 }
 ```
 - Difficulty level: KATA-7
-- Running total points? (0 + 2 + 2) = 4
 
-**Problem 4.**
+**Problem 7-4.**
 
 Setup prompt
 - A tour guide in western Michigan wants to create a new lighthouses tour, based on lighthouses that provide support for boats on Lake Michigan, but from Michigan's side and only on the lower peninsula.
+- Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
+
+```
+PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse ;
+            touronto:located_in touronto:LowerPeninsulaMichigan ;
+            touronto:nearby_location touronto:LakeMichigan .
+}
+```
+- Difficulty level: KATA-7
+
+
+**Problem 7-5.**
+
+Setup prompt
+- The National Park and Recreation Department is concerned about recent adverse changes in natural habitat for the ruby-throated thrush. Find all parks that may be affected by these conservation efforts.
+- Return all parks that are the natural habits of ruby-throated thrush.
+
+```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
+
+SELECT ?park
+WHERE {
+      ?park ro:located_in bfo:site ;
+      bfo:site touronto:contains_habitat touronto:naturalHabitat ;
+      touronto:naturalHabitat touronto:habitat_of zoo:rubyThroatedThrush .
+}
+```
+- Difficulty level: KATA-7
+
+**Problem 7-6.**
+
+Setup prompt
+- Find all cameras manufacturerd by 
+- Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
+
+```
+PREFIX ontocam: <https://aperturescience.org/onto/>
+
+SELECT ?facility
+WHERE {
+      ?facility rdf:type touronot:Lighthouse .
+      ?facility touronto:located_in touronto:LowerPeninsulaMichigan .
+      ?facility touronto:nearby_location touronto:LakeMichigan .
+}
+```
+- Difficulty level: KATA-7
+
+**Problem 7-7.**
+
+Setup prompt
+- 
 - Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
 
 ```
@@ -127,7 +158,8 @@ WHERE {
 }
 ```
 - Difficulty level: KATA-7
-- Running total points? (0 + 2 + 2 + 2) = 6
+
+
 
 **Problem 5.**
 
@@ -147,7 +179,6 @@ WHERE {
 }
 ```
 - Difficulty level: KATA-6
-- Running total points? (0 + 2 + 2 + 2 + 3) = 9
 
 **Problem 6.**
 
@@ -172,7 +203,6 @@ WHERE {
 }
 ```
 - Difficulty level: KATA-5
-- Running total points? (0 + 2 + 2 + 2 + 3 + 5) = 14
 
 
 **Problem 7.**
@@ -194,11 +224,9 @@ WHERE {
 }
 ```
 - Difficulty level: KATA-5
-- Running total points? (0 + 2 + 2 + 2 + 3 + 5 + 5) = 19
 
 
-
-**Problem 8.**
+**Problem 4-1.**
 
 Setup prompt
 - Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
@@ -222,4 +250,27 @@ LIMIT 25
 
 ```
 - Difficulty level: KATA-4
-- Running total points? (0 + 2 + 2 + 2 + 3 + 5 + 5 +10) = 29
+
+
+**Problem 4-2.**
+
+Setup prompt
+- Find all public elections for president held in sovereign states that were formerly members of the USSR and not currently dissolved. Display the country and the winner as well.
+- Note: be sensitive to the open world assumption.
+```
+PREFIX dbp-prop: <http://dbpedia.org/property/>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+
+SELECT DISTINCT ?election ?electionWinner ?country
+WHERE {
+  ?election a ontopol:Public_Election ;
+            ontopol:candidate_office ontopol:President ;
+            dbp-prop:located_in ?country .
+
+  ?country ontopol:member_of_union ontopol:Soviet_Union ;
+           dbp-prop:status ?status .
+  
+  FILTER (?status != "Dissolved") .
+}
+```
+- Difficulty level: KATA-4
