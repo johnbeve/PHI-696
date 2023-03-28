@@ -1,0 +1,101 @@
+PREFIX ex: <http://example.org/ns/>
+PREFIX wiki: <http://dbpedia.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://w3.org/2002/07/owl#>
+PREFIX rdfs: <http://w3.org/2000/01/rdf-schema#>
+
+
+
+Ali's Kata 8 question: Find the area code used for phone lines in Seattle.
+
+SELECT ?o
+WHERE {dbr:Seattle dbo:areaCode ?o}
+
+--------------------------
+Ali’s Kata 7 question: SELECT queries are used for selecting bindings for variables, but you can also ask YES/NO questions that can be used to decide whether to include a specific section of the reporting software, or support software to make recommendations.
+To do so, we use the ASK keyword. For example, for the question “Did Elton John have an occupation?” we could ask
+
+ASK WHERE { dbr:Elton_John dbo:occupation ?any }  
+
+The answer would be True (yes). Your assignment is to ask a similar question about Aristotle by using FILTER.
+You must also have your answer as False (no).
+
+Solution:
+ASK WHERE { FILTER NOT EXISTS { dbr:Elton_John dbo:occupation ?any }}
+
+--------------------------
+Ali’s Kata 6 question: Write a query using the following prefixes to find data featuring information about SPARQL; mentions, has features of, or just has the keyword “SPARQL” appear in it. Make sure your code grabs the most amount of data that have something to do with SPARQL and 
+ 
+PREFIX ex: <http://example.org/ns/>
+PREFIX wiki: <http://dbpedia.org/resource/>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?s ?p ?o 
+WHERE {
+    { 
+      ?s ex:hasFeature wiki:SPARQL . }
+    UNION {
+      ?s schema:mentions wiki:SPARQL . }
+    UNION {
+      ?s schema:keywords "SPARQL" . }
+}
+LIMIT 100
+
+--------------------------
+Ali's Kata 5 question (not working!!!): You can write queries to see which specific class(es) are the most used ones as subject/predicate/object in an ontology. 
+Write a query to find what is the most used subject and object in the OWL dataset.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class (MAX(?s) AS ?number)
+WHERE {
+    {
+      ?class ?p ?o . }
+    UNION {
+      ?s ?p ?class . }
+}
+
+--------------------------
+Ali's Kata 4 question: Make a SPARQL query that uses dbpedia to construct a graph of all cities with a population greater that one million.
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/resource/>
+
+CONSTRUCT {
+  ?city rdf:type dbo:City ;
+        dbo:populationTotal ?population ;
+        dbo:abstract ?abstract ;
+        dbo:thumbnail ?thumbnail ;
+        dbo:country ?country .
+} WHERE {
+  ?city rdf:type dbo:City ;
+        dbo:populationTotal ?population ;
+        dbo:abstract ?abstract ;
+        dbo:thumbnail ?thumbnail ;
+        dbo:country ?country .
+  
+  FILTER (?population > 1000000)
+}
+
+--------------------------
+Ali's Kata 4 question: Using FILTER is a way to narrow down your result based on any form of specifity you'd like in SPARQL.
+Write a SPARQL query that searches for living people (or those with no dbo:deathDate vlaue) who have an occupation with an English label that contains the words "Graphic" and "novelist."
+Use "http://dbpedia.org/ontology/" and "http://www.w3.org/2000/01/rdf-schema#" for your PREFIX. And limit your search to 5 individuals.
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?person ?occupation WHERE {
+    ?person rdf:type dbo:Person .
+    ?person dbo:occupation ?occupation .
+    ?occupation rdfs:label ?label .
+    FILTER(LANG(?label) = "en").
+    FILTER(CONTAINS(?label, "Graphic")).
+    FILTER(CONTAINS(?label, "novelist")).
+    FILTER NOT EXISTS {
+      ?person dbo:deathDate ?deathDate .
+    }
+} 
+LIMIT 5
+
+--------------------------
