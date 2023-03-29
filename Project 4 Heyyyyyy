@@ -29,7 +29,8 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points."
 
-Ideas:
+Problems:
 1. Give me 5 different shades (subclasses) of blue (wikidata)
-2. Tell me 10 different shampoo products that have been banned for their ingredients (wikidata)
 3. (Level 8) What date was adobe flash player discontinued?
+4. Give me 5 strawberry-based dessert recipes that will serve at least 24 people.
+5. Give me 10 of the most famous poets from Buffalo organized by genre.
