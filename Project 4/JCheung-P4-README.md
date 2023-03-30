@@ -91,17 +91,17 @@ Hint: You must use both the ASK and SELECT query forms and your ASK request must
 
 ```
 PREFIX ex: <http://example.org/food/>
-PREFIX ex: <http://example.org/chickenWing/>
-PREFIX ex: <http://example.org/cookingMethod/>
+PREFIX ex2: <http://example.org/chickenWing/>
+PREFIX ex3: <http://example.org/cookingMethod/>
 
 ASK {
   ?chickenWing ex:food ;
-               ex:type ex:chickenWing ;
-               ex:cookingMethod ?cookingMethod .
+               ex2:type ex2:chickenWing ;
+               ex3:cookingMethod ?cookingMethod .
   {
     SELECT DISTINCT ?cookingMethod  
     WHERE {
-      ?chickenWing ex:cookingMethod ?cookingMethod .
+      ?chickenWing ex3:cookingMethod ?cookingMethod .
     }
   }
   HAVING (COUNT(DISTINCT ?cookingMethod) > 1)
@@ -111,4 +111,72 @@ ASK {
 
 
 ___
-Kata Level 6--  
+
+**Theme: Enter the Dōjō: Master the Basics of SPARQL**
+___
+
+**Kata Level 6—Enter the Dōjō: SPARQL’s Four Query Forms**
+
+**Description:**
+
+You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
+
+Hint: You may query any data set. However, the four query forms must be used on the same data set.
+
+1.	Run SELECT queries when you want to find and return all of the data that matches certain patterns.
+
+2.	Run CONSTRUCT queries when you want to create or transform data based on the existing data.
+
+3.	Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
+
+4.	Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
+
+**Reference Solution:**
+
+```
+PREFIX ex: < http://example.org/ontology/>
+PREFIX ex2: < http://example.org/chicken_wing/>>
+
+SELECT ?cuisine 
+WHERE {
+  ?cuisine ex:type ex2:Chicken_wings .
+}
+
+CONSTRUCT {
+  ?cuisine ex:isPartOf ?region .
+}
+
+WHERE {
+  ?cuisine ex:type ex2:Chicken_wings .
+  ?cuisine ex:isPartOf ?region .
+}
+
+ASK {
+  ?cuisine ex:type ex2:Chicken_wings .
+  FILTER NOT EXISTS {
+    ?cuisine ex:genre ?genre .
+    FILTER (?genre != ex2:Chicken_wing)
+  }
+}
+
+DESCRIBE ?cuisine ?region 
+WHERE {
+  ?cuisine ex:type ex2:Chicken_wings .
+  ?cuisine ex:isPartOf ?region .
+}
+
+**Explanation of the query:**
+
+This query attempts to retrieve all chicken wing cuisine styles in order to construct a new data set which relates chicken wing cuisine styles to their respective regions of origin. The following is a description of each query form and their specific functions for this query.
+
+1.	The first SELECT query retrieves all cuisines that have the type Chicken_wings.
+2.	The CONSTRUCT query constructs a new data set by adding the dbo:isPartOf property to each cuisine. This property relates each cuisine to its region.
+3.	The ASK query checks whether all the retrieved cuisines have the genre Chicken_wing. If there exists a cuisine that has a genre other than Chicken_wing, the query returns false. Otherwise, it returns true.
+4.	The DESCRIBE query describes the cuisines and their regions by retrieving all the properties of each cuisine and its region.
+```
+
+
+
+___
+
+**Kata Level 6—Enter the Dōjō: SPARQL’s Four Query Forms**
