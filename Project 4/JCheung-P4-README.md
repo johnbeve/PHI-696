@@ -125,7 +125,7 @@ ___
 **Description:**
 
 ```
-You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
+You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry and act as “offensive” moves, i.e. action-forward tools. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
 
 Hint: You may query any data set. However, the four query forms must be used on the same data set.
 
