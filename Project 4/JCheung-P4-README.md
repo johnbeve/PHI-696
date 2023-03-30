@@ -133,6 +133,8 @@ Hint: You may query any data set. However, the four query forms must be used on 
 2.	Run CONSTRUCT queries when you want to create or transform data based on the existing data.
 3.	Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
 4.	Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
+
+(1-4 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/query-forms.htm)
 ```
 
 **Reference Solution:**
@@ -200,6 +202,7 @@ Hint: You may query any data set. However, the four query clauses and the two ad
 4.	The required WHERE clause defines the data that the query operates against.
 5.	FILTER applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
 6.	UNION includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
+
 (1-6 Cited from Cambridge Semantics:  https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/query-clauses.htm)
 ```
 
