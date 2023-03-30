@@ -251,4 +251,91 @@ ___
 
 **[5] Kata Level 5 (5 pts, total pts accrued: 13 pts): Enter the Dōjō: SPARQL’s Seven WHERE Condition Clauses (Series 3)**
 
+**Description:**
+
+```
+If you completed the second stage of Enter the Dōjō, well done! You are well on your way to becoming proficient in the SPARQL query foundational basics. Let us continue our training.
+
+You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms and the four “defensive”, i.e. action-delimiting query clauses. However, the WHERE query clause itself has seven different condition clauses that can delimit a query.
+
+Here is the challenge: Construct a query with the seven WHERE condition clauses: BIND, FILTER, MINUS, OPTIONAL, SERVICE, UNION, and VALUES.
+
+These are essentially seven “defensive” moves, i.e. delimiting conditions, for your query. 
+
+To be a true master SPARQL queryist, you must be creative. Think innovatively in using all seven WHERE condition clauses in one query.
+
+Hint: You may query any data set, but the data set(s) must be related to the aims of the overall query. 
+
+	1. BIND: Assigns the results of an expression to a new variable.
+	2. FILTER: Applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
+	3. MINUS: Subtracts matches from the result based on the evaluation of the pattern that you specify.
+	4. OPTIONAL: Tries to match a graph pattern but does not fail to return results if the optional match fails.
+	5. SERVICE: Queries remote data at a SPARQL endpoint.
+	6. UNION: Includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
+	7. VALUES: Enables users to include data in a graph pattern to filter results on more specific requirements. The data is joined with the results of the query evaluation.
+
+(1-7 Cited from Cambridge Semantics:  https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/where.htm)
+```
+
+**Reference Solution:**
+
+```
+PREFIX ex: < http://example.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?chickenPart
+WHERE {
+  {
+    SELECT ?chickenCuisine
+    WHERE {
+      ?chickenCuisine a ex:ChickenDish.
+    }
+    SERVICE <https://query.wikidata.org/sparql> {
+      ?chickenCuisine wdt:P31/wdt:P279* wd:Q27994917.
+      ?chickenCuisine rdfs:label ?label.
+      FILTER(lang(?label) = "en").
+    }
+  }
+  OPTIONAL {
+    ?chickenCuisine dbp:mainIngredient ?ingredient.
+    ?ingredient rdfs:label ?ingredientLabel.
+    FILTER(lang(?ingredientLabel) = "en").
+    {
+      MINUS {
+        ?ingredient wdt:P279 wd:Q873716.
+      }
+      MINUS {
+        ?ingredient wdt:P279 wd:Q104664167.
+      }
+    }
+    FILTER(?ingredientLabel IN ("chicken wings", "chicken thighs", "chicken legs", "chicken feet")).
+    BIND(IF(?ingredientLabel IN ("chicken legs", "chicken feet"), "chickenLegsAndFeet", ?ingredientLabel) AS ?chickenPart).
+  }
+  VALUES ?chickenPart { "chicken skin" }
+  {
+    ?chickenCuisine dbp:mainIngredient ?ingredient.
+    ?ingredient rdfs:label ?ingredientLabel.
+    FILTER(lang(?ingredientLabel) = "en").
+    FILTER(?ingredientLabel IN ("chicken wings", "chicken thighs", "chicken legs", "chicken feet")).
+    BIND(IF(?ingredientLabel IN ("chicken legs", "chicken feet"), "chickenLegsAndFeet", ?ingredientLabel) AS ?chickenPart).
+  } UNION {
+    VALUES ?chickenPart { "chicken wings", "chicken thighs", "chicken legs", "chicken feet", "chickenLegsAndFeet" }
+  }
+}
+
+**Explanation of the query:**
+
+This query attempts to query for a selection of varying chicken cuisine styles as outline below:
+
+1.	The first part of the query selects all chicken cuisine styles from example.org by querying for all instances of the ex:ChickenDish class.
+2.	The SERVICE clause is used to query Wikidata for the subclass of "chicken cuisine" (Q27994917) that each selected chicken cuisine style belongs to, as well as its English label.
+3.	The OPTIONAL clause is used to query for all ingredients used in each chicken cuisine style. The MINUS clause is used to remove chicken head and chicken gizzard from the results.
+4.	The FILTER clause is used to select only the chicken parts that we are interested in (chicken wings, chicken thighs, chicken legs, and chicken feet). If the ingredient label is one of these parts, it is bound to the variable ?chickenPart.
+5.	The BIND clause is used to create a new variable ?chickenPart that represents both chicken legs and chicken feet. This is done because later in the query, we will be using a UNION clause to combine all the chicken parts into a single result set, and we want to treat chicken legs and chicken feet as a single category.
+6.	The VALUES clause is used to add a new value to the ?chickenPart variable: "chicken skin".
+7.	Finally, the UNION clause is used to combine all the chicken parts into a single result set. 
+```
+
 
