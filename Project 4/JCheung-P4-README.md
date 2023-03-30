@@ -339,3 +339,8 @@ This query attempts to query for a selection of varying chicken cuisine styles a
 ```
 
 
+
+___
+[6] Kata Level 5 (5 pts, total pts accrued: 18 pts): Enter the Dōjō: SPARQL’s Solution Modifiers Part 1 Clauses (Series 4)
+
+
