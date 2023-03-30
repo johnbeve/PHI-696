@@ -58,21 +58,17 @@ Hint: Inventor is not the category name that you should construct your SPARQL qu
 
 Reference Solution (and answer):
 
+```
 PREFIX dbo: <http://dbpedia.org/ontology/>
-
 PREFIX dbr: <http://dbpedia.org/resource/>
-
 PREFIX dbp: <http://dbpedia.org/property/>
 
 SELECT ?creator
-
 WHERE {
-
   dbr:Buffalo_wing dbp:creator
-  
- ?creator .
- 
+ ?creator . 
 }
+```
 
 Answer:
 
@@ -85,43 +81,33 @@ https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREF
 ___
 **Kata Level 7—There Exists Only Buffalo Wings or Nah?**
 
-Description:
+**Description:**
 
 Another dispute arises between friends while eating Buffalo wings. One Buffalo wing lover proclaimed, “There is only one chicken wing in the world, BUFFALO WINGS!” A friend exclaimed, “Have you ever heard of Nashville Hot Fried Chicken?!”, while yet another said, “What about the other KFC,  Korean Fried Chicken?!” To settle this dispute, you as the burgeoning SPARQL queryist will create a SPARQL query to (1) determine whether it is true or false that there are multiple kinds of ways to cook chicken wings than merely Buffalo wings and (2) if it is true that there are differently cooked chicken wings, retrieve a list of those chicken wings. 
 
 Hint: You must use both the ASK and SELECT query forms and your ASK request must result in “true”.
 
-Reference Solution:
+**Reference Solution:**
 
+```
 PREFIX ex: <http://example.org/food/>
-
 PREFIX ex: <http://example.org/chickenWing/>
-
 PREFIX ex: <http://example.org/cookingMethod/>
 
 ASK {
-
   ?chickenWing ex:food ;
-  
                ex:type ex:chickenWing ;
-	       
                ex:cookingMethod ?cookingMethod .
-  
   {
-  
-    SELECT DISTINCT ?cookingMethod 
-    
+    SELECT DISTINCT ?cookingMethod  
     WHERE {
-    
       ?chickenWing ex:cookingMethod ?cookingMethod .
-      
     }
-    
   }
-  
   HAVING (COUNT(DISTINCT ?cookingMethod) > 1)
-  
 }
+```
+
 
 
 ___
