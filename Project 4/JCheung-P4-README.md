@@ -49,12 +49,15 @@ There is one other option for those desiring a different sort of challenge. If y
 
 
 ___
-**Kata Level 8—Who Invented the Buffalo Wing?**
+**[1] Kata Level 8 (0 pts, total pts accrued: 0pts): Who Invented the Buffalo Wing?**
 
 Description (and problem):
+
+```
 There is a dispute about which restaurant invented the Buffalo wing in Buffalo, New York. Using a SPARQL query, retrieve the name of the restaurant who is credited for being the home of the first Buffalo wing. 
 
 Hint: Inventor is not the category name that you should construct your SPARQL query with if using dbpedia.org. That is, dbo:inventor will not retrieve the right result. 
+```
 
 Reference Solution (and answer):
 
@@ -79,13 +82,15 @@ https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREF
 
 
 ___
-**Kata Level 7—There Exists Only Buffalo Wings or Nah?**
+**[2] Kata Level 7 (2 pts, total pts accrued: 2pts): There Exists Only Buffalo Wings or Nah?**
 
 **Description:**
 
+```
 Another dispute arises between friends while eating Buffalo wings. One Buffalo wing lover proclaimed, “There is only one chicken wing in the world, BUFFALO WINGS!” A friend exclaimed, “Have you ever heard of Nashville Hot Fried Chicken?!”, while yet another said, “What about the other KFC,  Korean Fried Chicken?!” To settle this dispute, you as the burgeoning SPARQL queryist will create a SPARQL query to (1) determine whether it is true or false that there are multiple kinds of ways to cook chicken wings than merely Buffalo wings and (2) if it is true that there are differently cooked chicken wings, retrieve a list of those chicken wings. 
 
 Hint: You must use both the ASK and SELECT query forms and your ASK request must result in “true”.
+```
 
 **Reference Solution:**
 
@@ -112,24 +117,23 @@ ASK {
 
 ___
 
-**Theme: Enter the Dōjō: Master the Basics of SPARQL**
+**Theme: Enter the Dōjō: Master the Basics of SPARQL Series**
 ___
 
-**Kata Level 6—Enter the Dōjō: SPARQL’s Four Query Forms**
+**[3] Kata Level 6 (3 pts, total pts accrued: 5 pts): Enter the Dōjō: SPARQL’s Four Query Forms (1)**
 
 **Description:**
 
+```
 You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
 
 Hint: You may query any data set. However, the four query forms must be used on the same data set.
 
 1.	Run SELECT queries when you want to find and return all of the data that matches certain patterns.
-
 2.	Run CONSTRUCT queries when you want to create or transform data based on the existing data.
-
 3.	Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
-
 4.	Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
+```
 
 **Reference Solution:**
 
@@ -179,4 +183,69 @@ This query attempts to retrieve all chicken wing cuisine styles in order to cons
 
 ___
 
-**Kata Level 6—Enter the Dōjō: SPARQL’s Four Query Forms**
+**[4] Kata Level 6 (3 pts, total pts accrued: 8 pts): Enter the Dōjō: SPARQL’s Four Query Clauses (Series 2)**
+
+**Description:**
+
+```
+If you completed the first stage of Enter the Dōjō, well done! You are well on your way to becoming proficient in the SPARQL foundational basics. Let us continue our training. 
+
+You are a beginning SPARQL queryist and must now learn the four basic SPARQL query clauses. These four query clauses will lay the foundation of your query artistry and act as “defensive” moves, i.e. action-delimiting tools. Construct one SPARQL query that utilizes all four SPARQL query clauses: the PREFIX, result, FROM, and WHERE clauses. Note: within the range of capacity of the WHERE clause, there are seven additional conditional clauses that you may use. However, for our purposes, as we are beginning SPARQL queryists, use FILTER and UNION in this query also. 
+
+Hint: You may query any data set. However, the four query clauses and the two additional FILTER and UNION clauses must be used on the same data set.
+
+1.	The optional PREFIX clause declares the abbreviations that you want to use to reference URIs in the query.
+2.	The required result clause specifies the type of query and defines the data that the query should return (identified in the SELECT section)
+3.	The optional FROM clause defines the data sets or graphs to query.
+4.	The required WHERE clause defines the data that the query operates against.
+5.	FILTER applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
+6.	UNION includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
+(1-6 Cited from Cambridge Semantics:  https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/query-clauses.htm)
+```
+
+**Reference Solution:**
+
+```
+PREFIX ex: < http://example.org/ontology/>
+PREFIX ex2: < http://example.org/chicken_wing/>
+
+SELECT ?cuisineLabel 
+FROM < http://example.org>
+WHERE {
+  {
+    SELECT ?cuisine 
+WHERE {
+      ?cuisine rdf:type ex:Food .
+      ?cuisine ex:type ex2:Chicken_wings .
+    }
+  }
+  UNION
+  {
+    SELECT ?cuisine 
+WHERE {
+      ?cuisine rdf:type ex:Food .
+      ?cuisine ex:type ex2:Chicken_thighs .
+    }
+  }
+  ?cuisine rdfs:label ?cuisineLabel .
+  FILTER (langMatches(lang(?cuisineLabel), "en"))
+}
+
+**Explanation of the query:**
+
+This query attempts to retrieve all chicken wing and chicken thigh cuisine styles by utilizing the four primary query clausesThe following is a description of each query form and their specific functions for this query.
+
+1.	The PREFIX declarations define two example prefixes as URIs.
+2.	The result clauses identified on the SELECT lines retrieves the English labels of all chicken wing and chicken thigh cuisines.
+3.	The FROM clause specifies the data source for the query. In this case, we're querying http://example.org.
+4.	The WHERE clause specifies the conditions that the resources must satisfy. We use two sub-queries, one for chicken wing cuisines and one for chicken thigh cuisines, and then UNION the results. Each sub-query retrieves any resources that have the type ex:Food and either the ex2:Chicken_wings or ex2:Chicken_thighs type, respectively.
+5.	The FILTER clause filters the results to only include the English labels.
+```
+
+
+
+___
+
+**[5] Kata Level 5 (5 pts, total pts accrued: 13 pts): Enter the Dōjō: SPARQL’s Seven WHERE Condition Clauses (Series 3)**
+
+
