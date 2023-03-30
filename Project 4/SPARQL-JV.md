@@ -37,7 +37,7 @@ PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 SELECT ?subject
 WHERE {
       ?subject ro:has_role ?PresidentialRole ;
-      ?PresidentialRole ontopol:authority_in ontopol:United_States.
+      ?PresidentialRole ontopol:authority_in ontopol:UnitedStates.
     }
 ```
 
@@ -57,15 +57,14 @@ WHERE {
 **Problem 7-3.**
 - A local militia group wants to rally potential troops for a coup and has access to the state of Oregon registry to look up demographic information. They only want to find males age 16 and older.
 - Find all males’ 16 years or older, and their mailing addresses.
-
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?subject ?mbox
+SELECT ?person ?mbox
 WHERE {
-      ?subject foaf:birthday ?birthDate ;
+      ?ontopol:Person foaf:birthday ?birthDate ;
             foaf:gender “male” ;
             foaf:mbox ?mbox .
       FILTER (?birthdate < "2007-03-27T00:00:00+05:30"^^xsd:dateTime)
@@ -136,27 +135,18 @@ WHERE {
 **Problem 7-8.**
 - A sample ballot for a local county should display all candidates who are running in an upcoming election.
 - Return the candidate name, candidate's political affiliation, and candidate's website address.
-
 ```
-borked
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
-PREFIX homedev: <http://homeandgarden.com/ontology/>
 
-SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
+SELECT ?PreferredName ?RegisteredPoliticalParty ?OfficialWebsiteURL
 WHERE {
-        ?product ro:instance_of homedev:LightingFixture ;
-        ?product ro:has_function homedev:multiSettingBrightness ;
-        ?product ro:has_function homedev:internetOfThingsConnection .
+        ?ontopol:Citizen ro:referred_by ?ontopol:PreferredName ;
+            ro:bearer_of ontopol:PoliticalCandidateRole ;
+            ontopol:affiliated_with ?ontopol:RegisteredPoliticalParty ;
+            ontopol:platform_described_by ?OfficialWebsiteURL .
 }
 ```
-
-**Problem 7-9.**
-- find all persons who have a passport issued, the person has not left the country, and the person is over the age of 25
-- borked: to be filled in
-```
-borked
-```
-
 
 **Problem 6-1.**
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
@@ -196,10 +186,18 @@ borked
 ```
 
 **Problem 6-4.**
-Find all musicians born in 1960s, who were members of some grunge band that was based in Seattle.
-- borked: to be filled in
+- Find all persons who have a passport issued, the person has not left the country, and the person is over the age of 25
 ```
-borked
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+
+SELECT ?preferredName
+WHERE {
+        ?person ro:referred_by ?ontopol:preferredName ;
+            ontopol:issued_document ?ontopol:Passport .
+        FILTER (?age > 25) .
+        FILTER NOT EXISTS (?person ro:participates_in ontopol:ActOfCountryDeparture)
+}
 ```
 
 **Problem 6-5.**
@@ -238,6 +236,24 @@ FILTER(?birthState != ?officeState)
 - borked: to be filled in
 ```
 borked
+```
+
+**Problem 6-7.**
+- Find all musicians born in 1960s, who were members of some grunge band that was based in Seattle.
+```
+PREFIX ontomuse: <https://openmusicresources.org/schema/ontomuse.owl>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+
+SELECT ?Name
+WHERE {
+        ?ontomuse:Person ro:referred_by ?ontomuse:Name ;
+            foaf:birthday ?birthDate ;
+            ro:member_of ?MusicalGroup .
+        ?MusicalGroup ontomuse:has_genre ontomuse:Grunge ;
+            ontomuse:has_music_scene_locale ontomuse:Seattle_WA_USA .
+        FILTER (?foaf:birthdate > "1960-01-01T00:00:00+05:30"^^xsd:dateTime) .
+        FILTER (?foat:birthdate < "1970-01-01T00:00:00+05:30"^^xsd:dateTime)
+}
 ```
 
 
