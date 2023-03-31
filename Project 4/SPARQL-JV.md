@@ -296,6 +296,7 @@ WHERE {
           ?material != homedev:metalwireMaterial)
 }
 ```
+
 **Problem 5-2.**
 - The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
 - Give the name of the institution and number of students of a post-secondary educational institution located in California with the highest enrollment of students (undergrad and grad together).
@@ -312,29 +313,55 @@ WHERE {
                BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
 }
 ```
+
 **Problem 5-3.**
-Register a block of unused VINs.
+- Your goal is to register a block of unused VINs. Take fields from multiple tables to generate a unique VIN. The third field is a check-digit, which in this case will be "9". Your manufacturing plant will only be assigning 1000, starting at sequence number 31337. Lastly, verify that the output is exactly 17 characters long.
+-The order of VIN construction: 
+- - WMI (ontomobile:WorldManufacturerIdentifier)
+- - Vehicle attributes (ontomobile:VehicleAttributeCode)
+- - Check digit
+- - Model year (ontomobile:VehicleModel (a subclass of ArtifactModel))
+- - Plant code (ontomobile:ManufacturerPlantCode)
+- - Sequential number (ontombile:VehicleSequenceValue)
+```
+PREFIX ontomobile: <http://carscarscars.org/schemas/ontology/ontomobile.owl>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
-Take fields from multiple tables to generate a unique VIN. The third field is a check-digit, which in this case will be "9". Your manufacturing plant will only be assigning 1000. Lastly, verify that the output is exactly 17 characters long.
-
-The order of VIN construction: 
-
-WMI (ontomobile:worldManufacturerIdentifier)
-Vehicle attributes (ontomobile
-Check digit
-Model year
-Plant code
-Sequential number
-
+CONSTRUCT REDUCED { ?Vehicle ontomobile:has_serial ?VehicleIdentificationNumber }
+WHERE {
+		?Vehicle ontomobile:designated_by ?VehicleSequenceValue ;
+			ontomobile:manufactured_by ?Manufacturer ;
+			ontomobile:manufactured_at_location ?ManufactuingPlant ;
+			ontomobile:prescribed_by ?ArtifactModel ;
+			ontomobile:described_by ?VehicleAttributeCode ;
+			ontomobile:has_production_year ?ProductionYear .
+		?Manufacturer ontomobile:has_WMI_value ?WorldManufacturerIdentifier .
+		?ManufacturingPlant ontomobile:has_plant_code ?ManufacturerPlantCode .
+		FILTER (?VehicleSequenceValue > "31336")
+		ORDER BY ?VehicleSequenceValue ASC
+        LIMIT 1000
+		BIND(CONCAT(?WorldManufacturerIdentifier, ?VehicleAttributeCode, STR(9), ?VehicleModel, ?ProductionYear ?ManufacturerPlantCode, ?VehicleSequenceValue)) AS ?VehicleIdentificationNumber
+}
+```
 
 **Problem 5-4.**
-commerce: lettuce that was transported through AR or NE at risk for E Coli.
-construct: "recall" status for all such lettuce.
-- borked: to be filled in
+- Find all public elections for president held in sovereign states that were formerly members of the USSR and not currently dissolved. Display the country and the winner as well. Declare that state to bear a "NATO friend" role.
+- Note: be sensitive to the open world assumption.
 ```
-borked
-```
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 
+CONSTRUCT { ?country ro:bearer_of ?ontopol:NATOFriendRole . }
+WHERE {
+		?election a ontopol:Public_Election ;
+			ontopol:candidate_office ontopol:President ;
+			ro:located_in ?country .
+		?country ontopol:member_of_union ontopol:Soviet_Union ;
+			ro:has_status ?status .
+		FILTER (?status != "Dissolved") .
+}
+```
 
 **Problem 5-5.**
 medical: person has genotype (string)
@@ -368,29 +395,35 @@ LIMIT 25
 ```
 
 **Problem 4-2.**
-- Find all public elections for president held in sovereign states that were formerly members of the USSR and not currently dissolved. Display the country and the winner as well.
-- Note: be sensitive to the open world assumption.
+- An E. coli breakout has occurred recently and the culprit is contaminated iceberg lettuce pallets in the distribution for fastfood restaurants in the midwestern states. All pallets of lettuce that passed through distribution chains in Arkansas and Nebraska are at risk. Declare all such lettuce to bear an "E. coli risk" role and "recall" quality status, if they were present on shipping routes through these two states. (You must change the safety rating, and then assert a new triple that the pallet bears a risk role with construct)
 ```
-PREFIX dbp-prop: <http://dbpedia.org/property/>
-PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+PREFIX foodservont: <http://industrialontologyfoundry.org/ontology/extension/foodservice.owl>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
-SELECT DISTINCT ?election ?electionWinner ?country
+DELETE {
+		?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
+		?FoodSafetyRating ro:has_value "Safe" . 
+		}
+INSERT {
+		?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
+		?FoodSafetyRating ro:has_value "Recall" .
+		}
+CONSTRUCT {
+		?Pallet ro:bearer_of ?EscherichiaColiRiskRole . 
+		?
 WHERE {
-  ?election a ontopol:Public_Election ;
-            ontopol:candidate_office ontopol:President ;
-            dbp-prop:located_in ?country .
-
-  ?country ontopol:member_of_union ontopol:Soviet_Union ;
-           dbp-prop:status ?status .
-  
-  FILTER (?status != "Dissolved") .
+		?Pallet foodservont:contains_food_stuff ?Lettuce ;
+			ro:participates_in ?ShippingProcess .
+		?ShippingProcess ro:has_participant ?ShippingRoute .
+		?ShippingRoute ro:has_part ?ShippingStop .
+		?ShippingStop ro:has_location {foodservant:Nebraska_USA|foodservant:Arkansas_USA}
 }
 ```
 
-**Problem 4.3**
-A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
 
-Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
+**Problem 4.3**
+- A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
+- Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
 
 ```
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
