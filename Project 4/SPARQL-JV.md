@@ -364,13 +364,17 @@ WHERE {
 ```
 
 **Problem 5-5.**
-medical: person has genotype (string)
-         person has genotype (string)
-    construct: person has_predisposition testicularcancer
-- borked: to be filled in
+- New research shows that men who have the.
 ```
-borked
-``` 
+PREFIX ontokrebs: <http://purl.obolibrary.org/obo/krebs.owl>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+
+construct { ?person has_predisposition testicularcancer
+WHERE {
+	ontokrebs: medical: person has genotype (string)
+        person has genotype (string)
+}
+```
     
 
 **Problem 4-1.**
@@ -414,17 +418,16 @@ CONSTRUCT {
 WHERE {
 		?Pallet foodservont:contains_food_stuff ?Lettuce ;
 			ro:participates_in ?ShippingProcess .
-		?ShippingProcess ro:has_participant ?ShippingRoute .
-		?ShippingRoute ro:has_part ?ShippingStop .
-		?ShippingStop ro:has_location {foodservant:Nebraska_USA|foodservant:Arkansas_USA}
+		?ShippingRoute ro:participates_in ?ShippingProcess ;
+			ro:has_part ?ShippingStop .
+		?ShippingStop ro:has_location {foodservant:Nebraska_USA|foodservant:Arkansas_USA} .
 }
 ```
-
 
 **Problem 4.3**
 - A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
 - Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
-
+- NOTE: This is largely from ChatGPT, generated 2023-03-25
 ```
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
