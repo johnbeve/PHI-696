@@ -241,6 +241,7 @@ FILTER(?birthState != ?officeState)
 
 **Problem 6-6.**
 - Find all cars manufactured outside the USA, have 360 camera sensors, and rated by JD Power & Associates as having the highest rating in its class. Group by body type.
+```
 PREFIX ontomobile: <http://carscarscars.org/schemas/ontology/ontomobile.owl>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
@@ -417,6 +418,7 @@ WHERE {
   FILTER (?state IN (ncit:C34404, ncit:C34403, ncit:C34410, ncit:C34405))  # IL, IN, MI, or OH
 }
 ```
+
 **Problem 4.4**
 political: find all persons who are registered to a phone and that phone had GPS location US Capitol on January 6, 2022
     filter: not anyone who holds political office or member of the press
