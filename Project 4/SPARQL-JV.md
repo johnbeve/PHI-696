@@ -127,8 +127,8 @@ PREFIX homedev: <http://homeandgarden.com/ontology/>
 SELECT ?productName ?productModelValue ?productPriceUSD ?inventoryValue
 WHERE {
         ?product ro:instance_of homedev:LightingFixture ;
-        ?product ro:has_function homedev:multiSettingBrightness ;
-        ?product ro:has_function homedev:internetOfThingsConnection .
+                ro:has_function homedev:multiSettingBrightness ;
+                ro:has_function homedev:internetOfThingsConnection .
 }
 ```
 
@@ -151,7 +151,6 @@ WHERE {
 **Problem 6-1.**
 - You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
 - Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status.
-
 ```
 PREFIX itdev: <https://www.rando.org/ontology/>
  
@@ -163,10 +162,10 @@ WHERE {
       OPTIONAL SELECT { ?printer itdev:toner_value “Low” .}
 }
 ```
+
 **Problem 6-2.**
 - A store manager is assessing what Summer furniture needs to be put on sale before the next season. First, she is interested only in those furniture that is designed for use outdoors. Second, she wants to start with the type that has the most inventory. Third, she wants to limit the sale to the top 20 furniture models, irrespective of brand or purpose. Fourth, she wants the manufacturer's suggested retail price (MSRP). Lastly, she wants to know what the price would be if that product were 40% off the MSRP.
 - Return the furniture name, model, and current inventory, ordered by inventory descending, but only the twenty products with the greatest inventory.
-
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX homedev: <http://homeandgarden.com/ontology/>
@@ -178,11 +177,20 @@ WHERE {
   BIND (?productMSRP * 0.8 AS ?tentativeSalePrice)
 }
 ```
+
 **Problem 6-3.**
-Find all constructed languages present in written works, that are not Star Wars lore.
-- borked: to be filled in
+Find all constructed languages present in written works, that are not Star Wars lore, and what those works are.
 ```
-borked
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontolit: <http://litararyworlds.org/literature-ontology/ontolit.ttl>
+
+SELECT ?conLang ?literaryArtifact
+WHERE {
+        ?sentence ontolit:in_language ?conLang ;
+            ro:part_of ?litraryArtifact .
+        ?litraryArtifact ontolit:has_literary_world ?literaryWorld .
+  FILTER !regext(?litraryArtifact ro:has_literary_world ontolit:StarWarsUniverse)
+}
 ```
 
 **Problem 6-4.**
@@ -232,11 +240,22 @@ FILTER(?birthState != ?officeState)
 ```
 
 **Problem 6-6.**
-- find all cars manufactured outside the USA, have 360 camera sensors, and rated by JD Power & Associates as having the highest rating in its class. Group by body type.
-- borked: to be filled in
+- Find all cars manufactured outside the USA, have 360 camera sensors, and rated by JD Power & Associates as having the highest rating in its class. Group by body type.
+PREFIX ontomobile: <http://carscarscars.org/schemas/ontology/ontomobile.owl>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+
+SELECT ?Vehicle ?VehicleBodyType
+WHERE {
+        ?Vehicle ontomobile:ro:manufactured_by ?Manufacturer ;
+            ro:has_part ?360CameraSystem ;
+            ontomobile:has_body_type ?VehicleBodyType ;
+            ontomobile:has_quality_rating ?QualityRating .
+        FILTER MAX(?QualityRating ontomobile:rated_by ontomobile:JDPowerAndAssociates ) .
+        GROUP BY ?VehicleBodyType .
+}
 ```
-borked
-```
+
 
 **Problem 6-7.**
 - Find all musicians born in 1960s, who were members of some grunge band that was based in Seattle.
