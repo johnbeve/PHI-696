@@ -316,13 +316,13 @@ WHERE {
 
 **Problem 5-3.**
 - Your goal is to register a block of unused VINs. Take fields from multiple tables to generate a unique VIN. The third field is a check-digit, which in this case will be "9". Your manufacturing plant will only be assigning 1000, starting at sequence number 31337. Lastly, verify that the output is exactly 17 characters long.
--The order of VIN construction: 
- - WMI (ontomobile:WorldManufacturerIdentifier)
- - Vehicle attributes (ontomobile:VehicleAttributeCode)
- - Check digit
- - Model year (ontomobile:VehicleModel (a subclass of ArtifactModel))
- - Plant code (ontomobile:ManufacturerPlantCode)
- - Sequential number (ontombile:VehicleSequenceValue)
+- The order of VIN construction:
+- WMI (ontomobile:WorldManufacturerIdentifier)
+- Vehicle attributes (ontomobile:VehicleAttributeCode)
+- Check digit
+- Model year (ontomobile:VehicleModel (a subclass of ArtifactModel))
+- Plant code (ontomobile:ManufacturerPlantCode)
+- Sequential number (ontombile:VehicleSequenceValue)
 ```
 PREFIX ontomobile: <http://carscarscars.org/schemas/ontology/ontomobile.owl>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
