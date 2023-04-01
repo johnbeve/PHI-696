@@ -2,7 +2,7 @@
 
 [Codewars](https://www.codewars.com/dashboard) is a website designed to facilitate algorithmic training for various programming languages. Users supply problem statements and others provide coding solutions to those problems. For example, you might find a problem for Python such as: 
 
-** Jonathan's Kata's for SPARQL **
+**Jonathan's Kata's for SPARQL**
 
 Comment: I've attempted almost 30 problems.
  - Kata-8's x 1 = 0
@@ -364,18 +364,24 @@ WHERE {
 ```
 
 **Problem 5-5.**
-- New research shows that men who have the.
+- Suppose that new research shows that males are at heightened risk for testicular cancer if they have the conjunction of two genes, erbB-2 (Receptor tyrosine-protein kinase erbB-2) and PMS2 (Mismatch repair endonuclease PMS2). However, those whose mitochondrial haplogroup L0, L1, L2, L4, L5, L6 (i.e., L1-L6, except L3) are not yet known to be significantly affected. Notifications must be sent out about the incidental findings to patients who have received DNA testing. So clinicians want to tag all patients in their database as having a "cancer vulnerability role" when they meet the aforementioned criteria. Assert two triples that reflects this new information about such persons: the person has a predisposition to testicular cancer, and the person bears a cancer vulnerability role.
 ```
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 PREFIX ontokrebs: <http://purl.obolibrary.org/obo/krebs.owl>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
-construct { ?person has_predisposition testicularcancer
+CONSTRUCT {
+	?Person ontokrebs:has_predisposition ?TesticularCancer .
+	?Person ro:bearer_of ?CancerVulnerabilityRole .
+	}
 WHERE {
-	ontokrebs: medical: person has genotype (string)
-        person has genotype (string)
+	?Person ontokrebs:has_DNA_sequence ontokrebs:Gene_erbB2 ;
+		ontokrebs:has_DNA_sequence ontokrebs:Gene_PMS2 ;
+		ontokrebs:has_chromosomal_sex ontokrebs:Male .
+		ontokrebs:has_haplogroup_family ?Haplogroup .
+	FILTER !regex(?Haplogroup = "L0"|"L1"|"L2"|"L4"|"L5"|"L6" )
 }
 ```
-    
 
 **Problem 4-1.**
 - Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
@@ -427,7 +433,8 @@ WHERE {
 **Problem 4.3**
 - A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
 - Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
-- NOTE: This is largely from ChatGPT, generated 2023-03-25
+- NOTE 1: This is largely from ChatGPT, generated 2023-03-25
+- NOTE 2: I am kinda hoping you rate this higher than Kata-4. Nudge.
 ```
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
