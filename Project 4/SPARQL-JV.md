@@ -4,12 +4,13 @@
 
 **Jonathan's Kata's for SPARQL**
 
-Comment: I've attempted almost 30 problems.
+Comment: I've attempted 25 problems.
  - Kata-8's x 1 = 0
- - Kata-7's x 10 = 20
- - Kata-6's x 5 = 15
+ - Kata-7's x 8 = 16
+ - Kata-6's x 7 = 21
  - Kata-5's x 5 = 25
  - Kata-4's x 4 = 40
+(this would be a total of 102 points, though if one of my Kata-4's is actually a Kata-3 please let me know!)
 
 My problems are given in the following format: "Problem [Kata level]-[instance]"
 
@@ -406,7 +407,7 @@ LIMIT 25
 ```
 
 **Problem 4-2.**
-- An E. coli breakout has occurred recently and the culprit is contaminated iceberg lettuce pallets in the distribution for fastfood restaurants in the midwestern states. All pallets of lettuce that passed through distribution chains in Arkansas and Nebraska are at risk. Declare all such lettuce to bear an "E. coli risk" role and "recall" quality status, if they were present on shipping routes through these two states. (You must change the safety rating, and then assert a new triple that the pallet bears a risk role with construct)
+- An E. coli breakout has occurred recently and the culprit is contaminated iceberg lettuce pallets in the distribution for fastfood restaurants in the midwestern states. All pallets of lettuce that passed through distribution chains in Arkansas and Nebraska are at risk. Declare all such lettuce to bear an "E. coli risk" role and "recall" quality status, if they were present on shipping routes through these two states. (You must change the safety rating, and then assert a new triple that the pallet bears a risk role with CONSTRUCT or a similar function)
 ```
 PREFIX foodservont: <http://industrialontologyfoundry.org/ontology/extension/foodservice.owl>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
@@ -421,7 +422,7 @@ INSERT {
 	}
 CONSTRUCT {
 	?Pallet ro:bearer_of ?EscherichiaColiRiskRole . 
-	?
+	}
 WHERE {
 	?Pallet foodservont:contains_food_stuff ?Lettuce ;
 		ro:participates_in ?ShippingProcess .
@@ -435,7 +436,7 @@ WHERE {
 - A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
 - Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
 - NOTE 1: This is largely from ChatGPT, generated 2023-03-25
-- NOTE 2: I am kinda hoping you rate this higher than Kata-4. Nudge.
+- NOTE 2: I am kinda hoping you rate this as a Kata-3. Nudge.
 ```
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -464,7 +465,34 @@ WHERE {
 ```
 
 **Problem 4.4**
-political: find all persons who are registered to a phone and that phone had GPS location US Capitol on January 6, 2022
-    filter: not anyone who holds political office or member of the press
-    filter: only those who have criminal record == True
-    assert: bearer of "FBI watchlist member role"
+- The FBI wants to put several people on a watchlist if they have performed some suspicious activity. Suppose that they wanted to put anyone on the watchlist who fit the following conditions: the person owns a phone that was present at the US Capital Building on January 6, 2022. There are some ways to connect the device to the building by finding such cases where the mobile device has certain GPS coordinates and communicating with the cell tower such information. This would be too hasty, except that they want to prioritize those who have had a criminal record (bearer of 'FormerCriminalRole') and not a political figure nor a journalist ('PoliticalOfficeRole' and 'JournalistRole', respectively).
+- Assert with CONSTRUCT that such persons bear a FBIWatchlistMemberRole
+- NOTE: Feel free to tell me that this is a Kata-3?
+```
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
+PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
+PREFIX telephont: <https://telephonyontology.org/schema/telephont/>
+
+CONSTRUCT REDUCED {
+	?Person ro:bearer_of ?FBIWatchlistMemberRole . 
+	}
+WHERE {
+	?MobileDevice ro:participates_in ?CellTowerCommunicationProcess;
+		telephont:has_phone_model ?PhoneModel ;
+		telephont:has_latitude_value ?LatitudeValue ; 
+		telephont:has_longitude_value ?LongitudeValue ;
+	?Person telephont:has_phone_carrier ?PhoneCarrier ;
+		telephont:has_phone_model ?PhoneModel .
+	?CellTowerCommunicationProcess ro:has_part ?TowerCommunicationProcessSegment .
+	?TowerCommunicationProcessSegment cco:occurs_on "2021-01-06T14:30:00+06:00" .
+	FILTER ( regex( ?LatitudeValue, "^38.888"|"^38.889"|"^38.89") ) .
+	FILTER ( regex( ?LongitudeValue, "^-77.008"|"^-77.009"|"^-77.01") ) .
+	FILTER EXISTS (?Person cco:described_by ?FormerCriminalRole )
+	FILTER NOT EXISTS (?Person ro:bearer_of ?PoliticalOfficeRole ) .
+	FILTER NOT EXISTS (?Person ro:bearer_of ?JournalistRole ) .
+}
+
+```
+
+..._phew_!
