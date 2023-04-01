@@ -385,20 +385,21 @@ WHERE {
 
 **Problem 4-1.**
 - Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
-- Display the name of the oldest 25 ziggurats, current country location, name of associated culture when it was formed, and estimated age. Order by estimated age, descending (or date of completion ascending).
+- Display the name of the oldest 25 ziggurats, current country location, name of associated culture when it was formed, and estimated age. Optionally, display whether it was a religious building, and display as artifact of that religion. Order by estimated age, descending (or date of completion ascending).
 ```
 PREFIX anthro: <http://anthropologywiki.org/schema/ontology/>
 
-SELECT ?zigguratName ?countryName ?cultureName ?estimatedCompletionDate
+SELECT ?zigguratName ?countryName ?cultureName ?estimatedCompletionDate ?religiousArtifact
 WHERE {
-  ?ziggurat a anthro:Building ;
-            rdfs:type anthro:Ziggurat ;
-            anthro:location_in ?country ;
-            anthro:cultural_originator ?culture ;
-            anthro:formation_datecompleted ?estimatedCompletionDate .
-  ?country rdfs:label ?countryName .
-  ?culture rdfs:label ?cultureName .
-  FILTER(lang(?cultureName) = 'en')
+	?ziggurat a anthro:Building ;
+		rdfs:type anthro:Ziggurat ;
+		anthro:location_in ?Country ;
+		anthro:cultural_originator ?Culture ;
+		anthro:date_completed ?EstimatedCompletionDate .
+	?Country rdfs:label ?countryName .
+	?Culture rdfs:label ?cultureName .
+	OPTIONAL { ?Building anthro:religious_site_of ?Religion .
+  		BIND exists(?Building anthro:religious_site_of ?Religion) AS ?ReligiousArtifact }
 }
 ORDER BY ASC(?estimatedCompletionDate)
 LIMIT 25
@@ -411,22 +412,22 @@ PREFIX foodservont: <http://industrialontologyfoundry.org/ontology/extension/foo
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
 DELETE {
-		?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
-		?FoodSafetyRating ro:has_value "Safe" . 
-		}
+	?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
+	?FoodSafetyRating ro:has_value "Safe" . 
+	}
 INSERT {
-		?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
-		?FoodSafetyRating ro:has_value "Recall" .
-		}
+	?Pallet foodservont:has_quality_rating ?FoodSafetyRating . 
+	?FoodSafetyRating ro:has_value "Recall" .
+	}
 CONSTRUCT {
-		?Pallet ro:bearer_of ?EscherichiaColiRiskRole . 
-		?
+	?Pallet ro:bearer_of ?EscherichiaColiRiskRole . 
+	?
 WHERE {
-		?Pallet foodservont:contains_food_stuff ?Lettuce ;
-			ro:participates_in ?ShippingProcess .
-		?ShippingRoute ro:participates_in ?ShippingProcess ;
-			ro:has_part ?ShippingStop .
-		?ShippingStop ro:has_location {foodservant:Nebraska_USA|foodservant:Arkansas_USA} .
+	?Pallet foodservont:contains_food_stuff ?Lettuce ;
+		ro:participates_in ?ShippingProcess .
+	?ShippingRoute ro:participates_in ?ShippingProcess ;
+		ro:has_part ?ShippingStop .
+	?ShippingStop ro:has_location {foodservant:Nebraska_USA|foodservant:Arkansas_USA} .
 }
 ```
 
