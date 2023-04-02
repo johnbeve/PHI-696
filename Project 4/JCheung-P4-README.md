@@ -1150,7 +1150,7 @@ WHERE {
 
 Part 4: Query for sequence property path pattern (growth) on the saved US national data RDF file
 
-# LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
+# LOAD the new graph 1
 LOAD <file:///path/to/file.rdf1>
 INTO GRAPH <http://example.com/newgraph1>
 
@@ -1178,7 +1178,7 @@ ORDER BY ?date1
 
 Part 5: Query for Sequence Property Path Pattern (Growth) on the Saved US State Data RDF File
 
-# LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
+# LOAD the new graph 2
 LOAD <file:///path/to/file.rdf2>
 INTO GRAPH <http://example.com/newgraph2>
 
@@ -1296,6 +1296,165 @@ Hint: GPS
 **Reference Solution:**
 
 ```
+Part 1: Create a query that retreives latitude and longitude coordinates outlining the shape and border of the United States as a whole. 
+
+PREFIX ont: <http://example.org/ontology/>
+PREFIX geo: <http://example.org/geo/>
+
+CONSTRUCT {
+  ?borderNode geo:lat ?lat ;
+              geo:long ?long ;
+              geo:border ?border ;
+              geo:country "United States" .
+}
+WHERE {
+  {
+    SELECT ?border (SAMPLE(?latitude) AS ?lat) (SAMPLE(?longitude) AS ?long) (COUNT(?coordinate) AS ?number)
+    WHERE {
+      ?coordinate geo:lat ?latitude ;
+                  geo:long ?longitude ;
+                  geo:border ?border ;
+                  geo:country "United States" .
+    
+      VALUES ?border { "west" "north" "east" "south" }
+    }
+    GROUP BY ?border
+    HAVING (COUNT(?coordinate) >= 50)
+  }
+
+  BIND (IRI(CONCAT("http://example.org/border/", ?border)) AS ?borderNode)
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf1>
+WHERE {
+  # The above SPARQL query goes here
+}
+# DROP the retrieved data
+DROP { ?s ?p ?o }
+WHERE {
+  # The above SPARQL query goes here
+}
+
+This query first retrieves 50 latitude and longitude coordinates for each border (west, north, east, and south), and then uses the CONSTRUCT clause to create a new graph with the information. The BIND statement is used to create a new IRI for each border node in the constructed graph.
+
+
+
+Part 2: Create a query that retreives latitude and longitude coordinates outlining the shape and border of all 50 US states and the US's five territories (for this exercise, we will call them states), as well as retrieving the latitude and longitude midpoint coordinates of each.
+
+PREFIX ont: <http://example.org/ontology/>
+PREFIX geo: <http://example.org/geo/>
+
+CONSTRUCT {
+  ?borderNode geo:lat ?lat ;
+              geo:long ?long ;
+              geo:border ?border ;
+              geo:state ?state ;
+              geo:country "United States" .
+
+  ?midpointNode geo:lat ?midpointLat ;
+                geo:long ?midpointLong ;
+                geo:state ?state ;
+                geo:country "United States" .
+}
+WHERE {
+  {
+    SELECT ?state ?border (SAMPLE(?latitude) AS ?lat) (SAMPLE(?longitude) AS ?long) (COUNT(?coordinate) AS ?number)
+    WHERE {
+      ?coordinate geo:lat ?latitude ;
+                  geo:long ?longitude ;
+                  geo:border ?border ;
+                  geo:state ?state ;
+                  geo:country "United States" .
+      
+      VALUES ?border { "west" "north" "east" "south" }
+      VALUES ?state {
+        "Alabama" "Alaska" "Arizona" "Arkansas" "California" "Colorado" "Connecticut" "Delaware" "Florida" "Georgia"
+        "Hawaii" "Idaho" "Illinois" "Indiana" "Iowa" "Kansas" "Kentucky" "Louisiana" "Maine" "Maryland"
+        "Massachusetts" "Michigan" "Minnesota" "Mississippi" "Missouri" "Montana" "Nebraska" "Nevada" "New Hampshire" "New Jersey"
+        "New Mexico" "New York" "North Carolina" "North Dakota" "Ohio" "Oklahoma" "Oregon" "Pennsylvania" "Rhode Island" "South Carolina"
+        "South Dakota" "Tennessee" "Texas" "Utah" "Vermont" "Virginia" "Washington" "West Virginia" "Wisconsin" "Wyoming"
+        "American Samoa" "Guam" "Northern Mariana Islands" "Puerto Rico" "U.S. Virgin Islands"
+      }
+    }
+    GROUP BY ?state ?border
+    HAVING (COUNT(?coordinate) >= 50)
+    BIND (IRI(CONCAT("http://example.org/border/", REPLACE(STR(?state), " ", "_"), "/", ?border)) AS ?borderNode)
+  }
+
+  UNION
+
+  {
+    SELECT ?state (AVG(?latitude) AS ?midpointLat) (AVG(?longitude) AS ?midpointLong)
+    WHERE {
+      ?coordinate geo:lat ?latitude ;
+                  geo:long ?longitude ;
+                  geo:state ?state ;
+                  geo:country "United States" .
+      
+      VALUES ?state {
+        "Alabama" "Alaska" "Arizona" "Arkansas" "California" "Colorado" "Connecticut" "Delaware" "Florida" "Georgia"
+        "Hawaii" "Idaho" "Illinois" "Indiana" "Iowa" "Kansas" "Kentucky" "Louisiana" "Maine" "Maryland"
+        "Massachusetts" "Michigan" "Minnesota" "Mississippi" "Missouri" "Montana" "Nebraska" "Nevada" "New Hampshire" "New Jersey"
+        "New Mexico" "New York" "North Carolina" "North Dakota" "Ohio" "Oklahoma" "Oregon" "Pennsylvania" "Rhode Island" "South Carolina"
+        "South Dakota" "Tennessee" "Texas" "Utah" "Vermont" "Virginia" "Washington" "West Virginia" "Wisconsin" "Wyoming"
+        "American Samoa" "Guam" "Northern Mariana Islands" "Puerto Rico" "U.S. Virgin Islands"
+      }
+    }
+    GROUP BY ?state
+    BIND (IRI(CONCAT("http://example.org/midpoint/", REPLACE(STR(?state), " ", "_"))) AS ?midpointNode)
+  }
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf2>
+WHERE {
+  # The above SPARQL query goes here
+}
+
+Part 3: Combine the two newly constructed graphs, perform a final comparative inverse, sequence, and matching property path pattern analysis on all border nodes for all 50 states and the 5 territories.  
+
+# LOAD the new graph 1
+LOAD <file:///path/to/file.rdf1>
+INTO GRAPH <http://example.com/newgraph1>
+
+PREFIX ont: <http://example.org/ontology/>
+PREFIX geo: <http://example.org/geo/>
+PREFIX ex1: <http://example.com/newgraph1>
+PREFIX ex2: <http://example.com/newgraph2>
+
+CONSTRUCT {
+  ?usBorderNode geo:matchedStateBorder ?stateBorderNode .
+}
+WHERE {
+  GRAPH ex1:newgraph1 {
+    ?usBorderNode geo:lat ?usLat ;
+                  geo:long ?usLong ;
+                  geo:border ?usBorder .
+  }
+  GRAPH ex2:newgraph2 {
+    ?stateBorderNode geo:lat ?stateLat ;
+                     geo:long ?stateLong ;
+                     geo:border ?stateBorder ;
+                     geo:state ?state .
+  }
+
+  VALUES ?state {
+    "Alabama" "Alaska" "Arizona" "Arkansas" "California" "Colorado" "Connecticut" "Delaware" "Florida" "Georgia"
+    "Hawaii" "Idaho" "Illinois" "Indiana" "Iowa" "Kansas" "Kentucky" "Louisiana" "Maine" "Maryland"
+    "Massachusetts" "Michigan" "Minnesota" "Mississippi" "Missouri" "Montana" "Nebraska" "Nevada" "New Hampshire" "New Jersey"
+    "New Mexico" "New York" "North Carolina" "North Dakota" "Ohio" "Oklahoma" "Oregon" "Pennsylvania" "Rhode Island" "South Carolina"
+    "South Dakota" "Tennessee" "Texas" "Utah" "Vermont" "Virginia" "Washington" "West Virginia" "Wisconsin" "Wyoming"
+    "American Samoa" "Guam" "Northern Mariana Islands" "Puerto Rico" "U.S. Virgin Islands"
+  }
+
+  FILTER (?usBorder = ?stateBorder)
+  FILTER (?usLat = ?stateLat && ?usLong = ?stateLong)
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf3>
+WHERE {
+  # The above SPARQL query goes here
+}
+
 
 
 **Explanation of the query:**
