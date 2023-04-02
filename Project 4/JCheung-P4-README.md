@@ -749,7 +749,7 @@ You are hired to make a new case for Buffalo to actually hold the “gloomiest c
 **Reference Solution:**
 
 ```
-Part 1:
+Part 1: Construct a graph (Report 1) that supports the claim that Seattle is regarded as the gloomiest city in the United States.
 
 PREFIX : <http://example.org/data#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -818,7 +818,7 @@ WHERE {
 }
 
 
-Part 2:
+Part 2: Construct a second graph (Report 2) with new findings showing that Buffalo is actually the gloomiest city in the United States based off new markers.
 
 PREFIX : <http://example.org/data#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
