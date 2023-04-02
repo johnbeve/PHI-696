@@ -81,7 +81,8 @@ clients, the marketing manager Julia wants her secratory Jim to do the research 
 
 The secratory Jim plans to use his SPARQL knowledge and Wikidata Query Service to do the research. Jim names the query "Law firms in the US."
 
-# Law firms in the US
+```
+#Law firms in the US
 
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -108,7 +109,9 @@ WHERE {
     }
   
   OPTIONAL {
-    ?lawyer wdt:P108 ?item.  #since there is no data about how many lawyers in a law firm, I use COUNT to count the number lawyers whose emplyor is the law firm.
+    ?lawyer wdt:P108 ?item. 
+    #since there is no data about how many lawyers in a law firm, I use COUNT to count the number lawyers whose emplyor is the law firm.
+    ?lawyer wdt:P31 wd:Q5.    #?lawyer is a human. 
     }     
   
   OPTIONAL {
@@ -118,7 +121,28 @@ WHERE {
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
 }  
 
+```
+
 Query 3. (Kata 2)
 
+```
+
+Description: the ratio of politicians from politician families in China.
+
+A politician P from politician family is defined as below:
+1) One of P's biological parent is or was a politician; or
+2) One of P's legal parent is or was a politician; or
+3) One of P's spouse or ex-spouse is a politician; or
+4) One of P's spouse's biological parent in law is or was a politician; or
+5) One of P's spouse's legal parent is or was a politican; or
+6) One of P's ex-spouse's biological parent is or was a politician; or
+7) One of P's ex-spouse's legal parent is or was a politician; and
+8) P is a Chinese citizen; and
+9) P was born after 1949.
+
+
+
+
+```
 
 
