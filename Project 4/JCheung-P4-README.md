@@ -120,7 +120,9 @@ ___
 
 **Description:**
 
-You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry and act as “offensive” moves, i.e. action-forward tools. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
+You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry and act as “offensive” moves, i.e. action-forward tools. 
+
+**Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE.**
 
 ```
 Hint: You may query any data set. However, the four query forms must be used on the same data set.
@@ -187,7 +189,9 @@ ___
 
 If you completed the first stage of Enter the Dōjō, well done! You are well on your way to becoming proficient in the SPARQL foundational basics. Let us continue our training. 
 
-You are a beginning SPARQL queryist and must now learn the four basic SPARQL query clauses. These four query clauses will lay the foundation of your query artistry and act as “defensive” moves, i.e. action-delimiting tools. Construct one SPARQL query that utilizes all four SPARQL query clauses: the PREFIX, result, FROM, and WHERE clauses. Note: within the range of capacity of the WHERE clause, there are seven additional conditional clauses that you may use. However, for our purposes, as we are beginning SPARQL queryists, use FILTER and UNION in this query also. 
+You are a beginning SPARQL queryist and must now learn the four basic SPARQL query clauses. These four query clauses will lay the foundation of your query artistry and act as “defensive” moves, i.e. action-delimiting tools. 
+
+**Construct one SPARQL query that utilizes all four SPARQL query clauses: the PREFIX, result, FROM, and WHERE clauses. Note: within the range of capacity of the WHERE clause, there are seven additional conditional clauses that you may use. However, for our purposes, as we are beginning SPARQL queryists, use FILTER and UNION in this query also.**
 
 ```
 Hint: You may query any data set. However, the four query clauses and the two additional FILTER and UNION clauses must be used on the same data set.
@@ -253,7 +257,7 @@ If you completed the second stage of Enter the Dōjō, good work! You are on you
 
 You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms and the four “defensive”, i.e. action-delimiting query clauses. However, the WHERE query clause itself has seven different condition clauses that can delimit a query.
 
-Here is the challenge: Construct a query with the seven WHERE condition clauses: BIND, FILTER, MINUS, OPTIONAL, SERVICE, UNION, and VALUES.
+**Here is the challenge: Construct a query with the seven WHERE condition clauses: BIND, FILTER, MINUS, OPTIONAL, SERVICE, UNION, and VALUES.**
 
 These are essentially seven “defensive” moves, i.e. delimiting conditions, for your query. 
 
@@ -347,7 +351,7 @@ You are a beginning SPARQL queryist who has learned the four “offensive”, i.
 
 Now we must add optional solution modifiers to our query tool box. Solution modifiers help restrict, group, sort, and further refine query results. They are “techniques” that allow us to execute our solution with specificity. There are five general solution modifiers: ORDER BY, OFFSET, LIMIT, GROUP BY, and HAVING (we will only focus on the first three for this kata). 
 
-For this challenge, construct a query that queries multiple kinds or parts of an entity from at least two data sets. UNION the queried information and then CONSTRUCT a new graph. Then use the following solution modifiers ORDER BY, OFFSET, and LIMIT in an instrumental way to achieve your aims. 
+**For this challenge, construct a query that queries multiple kinds or parts of an entity from at least two data sets. UNION the queried information and then CONSTRUCT a new graph. Then use the following solution modifiers ORDER BY, OFFSET, and LIMIT in an instrumental way to achieve your aims.** 
 
 To be a true master SPARQL queryist, you must be creative. Think about how solution modifiers can refine your solution to enhance the aims of your query.
 
@@ -414,7 +418,7 @@ You are a beginning SPARQL queryist who has learned the four “offensive”, i.
 
 Now we must add further optional solution modifiers to our query tool box. As we learned, solution modifiers help restrict, group, sort, and further refine query results. They are “techniques” that allow us to execute our solution with specificity. There are five general solution modifiers: ORDER BY, OFFSET, LIMIT, GROUP BY, and HAVING (we will only focus on the latter two for this exercise). 
 
-For this challenge, write a query that queries at least two data sets. UNION the queried information and then CONSTRUCT a new graph. However, for this exercise you must use the solution modifiers GROUP BY and HAVING to create 10 novel groups. Use these forms, functions, and solution modifiers instrumentally to achieve a clear and established aim.
+**For this challenge, write a query that queries at least two data sets. UNION the queried information and then CONSTRUCT a new graph. However, for this exercise you must use the solution modifiers GROUP BY and HAVING to create 10 novel groups. Use these forms, functions, and solution modifiers instrumentally to achieve a clear and established aim.**
 
 To be a true master SPARQL queryist, you must be creative. Think about how the GROUP BY and HAVING solution modifiers can refine your solution to enhance the aims of your query. 
 
@@ -494,7 +498,7 @@ You are an intermediate SPARQL queryist who has at least learned the foundationa
 
 As SPARQL queryists retrieve, organize, refine, and edit data for their own respective purposes, a master SPARQL queryist must learn the seven data update functions: CLEAR, COPY, CREATE, DELETE, and DELETE DATA, DROP, INSERT and INSERT DATA, and LOAD.
 
-For this challenge, write a query that retrieves at least three separate graphs and uses the seven data update functions in a novel way with real-world purchase (i.e. it must be a realistic project in using the seven data update functions). 
+**For this challenge, write a query that retrieves at least three separate graphs and uses the seven data update functions in a novel way with real-world purchase (i.e. it must be a realistic project in using the seven data update functions).** 
 
 ```
 Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
@@ -612,9 +616,9 @@ To push your training to the next level, we must learn the special powers of SPA
 
 Aggregate functions allow for analysis of quantified data.
 
-For this challenge, you are hired by a client from the food industry that has one primary research question: What is better for the United States economy, chicken or beef? 
+**For this challenge, you are hired by a client from the food industry that has one primary research question: What is better for the United States economy, chicken or beef?** 
 
-Make a case by writing a query using all fourteen aggregate functions at least once for either chicken or beef as being better for the United States economy. 
+**Make a case by writing a query using all fourteen aggregate functions at least once for either chicken or beef as being better for the United States economy.** 
 
 ```
 Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
