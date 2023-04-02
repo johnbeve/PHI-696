@@ -64,7 +64,7 @@ ___
 
 Note #1: The reference solutions for kata #1-#9 are all given in relation to primarily chicken, with some solutions also pertaining to turkey and beef. Although the author of these SPARQL queries does indeed love chicken (especially wings) and food in general, this was done to showcase the wide range of query capacities that SPARQL offers. The author apologizes in advance if readers get either tired of or hungry reading about chicken and its many varieties.
 
-Note #2: The Enter the Dōjō: Master the Basics of SPARQL Series was written with beginning and intermediate SPARQL users in mind. It was designed to give scaffolded kata challenges, comprehensive in scope and sequential in order, beginning from the first stage of learning SPARQL. In essence, this series was designed to be an educaitonal experience covering the foundationl basics of SPARQL, as well as some of the foundational intermediate level tools (i.e. data update and aggregrate functions). 
+Note #2: The Enter the Dōjō: Master the Basics of SPARQL Series was written with beginning and intermediate SPARQL users in mind. It was designed to give scaffolded kata challenges, comprehensive in scope and sequential in order, beginning from the first stage of learning SPARQL. In essence, this series was designed to be an educational experience covering the foundational basics of SPARQL, as well as some of the foundational intermediate level tools (i.e. data update and aggregrate functions). 
 
 Note #3: The order of the kata generally ascend in level of difficuly throughout the project and was meant to be scaffolded as such. 
 
