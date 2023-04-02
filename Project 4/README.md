@@ -88,7 +88,7 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 
-SELECT ?item ?itemLabel ?cityLabel (COUNT (?lawyer) AS ?numOfLawyers) ((2023  - ?yearFounded) AS ?numOfYears) ?annualIncome2022 ?popurarity 
+SELECT ?item ?itemLabel ?cityLabel ((2023  - ?yearFounded) AS ?numOfYears) ?annualIncome2022 ?popurarity 
 WHERE {
   ?item wdt:P31 wd:Q613142.   #item is an instance of law firm.                      
   ?item wdt:P17 wd:Q30.       #item is a US company. 
@@ -106,13 +106,7 @@ WHERE {
   OPTIONAL {
     ?item wdt:P2139 ?annualIncome2022.     #annualIncome2022 is the number of dollors of the law firm's income in 2022.
     FILTER (?annualIncome2022 > 5000000).  #only the law firms whose income is more than 5 million dollars are listed. 
-    }
-  
-  OPTIONAL {
-    ?lawyer wdt:P108 ?item. 
-    #since there is no data about how many lawyers in a law firm, I use COUNT to count the number lawyers whose emplyor is the law firm.
-    ?lawyer wdt:P31 wd:Q5.    #?lawyer is a human. 
-    }     
+    }  
   
   OPTIONAL {
     ?item wdt:P8687 ?popurarity #the number how many twitter followers.
@@ -122,11 +116,45 @@ WHERE {
 }  
 
 ```
+Then Jim creats a RDF-based remote database of US Law firms called "LF" (http://uslawfirms.org/), including the data collocted by runing the query. Since there is no data about how many lawyers in a lawfirm available in the items of the law firm, there is no such information in LF. However, through a query searching the lawyers whose employer is a lawform which is ?item in LF, and then the COUNT function, the data that the number of lawyers working in the law firm can be retrieved from Wikidata. After that, Jim adds the data to the LF. 
+
+The Sparql solution is displayed as below: 
+
+```
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX lf:<http://uslawfirms.org/>
+
+SELECT (COUNT (?lawyer) AS ?numOfLawyers)
+
+WHERE {
+    
+    lf:item lf:itemCode ?itemLF
+    ?lawyer wdt:P108 ?itemLF. 
+    ?lawyer wdt:P31 wd:Q5.    #?lawyer is a human. 
+    }   
+
+INSERT {
+    ?item lf: numOfLawyers ?numOfLawyers.
+        WHERE{
+	
+	lf:item lf:numOfLawyers ?numOfLawyers
+	       
+	}
+        
+    }
+  
+}
+
+
+
+```
 
 Query 3. (Kata 2)
 
 
-Description: the ratio of politicians from politician families in China.
+Description: the politicians from politician families in China.
 
 A politician P from politician family is defined as below:
 1) One of P's biological parent is or was a politician; or
@@ -178,16 +206,11 @@ WHERE {
   ?item wdt:P569 ?dob.
   FILTER (?dob >= "1949-10-01"^^xsd:dateTime).
   
-  ?politician wdt:P31 wd:Q5.          #instance of human.
-  ?politician wdt:P27 wd:Q148.        # a citizen of PR of China.  
-  ?politician wdt:P106 wd:Q82955.      # politician.
   
-  ?politician wdt:P569 ?dobPol.
-  FILTER (?dobPol >= "1949-10-01"^^xsd:dateTime).
    
   
   
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". } # Helps get the label in your language, if not, then en language
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE], zh". } # Helps get the label in your language, if not, then zh language
 } 
 
 
