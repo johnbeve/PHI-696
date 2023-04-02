@@ -51,15 +51,13 @@ There is one other option for those desiring a different sort of challenge. If y
 ___
 **[1] Kata Level 8 (0 pts, total pts accrued: 0pts): Who Invented the Buffalo Wing?**
 
-Description (and problem):
+**Description (and problem):**
 
-```
 There is a dispute about which restaurant invented the Buffalo wing in Buffalo, New York. Using a SPARQL query, retrieve the name of the restaurant who is credited for being the home of the first Buffalo wing. 
 
 Hint: Inventor is not the category name that you should construct your SPARQL query with if using dbpedia.org. That is, dbo:inventor will not retrieve the right result. 
-```
 
-Reference Solution (and answer):
+**Reference Solution (and answer):**
 
 ```
 PREFIX dbo: <http://dbpedia.org/ontology/>
@@ -86,11 +84,9 @@ ___
 
 **Description:**
 
-```
 Another dispute arises between friends while eating Buffalo wings. One Buffalo wing lover proclaimed, “There is only one chicken wing in the world, BUFFALO WINGS!” A friend exclaimed, “Have you ever heard of Nashville Hot Fried Chicken?!”, while yet another said, “What about the other KFC,  Korean Fried Chicken?!” To settle this dispute, you as the burgeoning SPARQL queryist will create a SPARQL query to (1) determine whether it is true or false that there are multiple kinds of ways to cook chicken wings than merely Buffalo wings and (2) if it is true that there are differently cooked chicken wings, retrieve a list of those chicken wings. 
 
 Hint: You must use both the ASK and SELECT query forms and your ASK request must result in “true”.
-```
 
 **Reference Solution:**
 
@@ -124,15 +120,15 @@ ___
 
 **Description:**
 
-```
 You are a beginning SPARQL queryist and must learn the first four basic SPARQL query forms. These four query forms will lay the foundation of your query artistry and act as “offensive” moves, i.e. action-forward tools. Construct one SPARQL query that utilizes all four SPARQL query forms: SELECT, CONSTRUCT, ASK, and DESCRIBE. 
 
+```
 Hint: You may query any data set. However, the four query forms must be used on the same data set.
 
-1.	Run SELECT queries when you want to find and return all of the data that matches certain patterns.
-2.	Run CONSTRUCT queries when you want to create or transform data based on the existing data.
-3.	Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
-4.	Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
+1. Run SELECT queries when you want to find and return all of the data that matches certain patterns.
+2. Run CONSTRUCT queries when you want to create or transform data based on the existing data.
+3. Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
+4. Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
 
 (1-4 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
@@ -189,19 +185,19 @@ ___
 
 **Description:**
 
-```
 If you completed the first stage of Enter the Dōjō, well done! You are well on your way to becoming proficient in the SPARQL foundational basics. Let us continue our training. 
 
 You are a beginning SPARQL queryist and must now learn the four basic SPARQL query clauses. These four query clauses will lay the foundation of your query artistry and act as “defensive” moves, i.e. action-delimiting tools. Construct one SPARQL query that utilizes all four SPARQL query clauses: the PREFIX, result, FROM, and WHERE clauses. Note: within the range of capacity of the WHERE clause, there are seven additional conditional clauses that you may use. However, for our purposes, as we are beginning SPARQL queryists, use FILTER and UNION in this query also. 
 
+```
 Hint: You may query any data set. However, the four query clauses and the two additional FILTER and UNION clauses must be used on the same data set.
 
-1.	The optional PREFIX clause declares the abbreviations that you want to use to reference URIs in the query.
-2.	The required result clause specifies the type of query and defines the data that the query should return (identified in the SELECT section)
-3.	The optional FROM clause defines the data sets or graphs to query.
-4.	The required WHERE clause defines the data that the query operates against.
-5.	FILTER applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
-6.	UNION includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
+1. The optional PREFIX clause declares the abbreviations that you want to use to reference URIs in the query.
+2. The required result clause specifies the type of query and defines the data that the query should return (identified in the SELECT section)
+3. The optional FROM clause defines the data sets or graphs to query.
+4. The required WHERE clause defines the data that the query operates against.
+5. FILTER applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
+6. UNION includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
 
 (1-6 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
@@ -253,8 +249,7 @@ ___
 
 **Description:**
 
-```
-If you completed the second stage of Enter the Dōjō, well done! You are well on your way to becoming proficient in the SPARQL query foundational basics. Let us continue our training.
+If you completed the second stage of Enter the Dōjō, good work! You are on your way to becoming proficient in the SPARQL query foundational basics! Let us continue our training.
 
 You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms and the four “defensive”, i.e. action-delimiting query clauses. However, the WHERE query clause itself has seven different condition clauses that can delimit a query.
 
@@ -264,15 +259,16 @@ These are essentially seven “defensive” moves, i.e. delimiting conditions, f
 
 To be a true master SPARQL queryist, you must be creative. Think innovatively in using all seven WHERE condition clauses in one query.
 
+```
 Hint: You may query any data set, but the data set(s) must be related to the aims of the overall query. 
 
-	1. BIND: Assigns the results of an expression to a new variable.
-	2. FILTER: Applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
-	3. MINUS: Subtracts matches from the result based on the evaluation of the pattern that you specify.
-	4. OPTIONAL: Tries to match a graph pattern but does not fail to return results if the optional match fails.
-	5. SERVICE: Queries remote data at a SPARQL endpoint.
-	6. UNION: Includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
-	7. VALUES: Enables users to include data in a graph pattern to filter results on more specific requirements. The data is joined with the results of the query evaluation.
+1. BIND: Assigns the results of an expression to a new variable.
+2. FILTER: Applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
+3. MINUS: Subtracts matches from the result based on the evaluation of the pattern that you specify.
+4. OPTIONAL: Tries to match a graph pattern but does not fail to return results if the optional match fails.
+5. SERVICE: Queries remote data at a SPARQL endpoint.
+6. UNION: Includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
+7. VALUES: Enables users to include data in a graph pattern to filter results on more specific requirements. The data is joined with the results of the query evaluation.
 
 (1-7 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/where.htm)
 ```
@@ -345,8 +341,7 @@ ___
 
 **Description:**
 
-```
-If you completed the third stage of the Enter the Dōjō series, well done! You are now ready to begin training with solution modifiers. Let us train!
+If you completed the third stage of the Enter the Dōjō series, fantastic! You are now ready to begin training with solution modifiers! Let's train!
 
 You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms and the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses. 
 
@@ -356,10 +351,12 @@ For this challenge, construct a query that queries multiple kinds or parts of an
 
 To be a true master SPARQL queryist, you must be creative. Think about how solution modifiers can refine your solution to enhance the aims of your query.
 
+```
 Hint: You may query any data set, but the data set(s) must be related to the aims of the overall query. 
-1.	ORDER BY: This modifier sorts the result set in a particular order. It sorts query solutions on the value of one or more variables.
-2.	OFFSET: Using this modifier in conjunction with LIMIT and ORDER BY returns a slice of a sorted solution set, for example, for paging.
-3.	LIMIT: This modifier restricts the results to return a certain number of solutions.
+
+1. ORDER BY: This modifier sorts the result set in a particular order. It sorts query solutions on the value of one or more variables.
+2. OFFSET: Using this modifier in conjunction with LIMIT and ORDER BY returns a slice of a sorted solution set, for example, for paging.
+3. LIMIT: This modifier restricts the results to return a certain number of solutions.
 
 (1-3 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
@@ -411,7 +408,6 @@ ___
 
 **Description:**
 
-```
 If you completed the fourth stage of the Enter the Dōjō series, excellent! You will soon be ready to move on to intermediate SPARQL forms! Now, we must continue to Part 2 of learning our solution modifiers techniques.
 
 You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms, the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses, and the first three solution modifiers from part 1: ORDER BY, OFFSET, and LIMIT.
@@ -422,9 +418,11 @@ For this challenge, write a query that queries at least two data sets. UNION the
 
 To be a true master SPARQL queryist, you must be creative. Think about how the GROUP BY and HAVING solution modifiers can refine your solution to enhance the aims of your query. 
 
+```
 Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. Also, consider using FILTER, REGEX, and/or GROUP_CONCAT to help pick out the groups that you want so that you can perform the GROUP BY and HAVING solution modifier. 
-1.	GROUP BY: This modifier is used with aggregate functions and specifies the key variables to use to partition the solutions into groups. 
-2.	HAVING: This modifier is used with aggregate functions and further filters the results after applying the aggregates.
+
+1. GROUP BY: This modifier is used with aggregate functions and specifies the key variables to use to partition the solutions into groups. 
+2. HAVING: This modifier is used with aggregate functions and further filters the results after applying the aggregates.
 
 (1-2 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
@@ -490,7 +488,6 @@ ___
 
 **Description:**
 
-```
 If you successfully passed the Enter the Dōjō—Beginner levels of the series, congratulations young SPARQL query artist, you are now an intermediate player! 
 
 You are an intermediate SPARQL queryist who has at least learned the foundational four “offensive”, i.e. action-forward, query forms, the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses, and the five solution modifier “techniques” to refine solutions. 
@@ -499,14 +496,16 @@ As SPARQL queryists retrieve, organize, refine, and edit data for their own resp
 
 For this challenge, write a query that retrieves at least three separate graphs and uses the seven data update functions in a novel way with real-world purchase (i.e. it must be a realistic project in using the seven data update functions). 
 
-Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. 
-1.	CLEAR: Deletes all of the triples in a graph without deleting the graph.
-2.	COPY: Copies graph data from the database to disk. 
-3.	CREATE: Creates a new empty graph.
-4.	DELETE and DELETE DATA: Deletes the specified graph or triple patterns or specific triples from the database.
-5.	DROP: Deletes a graph and all of its triples.
-6.	INSERT and INSERT DATA: Inserts the specified graph or triple patterns or specific triples to the database.
-7.	LOAD: Loads data to the database from a file or files that are on the AnzoGraph DB file system.
+```
+Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
+
+1. CLEAR: Deletes all of the triples in a graph without deleting the graph.
+2. COPY: Copies graph data from the database to disk. 
+3. CREATE: Creates a new empty graph.
+4. DELETE and DELETE DATA: Deletes the specified graph or triple patterns or specific triples from the database.
+5. DROP: Deletes a graph and all of its triples.
+6. INSERT and INSERT DATA: Inserts the specified graph or triple patterns or specific triples to the database.
+7. LOAD: Loads data to the database from a file or files that are on the AnzoGraph DB file system.
 
 (1-7 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/system-update.htm#DELETE)
 ```
@@ -608,7 +607,6 @@ ___
 
 **Description:**
 
-```
 You are an intermediate SPARQL queryist with knowledge of the foundational query forms, clauses, and solution modifiers.
 To push your training to the next level, we must learn the special powers of SPAQRL “queryistry”, SPARQL quantitative functions. Let us begin first with harnessing the powers of aggregate functions. 
 
@@ -618,21 +616,23 @@ For this challenge, you are hired by a client from the food industry that has on
 
 Make a case by writing a query using all fourteen aggregate functions at least once for either chicken or beef as being better for the United States economy. 
 
-Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. 
-1.	AVG: Calculates the average (arithmetic mean) value for a group of numbers.
-2.	CHOOSE_BY_MAX: Returns the value from a group that corresponds to the maximum value from another group.
-3.	CHOOSE_BY_MIN: Returns the value from a group that corresponds to the minimum value from another group.
-4.	COUNT: Counts the number of values that exist for a group.
-5.	GROUP_CONCAT: Concatenates a group of strings into a single string.
-6.	MAX: Returns the maximum value from a group of values.
-7.	MEDIAN: Returns the median number out of a group of numbers.
-8.	MIN: Returns the minimum value from a group of values.
-9.	MODE: Returns the mode (the value that occurs most frequently) from a group of values.
-10.	MODE_PERCENT: Calculates the percentage of values in a group that belong to the mode.
-11.	SAMPLE: Returns an arbitrary value from the specified group of values.
-12.	SUM: Calculates the sum of the numbers within a group.
-13.	VAR: Calculates the unbiased (sample) variance of a group of numbers.
-14.	VARP: Calculates the biased (population) variance of a group of numbers.
+```
+Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
+
+1. AVG: Calculates the average (arithmetic mean) value for a group of numbers.
+2. CHOOSE_BY_MAX: Returns the value from a group that corresponds to the maximum value from another group.
+3. CHOOSE_BY_MIN: Returns the value from a group that corresponds to the minimum value from another group.
+4. COUNT: Counts the number of values that exist for a group.
+5. GROUP_CONCAT: Concatenates a group of strings into a single string.
+6. MAX: Returns the maximum value from a group of values.
+7. MEDIAN: Returns the median number out of a group of numbers.
+8. MIN: Returns the minimum value from a group of values.
+9. MODE: Returns the mode (the value that occurs most frequently) from a group of values.
+10. MODE_PERCENT: Calculates the percentage of values in a group that belong to the mode.
+11. SAMPLE: Returns an arbitrary value from the specified group of values.
+12. SUM: Calculates the sum of the numbers within a group.
+13. VAR: Calculates the unbiased (sample) variance of a group of numbers.
+14. VARP: Calculates the biased (population) variance of a group of numbers.
 
 
 (1-14 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/system-aggregate.htm#AVG)
@@ -711,11 +711,10 @@ ___
 
 **Description:**
 
-```
 It has been often often reported that Seattle is the United States’ gloomiest city based off of annual reports of having the highest amount of overcast days and highest amount of reported cases of depression. A politician and wealthy businessman from Seattle wants to change Seattle’s reputation in the media and has recently heard of Buffalo, NY’s recent city-stopping blizzards and similar to Seattle, proclivity for having overcast days.
 
 You are hired to make a new case for Buffalo to actually hold the “gloomiest city” title. You must first create a report that supports the claim that Seattle is regarded as the gloomiest city in the United States. Then create a second report with your new findings showing that Buffalo is actually the gloomiest city in the United States based off new markers. 
-```
+
 
 **Reference Solution:**
 
@@ -997,11 +996,11 @@ ___
 
 **Description:**
 
-```
 You have recently been hired by the Center for Disease Control and Prevention (CDC) as an epidemiologist. There has been much talk about how the United States has likely reached herd immunity. However, with recent market and housing fears arising, along with heavy skepticism and criticism from the public about the CDC's credibility, the new director of the CDC has sought to allay fears by hiring you, a new breed epidemiologist with SPARQL querying skills. 
 
 Using your experience with SPARQL, create a query in order to conduct research to make a prediction and a case for when and where the next COVID-19 outbreak will be in the United States.
 
+```
 Hint: Use these CSV files which are updated each week:
 
 US National Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv
@@ -1277,7 +1276,6 @@ ___
 
 **Description:**
 
-```
 World War III has been raging for three long years now. Over half of the United States has been topographically demolished by the tragedies of war--weapons of mass destruction, environmental terrorism, and famine. Major metropolitan cities have been razed, mountain ranges leveled, bodies of water either destroyed and/or rendered as ecological biohazards. Yet, the indomitable spirit of the US and its citizens continue to burn aflame to fight the good fight and to labor towards securing a world of freedom, justice, equality, and peace. 
 
 Since WWIII started, Ashburn in Loudoun County, Virginia, the home of the majority of servers that supported the internet, was targeted and largely destroyed by the U.S.'s enemies. As such, much of the internet's capacities have been down. Moreover, the servers of Google and Apple have also largely been destroyed and therefore, their respective applications have mostly become defunct. Specifically, Google search and Google Maps, along with Apple Maps, no longer work. 
@@ -1291,7 +1289,6 @@ Your mission is this: You must use SPARQL to design a novel model map of the Uni
 Best of luck, soldier! 
 
 Hint: GPS
-```
 
 **Reference Solution:**
 
