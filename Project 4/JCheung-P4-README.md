@@ -1271,3 +1271,38 @@ This is a multi-faceted and challenging exercise, which can use further property
 
 
 
+___ 
+
+**[12] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 108 or 118 pts): SPARQL for Research and Problem Solving—Generating Novel Map Models in Crisis** 
+
+**Description:**
+
+```
+World War III has been raging for three long years now. Over half of the United States has been topographically demolished by the tragedies of war--weapons of mass destruction, environmental terrorism, and famine. Major metropolitan cities have been razed, mountain ranges leveled, bodies of water either destroyed and/or rendered as ecological biohazards. Yet, the indomitable spirit of the US and its citizens continue to burn aflame to fight the good fight and to labor towards securing a world of freedom, justice, equality, and peace. 
+
+Since WWIII started, Ashburn in Loudoun County, Virginia, the home of the majority of servers that supported the internet, was targeted and largely destroyed by the U.S.'s enemies. As such, much of the internet's capacities have been down. Moreover, the servers of Google and Apple have also largely been destroyed and therefore, their respective applications have mostly become defunct. Specifically, Google search and Google Maps, along with Apple Maps, no longer work. 
+
+The U.S. military had recently sent out a mandatory draft for all cartographers and engineers that know the SPARQL querying language. Most drawn maps that existed prior to the start of WWIII are now obsolete because of the destruction that had occurred over the past three years. The land is now largely indistinguishable and the loss of reliable internet has paralyzed communication systems and internet reliant navigation. 
+
+However, there is hope! All U.S. satelites are intact and undamaged. As such, devices that utilize GPS still work. Furthermore, there still exists some servers that allow for some parts of the internet to function. Specifically, the worlds largest and most comprehensive URI, http://example.org/ontology/, is still up and functioning. 
+
+Your mission is this: You must use SPARQL to design a novel model map of the United States and its 50 states that can be used by military and government personnel to navigate this country by air and land. This map model cannot rely on topographical visuals or features. Retrieve the pertinent information needed to creatively solve this navigation crisis.
+
+Best of luck, soldier! 
+
+Hint: GPS
+```
+
+**Reference Solution:**
+
+```
+
+
+**Explanation of the query:**
+
+
+```
+
+
+
+
