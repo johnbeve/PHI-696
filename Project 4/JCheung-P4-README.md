@@ -62,7 +62,17 @@ ___
 4. Theme: SPARQL for Research and Problem Solving Series (3 kata total)
 ```
 
-Note: The reference solutions for kata #1-#9 are all given in relation to primarily chicken, with some solutions also pertaining to turkey and beef. Although the author of these SPARQL queries does indeed love chicken (especially wings) and food in general, this was done to showcase the wide range of query capacities that SPARQL offers. The author apologizes in advance if readers get either tired of or hungry reading about chicken and its many varieties.
+Note #1: The reference solutions for kata #1-#9 are all given in relation to primarily chicken, with some solutions also pertaining to turkey and beef. Although the author of these SPARQL queries does indeed love chicken (especially wings) and food in general, this was done to showcase the wide range of query capacities that SPARQL offers. The author apologizes in advance if readers get either tired of or hungry reading about chicken and its many varieties.
+
+Note #2: The Enter the Dōjō: Master the Basics of SPARQL Series was written with beginning and intermediate SPARQL users in mind. It was designed to give scaffolded kata challenges, comprehensive in scope and sequential in order, beginning from the first stage of learning SPARQL. In essence, this series was designed to be an educaitonal experience covering the foundationl basics of SPARQL, as well as some of the foundational intermediate level tools (i.e. data update and aggregrate functions). 
+
+Note #3: The order of the kata generally ascend in level of difficuly throughout the project and was meant to be scaffolded as such. 
+
+Note #4: The SPARQL for Research and Problem Solving Series was meant to demonstrate SPARQL's research and problem solving capacities. 
+
+Note #5: Most of the prefixes, i.e. URIs, are example placeholder addresses. Moreover, even when actual URIs are used, most of the time, for chicken wings, and the following food related queries in general, the data sets are incomplete or lacking. As such, though the reference solutions may not have the right data sets to extract the pertinent information, the syntax of each reference solution, I take, is the primary focus. 
+
+Thank you for taking the time to review my Project #4! My sincerest regards and best wishes. 
 
 ___
 **[1] Kata Level 8 (0 pts, total pts accrued: 0pts): Who Invented the Buffalo Wing?**
