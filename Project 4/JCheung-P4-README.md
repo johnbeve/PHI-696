@@ -1410,6 +1410,8 @@ WHERE {
   # The above SPARQL query goes here
 }
 
+
+
 Part 3: Combine the two newly constructed graphs, perform a final comparative inverse, sequence, and matching property path pattern analysis on all border nodes for all 50 states and the 5 territories.  
 
 # LOAD the new graph 1
@@ -1454,11 +1456,73 @@ COPY <file:///path/to/file.rdf3>
 WHERE {
   # The above SPARQL query goes here
 }
+# DROP the retrieved data
+DROP { ?s ?p ?o }
+WHERE {
+  # The above SPARQL query goes here
+}
 
 
+Part 4: Determine the haversine distance between each latitude and longitude coordinate border note to determine the kilometers between each node. Save the new constructed graph to disk.
+
+# LOAD the new graph 3
+LOAD <file:///path/to/file.rdf3>
+INTO GRAPH <http://example.com/newgraph3>
+
+PREFIX ont: <http://example.org/ontology/>
+PREFIX geo: <http://example.org/geo/>
+PREFIX ex3: <http://example.com/newgraph3>
+
+CONSTRUCT {
+  ?borderNodeA geo:haversineDistanceTo ?borderNodeB ;
+               geo:distanceValue ?haversineDistance .
+}
+WHERE {
+  GRAPH ex3:newgraph3 {
+    ?borderNodeA geo:lat ?latA ;
+                 geo:long ?longA ;
+                 geo:border ?borderA ;
+                 geo:state ?state .
+    ?borderNodeB geo:lat ?latB ;
+                 geo:long ?longB ;
+                 geo:border ?borderB ;
+                 geo:state ?state .
+  }
+
+  VALUES ?state {
+    "Alabama" "Alaska" "Arizona" "Arkansas" "California" "Colorado" "Connecticut" "Delaware" "Florida" "Georgia"
+    "Hawaii" "Idaho" "Illinois" "Indiana" "Iowa" "Kansas" "Kentucky" "Louisiana" "Maine" "Maryland"
+    "Massachusetts" "Michigan" "Minnesota" "Mississippi" "Missouri" "Montana" "Nebraska" "Nevada" "New Hampshire" "New Jersey"
+    "New Mexico" "New York" "North Carolina" "North Dakota" "Ohio" "Oklahoma" "Oregon" "Pennsylvania" "Rhode Island" "South Carolina"
+    "South Dakota" "Tennessee" "Texas" "Utah" "Vermont" "Virginia" "Washington" "West Virginia" "Wisconsin" "Wyoming"
+    "American Samoa" "Guam" "Northern Mariana Islands" "Puerto Rico" "U.S. Virgin Islands"
+  }
+
+  FILTER (?borderNodeA != ?borderNodeB)
+
+  BIND (HAVERSINE_DIST(?latA, ?longA, ?latB, ?longB) AS ?haversineDistance)
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf4>
+WHERE {
+  # The above SPARQL query goes here
+}
+
+
+
+Part 5: Use the GPS signal of your device to identify exact latitude and longitude coordinates. Then, in order to to calculate travel in relation to the border nodes and midpoint nodes, utilize the all paths or shortest path algorithm to help calculate estimated navigation time and distance. 
+
+# LOAD the new graph 4
+LOAD <file:///path/to/file.rdf4>
+INTO GRAPH <http://example.com/newgraph4>
+
+All Paths: The All Paths algorithm finds all of the paths that exist between a source node and destination node in a graph.
+
+Shortest Path: The Shortest Path algorithm finds the shortest path from a source node to the other reachable nodes in a graph.
 
 **Explanation of the query:**
 
+This query attempts to identify 50 latitude and longitude border nodes for the west, north, east, and south sides of the United States border as a whole each and for the west, north, east, and south borders of each of the 50 U.S. states and its 5 territories. It attempts a property path inverse, sequence, and matching pattern analsyis between all border nodes. It then uses the All Paths and Shortest Path algorithm, alongside GPS to find a traveller's immediate geolocation, i.e. latitude and longitude coordinates, to calculate an estimated time and distance to a specified destination. Moreover, the Haversine distance, which finds the kilometers between two border nodes are another measuring capability that a traveller may use when navigating the U.S. with this novel model map. 
 
 ```
 
