@@ -65,7 +65,7 @@ WHERE {
 }
 
 
-Query 2. (Kata 4)
+Query 2. (Kata 2)
 
 Description:
 
@@ -88,12 +88,12 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 
-SELECT ?item ?itemLabel ?cityLabel ((2023  - ?yearFounded) AS ?numOfYears) ?annualIncome2022 ?popurarity 
+SELECT ?item ?itemLabel ?cityLabel ?yearFounded ?annualIncome2022 ?popurarity 
 WHERE {
   ?item wdt:P31 wd:Q613142.   #item is an instance of law firm.                      
   ?item wdt:P17 wd:Q30.       #item is a US company. 
   
-  FILTER (!(?item wdt:P31 wd:Q163740.)).
+  FILTER (!{?item wdt:P31 wd:Q163740.} UNION {?item wdt:P31 wd:Q613142}). #exclude an institute which is both a law firm and a nonprofit orginzation.
   
   OPTIONAL {
     ?item wdt:P159 ?city.     #city is the law firm's headquarter location.
@@ -116,7 +116,7 @@ WHERE {
 }  
 
 ```
-Then Jim creats a RDF-based remote database of US Law firms called "LF" (http://uslawfirms.org/), including the data collocted by runing the query. Since there is no data about how many lawyers in a lawfirm available in the items of the law firm, there is no such information in LF. However, through a query searching the lawyers whose employer is a lawform which is ?item in LF, and then the COUNT function, the data that the number of lawyers working in the law firm can be retrieved from Wikidata. After that, Jim adds the data to the LF. 
+Then Jim creats a RDF-based remote database of US Law firms called "LF" (http://uslawfirms.org/), including the data collocted by runing the query. Since there is no data about how many lawyers in a lawfirm available in the items of the law firm, there is no such information in LF. However, through a query searching the lawyers whose employer is a lawform which is ?item in LF, and the COUNT function, the data that the number of lawyers working in the law firm can be retrieved from Wikidata (supposing that the data of lawyers in the US are completed). After that, Jim adds the data to the LF. 
 
 The Sparql solution is displayed as below: 
 
@@ -126,14 +126,15 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 PREFIX lf:<http://uslawfirms.org/>
 
-SELECT (COUNT (?lawyer) AS ?numOfLawyers)
+SELECT ?itemLF (COUNT (?lawyer) AS ?numOfLawyers)
 
 WHERE {
     
     lf:item lf:itemCode ?itemLF
     ?lawyer wdt:P108 ?itemLF. 
     ?lawyer wdt:P31 wd:Q5.    #?lawyer is a human. 
-    }   
+    }  
+GROUP BY ?itemLF
 
 INSERT {
     ?item lf: numOfLawyers ?numOfLawyers.
@@ -141,12 +142,10 @@ INSERT {
 	
 	lf:item lf:numOfLawyers ?numOfLawyers
 	       
-	}
-        
+	}    
     }
   
 }
-
 
 
 ```
@@ -180,34 +179,31 @@ WHERE {
   ?item wdt:P31 wd:Q5.          #instance of human.
   ?item wdt:P27 wd:Q148.        # a citizen of PR of China.  
   ?item wdt:P106 wd:Q82955.      # politician.
-  {?item wdt:P22 ?father. 
-         ?father wdt:P106 wd:Q82955.} 
+  {?item wdt:P22 ?father.       
+         ?father wdt:P106 wd:Q82955.}         #item's father is a politician
   UNION {?item wdt:P25 ?mother.
-               ?mother wdt:P106 wd:Q82955.}
+               ?mother wdt:P106 wd:Q82955.}   # or item's mother is a politician
   UNION {?item wdt:P8810 ?parent.
-               ?parent wdt:P106 wd:Q82955.}
+               ?parent wdt:P106 wd:Q82955.}     #or item's one of parents(other than father and mother defined by P22 and P25).
   UNION {?item wdt:P3448 ?stepparent.
-               ?stepparent wdt:P106 wd:Q82955.}
+               ?stepparent wdt:P106 wd:Q82955.}.  #or item's one of stepparents is a politician. Noting that the content of P25, P8810, P3448 and P106 may overlap. 
   UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P106 wd:Q82955.}
+               ?spouse wdt:P106 wd:Q82955.}     #or item's spouse is a politician.     
   UNION {?item wdt:P26 ?spouse.
                ?spouse wdt:P22 ?sFather.
-               ?sFather wdt:P106 wd:Q82955.}
+               ?sFather wdt:P106 wd:Q82955.}      #or item's spouse' father is a politician.
   UNION {?item wdt:P26 ?spouse.
                ?spouse wdt:P25 ?sMother.
-               ?sMother wdt:P106 wd:Q82955.}
+               ?sMother wdt:P106 wd:Q82955.}      #or item's spouse' mothe is a politician.
   UNION {?item wdt:P26 ?spouse.
                ?spouse wdt:P8810 ?sParent.
-               ?sParent wdt:P106 wd:Q82955.}
+               ?sParent wdt:P106 wd:Q82955.}      #or one of the item's spouse' parent is a politician.
   UNION {?item wdt:P26 ?spouse.
                ?spouse wdt:P3448 ?sStepparent.
-               ?sStepparent wdt:P106 wd:Q82955.}.
+               ?sStepparent wdt:P106 wd:Q82955.}. #or one of the item's spouse's stepparent is a politician. 
   
   ?item wdt:P569 ?dob.
-  FILTER (?dob >= "1949-10-01"^^xsd:dateTime).
-  
-  
-   
+  FILTER (?dob >= "1949-10-01"^^xsd:dateTime).   # item is borned later than Jan.1, 1949. 
   
   
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE], zh". } # Helps get the label in your language, if not, then zh language
