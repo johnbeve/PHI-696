@@ -137,30 +137,81 @@ There seems to be something missing in this graph such that the Turtle and XML a
 6. Using Protege, place these in the BFO hierarchy where you think they fit best:
 ```
   (a) Bach's Well-Tempered Clavier
+      Generically dependent continuant (e.g.  the music composition), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
+      
   (b) Chair of the UB Philosophy Department
+      Role
+      
   (c) SARS-CoV-2
+      Object/Material entity (e.g. virus) or disposition (e.g. disease symptoms)
+      
   (d) Mexico City
+      Site or 2D/3D spatial region (e.g. map or mapping) or Instance
+      
   (e) The trunk of a minivan
+      Site or fiat object part
+      
   (f) Occupation
+      Role
+      
   (g) Ocean
+      Site or 2D/3D spatial region
+      
   (h) Lake
+      Site or 2D/3D spatial region
+  
 ```
 
 7. True or False; explain your answers:
 ```
   (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+      True. Smith’s textbook: “Immaterial entities listed under 1. (boundaries and sites) are in some cases continuant parts of their material.” (108)
+      
+      
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
+      False 
+      
   (c) An organization may have another organization as part.
+      True. For example, a political committee can have a subcommittee as a part. 
+      
   (d) An organization may have no members as part. 
+      True. If the debate club is viewed as a role,  the debate club could lose all its members while still being recognized by the school. It would be false if the         debate club is viewed as an object aggregate because as an OA is the sum of its parts, by virtue of losing its members, it loses its necessary parts to being an       OA.
+     
+      
   (e) Any site is partially bounded by some instance of Material Entity.
+      False. You can identify  a specified space and it could still be surrounded by space without touching any material entity.
+      
   (f) A book placed under the leg of a wobbly table has acquired a new function. 
+    False. The elucidation excludes this by saying that the function is due to the physical make-up of the object. Since nothing about the make-up changed, the book       did not gain any new functions. If the book has the function of supporting the table, this is a function it has always had, even if it wasn’t intended to support       the table.
+     
   (g) A glass vase cushioned with packing material for all time, has the disposition to break. 
+      True. Dispositions are in virtue of the bearer’s physical make-up, not its environment.
+      
   (h) Spacetime is a class in BFO.
+      False. This is covered by spatiotemporal region.
+      
   (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+      False. "Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilities. An example would be the        
+      mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it" (from the BFO file in 
+      Protege). 
 ```
 
 8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, startin slowly, speeding up during the middle, then ending the run at a slower pace.  
 
+![image](https://user-images.githubusercontent.com/123913163/229375516-d4740d9c-3668-4721-9eb5-2ab4f16377b6.png)
+
 9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
 
+Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
+In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+
+
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+
+![image](https://user-images.githubusercontent.com/123913163/229375744-acb2a5bb-ecb7-4d88-84b0-b2e6df116737.png)
+
+Where:
+
+"Yes" indicates a case where a pair of object property characteristics can be combined, and 
+"No" indicates a case where a pair of object property characteristics cannot be combined.
+
