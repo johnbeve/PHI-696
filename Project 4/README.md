@@ -125,7 +125,6 @@ WHERE {
 
 Query 3. (Kata 2)
 
-```
 
 Description: the ratio of politicians from politician families in China.
 
@@ -135,12 +134,61 @@ A politician P from politician family is defined as below:
 3) One of P's spouse or ex-spouse is a politician; or
 4) One of P's spouse's biological parent in law is or was a politician; or
 5) One of P's spouse's legal parent is or was a politican; or
-6) One of P's ex-spouse's biological parent is or was a politician; or
-7) One of P's ex-spouse's legal parent is or was a politician; and
-8) P is a Chinese citizen; and
-9) P was born after 1949.
+6) P is a Chinese citizen; and
+7) P was born after 1949.
 
+```
 
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+# politician from family
+
+SELECT (COUNT (?item) AS ?numPoliticianFromFamily) (COUNT (?politician) AS ?totalPolitician)
+
+WHERE {
+  
+  ?item wdt:P31 wd:Q5.          #instance of human.
+  ?item wdt:P27 wd:Q148.        # a citizen of PR of China.  
+  ?item wdt:P106 wd:Q82955.      # politician.
+  {?item wdt:P22 ?father. 
+         ?father wdt:P106 wd:Q82955.} 
+  UNION {?item wdt:P25 ?mother.
+               ?mother wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P8810 ?parent.
+               ?parent wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P3448 ?stepparent.
+               ?stepparent wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P26 ?spouse.
+               ?spouse wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P26 ?spouse.
+               ?spouse wdt:P22 ?sFather.
+               ?sFather wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P26 ?spouse.
+               ?spouse wdt:P25 ?sMother.
+               ?sMother wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P26 ?spouse.
+               ?spouse wdt:P8810 ?sParent.
+               ?sParent wdt:P106 wd:Q82955.}
+  UNION {?item wdt:P26 ?spouse.
+               ?spouse wdt:P3448 ?sStepparent.
+               ?sStepparent wdt:P106 wd:Q82955.}.
+  
+  ?item wdt:P569 ?dob.
+  FILTER (?dob >= "1949-10-01"^^xsd:dateTime).
+  
+  ?politician wdt:P31 wd:Q5.          #instance of human.
+  ?politician wdt:P27 wd:Q148.        # a citizen of PR of China.  
+  ?politician wdt:P106 wd:Q82955.      # politician.
+  
+  ?politician wdt:P569 ?dobPol.
+  FILTER (?dobPol >= "1949-10-01"^^xsd:dateTime).
+   
+  
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". } # Helps get the label in your language, if not, then en language
+} 
 
 
 ```
