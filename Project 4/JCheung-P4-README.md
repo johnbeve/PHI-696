@@ -496,7 +496,7 @@ If you successfully passed the Enter the Dōjō—Beginner levels of the series,
 
 You are an intermediate SPARQL queryist who has at least learned the foundational four “offensive”, i.e. action-forward, query forms, the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses, and the five solution modifier “techniques” to refine solutions. 
 
-As SPARQL queryists retrieve, organize, refine, and edit data for their own respective purposes, a master SPARQL queryist must learn the seven data update functions: CLEAR, COPY, CREATE, DELETE, and DELETE DATA, DROP, INSERT and INSERT DATA, and LOAD.
+**As SPARQL queryists retrieve, organize, refine, and edit data for their own respective purposes, a master SPARQL queryist must learn the seven data update functions: CLEAR, COPY, CREATE, DELETE, and DELETE DATA, DROP, INSERT and INSERT DATA, and LOAD.**
 
 **For this challenge, write a query that retrieves at least three separate graphs and uses the seven data update functions in a novel way with real-world purchase (i.e. it must be a realistic project in using the seven data update functions).** 
 
@@ -996,7 +996,7 @@ The second part compares Seattle and Buffalo on seven different markers. Upon an
 
 ___ 
 
-**[11] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 88 or 93 pts): SPARQL for Research and Problem Solving—Epidemiological Studies?** 
+**[11] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 88 or 93 pts): SPARQL for Research and Problem Solving—Epidemiological Studies** 
 
 **Description:**
 
@@ -1288,7 +1288,7 @@ The U.S. military had recently sent out a mandatory draft for all cartographers 
 
 However, there is hope! All U.S. satelites are intact and undamaged. As such, devices that utilize GPS still work. Furthermore, there still exists some servers that allow for some parts of the internet to function. Specifically, the worlds largest and most comprehensive URI, http://example.org/ontology/, is still up and functioning. 
 
-Your mission is this: You must use SPARQL to design a novel model map of the United States and its 50 states that can be used by military and government personnel to navigate this country by air and land. This map model cannot rely on topographical visuals or features. Retrieve the pertinent information needed to creatively solve this navigation crisis.
+**Your mission is this: You must use SPARQL to design a novel model map of the United States and its 50 states that can be used by military and government personnel to navigate this country by air and land. This map model cannot rely on topographical visuals or features. Retrieve the pertinent information needed to creatively solve this navigation crisis.**
 
 Best of luck, soldier! 
 
