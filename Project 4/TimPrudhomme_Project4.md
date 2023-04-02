@@ -11,10 +11,10 @@ RDF Data:
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 :Venus  rdf:type Planet ;
-        rdfs:label "Venus" ; 
+        rdfs:label "Venus@en ; 
         owl:sameAs :Hesperus .
 
-:MorningStar rdfs:label "The Morning Star" .
+:MorningStar rdfs:label "The Morning Star"@en .
 ```
 
 ### Initial Solution:
@@ -35,6 +35,40 @@ WHERE {
 
 
 
+
+
+# Missing Definitions - Kata 4 - 10pts
+Write a query to find all terms with missing definitions or elucidations.
+Use http://purl.obolibrary.org/obo/IAO_0000115 for "definition" and http://purl.obolibrary.org/obo/IAO_0000600 for "elucidation". Use the `VALUES` keyword to specify both of these properties in a single line.
+
+### Initial Solution:
+```sparql
+PREFIX obo: <http://purl.obolibrary.org/obo> .
+
+SELECT DISTINCT ?entity
+WHERE { 
+  VALUES ?missingProperty { obo:IAO_0000115 obo:IAO_0000600 } .
+  FILTER NOT EXISTS { ?entity ?missingProperty ?value } .
+  # A triple needs to be specified here, but it can't be the ?missingProperty
+}
+```
+
+### Solution:
+```sparql
+PREFIX obo: <http://purl.obolibrary.org/obo> .
+
+SELECT DISTINCT ?entity
+WHERE { 
+  VALUES ?missingProperty { obo:IAO_0000115 obo:IAO_0000600 } .
+  FILTER NOT EXISTS { ?entity ?missingProperty ?value } .
+  ?entity ?any ?value .
+}
+```
+
+
+
+
+
 # Greatest Ancestor - Kata 4 - 10pts
 Write a recursive query using a property path expression to find the greatest ancestor of BFO 'role' that isn't owl:Thing.
 
@@ -46,37 +80,37 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#> .
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 :BFO_0000023 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000017 ;
+                rdfs:subClassOf :BFO_0000017 ;
                 rdfs:label "role"@en .
 
-obo:BFO_0000017 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000020 ;
+:BFO_0000017 rdf:type owl:Class ;
+                rdfs:subClassOf :BFO_0000020 ;
                 rdfs:label "realizable entity"@en .
 
-obo:BFO_0000020 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000002 ;
+:BFO_0000020 rdf:type owl:Class ;
+                rdfs:subClassOf :BFO_0000002 ;
                 rdfs:label "specifically dependent continuant"@en .
 
-obo:BFO_0000040 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000004 ;
+:BFO_0000040 rdf:type owl:Class ;
+                rdfs:subClassOf :BFO_0000004 ;
                 rdfs:label "material entity"@en .
 
-obo:BFO_0000004 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000002 ;
+:BFO_0000004 rdf:type owl:Class ;
+                rdfs:subClassOf :BFO_0000002 ;
                 rdfs:label "independent continuant"@en .
 
-obo:BFO_0000002 rdf:type owl:Class ;
-                rdfs:subClassOf obo:BFO_0000001 ;
+:BFO_0000002 rdf:type owl:Class ;
+                rdfs:subClassOf :BFO_0000001 ;
                 rdfs:label "continuant"@en .
 
-obo:BFO_0000001 rdf:type owl:Class ;
+:BFO_0000001 rdf:type owl:Class ;
                 rdfs:subClassOf owl:Thing ;
                 rdfs:label "entity"@en .
 ```
 
 ### Initial Solution
 ```sparql
-SELECT DISTINCT * FROM <http://purl.obolibrary.org/obo/merged/BFO>
+SELECT DISTINCT *
 WHERE { 
     <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?s .
     # Now find the "greatest ancestor" that isn't owl:Thing
@@ -85,7 +119,7 @@ WHERE {
 
 ### Solution
 ```sparql
-SELECT DISTINCT * FROM <http://purl.obolibrary.org/obo/merged/BFO>
+SELECT DISTINCT * 
 WHERE { 
     <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?s .
     ?s rdfs:subClassOf owl:Thing
