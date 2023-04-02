@@ -605,3 +605,94 @@ The query represents a situation in which a SPARQL queryist first retrieves info
 
 ___
 **[9] Kata Level 4 (10 pts, total pts accrued: 48 pts): Enter the Dōjō—Intermediate: SPARQL’s Aggregate Functions (6)**
+
+**Description:**
+
+```
+You are an intermediate SPARQL queryist with knowledge of the foundational query forms, clauses, and solution modifiers.
+To push your training to the next level, we must learn the special powers of SPAQRL “queryistry”, SPARQL quantitative functions. Let us begin first with harnessing the powers of aggregate functions. 
+
+Aggregate functions allow for analysis of quantified data.
+
+For this challenge, you are hired by a client from the food industry that has one primary research question: What is better for the United States economy, chicken or beef? 
+
+Make a case by writing a query using all fourteen aggregate functions at least once for either chicken or beef as being better for the United States economy. 
+
+Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. 
+1.	AVG: Calculates the average (arithmetic mean) value for a group of numbers.
+2.	CHOOSE_BY_MAX: Returns the value from a group that corresponds to the maximum value from another group.
+3.	CHOOSE_BY_MIN: Returns the value from a group that corresponds to the minimum value from another group.
+4.	COUNT: Counts the number of values that exist for a group.
+5.	GROUP_CONCAT: Concatenates a group of strings into a single string.
+6.	MAX: Returns the maximum value from a group of values.
+7.	MEDIAN: Returns the median number out of a group of numbers.
+8.	MIN: Returns the minimum value from a group of values.
+9.	MODE: Returns the mode (the value that occurs most frequently) from a group of values.
+10.	MODE_PERCENT: Calculates the percentage of values in a group that belong to the mode.
+11.	SAMPLE: Returns an arbitrary value from the specified group of values.
+12.	SUM: Calculates the sum of the numbers within a group.
+13.	VAR: Calculates the unbiased (sample) variance of a group of numbers.
+14.	VARP: Calculates the biased (population) variance of a group of numbers.
+
+
+(1-14 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/system-aggregate.htm#AVG)
+```
+
+**Reference Solution:**
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX us-gov: <http://example.com/us-gov/>
+PREFIX product: <http://example.com/product/>
+
+SELECT 
+  (SUM(?chickenSales) AS ?totalChickenSales)
+  (SUM(?beefSales) AS ?totalBeefSales)
+  (AVG(?chickenSales) AS ?avgChickenSales)
+  (AVG(?beefSales) AS ?avgBeefSales)
+  (MAX(?chickenSales) AS ?maxChickenSales)
+  (MAX(?beefSales) AS ?maxBeefSales)
+  (MIN(?chickenSales) AS ?minChickenSales)
+  (MIN(?beefSales) AS ?minBeefSales)
+  (COUNT(?chickenProduct) AS ?numChickenSales)
+  (COUNT(?beefProduct) AS ?numBeefSales)
+  (MAX(?chickenPrice) AS ?maxChickenPrice)
+  (MAX(?beefPrice) AS ?maxBeefPrice)
+  (AVG(?chickenPrice) AS ?medianChickenPrice)
+  (AVG(?beefPrice) AS ?medianBeefPrice)
+  (MIN(?chickenPrice) AS ?minChickenPrice)
+  (MIN(?beefPrice) AS ?minBeefPrice)
+  (MODE(?chickenSales) AS ?chickenSalesMode)
+  (MODE(?beefSales) AS ?beefSalesMode)
+  (MODE_PERCENT(?chickenSales) AS ?chickenSalesModePercent)
+  (MODE_PERCENT(?beefSales) AS ?beefSalesModePercent)
+  (SAMPLE(?chickenProduct) AS ?sampleChickenProduct)
+  (SAMPLE(?beefProduct) AS ?sampleBeefProduct)
+  (VAR(?chickenSales) AS ?unbiasedChickenSalesVar)
+  (VAR(?beefSales) AS ?unbiasedBeefSalesVar)
+  (VAR_POPULATION(?chickenSales) AS ?biasedChickenSalesVar)
+  (VAR_POPULATION(?beefSales) AS ?biasedBeefSalesVar)
+
+WHERE {
+  ?chickenProduct rdf:type product:Chicken ;
+                  product:sales ?chickenSales ;
+                  product:price ?chickenPrice ;
+                  product:country us-gov:United_States ;
+                  product:dateSold ?chickenDate .
+  FILTER(YEAR(?chickenDate) >= 2012 && YEAR(?chickenDate) <= 2022)
+  
+  ?beefProduct rdf:type product:Beef ;
+               product:sales ?beefSales ;
+               product:price ?beefPrice ;
+               product:country us-gov:United_States ;
+               product:dateSold ?beefDate .
+  FILTER(YEAR(?beefDate) >= 2012 && YEAR(?beefDate) <= 2022)
+}
+
+**Explanation of the query:**
+
+The query represents one direction that a queryist can choose to go in order to make a case about whether chicken or beef is better for the U.S. economy. The range of data chosen was a ten year period, 2012-2022, which would give the most recent sales data to inform one’s proposal. Another alternative is to include in the query restaurant sales that are explicitly chicken and beef based restaurants or to mark out available data from restaurants that show revenue from chicken and beef dishes specifically. 
+
+```
+
+
