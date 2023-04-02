@@ -65,26 +65,60 @@ WHERE {
 }
 
 
-Query 2. (Kata 7)
+Query 2. (Kata 4)
 
 Description:
 
-Fangfang wants to find a lawyer dealing with divorce cases in Buffalo, New York state. Using a SPARQL query, to retrieve the list of lawyers who meet the requirements. 
+The company H collcets legal cases and sells the relevant databases, such as case data, case briefs collections, etc. In order to be aware the target 
+clients, the marketing manager Julia wants her secratory Jim to do the research of law firms in the US. She wants to establish a database of law firms
+(the annual income > USD.5,000,000), including the following inforamtion:  
+1) the name of the law firm.
+2) the city in which the law firm or its headquarter locates.
+3) the number of years since the law firm has founded.
+4) the number of lawyers in the law firm.
+5) the number of anual income in the last year.
+6) the popularity of the law firm. 
 
-Using Wikidata Query Service to list only five lawyers who meet the requirements.
+The secratory Jim plans to use his SPARQL knowledge and Wikidata Query Service to do the research. Jim names the query "Law firms in the US."
 
-#lawyers in Buffalo
-SELECT ?ind ?indLabel 
-WHERE 
-{                           
-  ?ind wdt:P31 wd:Q5.               # ind is an instance of humans
-  ?ind wdt:occ wd:Q40348.           # ind's occupation is being lawyer
-  ?ind wdt:P937 wd:Q40435.          # ind's workplace is in buffalo, New York state
+# Law firms in the US
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+SELECT ?item ?itemLabel ?cityLabel (COUNT (?lawyer) AS ?numOfLawyers) ((2023  - ?yearFounded) AS ?numOfYears) ?annualIncome2022 ?popurarity 
+WHERE {
+  ?item wdt:P31 wd:Q613142.   #item is an instance of law firm.                      
+  ?item wdt:P17 wd:Q30.       #item is a US company. 
+  
+  FILTER (!(?item wdt:P31 wd:Q163740.)).
+  
+  OPTIONAL {
+    ?item wdt:P159 ?city.     #city is the law firm's headquarter location.
+    }
+  
+  OPTIONAL {
+    ?item wdt:P571 ?yearFounded. #yearFound is the year when the law firm founded.
+    }
+ 
+  OPTIONAL {
+    ?item wdt:P2139 ?annualIncome2022.     #annualIncome2022 is the number of dollors of the law firm's income in 2022.
+    FILTER (?annualIncome2022 > 5000000).  #only the law firms whose income is more than 5 million dollars are listed. 
+    }
+  
+  OPTIONAL {
+    ?lawyer wdt:P108 ?item.  #since there is no data about how many lawyers in a law firm, I use COUNT to count the number lawyers whose emplyor is the law firm.
+    }     
+  
+  OPTIONAL {
+    ?item wdt:P8687 ?popurarity #the number how many twitter followers.
+    }
                 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
 }  
 
-LIMIT 5  # list only 5 lawyers.   
+Query 3. (Kata 2)
 
 
 
