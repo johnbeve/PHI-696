@@ -1516,9 +1516,9 @@ Part 5: Use the GPS signal of your device to identify exact latitude and longitu
 LOAD <file:///path/to/file.rdf4>
 INTO GRAPH <http://example.com/newgraph4>
 
-All Paths: The All Paths algorithm finds all of the paths that exist between a source node and destination node in a graph.
+All Paths: The All Paths algorithm finds all of the paths that exist between a source node and destination node in a graph (cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/all-paths.htm).
 
-Shortest Path: The Shortest Path algorithm finds the shortest path from a source node to the other reachable nodes in a graph.
+Shortest Path: The Shortest Path algorithm finds the shortest path from a source node to the other reachable nodes in a graph (cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/shortest-path.htm)
 
 **Explanation of the query:**
 
