@@ -527,7 +527,7 @@ WHERE {
 }
 
 # COPY the retrieved data from the database to the disk
-COPY <file:///path/to/file.csv>
+COPY <file:///path/to/file.rdf>
 WHERE {
   # The above SPARQL query goes here
 }
@@ -569,7 +569,7 @@ INSERT DATA {
 }
 
 # COPY the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022 to the disk
-COPY <file:///path/to/file.csv>
+COPY <file:///path/to/file.rdf>
 FROM <http://example.com/newgraph>
 
 # CLEAR the data on the new graph
@@ -588,11 +588,11 @@ WHERE {
 }
 
 # LOAD the data of annual chicken wing sales in all cities named Buffalo in the United States in 2022 into the new graph
-LOAD <file:///path/to/file.csv>
+LOAD <file:///path/to/file.rdf>
 INTO GRAPH <http://example.com/newgraph>
 
 # LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
-LOAD <file:///path/to/file.csv>
+LOAD <file:///path/to/file.rdf>
 INTO GRAPH <http://example.com/newgraph>
 
 **Explanation of the query:**
@@ -778,7 +778,7 @@ WHERE {
   BIND (IRI(CONCAT("http://example.org/data#statistic-", STRUUID())) AS ?statistic)
 }
 # COPY the retrieved data from the database to the disk
-COPY <file:///path/to/file.csv>
+COPY <file:///path/to/file.rdf>
 WHERE {
   # The above SPARQL query goes here
 }
@@ -976,7 +976,7 @@ WHERE {
   }
 }
 # COPY the retrieved data from the database to the disk
-COPY <file:///path/to/file.csv>
+COPY <file:///path/to/file.rdf>
 WHERE {
   # The above SPARQL query goes here
 }
@@ -988,5 +988,286 @@ The example query represented has two parts. The URIs are example place holders,
 The second part compares Seattle and Buffalo on seven different markers. Upon analysis, one could make the argument that Buffalo is more gloomy based on additional factors such as a higher annual average snowfall, lower annual average temperature, higher annual average unemployment rate, and lower annual average rating on the happiness index. 
 
 ```
+
+
+
+___ 
+
+**[11] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 88 or 93 pts): SPARQL for Research and Problem Solving—Epidemiological Studies?** 
+
+**Description:**
+
+```
+You have recently been hired by the Center for Disease Control and Prevention (CDC) as an epidemiologist. There has been much talk about how the United States has likely reached herd immunity. However, with recent market and housing fears arising, along with heavy skepticism and criticism from the public about the CDC's credibility, the new director of the CDC has sought to allay fears by hiring you, a new breed epidemiologist with SPARQL querying skills. 
+
+Using your experience with SPARQL, create a query in order to conduct research to make a prediction and a case for when and where the next COVID-19 outbreak will be in the United States.
+
+Hint: Use these CSV files which are updated each week:
+
+US National Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv
+US State Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv
+US County Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv
+
+Hint 2: SPARQL is designed to query RDF data, not CSV data.
+```
+
+**Reference Solution:**
+
+```
+Part 1: Convert the CSV data to RDF data. 
+
+To convert the NY Times COVID-19 data CSV file to RDF, you could use a tool like the RDF Mapping Language (RML) and its implementation in the RMLMapper. Here's an example of how you could create an RML mapping file for the CSV file:
+
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix nyt: <http://example.org/nytimes/covid-19-data#>.
+
+# Define the data source
+rr:DataSource
+  rml:source "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv";
+  rml:referenceFormulation ql:CSV.
+
+# Define the logical source
+rr:LogicalSource
+  rr:source rr:DataSource;
+  rr:iterator "us".
+
+# Define the subject map
+rr:SubjectMap
+  rr:template "http://example.org/nytimes/covid-19-data/{date}/{state}/{county}";
+  rr:class nyt:Observation.
+
+# Define the predicate-object maps
+rr:PredicateObjectMap
+  rr:predicate nyt:date;
+  rr:objectMap [ rml:reference "date"; ].
+rr:PredicateObjectMap
+  rr:predicate nyt:state;
+  rr:objectMap [ rml:reference "state"; ].
+rr:PredicateObjectMap
+  rr:predicate nyt:county;
+  rr:objectMap [ rml:reference "county"; ].
+rr:PredicateObjectMap
+  rr:predicate nyt:fips;
+  rr:objectMap [ rml:reference "fips"; ].
+rr:PredicateObjectMap
+  rr:predicate nyt:cases;
+  rr:objectMap [ rml:reference "cases"; rr:datatype xsd:integer; ].
+rr:PredicateObjectMap
+  rr:predicate nyt:deaths;
+  rr:objectMap [ rml:reference "deaths"; rr:datatype xsd:integer; ].
+
+This mapping file assumes that you have downloaded the us.csv file from the NY Times GitHub repository and saved it locally. It defines a logical source for the us table in the CSV file, and a subject map that generates URIs for each observation based on the date, state, and county. The predicate-object maps specify how to map each column in the CSV file to RDF predicates and objects.
+
+
+
+Part 2: Query national data and construct new graph
+
+PREFIX covid: <http://example.org/covid/>
+
+CONSTRUCT {
+  ?statistic covid:totalCases ?totalCasesValue ;
+             covid:totalDeaths ?totalDeathsValue .
+}
+WHERE {
+  {
+    SELECT (SUM(?cases) AS ?totalCasesValue) (AVG(?cases) AS ?avgCasesValue)
+           (MAX(?cases) AS ?maxCasesValue) (MIN(?cases) AS ?minCasesValue)
+           (SUM(?deaths) AS ?totalDeathsValue) (AVG(?deaths) AS ?avgDeathsValue)
+           (MAX(?deaths) AS ?maxDeathsValue) (MIN(?deaths) AS ?minDeathsValue)
+    WHERE {
+      ?record covid:date ?date ;
+              covid:cases ?cases ;
+              covid:deaths ?deaths .
+      FILTER (?date >= "2020-01-21"^^xsd:date && ?date <= "2023-03-23"^^xsd:date)
+    }
+  }
+  BIND (URI(CONCAT("http://example.org/covid/statistics/", STRUUID())) AS ?statistic)
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf1>
+WHERE {
+  # The above SPARQL query goes here
+}
+
+
+
+Part 3: Query indiviudal state data and construct new graph (Note: This data expresses that there are 55 states [50 states + 5 territories]).
+
+PREFIX covid2: <http://example.org/covid/>
+
+CONSTRUCT {
+  ?state covid:totalCasesStats ?totalCasesStats ;
+          covid:totalDeathsStats ?totalDeathsStats .
+}
+WHERE {
+  {
+    SELECT ?state
+           (SUM(?cases) AS ?totalCasesSum) (AVG(?cases) AS ?avgCases) (MAX(?cases) AS ?maxCases) (MIN(?cases) AS ?minCases)
+           (SUM(?deaths) AS ?totalDeathsSum) (AVG(?deaths) AS ?avgDeaths) (MAX(?deaths) AS ?maxDeaths) (MIN(?deaths) AS ?minDeaths)
+    WHERE {
+      ?record covid2:date ?date ;
+              covid2:state ?state ;
+              covid2:cases ?cases ;
+              covid2:deaths ?deaths .
+      FILTER (?date >= "2020-01-21"^^xsd:date && ?date <= "2023-03-23"^^xsd:date)
+      FILTER (?state IN (
+                "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+                "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+                "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+                "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+                "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+                "West Virginia", "Wisconsin", "Wyoming", "American Samoa", "Guam", "Northern Mariana Islands", "Puerto Rico", "U.S. Virgin Islands"
+              ))
+    }
+    GROUP BY ?state
+  }
+  BIND (URI(CONCAT("http://example.org/covid/totalCasesStats/", STRUUID())) AS ?totalCasesStats)
+  BIND (URI(CONCAT("http://example.org/covid/totalDeathsStats/", STRUUID())) AS ?totalDeathsStats)
+  ?totalCasesStats covid2:sum ?totalCasesSum ;
+                   covid2:avg ?avgCases ;
+                   covid2:max ?maxCases ;
+                   covid2:min ?minCases .
+  ?totalDeathsStats covid2:sum ?totalDeathsSum ;
+                    covid2:avg ?avgDeaths ;
+                    covid2:max ?maxDeaths ;
+                    covid2:min ?minDeaths .
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.rdf2>
+WHERE {
+  # The above SPARQL query goes here
+}
+# DROP the retrieved data
+DROP { ?s ?p ?o }
+WHERE {
+  # The above SPARQL query goes here
+}
+
+
+
+Part 4: Query for sequence property path pattern (growth) on the saved US national data RDF file
+
+# LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
+LOAD <file:///path/to/file.rdf1>
+INTO GRAPH <http://example.com/newgraph1>
+
+PREFIX covid: <http://example.com/newgraph1>
+
+SELECT ?date1 (SUM(?cases1) AS ?totalCases1) (SUM(?deaths1) AS ?totalDeaths1)
+              ?date2 (SUM(?cases2) AS ?totalCases2) (SUM(?deaths2) AS ?totalDeaths2)
+WHERE {
+  ?record1 covid:date ?date1 ;
+           covid:cases ?cases1 ;
+           covid:deaths ?deaths1 ;
+           covid:nextRecord ?record2 .
+  ?record2 covid:date ?date2 ;
+           covid:cases ?cases2 ;
+           covid:deaths ?deaths2 .
+
+  FILTER (?cases2 > ?cases1 && ?deaths2 > ?deaths1)
+  FILTER (?date1 >= "2023-01-23"^^xsd:date && ?date1 <= "2023-03-22"^^xsd:date)
+  FILTER (?date2 = ?date1 + "P1D"^^xsd:duration)
+}
+GROUP BY ?date1 ?date2
+ORDER BY ?date1
+
+
+
+Part 5: Query for Sequence Property Path Pattern (Growth) on the Saved US State Data RDF File
+
+# LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
+LOAD <file:///path/to/file.rdf2>
+INTO GRAPH <http://example.com/newgraph2>
+
+PREFIX covid: <http://example.com/newgraph2>
+
+CONSTRUCT {
+  ?record1 covid:state ?state ;
+           covid:date ?date1 ;
+           covid:cases ?cases1 ;
+           covid:deaths ?deaths1 ;
+           covid:nextRecord ?record2 .
+  ?record2 covid:date ?date2 ;
+           covid:cases ?cases2 ;
+           covid:deaths ?deaths2 .
+}
+WHERE {
+  ?record1 covid:date ?date1 ;
+           covid:state ?state ;
+           covid:cases ?cases1 ;
+           covid:deaths ?deaths1 ;
+           covid:nextRecord ?record2 .
+  ?record2 covid:date ?date2 ;
+           covid:cases ?cases2 ;
+           covid:deaths ?deaths2 .
+           
+  FILTER (?cases2 > ?cases1 && ?deaths2 > ?deaths1)
+  FILTER (?state IN (
+            "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+            "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+            "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+            "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+            "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
+            "West Virginia", "Wisconsin", "Wyoming", "American Samoa", "Guam", "Northern Mariana Islands", "Puerto Rico", "U.S. Virgin Islands"
+          ))
+  FILTER (?date1 >= "2023-01-23"^^xsd:date && ?date1 <= "2023-03-22"^^xsd:date)
+  FILTER (?date2 = ?date1 + "P1D"^^xsd:duration)
+}
+
+
+
+Part 6: Combine the two newly constructed graphs, perform a final comparative sequence property path pattern analysis, and filter the states where there is positive patterned growth to identify and predict where the next possible COVID-19 surge can occur.
+
+PREFIX covid: <http://example.com/newgraph1>
+PREFIX covid: <http://example.com/newgraph2>
+
+CONSTRUCT {
+  ?record1 covid:state ?state ;
+           covid:date ?date1 ;
+           covid:cases ?cases1 ;
+           covid:deaths ?deaths1 ;
+           covid:nextRecord ?record2 .
+  ?record2 covid:date ?date2 ;
+           covid:cases ?cases2 ;
+           covid:deaths ?deaths2 .
+}
+WHERE {
+  {
+    GRAPH <http://example.com/newgraph1> {
+      ?record1 covid:date ?date1 ;
+               covid:state ?state ;
+               covid:cases ?cases1 ;
+               covid:deaths ?deaths1 ;
+               covid:nextRecord ?record2 .
+    }
+  } UNION {
+    GRAPH <http://example.com/newgraph2> {
+      ?record1 covid:date ?date1 ;
+               covid:state ?state ;
+               covid:cases ?cases1 ;
+               covid:deaths ?deaths1 ;
+               covid:nextRecord ?record2 .
+    }
+  }
+  ?record2 covid:date ?date2 ;
+           covid:cases ?cases2 ;
+           covid:deaths ?deaths2 .
+
+  FILTER (?cases2 > ?cases1 && ?deaths2 > ?deaths1)
+  FILTER (?date1 >= "2023-01-23"^^xsd:date && ?date1 <= "2023-03-22"^^xsd:date)
+  FILTER (?date2 = ?date1 + "P1D"^^xsd:duration)
+}
+
+**Explanation of the query:**
+
+The example query represented has six parts. The URIs are example place holders, so the query is only referential. However, the CSV links are real. 
+
+This is a multi-faceted and challenging exercise, which can use further property path pattern analysis to make a case for when and where the next possible COVID-19 surge will be, more than I did here (e.g. AlternativePath or OneOrMorePath). I demonstrated the sequence path analysis and compared the results between the US as a whole and 55 individual states and on each day between the dates 2023-01-23 and 2023-03-22. 
+
+```
+
 
 
