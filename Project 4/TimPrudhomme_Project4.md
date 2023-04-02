@@ -1,6 +1,8 @@
 # Project 4
 
 # Querying Relations - Kata 8 - 0pts
+One difference between SPARQL and SQL is that SPARQL can query relations as data, whereas in SQL relations are represented as columns in a schema.
+
 Write a SPARQL query to find how the planet Venus is related to The Morning Star, as represented in the following RDF data:
 
 RDF Data:
@@ -70,7 +72,8 @@ WHERE {
 
 
 # Greatest Ancestor - Kata 4 - 10pts
-Write a recursive query using a property path expression to find the greatest ancestor of BFO 'role' that isn't owl:Thing.
+The property path expresions "*" and "+" can be used for recursive queries.
+Write a recursive query using a property path expression to find the greatest ancestor superclass of BFO "role" that isn't owl:Thing.
 
 RDF Data
 ```turtle
@@ -130,39 +133,9 @@ WHERE {
 
 
 
-# Least Common Ancestor - Kata 3 - 20pts
-The Least Common Ancestor (or "least common subsumer") of two classes is the nearest class that's an ancestor of both classess.
-Find the least common ancestor of the BFO classes "role" and "material entity".
-
-Use the RDF Data from the previous Kata that describes a fragment of BFO.
-
-### Initial Solution:
-```sparql
-SELECT DISTINCT *
-WHERE { 
-    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
-    <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?LCA .
-    # This gets all ancestors of both classes. Now find the "least common" to both.
-}
-```
-
-### Solution:
-```sparql
-SELECT DISTINCT *
-WHERE { 
-    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
-    <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?LCA .
-    FILTER NOT EXISTS {
-      <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?anotherAncestor .
-      <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?anotherAncestor .
-      ?anotherAncestor rdfs:subClassOf ?LCA .
-    }
-}
-```
-
-
-
 # Deriving Uncles - Kata 4 - 10pts + SQL (5pts)
+Being an uncle of someone depends on certain parent-child relationships, and not the other way around. This is a useful relationship to derive instead of adding as a separate fact in a database, which would need to be kept consistent with the parent-child relationships.
+
 Given a set of pairs of individuals who are related by the “parent of” relationship, find all pairs of individuals who are related by the “uncle of” relationship. 
 
 RDF Data:
@@ -231,6 +204,40 @@ INNER JOIN ParentChild parents ON parents.child = grandkids.parent
 INNER JOIN ParentChild grandparents ON grandparents.parent = parents.parent
 -- filter to uncles (grandparent's children who aren't their parent)
 WHERE grandkids.parent != grandparents.child 
+```
+
+
+
+
+
+# Least Common Ancestor - Kata 3 - 20pts
+The Least Common Ancestor (or "least common subsumer") of two classes is the nearest class that's an ancestor of both classess.
+Find the least common ancestor of the BFO classes "role" and "material entity".
+
+Use the RDF Data from the previous Kata that describes a fragment of BFO.
+
+### Initial Solution:
+```sparql
+SELECT DISTINCT *
+WHERE { 
+    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
+    <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?LCA .
+    # This gets all ancestors of both classes. Now find the "least common" to both.
+}
+```
+
+### Solution:
+```sparql
+SELECT DISTINCT *
+WHERE { 
+    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
+    <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?LCA .
+    FILTER NOT EXISTS {
+      <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?anotherAncestor .
+      <http://purl.obolibrary.org/obo/BFO_0000040> rdfs:subClassOf* ?anotherAncestor .
+      ?anotherAncestor rdfs:subClassOf ?LCA .
+    }
+}
 ```
 
 
