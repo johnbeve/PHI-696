@@ -696,3 +696,297 @@ The query represents one direction that a queryist can choose to go in order to 
 ```
 
 
+
+___
+
+**I will now transition away from creating Enter the Dōjō: Master the Basics of SPARQL Series material. There are still many functions to cover, but I would like to focus on using SPARQL to research and problem solve.**
+
+___
+
+**Theme: SPARQL for Research and Problem Solving**
+
+___ 
+
+**[10] Kata Level 3 (20 pts, total pts accrued: 68 pts): SPARQL for Research and Problem Solving—Which is the gloomier city: Seattle or Buffalo? 
+
+**Description:**
+
+```
+It has been often often reported that Seattle is the United States’ gloomiest city based off of annual reports of having the highest amount of overcast days and highest amount of reported cases of depression. A politician and wealthy businessman from Seattle wants to change Seattle’s reputation in the media and has recently heard of Buffalo, NY’s recent city-stopping blizzards and similar to Seattle, proclivity for having overcast days.
+
+You are hired to make a new case for Buffalo to actually hold the “gloomiest city” title. You must first create a report that supports the claim that Seattle is regarded as the gloomiest city in the United States. Then create a second report with your new findings showing that Buffalo is actually the gloomiest city in the United States based off new markers. 
+```
+
+**Reference Solution:**
+
+```
+Part 1:
+
+PREFIX : <http://example.org/data#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+CONSTRUCT {
+  ?statistic rdf:type :Statistic .
+  ?statistic :averageOvercastDays ?avgOvercastDays .
+  ?statistic :averageRainyDays ?avgRainyDays .
+  ?statistic :averageDepressionCases ?avgDepressionCases .
+  ?statistic :totalGloomiestCityYears ?totalGloomiestYears .
+}
+WHERE {
+  {
+    SELECT (AVG(?overcastDays) AS ?avgOvercastDays)
+    WHERE {
+      ?year :hasLocation :Seattle ;
+            :hasYear ?yearValue ;
+            :totalOvercastDays ?overcastDays .
+      FILTER (?yearValue >= 1972 && ?yearValue <= 2022)
+    }
+  }
+  UNION
+  {
+    SELECT (AVG(?rainyDays) AS ?avgRainyDays)
+    WHERE {
+      ?year :hasLocation :Seattle ;
+            :hasYear ?yearValue ;
+            :totalRainyDays ?rainyDays .
+      FILTER (?yearValue >= 1972 && ?yearValue <= 2022)
+    }
+  }
+  UNION
+  {
+    SELECT (AVG(?depressionCases) AS ?avgDepressionCases)
+    WHERE {
+      ?year :hasLocation :Seattle ;
+            :hasYear ?yearValue ;
+            :totalDepressionCases ?depressionCases .
+      FILTER (?yearValue >= 1972 && ?yearValue <= 2022)
+    }
+  }
+  UNION
+  {
+    SELECT (COUNT(?gloomiestYear) AS ?totalGloomiestYears)
+    WHERE {
+      ?gloomiestYear :hasLocation :Seattle ;
+                     :hasYear ?yearValue ;
+                     :isGloomiestCity true .
+      FILTER (?yearValue >= 1972 && ?yearValue <= 2022)
+    }
+  }
+  BIND (IRI(CONCAT("http://example.org/data#statistic-", STRUUID())) AS ?statistic)
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.csv>
+WHERE {
+  # The above SPARQL query goes here
+}
+# DROP the retrieved data
+DROP { ?s ?p ?o }
+WHERE {
+  # The above SPARQL query goes here
+}
+
+
+Part 2:
+
+PREFIX : <http://example.org/data#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+CONSTRUCT {
+  ?city1 :averageOvercastDays ?avgOvercastDays1 .
+  ?city2 :averageOvercastDays ?avgOvercastDays2 .
+  ?city1 :averageRainyDays ?avgRainyDays1 .
+  ?city2 :averageRainyDays ?avgRainyDays2 .
+  ?city1 :averageDepressionCases ?avgDepressionCases1 .
+  ?city2 :averageDepressionCases ?avgDepressionCases2 .
+  ?city1 :averageSnowfall ?avgSnowfall1 .
+  ?city2 :averageSnowfall ?avgSnowfall2 .
+  ?city1 :averageTemperature ?avgTemperature1 .
+  ?city2 :averageTemperature ?avgTemperature2 .
+  ?city1 :averageUnemploymentRate ?avgUnemploymentRate1 .
+  ?city2 :averageUnemploymentRate ?avgUnemploymentRate2 .
+  ?city1 :averageHappinessIndex ?avgHappinessIndex1 .
+  ?city2 :averageHappinessIndex ?avgHappinessIndex2 .
+}
+WHERE {
+  {
+    SELECT ?city1 (AVG(?overcastDays1) AS ?avgOvercastDays1) ?city2 (AVG(?overcastDays2) AS ?avgOvercastDays2) WHERE {
+      {
+        SELECT ?city1 ?year (SUM(?overcastDays) AS ?overcastDays1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasWeatherData ?weatherData1 .
+          ?weatherData1 :overcastDays ?overcastDays .
+          ?weatherData1 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (SUM(?overcastDays) AS ?overcastDays2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasWeatherData ?weatherData2 .
+          ?weatherData2 :overcastDays ?overcastDays .
+          ?weatherData2 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?rainyDays1) AS ?avgRainyDays1) ?city2 (AVG(?rainyDays2) AS ?avgRainyDays2) WHERE {
+      {
+        SELECT ?city1 ?year (SUM(?rainyDays) AS ?rainyDays1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasWeatherData ?weatherData1 .
+          ?weatherData1 :rainyDays ?rainyDays .
+          ?weatherData1 :year ?year .
+                   FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (SUM(?rainyDays) AS ?rainyDays2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasWeatherData ?weatherData2 .
+          ?weatherData2 :rainyDays ?rainyDays .
+          ?weatherData2 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?depressionCases1) AS ?avgDepressionCases1) ?city2 (AVG(?depressionCases2) AS ?avgDepressionCases2) WHERE {
+      {
+        SELECT ?city1 ?year (SUM(?depressionCases) AS ?depressionCases1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasHealthData ?healthData1 .
+          ?healthData1 :depressionCases ?depressionCases .
+          ?healthData1 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (SUM(?depressionCases) AS ?depressionCases2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasHealthData ?healthData2 .
+          ?healthData2 :depressionCases ?depressionCases .
+          ?healthData2 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?snowfall1) AS ?avgSnowfall1) ?city2 (AVG(?snowfall2) AS ?avgSnowfall2) WHERE {
+      {
+        SELECT ?city1 ?year (SUM(?snowfall) AS ?snowfall1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasWeatherData ?weatherData1 .
+          ?weatherData1 :snowfall ?snowfall .
+          ?weatherData1 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (SUM(?snowfall) AS ?snowfall2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasWeatherData ?weatherData2 .
+          ?weatherData2 :snowfall ?snowfall .
+          ?weatherData2 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?dailyAverageTemperature1) AS ?avgTemperature1) ?city2 (AVG(?dailyAverageTemperature2) AS ?avgTemperature2) WHERE {
+      {
+        SELECT ?city1 ?year (AVG(?dailyAverageTemperature) AS ?dailyAverageTemperature1) WHERE {
+                    ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasWeatherData ?weatherData1 .
+          ?weatherData1 :dailyAverageTemperature ?dailyAverageTemperature .
+          ?weatherData1 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (AVG(?dailyAverageTemperature) AS ?dailyAverageTemperature2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasWeatherData ?weatherData2 .
+          ?weatherData2 :dailyAverageTemperature ?dailyAverageTemperature .
+          ?weatherData2 :year ?year .
+          FILTER (1972 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?unemploymentRate1) AS ?avgUnemploymentRate1) ?city2 (AVG(?unemploymentRate2) AS ?avgUnemploymentRate2) WHERE {
+      {
+        SELECT ?city1 ?year (AVG(?unemploymentRate) AS ?unemploymentRate1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasEconomicData ?economicData1 .
+          ?economicData1 :unemploymentRate ?unemploymentRate .
+          ?economicData1 :year ?year .
+          FILTER (2012 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (AVG(?unemploymentRate) AS ?unemploymentRate2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasEconomicData ?economicData2 .
+          ?economicData2 :unemploymentRate ?unemploymentRate .
+          ?economicData2 :year ?year .
+          FILTER (2012 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+  UNION
+  {
+    SELECT ?city1 (AVG(?happinessIndex1) AS ?avgHappinessIndex1) ?city2 (AVG(?happinessIndex2) AS ?avgHappinessIndex2) WHERE {
+      {
+        SELECT ?city1 ?year (AVG(?happinessIndex) AS ?happinessIndex1) WHERE {
+          ?city1 rdfs:label "Seattle, Washington" .
+          ?city1 :hasSocialData ?socialData1 .
+          ?socialData1 :happinessIndex ?happinessIndex .
+          ?socialData1 :year ?year .
+          FILTER (2012 <= ?year && ?year <= 2022)
+        } GROUP BY ?city1 ?year
+      }
+      {
+        SELECT ?city2 ?year (AVG(?happinessIndex) AS ?happinessIndex2) WHERE {
+          ?city2 rdfs:label "Buffalo, New York" .
+          ?city2 :hasSocialData ?socialData2 .
+          ?socialData2 :happinessIndex ?happinessIndex .
+          ?socialData2 :year ?year .
+          FILTER (2012 <= ?year && ?year <= 2022)
+        } GROUP BY ?city2 ?year
+      }
+    } GROUP BY ?city1 ?city2
+  }
+}
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.csv>
+WHERE {
+  # The above SPARQL query goes here
+}
+
+**Explanation of the query:**
+
+The example query represented has two parts. The URIs are example place holders, so the query is only referential. The first part creates the initial graph with evidence that may be used to support the claim that Seattle is America’s gloomiest city. 
+
+The second part compares Seattle and Buffalo on seven different markers. Upon analysis, one could make the argument that Buffalo is more gloomy based on additional factors such as a higher annual average snowfall, lower annual average temperature, higher annual average unemployment rate, and lower annual average rating on the happiness index. 
+
+```
+
+
