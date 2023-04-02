@@ -64,6 +64,7 @@ PREFIX dbr:< http://dbpedia.org/resource/ >
 
 **Sample Solution**:
 
+```sparql
 PREFIX dbo: < http://dbpedia.org/ontology/ >
 
 PREFIX dbr:< http://dbpedia.org/resource/ >
@@ -85,6 +86,7 @@ FILTER (?date>"2015-01-01"^^xsd:date)
 }
 
 LIMIT 10
+```
 
 ****
 
@@ -123,6 +125,7 @@ This is a laborious task. Putting yourself in Jenny's shoes, you have to use SPA
 
 **STEP 1**
 
+```sparql
 PREFIX dbo: < http://dbpedia.org/ontology/ >
 
 PREFIX dbr:< http://dbpedia.org/resource/ >
@@ -182,6 +185,7 @@ FILTER(lang(?name) = "en")
 ORDER BY DESC(?date)
 
 LIMIT 100
+```
 
 **STEP 2**
 
@@ -189,6 +193,7 @@ Save search results as a named graph “ex100.ttl”.
 
 **STEP 3**
 
+```sparql
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
 
 PREFIX rdfs: < http://www.w3.org/2000/01/rdf-schema# >
@@ -223,6 +228,7 @@ FILTER (?date >"2021-12-31"^^xsd:date)
 }
 
 }
+```
 
 ****
 
@@ -317,6 +323,7 @@ PREFIX ex:< http://example.org/videoGames/ >, where we have properties like "ex:
 
 **Sample Solution**
 
+```sparql
 PREFIX schema: < http://schema.org/ >
 PREFIX ex:< http://example.org/videoGames/ >
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
@@ -373,6 +380,7 @@ LIMIT 10
 Filter(?name1=?name2)
 
 }
+```
 
 ****
 
@@ -438,6 +446,7 @@ All particular RDF resources are stored in the namespace *mars*. So be free to u
 
 **Sample Solution**
 
+
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
 
 PREFIX xsd: < http://www.w3.org/2001/XMLSchema# >
@@ -448,6 +457,7 @@ PREFIX time: < http://www.w3.org/2006/time# >
 
 **Rule#1 is modeled as:**
 
+```sparql
 CONSTRUCT
 
 {
@@ -497,9 +507,11 @@ BIND(time:add(time:seconds(30) , ?t1) AS ?t2)
 FILTER NO EXISTS {mars:elevatorB mars:on_status ?Bstatus }
 
 }
+```
 
 **Rule#2 is modeled as:**
 
+```sparql
 CONSTRUCT
 
 {
@@ -540,9 +552,11 @@ mars:elevatorB rdf:type mars:elevator ;
 BIND(time:add(time:seconds(30) , ?t1) AS ?t2)              
 
 }
+```
 
 **Rule#3 is modeled as:**
 
+```sparql
 CONSTRUCT
 
 {
@@ -634,9 +648,11 @@ UNION
 FILTER ((bound(?level)) || (?grade>6))
 
 }
+```
 
 **Each elevator's daily abnormality rate can be found via the following query**
 
+```sparql
 SELECT ?elevator ?date ?totalStatus ?abnormalityRate 
 
 WHERE
@@ -682,6 +698,7 @@ BIND(COUNT(?t1)+COUNT(?t2) AS ?totalStatus)
 BIND(COUNT(?t3) / COUNT(?t1)+COUNT(?t2) AS ?abnormalityRate)
 
 }
+```
 
 ****
 
@@ -697,6 +714,7 @@ As his friend, you want to do him a favor. Fortunately, you master a witchcraft 
 
 (a) Query 1:
 
+```sparql
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
 
 PREFIX rdfs: < http://www.w3.org/2000/01/rdf-schema# >
@@ -762,9 +780,11 @@ LIMIT 50
 }
 
 }
+```
 
 (b) Query 2: Store results of Query 1 as "wit100.ttl", and then run the following query against wit100.ttl.
 
+```sparql
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
 
 PREFIX rdfs: < http://www.w3.org/2000/01/rdf-schema# >
@@ -808,6 +828,7 @@ FILTER (?location IN (wit:Novigrad, wit:Oxenfurt, wit:Velen))
 }
 
 }
+```
 
 ****
 
@@ -893,6 +914,7 @@ Confucius is generally thought to be an important cultural symbol of China. Cons
 
 **Sample Solution**
 
+```sparql
 PREFIX con:< http://confucius.org/ >
 
 PREFIX qufu:< http://qufu.org/ >
@@ -950,6 +972,7 @@ BIND (?food / (?food+?clothes+?housing+?trans+?other) AS ?coefficient)
 }
 
 }
+```
 
 ****
 
@@ -994,6 +1017,7 @@ VC (http://videocard.org/) is a database storing data of performances and prices
 
 **Sample Solution**
 
+```sparql
 PREFIX vc:< http://videocard.org/ >
 
 PREFIX rdf: < http://www.w3.org/1999/02/22-rdf-syntax-ns# >
@@ -1061,6 +1085,7 @@ WHERE {
   BIND(IF(?nvidia_perf > ?amd_perf, "nvidia is better", "AMD is better") AS ?answer)
 
 }
+```
 
 ****
 
@@ -1070,6 +1095,7 @@ Today is Black Friday, so lots of electronic products might have a special disco
 
 **Sample Solution**
 
+```sparql
 PREFIX bf: < http://blackfridaydeals.org/ >
 
 PREFIX cc: < http://creditcard.org/ >
@@ -1140,6 +1166,7 @@ WHERE {
 BIND(IF(BOUND(?discount), ?price * (1 - ?discount) * (1 - ?ratio), ?price * (1 - ?ratio)) AS ?finalPrice)
 
 }
+```
 
 ****
 
