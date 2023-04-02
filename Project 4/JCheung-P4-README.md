@@ -120,7 +120,7 @@ ___
 **Theme: Enter the Dōjō: Master the Basics of SPARQL Series**
 ___
 
-**[3] Kata Level 6 (3 pts, total pts accrued: 5 pts): Enter the Dōjō: SPARQL’s Four Query Forms (1)**
+**[3] Kata Level 6 (3 pts, total pts accrued: 5 pts): Enter the Dōjō—Beginner: SPARQL’s Four Query Forms (1)**
 
 **Description:**
 
@@ -134,7 +134,7 @@ Hint: You may query any data set. However, the four query forms must be used on 
 3.	Run ASK queries when you want to know whether a certain pattern exists in the data. ASK queries return only "true" or "false" to indicate whether a solution exists.
 4.	Run DESCRIBE queries when you want to view the RDF graph that describes a particular resource.
 
-(1-4 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/query-forms.htm)
+(1-4 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
 
 **Reference Solution:**
@@ -185,7 +185,7 @@ This query attempts to retrieve all chicken wing cuisine styles in order to cons
 
 ___
 
-**[4] Kata Level 6 (3 pts, total pts accrued: 8 pts): Enter the Dōjō: SPARQL’s Four Query Clauses (Series 2)**
+**[4] Kata Level 6 (3 pts, total pts accrued: 8 pts): Enter the Dōjō—Beginner: SPARQL’s Four Query Clauses (2)**
 
 **Description:**
 
@@ -203,7 +203,7 @@ Hint: You may query any data set. However, the four query clauses and the two ad
 5.	FILTER applies boolean conditions or tests to constrain results and filter out values that do not meet the specified conditions.
 6.	UNION includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
 
-(1-6 Cited from Cambridge Semantics:  https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/query-clauses.htm)
+(1-6 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
 ```
 
 **Reference Solution:**
@@ -249,7 +249,7 @@ This query attempts to retrieve all chicken wing and chicken thigh cuisine style
 
 ___
 
-**[5] Kata Level 5 (5 pts, total pts accrued: 13 pts): Enter the Dōjō: SPARQL’s Seven WHERE Condition Clauses (Series 3)**
+**[5] Kata Level 5 (5 pts, total pts accrued: 13 pts): Enter the Dōjō—Beginner: SPARQL’s Seven WHERE Condition Clauses (3)**
 
 **Description:**
 
@@ -274,7 +274,7 @@ Hint: You may query any data set, but the data set(s) must be related to the aim
 	6. UNION: Includes results from either of two graph patterns. Solutions to both sides of the union are included in the results.
 	7. VALUES: Enables users to include data in a graph pattern to filter results on more specific requirements. The data is joined with the results of the query evaluation.
 
-(1-7 Cited from Cambridge Semantics:  https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/where.htm)
+(1-7 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/where.htm)
 ```
 
 **Reference Solution:**
@@ -341,6 +341,267 @@ This query attempts to query for a selection of varying chicken cuisine styles a
 
 
 ___
-[6] Kata Level 5 (5 pts, total pts accrued: 18 pts): Enter the Dōjō: SPARQL’s Solution Modifiers Part 1 Clauses (Series 4)
+**[6] Kata Level 5 (5 pts, total pts accrued: 18 pts): Enter the Dōjō—Beginner: SPARQL’s Solution Modifiers Part 1 (4)**
+
+**Description:**
+
+```
+If you completed the third stage of the Enter the Dōjō series, well done! You are now ready to begin training with solution modifiers. Let us train!
+
+You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms and the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses. 
+
+Now we must add optional solution modifiers to our query tool box. Solution modifiers help restrict, group, sort, and further refine query results. They are “techniques” that allow us to execute our solution with specificity. There are five general solution modifiers: ORDER BY, OFFSET, LIMIT, GROUP BY, and HAVING (we will only focus on the first three for this kata). 
+
+For this challenge, construct a query that queries multiple kinds or parts of an entity from at least two data sets. UNION the queried information and then CONSTRUCT a new graph. Then use the following solution modifiers ORDER BY, OFFSET, and LIMIT in an instrumental way to achieve your aims. 
+
+To be a true master SPARQL queryist, you must be creative. Think about how solution modifiers can refine your solution to enhance the aims of your query.
+
+Hint: You may query any data set, but the data set(s) must be related to the aims of the overall query. 
+1.	ORDER BY: This modifier sorts the result set in a particular order. It sorts query solutions on the value of one or more variables.
+2.	OFFSET: Using this modifier in conjunction with LIMIT and ORDER BY returns a slice of a sorted solution set, for example, for paging.
+3.	LIMIT: This modifier restricts the results to return a certain number of solutions.
+
+(1-3 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
+```
+
+**Reference Solution:**
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+
+CONSTRUCT {
+  ?food rdf:type ?type .
+}
+WHERE {
+  {
+    SELECT DISTINCT ?food ?type
+    WHERE {
+      <http://dbpedia.org/resource/Chicken_wings> rdf:type ?type .
+      ?food rdf:type ?type .
+    }
+    ORDER BY ?type
+    LIMIT 10 OFFSET 0
+  }
+  UNION
+  {
+    SELECT DISTINCT ?food ?type
+    WHERE {
+      <http://dbpedia.org/resource/Turkey_wings> rdf:type ?type .
+      ?food rdf:type ?type .
+    }
+    ORDER BY ?type
+    LIMIT 10 OFFSET 0
+  }
+  ?food rdf:type ?type .
+  FILTER (regex(str(?type), "http://dbpedia.org/ontology/Food"))
+}
+OFFSET 10
+
+**Explanation of the query:**
+This query first selects all the different types of chicken wing cuisines from a unique URI and limits the result to 10 items. Then it selects all the different kinds of turkey wing cuisines from a different URI and limits the result to 10 items as well. The results from both data sets are combined using the UNION operator.
+
+Next, a CONSTRUCT clause is used to create a new graph that contains all the food items and their corresponding types. The results are ordered by type, putting the chicken wings first and then the turkey wings second. Ordering by type allows for analysis of each to be streamlined. Finally, the results are offset by 10 on each page for printing purposes.
+```
 
 
+
+___
+**[7] Kata Level 5 (5 pts, total pts accrued: 23 pts): Enter the Dōjō—Beginner: SPARQL’s Solution Modifiers Part 2 (5)**
+
+**Description:**
+
+```
+If you completed the fourth stage of the Enter the Dōjō series, excellent! You will soon be ready to move on to intermediate SPARQL forms! Now, we must continue to Part 2 of learning our solution modifiers techniques.
+
+You are a beginning SPARQL queryist who has learned the four “offensive”, i.e. action-forward, query forms, the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses, and the first three solution modifiers from part 1: ORDER BY, OFFSET, and LIMIT.
+
+Now we must add further optional solution modifiers to our query tool box. As we learned, solution modifiers help restrict, group, sort, and further refine query results. They are “techniques” that allow us to execute our solution with specificity. There are five general solution modifiers: ORDER BY, OFFSET, LIMIT, GROUP BY, and HAVING (we will only focus on the latter two for this exercise). 
+
+For this challenge, write a query that queries at least two data sets. UNION the queried information and then CONSTRUCT a new graph. However, for this exercise you must use the solution modifiers GROUP BY and HAVING to create 10 novel groups. Use these forms, functions, and solution modifiers instrumentally to achieve a clear and established aim.
+
+To be a true master SPARQL queryist, you must be creative. Think about how the GROUP BY and HAVING solution modifiers can refine your solution to enhance the aims of your query. 
+
+Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. Also, consider using FILTER, REGEX, and/or GROUP_CONCAT to help pick out the groups that you want so that you can perform the GROUP BY and HAVING solution modifier. 
+1.	GROUP BY: This modifier is used with aggregate functions and specifies the key variables to use to partition the solutions into groups. 
+2.	HAVING: This modifier is used with aggregate functions and further filters the results after applying the aggregates.
+
+(1-2 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/sparql-queries.htm)
+```
+
+**Reference Solution:**
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+CONSTRUCT {
+  ?dish rdf:type ?type .
+}
+WHERE {
+  {
+    SELECT DISTINCT ?dish ?type
+    WHERE {
+      <http://dbpedia.org/resource/Category:Chicken_dishes> dbo:ingredient/(dbo:name) ?ingredient .
+      ?dish dbo:ingredient/(dbo:name) ?ingredient ;
+            rdf:type ?type .
+      FILTER(?ingredient IN ("chicken wings", "chicken breasts", "chicken thighs", "chicken legs", "chicken feet", "chicken head"))
+    }
+    LIMIT 10 OFFSET 0
+  }
+  UNION
+  {
+    SELECT DISTINCT ?dish ?type
+    WHERE {
+      <http://dbpedia.org/resource/Category:Turkey_dishes> dbo:ingredient/(dbo:name) ?ingredient .
+      ?dish dbo:ingredient/(dbo:name) ?ingredient ;
+            rdf:type ?type .
+      FILTER(?ingredient IN ("turkey wings", "turkey breasts", "turkey thighs", "turkey legs", "turkey feet", “turkey head”))
+    }
+    LIMIT 10 OFFSET 0
+  }
+  ?dish rdf:type ?type .
+  FILTER (regex(str(?type), "http://dbpedia.org/ontology/Food"))
+}
+GROUP BY ?dish ?type
+HAVING (
+  regex(GROUP_CONCAT(DISTINCT ?ingredient; separator=","), "chicken head") 
+    || !regex(GROUP_CONCAT(DISTINCT ?ingredient; separator=","), "chicken head")
+) ORDER BY ?type
+
+**Explanation of the query:**
+
+This query first selects all the different types of chicken dish cuisines from a unique URI, and all the different kinds of turkey wing cuisines from a different URI. The results from both data sets are then combined using the UNION operator, and a CONSTRUCT clause is used to create a new graph that contains all the dish items and their corresponding types. The results are then grouped by dish and type.
+The solution modifier HAVING is used to group "chicken head" separately, as follows:
+
+HAVING (
+ regex(GROUP_CONCAT(DISTINCT ?ingredient; separator=","), "chicken head") 
+    || !regex(GROUP_CONCAT(DISTINCT ?ingredient; separator=","), "chicken head")
+)
+
+This code checks whether the ingredient "chicken head" is present in the list of ingredients using a regular expression. If it is, the dish is grouped separately. Otherwise, it is grouped with the other chicken dishes.
+```
+
+
+
+___
+**[8] Kata Level 4 (10 pts, total pts accrued: 38 pts): Enter the Dōjō—Intermediate: SPARQL’s Data Update Functions (6)** 
+
+**Description:**
+
+```
+If you successfully passed the Enter the Dōjō—Beginner levels of the series, congratulations young SPARQL query artist, you are now an intermediate player! 
+
+You are an intermediate SPARQL queryist who has at least learned the foundational four “offensive”, i.e. action-forward, query forms, the four “defensive”, i.e. action-delimiting query clauses, along with the seven WHERE query condition clauses, and the five solution modifier “techniques” to refine solutions. 
+
+As SPARQL queryists retrieve, organize, refine, and edit data for their own respective purposes, a master SPARQL queryist must learn the seven data update functions: CLEAR, COPY, CREATE, DELETE, and DELETE DATA, DROP, INSERT and INSERT DATA, and LOAD.
+
+For this challenge, write a query that retrieves at least three separate graphs and uses the seven data update functions in a novel way with real-world purchase (i.e. it must be a realistic project in using the seven data update functions). 
+
+Hint: You may query any data sets, but the data sets must be related to the aims of the overall query. 
+1.	CLEAR: Deletes all of the triples in a graph without deleting the graph.
+2.	COPY: Copies graph data from the database to disk. 
+3.	CREATE: Creates a new empty graph.
+4.	DELETE and DELETE DATA: Deletes the specified graph or triple patterns or specific triples from the database.
+5.	DROP: Deletes a graph and all of its triples.
+6.	INSERT and INSERT DATA: Inserts the specified graph or triple patterns or specific triples to the database.
+7.	LOAD: Loads data to the database from a file or files that are on the AnzoGraph DB file system.
+
+(1-7 Cited from Cambridge Semantics: https://docs.cambridgesemantics.com/anzograph/v2.5/userdoc/system-update.htm#DELETE)
+```
+
+**Reference Solution:**
+
+```
+PREFIX ex: <http://example.com/chickenwingsales/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Retrieve the data of annual chicken wing sales in all cities named Buffalo in the United States in 2022
+SELECT ?city ?sales
+WHERE {
+  ?s ex:city ?city ;
+     ex:sales ?sales ;
+     ex:year "2022"^^xsd:integer .
+  FILTER regex(?city, "^Buffalo,.*United States$")
+}
+
+# COPY the retrieved data from the database to the disk
+COPY <file:///path/to/file.csv>
+WHERE {
+  # The above SPARQL query goes here
+}
+
+# DROP the retrieved data
+DROP { ?s ?p ?o }
+WHERE {
+  # The above SPARQL query goes here
+}
+
+# CREATE a new graph
+CREATE GRAPH <http://example.com/newgraph>
+
+# Retrieve the annual chicken wing sales of Buffalo, NY in 2002 and INSERT the data into the new graph
+INSERT DATA {
+  GRAPH <http://example.com/newgraph> {
+    ex:BuffaloNY2002 ex:city "Buffalo, NY, United States" ;
+                     ex:sales <INSERT 2002 SALES HERE> ;
+                     ex:year "2002"^^xsd:integer .
+  }
+}
+
+# Retrieve the annual chicken wing sales of Buffalo, NY in 2012 and INSERT the data into the new graph
+INSERT DATA {
+  GRAPH <http://example.com/newgraph> {
+    ex:BuffaloNY2012 ex:city "Buffalo, NY, United States" ;
+                     ex:sales <INSERT 2012 SALES HERE> ;
+                     ex:year "2012"^^xsd:integer .
+  }
+}
+
+# Retrieve the annual chicken wing sales of Buffalo, NY in 2022 and INSERT the data into the new graph
+INSERT DATA {
+  GRAPH <http://example.com/newgraph> {
+    ex:BuffaloNY2022 ex:city "Buffalo, NY, United States" ;
+                     ex:sales <INSERT 2022 SALES HERE> ;
+                     ex:year "2022"^^xsd:integer .
+  }
+}
+
+# COPY the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022 to the disk
+COPY <file:///path/to/file.csv>
+FROM <http://example.com/newgraph>
+
+# CLEAR the data on the new graph
+CLEAR GRAPH <http://example.com/newgraph>
+
+# DELETE the data on the new graph
+DELETE {
+  GRAPH <http://example.com/newgraph> {
+    ?s ?p ?o
+  }
+}
+WHERE {
+  GRAPH <http://example.com/newgraph> {
+    ?s ?p ?o
+  }
+}
+
+# LOAD the data of annual chicken wing sales in all cities named Buffalo in the United States in 2022 into the new graph
+LOAD <file:///path/to/file.csv>
+INTO GRAPH <http://example.com/newgraph>
+
+# LOAD the new graph with the inserted annual chicken wing sales data from 2002, 2012, and 2022
+LOAD <file:///path/to/file.csv>
+INTO GRAPH <http://example.com/newgraph>
+
+**Explanation of the query:**
+
+The query represents a situation in which a SPARQL queryist first retrieves information to compare annual chicken wing sales in 2022 from all cities named Buffalo in the United States. Then the query goes on to focus specifically on annual chicken wing sales across three decades: 2002, 2012, and 2022. It creates a new graph and inserts the annual chicken wing sales from each decade into the new graph. The query saves the newly created graph on the disk so that the SPARQL queryist can compare the first generated graph to the second newly created graph.
+
+```
+
+
+
+___
+**[9] Kata Level 4 (10 pts, total pts accrued: 48 pts): Enter the Dōjō—Intermediate: SPARQL’s Aggregate Functions (6)**
