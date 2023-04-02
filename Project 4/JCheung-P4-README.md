@@ -51,6 +51,7 @@ There is one other option for those desiring a different sort of challenge. If y
 ___
 
 **Summary of Project #4:**
+
 **12 Kata Total (Potential pts accrued: 108 or 118 pts): 1 kata lvl 8, 1 kata lvl 7, 2 kata lvl 6, 3 kata lvl 5, 2 kata lvl 4, 1 kata lvl 3, 2 kata lvl 3 or lvl 2.**
 
 ```
@@ -59,9 +60,10 @@ ___
 2. Kata Level 7 
 3. Theme: Enter the Dōjō: Master the Basics of SPARQL Series (7 kata total)
 4. Theme: SPARQL for Research and Problem Solving Series (3 kata total)
+```
 
 Note: The reference solutions for kata #1-#9 are all given in relation to primarily chicken, with some solutions also pertaining to turkey and beef. Although the author of these SPARQL queries does indeed love chicken (especially wings) and food in general, this was done to showcase the wide range of query capacities that SPARQL offers. The author apologizes in advance if readers get either tired of or hungry reading about chicken and its many varieties.
-```
+
 ___
 **[1] Kata Level 8 (0 pts, total pts accrued: 0pts): Who Invented the Buffalo Wing?**
 
