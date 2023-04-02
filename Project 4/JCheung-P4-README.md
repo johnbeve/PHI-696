@@ -1028,7 +1028,7 @@ ___
 
 You have recently been hired by the Center for Disease Control and Prevention (CDC) as an epidemiologist. There has been much talk about how the United States has likely reached herd immunity. However, with recent market and housing fears arising, along with heavy skepticism and criticism from the public about the CDC's credibility, the new director of the CDC has sought to allay fears by hiring you, a new breed epidemiologist with SPARQL querying skills. 
 
-Using your experience with SPARQL, create a query in order to conduct research to make a prediction and a case for when and where the next COVID-19 outbreak will be in the United States.
+Using your experience with SPARQL, create a query in order to conduct research to develop a report which makes a prediction and a case for when and where the next COVID-19 outbreak will be in the United States. You must query at least two different data sets and construct a novel graph as part of your report.
 
 ```
 Hint: Use these CSV files which are updated each week:
@@ -1038,6 +1038,8 @@ US State Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us
 US County Data: https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv
 
 Hint 2: SPARQL is designed to query RDF data, not CSV data.
+
+Hint 3: Consider using SPARQL property paths to examine the patterns between properties in the data. Property paths reveal the routes between nodes in a graph.
 ```
 
 **Reference Solution:**
@@ -1318,7 +1320,9 @@ However, there is hope! All U.S. satelites are intact and undamaged. As such, de
 
 Best of luck, soldier! 
 
-Hint: GPS
+Hint 1: GPS
+
+Hint 2: Property paths, haversine, and path algorithms
 
 **Reference Solution:**
 
