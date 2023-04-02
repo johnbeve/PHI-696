@@ -52,7 +52,7 @@ ___
 
 **Summary of Project #4:**
 
-**12 Kata Total (Potential pts accrued: 108 or 118 pts): 1 kata lvl 8, 1 kata lvl 7, 2 kata lvl 6, 3 kata lvl 5, 2 kata lvl 4, 1 kata lvl 3, 2 kata lvl 3 or lvl 2.**
+**12 Kata Total (potential points accrued: 108 or 118 pts): 1 kata lvl 8, 1 kata lvl 7, 2 kata lvl 6, 3 kata lvl 5, 2 kata lvl 4, 1 kata lvl 3, 2 kata lvl 3 or lvl 2.**
 
 ```
 **Outline of Project #4:**
