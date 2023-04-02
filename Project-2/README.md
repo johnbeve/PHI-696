@@ -80,7 +80,83 @@ Same questions as above: Is this well formed?  Does it matter?
 ```
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
 
+P = Professor
+
+P ⊓ ∃R.T (ALC interpretation cannot distinguish between numbers of successors)
+
+P ⊓ ≥ 2R.T(ALCN Interpretation)
+P ⊓ ≥ 3R.T(ALCN Interpretation)
+
+ΔI1 = {Dr. Beverley, PHI 697, PHI 329, Tuesday Workshop}
+
+Named IndividualsI:
+Dr. BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+Tuesday WorkshopI = W
+
+Role Assignments:
+t = {(B, 697), (B, 329), (B, W)}
+
+![image](https://user-images.githubusercontent.com/123913163/229375071-26dcbd8a-ddf9-47d7-9321-6456243396c7.png)
+
+![image](https://user-images.githubusercontent.com/123913163/229375026-a0879e8b-7804-4ca7-86c4-bc6b1ca81ec1.png)
+
+ΔI2 = {Dr. Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+Dr. BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. But we can distinguish them in ALCN by defining the role t as
+≥3 ∃t.⊤
+in I1
+≥2 ∃t2.⊤
+in I2
+
 5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+ΔI1 = {Dr. Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+Dr. BeverleyI = B
+PHI 697I = 697
+PHI 329I = 329
+
+Role Assignments:
+t = {(B, 697), (B, 329), (B, W)}
+
+
+ΔI2 = {Dr. Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+Dr. BeverleyI2 = B2
+PHI2 697I = 697-2
+PHI 329I = 329-2
+
+Role Assignments:
+t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+
+ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+So B is bisimilar to B2. The ALCN definitions are
+≥2 ∃m.⊤
+in I1
+≥2 ∃m2.⊤
+in I2
+
+![image](https://user-images.githubusercontent.com/123913163/229375095-0c9b3789-ba05-47e8-a856-2d471926adb0.png)
+
 
 
 6. Explain the difference - using natural language - between the description logic expressions:
