@@ -707,7 +707,7 @@ ___
 
 ___ 
 
-**[10] Kata Level 3 (20 pts, total pts accrued: 68 pts): SPARQL for Research and Problem Solving—Which is the gloomier city: Seattle or Buffalo? 
+**[10] Kata Level 3 (20 pts, total pts accrued: 68 pts): SPARQL for Research and Problem Solving—Which is the gloomier city: Seattle or Buffalo?** 
 
 **Description:**
 
