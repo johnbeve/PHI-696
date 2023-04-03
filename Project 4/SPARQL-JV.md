@@ -116,9 +116,9 @@ PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 SELECT ?productName ?modelValue ?releaseDate
 WHERE {
       ?device ontocam:manufactured_by ontocam:Fujifilm ;
-      ?device rdfs:type ontocam:Camera ;
-      ?device ontocam:released_in_year "2020" ;
-      ?device ro:has_function ontocam:Bluetooth .
+	      rdfs:type ontocam:Camera ;
+	      ontocam:released_in_year "2020" ;
+	      ro:has_function ontocam:Bluetooth .
 }
 ```
 
@@ -148,9 +148,9 @@ PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 SELECT ?PreferredName ?RegisteredPoliticalParty ?OfficialWebsiteURL
 WHERE {
         ?ontopol:Citizen ro:referred_by ?ontopol:PreferredName ;
-            ro:bearer_of ontopol:PoliticalCandidateRole ;
-            ontopol:affiliated_with ?ontopol:RegisteredPoliticalParty ;
-            ontopol:platform_described_by ?OfficialWebsiteURL .
+		ro:bearer_of ontopol:PoliticalCandidateRole ;
+		ontopol:affiliated_with ?ontopol:RegisteredPoliticalParty ;
+		ontopol:platform_described_by ?OfficialWebsiteURL .
 }
 ```
 
