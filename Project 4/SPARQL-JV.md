@@ -410,26 +410,29 @@ WHERE {
 ```
 
 **Problem 4-1.**
-- Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. These are called ziggurats. However, Egyptians were not the first to build this kind of structure. Which structures have the greatest estimated age?
-- Display the name of the oldest 25 ziggurats, current country location, name of associated culture when it was formed, and estimated age. Optionally, display whether it was a religious building, and display as artifact of that religion. Order by estimated age, descending (or date of completion ascending).
+- Around the world there are large buildings that bear the same shape as the famous Egyptian pyramids. In Mesopotamia, these are called ziggurats. However, Egyptians were not the first to build this kind of structure. For our purposes, all ziggurats and pyramids are pyramidesque buildings (pyramidesqueBuilding), even if the database does not say so. Which pyramid structures have the greatest estimated age?
+- Display the name of the oldest 25 ziggurats or pyramids, current country location, name of associated culture when it was formed, and estimated age. Optionally, display whether it was a religious building, and display as artifact of that religion. Order by estimated age, descending (or date of completion ascending).
+- HINT 1: You may use Construct to assert that all ziggurats are pyramids, or bind the disjunction to create a temporary class.
+- HINT 2: Since hundreds have been created since AD 1500, make sure you filter so that the query can complete. 
 ```
 PREFIX anthro: <http://anthropologywiki.org/schema/ontology/>
 
-SELECT ?zigguratName ?countryName ?cultureName ?estimatedCompletionDate ?religiousArtifact
+SELECT ?pyramidsqueBuilding ?countryName ?cultureName ?estimatedCompletionDate ?religiousArtifact
 WHERE {
-	?ziggurat a anthro:Building ;
-		rdfs:type anthro:Ziggurat ;
-		anthro:location_in ?Country ;
+	?Building anthro:location_in ?Country ;
 		anthro:cultural_originator ?Culture ;
 		anthro:date_completed ?EstimatedCompletionDate .
 	?Country rdfs:label ?countryName .
 	?Culture rdfs:label ?cultureName .
+	BIND (?ziggarat|?pyramid) AS ?pyramidesqueBuilding
 	OPTIONAL { ?Building anthro:religious_site_of ?Religion .
   		BIND exists(?Building anthro:religious_site_of ?Religion) AS ?ReligiousArtifact }
+	FILTER ( ?EstimatedCompletionDate < 1500-01-01 )
 }
 ORDER BY ASC(?estimatedCompletionDate)
 LIMIT 25
 ```
+
 
 **Problem 4-2.**
 - An E. coli breakout has occurred recently and the culprit is contaminated iceberg lettuce pallets in the distribution for fastfood restaurants in the midwestern states. All pallets of lettuce that passed through distribution chains in Arkansas and Nebraska are at risk. Declare all such lettuce to bear an "E. coli risk" role and "recall" quality status, if they were present on shipping routes through these two states. (You must change the safety rating, and then assert a new triple that the pallet bears a risk role with CONSTRUCT or a similar function)
@@ -457,7 +460,7 @@ WHERE {
 }
 ```
 
-**Problem 4.3**
+**Problem 4.3 ... or Kata-3?**
 - A research company is working on anemia treatment. They belong to a network of research organizations permitted to make requests from biological banks that contain specimens available for "secondary research," i.e., excess tissues or fluids derived from testing on a patient or withdrawn in some clinic. The database contains attributes such as anonymized patient id, specimen type, biobank locations, and other anonymized medical history information such as prior testing or patient demographics.
 - Find all specimens that are instances of blood or bone marrow, derived from a woman younger than 25 years old, who has not tested positive for cancer (and if there has been a negative test result for cancer, include that information), and the specimen is located in the state of Illinois, Indiana, Michigan, or Ohio.
 - NOTE 1: This is largely from ChatGPT, generated 2023-03-25
@@ -489,7 +492,7 @@ WHERE {
 }
 ```
 
-**Problem 4.4**
+**Problem 4.4 ... or Kata-3?** 
 - The FBI wants to put several people on a watchlist if they have performed some suspicious activity. Suppose that they wanted to put anyone on the watchlist who fit the following conditions: the person owns a phone that was present at the US Capital Building on January 6, 2022. There are some ways to connect the device to the building by finding such cases where the mobile device has certain GPS coordinates and communicating with the cell tower such information. This would be too hasty, except that they want to prioritize those who have had a criminal record (bearer of 'FormerCriminalRole') and not a political figure nor a journalist ('PoliticalOfficeRole' and 'JournalistRole', respectively).
 - Assert with CONSTRUCT that such persons bear a FBIWatchlistMemberRole
 - NOTE: Feel free to tell me that this is a Kata-3?
