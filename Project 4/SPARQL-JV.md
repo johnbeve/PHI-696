@@ -298,7 +298,7 @@ SELECT ?tallShelf ?salePriceValueUSD
 WHERE {
   ?shelf ro:instance_of homedev:Shelf ;
            ro:bearer_of ?function ;
-           ro:composed_primarily_ of ?material ;
+           ro:composed_primarily_of ?material ;
            homedev:has_sale_price ?salePriceValueUSD .
   FILTER (?function != homedev:twoShelf && 
           ?salePriceValueUSD < 150 && 
