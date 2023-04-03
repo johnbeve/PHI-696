@@ -125,7 +125,9 @@ ASK {
   ?chickenWing ex:food ;
                ex2:type ex2:chickenWing ;
                ex3:cookingMethod ?cookingMethod .
-  {
+    }
+  HAVING (COUNT(DISTINCT ?cookingMethod) > 1
+  }
     SELECT DISTINCT ?cookingMethod  
     WHERE {
       ?chickenWing ex3:cookingMethod ?cookingMethod .
@@ -476,7 +478,7 @@ WHERE {
             rdf:type ?type .
       FILTER(?ingredient IN ("chicken wings", "chicken breasts", "chicken thighs", "chicken legs", "chicken feet", "chicken head"))
     }
-    LIMIT 10 OFFSET 0
+    LIMIT 10 OFFSET 10
   }
   UNION
   {
@@ -487,7 +489,7 @@ WHERE {
             rdf:type ?type .
       FILTER(?ingredient IN ("turkey wings", "turkey breasts", "turkey thighs", "turkey legs", "turkey feet", “turkey head”))
     }
-    LIMIT 10 OFFSET 0
+    LIMIT 10 OFFSET 10
   }
   ?dish rdf:type ?type .
   FILTER (regex(str(?type), "http://dbpedia.org/ontology/Food"))
