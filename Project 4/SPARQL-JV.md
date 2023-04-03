@@ -308,19 +308,22 @@ WHERE {
 ```
 
 **Problem 5-2.**
-- The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California.
+- The federal department of education gives special grants to those educational institutions that garner the highest enrollments in the state (only one per state), whether that school is public or private. The total enrollment includes both undergraduate and postgraduate students. Find the college or university that would be eligible for such a grant in the state of California. Assert that the institution has the topEnrollment number and that it is a member of an eligible institution list, using CONSTRUCT regarding bearing a role (itdev:EligibleForFederalGrant).
 - Give the name of the institution and number of students of a post-secondary educational institution located in California with the highest enrollment of students (undergrad and grad together).
 ```
 PREFIX onto-ed: <https://www.nj.gov/admin/oit/ontology/>
+PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
-SELECT ?institution (MAX(?totalEnrollment) AS ?topEnrollment)
+CONSTRUCT { ?institution onto-ed:enrollment_number ?topEnrollment ;
+		ro:bearer_of ?EligibleForFederalGrant . }
 WHERE {
-  ?institution a onto-ed:EducationalInstitution ;
-               onto-ed:type "PostsecondaryEducation" ;
-               onto-ed:located_in_state "California" ;
-               onto-ed:enrollment_number ?postgradEnrollment ;
-               onto-ed:enrollment_number ?undergradEnrollment ;
-               BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
+	?institution a onto-ed:EducationalInstitution ;
+		onto-ed:type "PostsecondaryEducation" ;
+		ro:has_location onto-ed:California ;
+		onto-ed:enrollment_number ?postgradEnrollment ;
+		onto-ed:enrollment_number ?undergradEnrollment ;
+	BIND (?postgradEnrollment + ?undergradEnrollment AS ?totalEnrollment) .
+	BIND ( MAX(?totalEnrollment)) AS ?topEnrollment .
 }
 ```
 
