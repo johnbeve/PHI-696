@@ -13,7 +13,7 @@ RDF Data:
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 :Venus  rdf:type Planet ;
-        rdfs:label "Venus@en ; 
+        rdfs:label "Venus"@en ; 
         owl:sameAs :Hesperus .
 
 :MorningStar rdfs:label "The Morning Star"@en .
