@@ -215,3 +215,4 @@ Where:
 "Yes" indicates a case where a pair of object property characteristics can be combined, and 
 "No" indicates a case where a pair of object property characteristics cannot be combined.
 
+
