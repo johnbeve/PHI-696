@@ -43,35 +43,6 @@ WHERE {
 
 
 
-# Missing Definitions - Kata 4 - 10pts
-Write a query to find all terms with missing definitions or elucidations from the IAO ontology http://purl.obolibrary.org/obo/iao.owl.
-Use http://purl.obolibrary.org/obo/IAO_0000115 for "definition" and http://purl.obolibrary.org/obo/IAO_0000600 for "elucidation". Use the `VALUES` keyword to specify both of these properties in a single line.
-
-### Initial Solution:
-```sparql
-PREFIX obo: <http://purl.obolibrary.org/obo> .
-
-SELECT DISTINCT ?entity
-WHERE { 
-  VALUES ?missingProperty { obo:IAO_0000115 obo:IAO_0000600 } .
-  FILTER NOT EXISTS { ?entity ?missingProperty ?value } .
-  # A triple needs to be specified here, but it can't be the ?missingProperty
-}
-```
-
-### Solution:
-```sparql
-PREFIX obo: <http://purl.obolibrary.org/obo> .
-
-SELECT DISTINCT ?entity
-WHERE { 
-  VALUES ?missingProperty { obo:IAO_0000115 obo:IAO_0000600 } .
-  FILTER NOT EXISTS { ?entity ?missingProperty ?value } .
-  ?entity ?any ?value .
-}
-```
-
-
 
 # Greatest Ancestor - Kata 4 - 10pts
 The property path expresions "*" and "+" can be used for recursive queries.
@@ -79,10 +50,10 @@ Write a recursive query using a property path expression to find the greatest an
 
 RDF Data
 ```turtle
-PREFIX : <http://purl.obolibrary.org/obo/bfo.owl> .
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX owl: <http://www.w3.org/2002/07/owl#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://purl.obolibrary.org/obo/bfo.owl> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 :BFO_0000023 rdf:type owl:Class ;
                 rdfs:subClassOf :BFO_0000017 ;
@@ -132,13 +103,13 @@ WHERE {
 ```
 
 | ancestor |
-| ------|
+| -------- |
 | http://purl.obolibrary.org/obo/BFO_0000001 |
 
 
 
 # Deriving Uncles - Kata 4 - 10pts + SQL (5pts)
-Being an uncle of someone depends on certain parent-child relationships, and not the other way around. This is a useful relationship to derive instead of adding as a separate fact in a database, which would need to be kept consistent with the parent-child relationships.
+Being an uncle of someone depends on certain parent-child relationships, and not the other way around. This is a useful relationship to derive instead of adding as a separate fact (or "materialized inference") in a database, which would need to be kept consistent with the parent-child relationships.
 
 Given a set of pairs of individuals who are related by the “parent of” relationship, find all pairs of individuals who are related by the “uncle of” relationship. 
 
@@ -163,14 +134,6 @@ RDF Data:
 :Bobby rdf:type owl:NamedIndividual .
 
 :Jimmy rdf:type owl:NamedIndividual .
-```
-
-Equivalent SQL Data:
-
-```sql
-CREATE TABLE ParentChild(Parent varchar, Child varchar);
-INSERT INTO ParentChild
-VALUES ("Grandpa Ted","Jim"), ("Grandpa Ted","Bob"), ("Jim", "Jimmy"), ("Bob", "Bobby");
 ```
 
 ### Initial Solution: 
@@ -199,12 +162,19 @@ WHERE {
 ```
 
 | uncle | nephew |
-| ------| ------ |
+| ----- | ------ |
 | Bob   | Jimmy  |
 | Jim   | Bobby  |
 
 
-Equivalent SQL Data and Query Solution:
+Equivalent SQL Data:
+
+```sql
+CREATE TABLE ParentChild(Parent varchar, Child varchar);
+INSERT INTO ParentChild
+VALUES ("Grandpa Ted","Jim"), ("Grandpa Ted","Bob"), ("Jim", "Jimmy"), ("Bob", "Bobby");
+```
+Equivalent SQL Query Solution: 
 
 Testable here http://sqlfiddle.com/#!5/16abb2/2
 ```sql
@@ -215,13 +185,6 @@ INNER JOIN ParentChild grandparents ON grandparents.parent = parents.parent
 -- filter to uncles (grandparent's children who aren't their parent)
 WHERE grandkids.parent != grandparents.child 
 ```
-
-| uncle | nephew |
-| ------| ------ |
-| Bob   | Jimmy  |
-| Jim   | Bobby  |
-
-
 
 
 # Least Common Ancestor - Kata 3 - 20pts
@@ -268,6 +231,72 @@ WHERE {
 
 
 
+
+# Missing Definitions - Kata 3 - 20pts
+Write a query to find all OWL classes with missing definitions from the IAO ontology http://purl.obolibrary.org/obo/iao.owl. 
+Filter these classes to only terms whose IRIs have the prefix "IAO_". 
+Use http://purl.obolibrary.org/obo/IAO_0000115 for the "definition" property. 
+Order these classes by their IRIs.
+
+Note on testing this kata: If querying IAO from a public SPARQL web endpoint like https://ubergraph.apps.renci.org/sparql on https://yasgui.triply.cc/, include the clause `FROM <http://purl.obolibrary.org/obo/iao.owl>`
+### Initial Solution:
+```sparql
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX iao: <http://purl.obolibrary.org/obo/IAO_>
+
+SELECT DISTINCT ?entity
+FROM <http://purl.obolibrary.org/obo/iao.owl>
+WHERE { 
+  FILTER NOT EXISTS { ?entity obo:IAO_0000115 ?value } .
+  ?entity a owl:Class .
+  FILTER(!isBlank(?entity)) .
+  # Now filter to classes whose IRI starts with "IAO_"
+}
+ORDER BY ?entity
+```
+
+### Solution:
+```sparql
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX iao: <http://purl.obolibrary.org/obo/IAO_>
+
+SELECT DISTINCT ?entity
+FROM <http://purl.obolibrary.org/obo/iao.owl>
+WHERE { 
+  FILTER NOT EXISTS { ?entity obo:IAO_0000115 ?value } .
+  ?entity a owl:Class .
+  FILTER(!isBlank(?entity)) .
+  FILTER(STRSTARTS(str(?entity), str(iao:))) .
+}
+ORDER BY ?entity
+```
+
+| entity |
+| ------ |
+| obo:IAO_0000008 |
+| obo:IAO_0000018 |
+| obo:IAO_0000034 |
+| obo:IAO_0000057 |
+| obo:IAO_0000128 |
+| obo:IAO_0000141 |
+| obo:IAO_0000429 |
+| obo:IAO_0000582 |
+| obo:IAO_8000000 |
+| obo:IAO_8000016 |
+| obo:IAO_8000017 |
+| obo:IAO_8000019 |
+| obo:IAO_8000020 |
+
+
+
+
+
 # OWL Property Restrictions - Kata 3 - 20pts
 Informally, an infection is something that is part of an organism and has an infectious agent as a part. 
 
@@ -277,7 +306,7 @@ Write a query to find what an infection is part of, using this turtle file as th
 
 RDF Data:
 ```turtle
-@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
