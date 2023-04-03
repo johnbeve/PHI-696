@@ -144,7 +144,7 @@ WHERE {
   ?grandpa :parentOf ?father .
   ?grandpa :parentOf ?uncle .
   ?father :parentOf ?nephew .
-  # Missing condition here
+  # Missing condition here. We need to exclude the parents of each nephew.
 }
 ```
 
