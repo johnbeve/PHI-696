@@ -70,10 +70,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?person ?mbox
 WHERE {
-      ?ontopol:Person foaf:birthday ?birthDate ;
+      ?ontopol:Person foaf:age ?age ;
             foaf:gender “male” ;
             foaf:mbox ?mbox .
-      FILTER (?birthdate < "2007-03-27T00:00:00+05:30"^^xsd:dateTime)
+      FILTER (?age > "15")
 }
 ```
 
