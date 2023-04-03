@@ -36,11 +36,15 @@ WHERE {
 ```
 
 
+| predicate  |
+| ---------- |
+| owl:sameAs |
+
 
 
 
 # Missing Definitions - Kata 4 - 10pts
-Write a query to find all terms with missing definitions or elucidations.
+Write a query to find all terms with missing definitions or elucidations from the IAO ontology http://purl.obolibrary.org/obo/iao.owl.
 Use http://purl.obolibrary.org/obo/IAO_0000115 for "definition" and http://purl.obolibrary.org/obo/IAO_0000600 for "elucidation". Use the `VALUES` keyword to specify both of these properties in a single line.
 
 ### Initial Solution:
@@ -66,8 +70,6 @@ WHERE {
   ?entity ?any ?value .
 }
 ```
-
-
 
 
 
@@ -115,7 +117,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 ```sparql
 SELECT DISTINCT *
 WHERE { 
-    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?s .
+    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?ancestor .
     # Now find the "greatest ancestor" that isn't owl:Thing
 }
 ```
@@ -124,12 +126,14 @@ WHERE {
 ```sparql
 SELECT DISTINCT * 
 WHERE { 
-    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?s .
+    <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?ancestor .
     ?s rdfs:subClassOf owl:Thing
 }
 ```
 
-
+| ancestor |
+| ------|
+| http://purl.obolibrary.org/obo/BFO_0000001 |
 
 
 
@@ -172,7 +176,7 @@ VALUES ("Grandpa Ted","Jim"), ("Grandpa Ted","Bob"), ("Jim", "Jimmy"), ("Bob", "
 ### Initial Solution: 
 ```sparql
 PREFIX : <http://example.com/family-tree#>
-CONSTRUCT { ?uncle :uncleOf ?nephew }
+SELECT ?uncle ?nephew
 WHERE { 
   ?grandpa :parentOf ?father .
   ?grandpa :parentOf ?uncle .
@@ -185,7 +189,7 @@ WHERE {
 SPARQL Query:
 ```sparql
 PREFIX : <http://example.com/family-tree#>
-CONSTRUCT { ?uncle :uncleOf ?nephew }
+SELECT ?uncle ?nephew
 WHERE { 
   ?grandpa :parentOf ?father .
   ?grandpa :parentOf ?uncle .
@@ -193,6 +197,12 @@ WHERE {
   FILTER(?father != ?uncle)
 }
 ```
+
+| uncle | nephew |
+| ------| ------ |
+| Bob   | Jimmy  |
+| Jim   | Bobby  |
+
 
 Equivalent SQL Data and Query Solution:
 
@@ -206,6 +216,10 @@ INNER JOIN ParentChild grandparents ON grandparents.parent = parents.parent
 WHERE grandkids.parent != grandparents.child 
 ```
 
+| uncle | nephew |
+| ------| ------ |
+| Bob   | Jimmy  |
+| Jim   | Bobby  |
 
 
 
@@ -218,6 +232,9 @@ Use the RDF Data from the previous Kata that describes a fragment of BFO.
 
 ### Initial Solution:
 ```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
 SELECT DISTINCT *
 WHERE { 
     <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
@@ -228,6 +245,9 @@ WHERE {
 
 ### Solution:
 ```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+
 SELECT DISTINCT *
 WHERE { 
     <http://purl.obolibrary.org/obo/BFO_0000023> rdfs:subClassOf* ?LCA .
@@ -240,6 +260,10 @@ WHERE {
 }
 ```
 
+
+| LCA |
+| --- |
+| http://purl.obolibrary.org/obo/BFO_0000002 |
 
 
 
@@ -256,7 +280,7 @@ RDF Data:
 @PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ns0: <http://purl.obolibrary.org/obo/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 
 <http://purl.obolibrary.org/obo/IDO_0000586>
   a owl:Class ;
@@ -275,19 +299,19 @@ RDF Data:
 
 _:genid2
   a owl:Restriction ;
-  owl:onProperty ns0:BFO_0000050 ;
-  owl:someValuesFrom ns0:OGMS_0000087 .
+  owl:onProperty obo:BFO_0000050 ;
+  owl:someValuesFrom obo:OGMS_0000087 .
 
 _:genid4
   a owl:Restriction ;
-  owl:onProperty ns0:BFO_0000051 ;
-  owl:someValuesFrom ns0:IDO_0000596 .
+  owl:onProperty obo:BFO_0000051 ;
+  owl:someValuesFrom obo:IDO_0000596 .
 
 <http://purl.obolibrary.org/obo/BFO_0000050>
   a owl:ObjectProperty, owl:TransitiveProperty ;
   rdfs:label "part of"@en .
 
-ns0:OGMS_0000087
+obo:OGMS_0000087
   a owl:Class ;
   rdfs:label "extended organism" .
 
@@ -295,7 +319,7 @@ ns0:OGMS_0000087
   a owl:ObjectProperty, owl:TransitiveProperty ;
   rdfs:label "has part"@en .
 
-ns0:IDO_0000596
+obo:IDO_0000596
   a owl:Class ;
   rdfs:label "infectious agent"@en .
 
@@ -321,3 +345,8 @@ WHERE {
     ?o owl:someValuesFrom ?whole . 
 }
 ```
+
+
+| whole |
+| ----- |
+| http://purl.obolibrary.org/obo/OGMS_0000087 |
