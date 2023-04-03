@@ -432,7 +432,7 @@ FROM (
 
 ****
 
-**[6] Kata 3 Challenge: Mars Base Commander - 20 points**
+**[6] Kata 3 (or 2) Challenge: Mars Base Commander - 20 points (or 25 points if kata 2)**
 
 As the commander of a human base on Mars, and you are defending your base from the invasion of Mars natives. Those natives can convert themselves to human-like creatures so they often infiltrate your base and harm your soldiers. There are only two ways to enter your base, by either the elevator A or the elevator B. Each elevator have two main sorts of status: on_status or off_status. If an elevator has an on_status, then it is activated to move from a floor to another one; and if it has an off_status, then it must be either dormant or off. Two elevators are automatically controlled by a SPARQL-based control system so that all system commands will be received, sent and stored as RDF triples (s,p,o). Now you decide to introduce the following new rules to limit any external access to them:
 
