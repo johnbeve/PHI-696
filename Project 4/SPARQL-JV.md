@@ -28,7 +28,7 @@ WHERE {
 ```
 
 **Problem 7-1.**
-- List all of the people who have been president in the United States of America. The ontology does not have a 'president' class, but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States.
+- List all of the people who have been president in the United States of America. The ontology does not have a 'president' class, but rather a 'PresidentRole' that the individual bears. Be careful to stipulate that the role has presidential authority in the United States. Role instances are automatically named by their order. Display in order of presidential role, from first to last.
 - Who has been a president of the USA at some time?
 
 ```
@@ -38,12 +38,13 @@ PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 SELECT ?subject
 WHERE {
       ?subject ro:has_role ?PresidentialRole ;
-      ?PresidentialRole ontopol:authority_in ontopol:UnitedStates.
+      ?PresidentialRole ontopol:authority_in ontopol:UnitedStates .
+      ORDER BY ASC(?PresidentialRole)
     }
 ```
 
 **Problem 7-2.**
-- List all of the furniture by name that has been recalled for reason of "Child Safety". In this RDF model, all furniture has an active safety status of "Approved" or "Recalled" (they do not have a null value). Guidance for variables is as follows:
+- List all of the furniture by name that has been recalled for reason of "Child Safety". In this RDF model, all furniture has an active safety status of "Approved" or "Recalled" (they do not have a null value). Display by name in alphabetical order. Guidance for variables is as follows:
 - *furnont* classes, relations, and properties:
 	- furniture : type
 	- commonName : string value
@@ -57,6 +58,7 @@ WHERE {
       ?furniture rdfs:label ?commonName ;
             furnont:has_safety_status "Recalled" ;
             furnont:recalled_reason "Child Safety" .
+	ORDER BY ASC(?commonName)
     }
 ```
 
@@ -78,36 +80,43 @@ WHERE {
 ```
 
 **Problem 7-4.**
-- A tour guide in western Michigan wants to create a new lighthouses tour, based on lighthouses that provide support for boats on Lake Michigan, but from Michigan's side and only on the lower peninsula.
+- A tour guide in western Michigan wants to create a new lighthouses tour, based on lighthouses that provide support for boats on Lake Michigan, but from Michigan's side and only on the lower peninsula. Group by county, and order alphabetically by county.
 - Lighthouses overlooking Lake Michigan, located in Michigan’s Lower Peninsula.
 ```
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
 
-SELECT ?facility
+SELECT ?facility ?county
 WHERE {
-      ?facility rdf:type touronot:Lighthouse ;
-            touronto:located_in touronto:LowerPeninsulaMichigan ;
-            touronto:nearby_location touronto:LakeMichigan .
+	?facility rdf:type touronot:Lighthouse ;
+		touronto:located_in touronto:LowerPeninsulaMichigan ;
+		touronto:located_in ?county ;
+		touronto:nearby_location touronto:LakeMichigan .
+	GROUP BY ?county
+	ORDER BY ASC(?county)
 }
 ```
 
 **Problem 7-5.**
-- The National Park and Recreation Department is concerned about recent adverse changes in natural habitat for the ruby-throated thrush. Find all parks that may be affected by these conservation efforts.
+- The National Park and Recreation Department is concerned about recent adverse changes in natural habitat for the ruby-throated thrush. Find all parks that may be affected by these conservation efforts. Group the results by state, and then display them in alphabetical order by county.
 - Return all parks that are the natural habits of ruby-throated thrush.
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
 
-SELECT ?park
+SELECT ?park ?county ?state
 WHERE {
-      ?park ro:located_in bfo:site ;
-      bfo:site touronto:contains_habitat touronto:naturalHabitat ;
-      touronto:naturalHabitat touronto:habitat_of zoo:rubyThroatedThrush .
+	?park ro:located_in ?site ;
+		ro:located_in ?county ;
+		ro:located_in ?state .
+	?site touronto:contains_habitat ?naturalHabitat .
+	?naturalHabitat touronto:habitat_of zoo:rubyThroatedThrush .
+	GROUP BY ?state
+	ORDER BY ASC(?county)
 }
 ```
 
 **Problem 7-6.**
-- Find all cameras manufacturerd by Fujifilm (ontocam:manufacturer), released in the year 2020, and has a bluetooth connection function.
+- Find all cameras manufacturerd by Fujifilm (ontocam:manufacturer), released in the year 2020, and has a bluetooth connection function. Return only the first 25.
 - Return camera name (ontocam:productName), model number (ontocam:modelValue), release date (ontocam:releaseDate).
 ```
 PREFIX ontocam: <https://aperturescience.org/onto/>
@@ -115,16 +124,17 @@ PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
 SELECT ?productName ?modelValue ?releaseDate
 WHERE {
-      ?device ontocam:manufactured_by ontocam:Fujifilm ;
+	?device ontocam:manufactured_by ontocam:Fujifilm ;
 	      rdfs:type ontocam:Camera ;
 	      ontocam:released_in_year "2020" ;
 	      ro:has_function ontocam:Bluetooth .
+	LIMIT 25
 }
 ```
 
 **Problem 7-7.**
 - A catalog should display all lighting fixture models that have a multi-brightness function and can be connected as an Internet of Things device (IoT).
-- Return the product name, product model, current price, and current inventory that fit this criteria.
+- Return the product name, product model, current price, and current inventory that fit this criteria. Display them by number of inventory from most to least.
 
 ```
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
@@ -135,11 +145,12 @@ WHERE {
         ?product ro:instance_of homedev:LightingFixture ;
                 ro:has_function homedev:multiSettingBrightness ;
                 ro:has_function homedev:internetOfThingsConnection .
+	ORDER BY DESC(?inventoryValue)
 }
 ```
 
 **Problem 7-8.**
-- A sample ballot for a local county should display all candidates who are running in an upcoming election.
+- A sample ballot for a local county should display all candidates who are running in an upcoming election. Display alphabetically by party affiliation.
 - Return the candidate name, candidate's political affiliation, and candidate's website address.
 ```
 PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
@@ -151,11 +162,12 @@ WHERE {
 		ro:bearer_of ontopol:PoliticalCandidateRole ;
 		ontopol:affiliated_with ?ontopol:RegisteredPoliticalParty ;
 		ontopol:platform_described_by ?OfficialWebsiteURL .
+	ORDER BY ASC(?RegisteredPoliticalParty)
 }
 ```
 
 **Problem 6-1.**
-- You’re an IT administrator working with a printer support maintenance contractor PrinTechSolutions (itdev:PrinTechSolutions) to update and replace parts for covered assets (itdev:covered_by) under some maintenance contract (itdev:maintenanceContract) such as the Brother brand printers on site. You want to prioritize those printers that are plugged-in and active on the network (has_network_status takes values either "UP", "DOWN", or "UNKNOWN") and display a warning status (itdev:warningStatus), especially for “Low” toner (takes a literal value). Display the device in order of building room number (itdev:officeLocation) in descending order.
+- You’re an IT administrator working with a printer support maintenance contractor PrinTechSolutions (itdev:PrinTechSolutions) to update and replace parts for covered assets (itdev:covered_by) under some maintenance contract (itdev:maintenanceContract) such as the Brother brand printers on site. You want to prioritize those printers that are plugged-in and active on the network (has_network_status takes values either "UP", "DOWN", or "UNKNOWN") and display a warning status (itdev:warningStatus), especially for “Low” toner (takes a literal value). Display the device in order of building room number (itdev:officeLocation) in descending order. Since this query will only return the highest priority for a given day and may be run repeatedly, return only the first 10.
 - Get all printers on the network that have model made by Brother and which have a warning status on “High” (takes a literal value), optional: get their toner level status.
 ```
 PREFIX itdev: <https://www.rando.org/ontology/>
@@ -169,7 +181,8 @@ WHERE {
 	?maintenanceContract itdev:has_contractor itdev:PrinTechSolutions .
 	?warningStatus itdev:severity_level “High” . 
 	OPTIONAL SELECT { ?printer itdev:toner_value “Low” . }
-	ORDER BY DESC(?officeLocation) 
+	ORDER BY DESC(?officeLocation)
+	LIMIT 10
 }
 ```
 
