@@ -155,17 +155,21 @@ WHERE {
 ```
 
 **Problem 6-1.**
-- You’re an IT administrator working with a printer support maintenance contractor to update and replace parts for covered assets such as the Brother brand printers on site. You want to prioritize those printers that are on the network and display a warning status, especially for “low” toner.
-- Get all printers on the network that have model made by Brother and which have a warning status on “high”, optional: get their toner level status.
+- You’re an IT administrator working with a printer support maintenance contractor PrinTechSolutions (itdev:PrinTechSolutions) to update and replace parts for covered assets (itdev:covered_by) under some maintenance contract (itdev:maintenanceContract) such as the Brother brand printers on site. You want to prioritize those printers that are plugged-in and active on the network (has_network_status takes values either "UP", "DOWN", or "UNKNOWN") and display a warning status (itdev:warningStatus), especially for “Low” toner (takes a literal value). Display the device in order of building room number (itdev:officeLocation) in descending order.
+- Get all printers on the network that have model made by Brother and which have a warning status on “High” (takes a literal value), optional: get their toner level status.
 ```
 PREFIX itdev: <https://www.rando.org/ontology/>
  
-SELECT ?printerDevice ?warningStatus
+SELECT ?printerDevice ?warningStatus ?officeLocation
 WHERE {
-      ?printer itdev:manufactured_by itdev:Brother .
-      ?printer itdev:device_status ?warningStatus .
-      ?warningStatus itdev:severity_level “High” .
-      OPTIONAL SELECT { ?printer itdev:toner_value “Low” .}
+	?printer itdev:manufactured_by itdev:Brother ;
+		itdev:device_status ?warningStatus .
+		itdev:covered_by ?maintenanceContract .
+		itdev:has_network_status "UP" .
+	?maintenanceContract itdev:has_contractor itdev:PrinTechSolutions .
+	?warningStatus itdev:severity_level “High” . 
+	OPTIONAL SELECT { ?printer itdev:toner_value “Low” . }
+	ORDER BY DESC(?officeLocation) 
 }
 ```
 
