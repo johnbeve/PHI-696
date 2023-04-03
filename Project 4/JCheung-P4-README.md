@@ -52,7 +52,7 @@ ___
 
 **Summary of Project #4:**
 
-**12 Kata Total (potential points accrued: 108 or 118 pts): 1 kata lvl 8, 1 kata lvl 7, 2 kata lvl 6, 3 kata lvl 5, 2 kata lvl 4, 1 kata lvl 3, 2 kata lvl 3 or lvl 2.**
+**12 Kata Total (potential points accrued: 103 or 113 pts): 1 kata lvl 8, 1 kata lvl 7, 2 kata lvl 6, 3 kata lvl 5, 2 kata lvl 4, 1 kata lvl 3, 2 kata lvl 3 or lvl 2.**
 
 ```
 **Outline of Project #4:**
@@ -516,7 +516,7 @@ This code checks whether the ingredient "chicken head" is present in the list of
 
 
 ___
-**[8] Kata Level 4 (10 pts, total pts accrued: 38 pts): Enter the Dōjō—Intermediate: SPARQL’s Data Update Functions (6)** 
+**[8] Kata Level 4 (10 pts, total pts accrued: 33 pts): Enter the Dōjō—Intermediate: SPARQL’s Data Update Functions (6)** 
 
 **Description:**
 
@@ -635,7 +635,7 @@ The query represents a situation in which a SPARQL queryist first retrieves info
 
 
 ___
-**[9] Kata Level 4 (10 pts, total pts accrued: 48 pts): Enter the Dōjō—Intermediate: SPARQL’s Aggregate Functions (6)**
+**[9] Kata Level 4 (10 pts, total pts accrued: 43 pts): Enter the Dōjō—Intermediate: SPARQL’s Aggregate Functions (6)**
 
 **Description:**
 
@@ -646,7 +646,7 @@ Aggregate functions allow for analysis of quantified data.
 
 **For this challenge, you are hired by a client from the food industry that has one primary research question: What is better for the United States economy, chicken or beef?** 
 
-**Make a case by writing a query using all fourteen aggregate functions at least once for either chicken or beef as being better for the United States economy.** 
+**Make a case by writing a query using at least 10 aggregate functions at least once for either chicken or beef as being better for the United States economy.** 
 
 ```
 Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
@@ -739,7 +739,7 @@ ___
 
 ___ 
 
-**[10] Kata Level 3 (20 pts, total pts accrued: 68 pts): SPARQL for Research and Problem Solving—Which is the gloomier city: Seattle or Buffalo?** 
+**[10] Kata Level 3 (20 pts, total pts accrued: 63 pts): SPARQL for Research and Problem Solving—Which is the gloomier city: Seattle or Buffalo?** 
 
 **Description:**
 
@@ -1024,7 +1024,7 @@ The second part compares Seattle and Buffalo on seven different markers. Upon an
 
 ___ 
 
-**[11] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 88 or 93 pts): SPARQL for Research and Problem Solving—Epidemiological Studies** 
+**[11] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 83 or 88 pts): SPARQL for Research and Problem Solving—Epidemiological Studies** 
 
 **Description:**
 
@@ -1306,7 +1306,7 @@ This is a multi-faceted and challenging exercise, which can use further property
 
 ___ 
 
-**[12] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 108 or 118 pts): SPARQL for Research and Problem Solving—Generating Novel Map Models in Crisis** 
+**[12] Kata Level 3 or 2 (20 pts or 25 pts, total pts accrued: 103 or 113 pts): SPARQL for Research and Problem Solving—Generating Novel Map Models in Crisis** 
 
 **Description:**
 
