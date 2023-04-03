@@ -1,0 +1,321 @@
+PREFIX ex: <http://example.org/ns/>
+PREFIX wiki: <http://dbpedia.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://w3.org/2002/07/owl#>
+PREFIX rdfs: <http://w3.org/2000/01/rdf-schema#>
+
+
+
+Ali's Kata 8 question: Find the area code used for phone lines in Seattle.
+
+SELECT ?o
+WHERE {dbr:Seattle dbo:areaCode ?o}
+
+--------------------------
+Ali’s Kata 7 question: SELECT queries are used for selecting bindings for variables, but you can also ask YES/NO questions that can be used to decide whether to include a specific section of the reporting software, or support software to make recommendations.
+To do so, we use the ASK keyword. For example, for the question “Did Elton John have an occupation?” we could ask
+
+ASK WHERE { dbr:Elton_John dbo:occupation ?any }  
+
+The answer would be True (yes). Your assignment is to ask a similar question about Aristotle by using FILTER.
+You must also have your answer as False (no).
+
+Solution:
+ASK WHERE { FILTER NOT EXISTS { dbr:Elton_John dbo:occupation ?any }}
+
+--------------------------
+Ali’s Kata 6 question: Write a query using the following prefixes to find data featuring information about SPARQL; mentions, has features of, or just has the keyword “SPARQL” appear in it. Make sure your code grabs the most amount of data that have something to do with SPARQL and 
+ 
+PREFIX ex: <http://example.org/ns/>
+PREFIX wiki: <http://dbpedia.org/resource/>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?s ?p ?o 
+WHERE {
+    { 
+      ?s ex:hasFeature wiki:SPARQL . }
+    UNION {
+      ?s schema:mentions wiki:SPARQL . }
+    UNION {
+      ?s schema:keywords "SPARQL" . }
+}
+LIMIT 100
+
+--------------------------
+Ali's Kata 5 question (not working!!!): You can write queries to see which specific class(es) are the most used ones as subject/predicate/object in an ontology. 
+Write a query to find what is the most used subject and object in the OWL dataset.
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class (MAX(?s) AS ?number)
+WHERE {
+    {
+      ?class ?p ?o . }
+    UNION {
+      ?s ?p ?class . }
+}
+
+--------------------------
+Ali's Kata 5 question: Make a SPARQL query that uses dbpedia to construct a graph of all cities with a population greater that one million.
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/resource/>
+
+CONSTRUCT {
+  ?city rdf:type dbo:City ;
+        dbo:populationTotal ?population ;
+        dbo:abstract ?abstract ;
+        dbo:thumbnail ?thumbnail ;
+        dbo:country ?country .
+} WHERE {
+  ?city rdf:type dbo:City ;
+        dbo:populationTotal ?population ;
+        dbo:abstract ?abstract ;
+        dbo:thumbnail ?thumbnail ;
+        dbo:country ?country .
+  
+  FILTER (?population > 1000000)
+}
+
+--------------------------
+Ali's Kata 5 question: Write a SPARQL query that uses Wikidata that retrieves a list of 100 notable people along with some basic information about them (spuse, occupation, birthplace).
+The query should filter the results that have their labels in English.
+Keep in mind that  the labels are not included in the original query results, but can be retrieved using the Wikidata API.
+So, use a block to retrieve the English-language label for each variable.
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?personLabel ?spouseLabel ?occupationLabel ?placeOfBirthLabel
+WHERE {
+  ?person wdt:P31 wd:Q5 .
+  ?person wdt:P26 ?spouse .
+  ?person wdt:P106 ?occupation .
+  ?person wdt:P19 ?placeOfBirth .
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" .
+    ?person rdfs:label ?personLabel .
+    ?spouse rdfs:label ?spouseLabel .
+    ?occupation rdfs:label ?occupationLabel .
+    ?placeOfBirth rdfs:label ?placeOfBirthLabel .
+  }
+  FILTER(LANG(?personLabel) = "en" && LANG(?spouseLabel) = "en" &&
+         LANG(?occupationLabel) = "en" && LANG(?placeOfBirthLabel) = "en")
+}
+LIMIT 100
+
+--------------------------
+Ali's Kata 4 question: Using FILTER is a way to narrow down your result based on any form of specifity you'd like in SPARQL.
+Write a SPARQL query that searches for living people (or those with no dbo:deathDate vlaue) who have an occupation with an English label that contains the words "Graphic" and "novelist."
+Use "http://dbpedia.org/ontology/" and "http://www.w3.org/2000/01/rdf-schema#" for your PREFIX. And limit your search to 5 individuals.
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?person ?occupation WHERE {
+    ?person rdf:type dbo:Person .
+    ?person dbo:occupation ?occupation .
+    ?occupation rdfs:label ?label .
+    FILTER(LANG(?label) = "en").
+    FILTER(CONTAINS(?label, "Graphic")).
+    FILTER(CONTAINS(?label, "novelist")).
+    FILTER NOT EXISTS {
+      ?person dbo:deathDate ?deathDate .
+    }
+} 
+LIMIT 5
+
+--------------------------
+Ali's Kata 4 question: Write a query to construct rules as RDF properties, with each one of them having a label, comment, and subproperty relation to a superproperty.
+Make sure to filter so that only english labels and comments are selected.
+Note that the specific superproperty to be used in the query would need to be specified in the query itself, or passed as a parameter to the query.
+
+CONSTRUCT {
+    ?rule rdf:type rdf:Property ;
+          rdfs:label ?ruleLabel ;
+          rdfs:comment ?ruleComment ;
+          rdfs:subPropertyOf ?subProperty .
+}
+WHERE {
+    ?subProperty rdf:type rdf:Property ;
+                 rdfs:subPropertyOf ?superProperty .
+    ?rule rdfs:subPropertyOf ?superProperty ;
+          rdfs:label ?ruleLabel ;
+          rdfs:comment ?ruleComment .
+    FILTER (lang(?ruleLabel) = 'en' && lang(?ruleComment) = 'en')
+}
+
+--------------------------
+Ali's Kata 4 question: Write a SPARQL query that retrieves information from Wikidata about diseases, their associated symptomns, and treatments.
+Construct the data retrieved.
+Make sure you limit the labels to the english language.
+make sure there are no repeats.
+
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+
+CONSTRUCT {
+  ?disease a schema:MedicalCondition ;
+           rdfs:label ?diseaseLabel ;
+           schema:hasCause ?symptom ;
+           schema:possibleTreatment ?treatment .
+  ?symptom a schema:MedicalSymptom ;
+           rdfs:label ?symptomLabel .
+  ?treatment a schema:MedicalTherapy ;
+             rdfs:label ?treatmentLabel .
+}
+WHERE {
+  ?disease wdt:P31 wd:Q12136 ; # instance of disease
+           rdfs:label ?diseaseLabel .
+  FILTER(LANG(?diseaseLabel) = "en") # only English labels
+  OPTIONAL {
+    ?disease wdt:P780 ?symptom .
+    ?symptom rdfs:label ?symptomLabel .
+    FILTER(LANG(?symptomLabel) = "en") # only English labels
+  }
+  OPTIONAL {
+    ?disease wdt:P2176 ?treatment .
+    ?treatment rdfs:label ?treatmentLabel .
+    FILTER(LANG(?treatmentLabel) = "en") # only English labels
+  }
+}
+
+--------------------------
+Ali's Kata 3 question: write a SPARQL query that constructs a graph which represents all the fundamental particles and properties.
+The properties should include information about the particle's label, mass, spin, charge, their antiparticle, and symbol.
+Include the discoverer's name, birthdate, and birthplace.
+The query must filter the particles whose labels start with an alphabetic character (to disclude all the wacky theoretical ones).
+Also, bind the name of the discoverer by removing the prefix of the URI that belongs to them.
+You can look at sample datasets on: http://pdg.lbl.gov/sparql/
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/property/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?particle rdf:type dbo:Particle ;
+            rdfs:label ?particleLabel ;
+            dbo:discoverer ?discoverer ;
+            dbo:mass ?mass ;
+            dbo:spin ?spin ;
+            dbo:electricCharge ?electricCharge ;
+            dbo:hasAntiparticle ?hasAntiParticle ;
+            dbo:symbol ?symbol .
+  ?discoverer rdf:type dbo:Person ;
+              rdfs:label ?discovererLabel ;
+              dbo:birthPlace ?birthPlace ;
+              dbo:birthDate ?birthDate .
+  ?birthPlace rdf:type dbo:Place ;
+              rdfs:label ?birthPlaceLabel .
+}
+WHERE {
+  ?particle rdf:type dbo:Particle ;
+            rdfs:label ?particleLabel ;
+            dbo:discoverer ?discoverer ;
+            dbo:mass ?mass ;
+            dbo:spin ?spin ;
+            dbo:electricCharge ?electricCharge ;
+            dbo:hasAntiparticle ?hasAntiParticle ;
+            dbo:symbol ?symbol .
+  FILTER regex(?particleLabel, "^[a-zA-Z].*$")
+  BIND(REPLACE(str(?discoverer), "http://dbpedia.org/resource/", "") AS ?discoveredBy)
+  ?discoverer rdfs:label ?discovererLabel ;
+              dbo:birthPlace ?birthPlace ;
+              dbo:birthDate ?birthDate .
+  ?birthPlace rdfs:label ?birthPlaceLabel .
+}
+
+--------------------------
+Ali's Kata 3 question: Wite a SPARQL query that retrieves information about the beer's name, description, its brewery, style, SBV, IBU, SRM, country and city of origin, ingredient (and labels), yeast Iand labels).
+Make sure to use an OPTIONAL block for the country, region, city, ingredients, and yeast.
+Then the query must filter te result to only include those with an ABV above %5, an IBU below 50, and an SRM below 20.
+Lastly, order the result in  a discending form by ABV and limit the results to 25.
+
+PREFIX bo: <http://purl.org/ontology/Beer#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?beer ?brewery ?style ?abv ?ibu ?srm ?country ?region ?city ?description ?ingredient ?ingredientLabel ?yeast ?yeastLabel
+WHERE {
+  ?beer a bo:Beer ;
+        rdfs:label ?beer_label ;
+        bo:hasBrand ?brewery ;
+        bo:hasStyle ?style ;
+        bo:hasABV ?abv ;
+        bo:hasIBU ?ibu ;
+        bo:hasSRM ?srm ;
+        bo:hasDescription ?description .
+  
+  OPTIONAL {
+    ?brewery dbo:country ?country .
+    ?country dbo:region ?region .
+    ?brewery dbo:location ?location .
+    ?location dbo:city ?city .
+  }
+  
+  OPTIONAL {
+    ?beer bo:hasIngredient ?ingredient .
+    ?ingredient rdfs:label ?ingredientLabel .
+    FILTER(langMatches(lang(?ingredientLabel), "en"))
+    OPTIONAL {
+      ?beer bo:hasYeast ?yeast .
+      ?yeast rdfs:label ?yeastLabel .
+      FILTER(langMatches(lang(?yeastLabel), "en"))
+    }
+  }
+  
+  FILTER(?abv > 0.05 && ?ibu < 50 && ?srm < 20 && langMatches(lang(?beer_label), "en"))
+}
+ORDER BY DESC(?abv)
+LIMIT 25
+
+--------------------------
+Ali's Kata 5 question: Sparql is a query language that retrieves data fomr RDF graphs, rather than a rule-based language.
+But there are some extensions of SPARQL that allow for rule-like constructs in SPARQL.
+One of them is SPIN (SPARQL Inferencing Notation).
+SPIN allows you to define inference rules using RDF triples. It gives a set of triples that are classes and properties to define new rules and their associated conditions and actions they have.
+SPIN rules are usually defined using CONSTRUCT, making new graphs from larger ones.
+Write a SPARQL query that constructs a SPIN rule which states that a person is a parent of another person if they share a child.
+
+PREFIX spin: <http://spinrdf.org/spin#>
+PREFIX ex: <http://example.org/>
+
+CONSTRUCT {
+  ?parent ex:isParentOf ?child2 .
+}
+WHERE {
+  ?child1 ex:hasParent ?parent .
+  ?child2 ex:hasParent ?parent .
+  FILTER (?child1 != ?child2)
+}
+
+--------------------------
+Ali's Kata 5 question: Write a SPARQL query using SPIN to construct a rule that states if two people share the same parent and they are not the same person, then they must be siblings. 
+You must construct a triple that states that the person has a sibling.
+Filter out the only childs.
+
+PREFIX spin: <http://spinrdf.org/spin#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <http://example.com/>
+
+CONSTRUCT {
+  ?person ex:hasSibling ?sibling .
+} WHERE {
+  ?person a ex:Person .
+  ?sibling a ex:Person .
+  ?parent ex:hasChild ?person .
+  ?parent ex:hasChild ?sibling .
+  FILTER (?person != ?sibling) .
+  FILTER NOT EXISTS {
+    ?parent ex:hasChild ?other .
+    FILTER (?other != ?person && ?other != ?sibling) .
+  }
+}
+--------------------------
