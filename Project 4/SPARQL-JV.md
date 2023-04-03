@@ -43,7 +43,12 @@ WHERE {
 ```
 
 **Problem 7-2.**
-- List all of the furniture that has been recalled for reason of child safety. In this RDF model, all furniture has an active safety status of "Approved" or "Recalled" (they do not have a null value).
+- List all of the furniture by name that has been recalled for reason of "Child Safety". In this RDF model, all furniture has an active safety status of "Approved" or "Recalled" (they do not have a null value). Guidance for variables is as follows:
+- *furnont* classes, relations, and properties:
+	- furniture : type
+	- commonName : string value
+	- has_safety_status : range expects a literal
+	- recalled_reason : range expects a literal
 ```
 PREFIX furnont: <https://fillingbetterhomes.org/oit/furnitureontology.owl>
 
