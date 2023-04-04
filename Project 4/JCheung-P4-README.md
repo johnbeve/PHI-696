@@ -646,7 +646,7 @@ Aggregate functions allow for analysis of quantified data.
 
 **For this challenge, you are hired by a client from the food industry that has one primary research question: What is better for the United States economy, chicken or beef?** 
 
-**Make a case by writing a query using at least 10 aggregate functions at least once for either chicken or beef as being better for the United States economy.** 
+**Make a case by writing a query using at least 10 different aggregate functions for either chicken or beef as being better for the United States economy.** 
 
 ```
 Hint: You may query any data sets, but the data sets must be related to the aims of the overall query.
