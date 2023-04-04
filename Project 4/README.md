@@ -52,14 +52,14 @@ QUESTION 1 - Kata 8
 Write a SPARQL query that provides all of the types of “things” under which Barack Obama is classified, according to DBpedia.
 
 TIPS: 
-Use {dbr:Barack_Obama} as the Subject.
-Use {rdf:type} as the Predicate.
+Use <pre>dbr:Barack_Obama</pre> as the Subject.
+Use <pre>rdf:type</pre> as the Predicate.
 
 ANSWER
 PREFIX dbr: http://dbpedia.org/resource
 PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-SELECT ?Concept dbr:Barack_Obama
+SELECT ?Concept
 WHERE 
 {
     dbr:Barack_Obama a  ?Concept .
@@ -71,8 +71,8 @@ QUESTION 2 - Kata 6
 Not all information on the internet is accurate information. To give an example of this, write a SPARQL query to check if Barack Obama is a city according to DBpedia. Limit the results to 50 and order them alphabetically. In addition, ensure there are no duplicate results and ensure that the results are case-independent.
 
 TIPS:
-Use {dbr:Barack_Obama} as the Subject.
-Be aware of plurals: you should return four entries.
+Use <pre>dbr:Barack_Obama</pre> as the Subject.
+Be sure to account for both the plural and singular form of the word "city".
 
 
 Answer
@@ -80,7 +80,7 @@ Answer
 PREFIX dbr: http://dbpedia.org/resource
 PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-SELECT distinct ?Concept dbr:Barack_Obama
+SELECT distinct ?Concept
 WHERE 
 {
    dbr:Barack_Obama a ?Concept .
