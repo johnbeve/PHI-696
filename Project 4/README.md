@@ -44,4 +44,48 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 
-There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
+There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points.
+
+
+
+QUESTION 1 - Kata 8
+Write a SPARQL query that provides all of the types of “things” under which Barack Obama is classified, according to DBpedia.
+
+TIPS: 
+Use <pre>dbr:Barack_Obama</pre> as the Subject.
+Use <pre>rdf:type</pre> as the Predicate.
+
+ANSWER
+PREFIX dbr: http://dbpedia.org/resource
+PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+SELECT ?Concept
+WHERE 
+{
+    dbr:Barack_Obama a  ?Concept .
+}
+
+
+
+QUESTION 2 - Kata 6
+Not all information on the internet is accurate information. To give an example of this, write a SPARQL query to check if Barack Obama is a city according to DBpedia. Limit the results to 50 and order them alphabetically. In addition, ensure there are no duplicate results and ensure that the results are case-independent.
+
+TIPS:
+Use <pre>dbr:Barack_Obama</pre> as the Subject.
+Be sure to account for both the plural and singular form of the word "city".
+
+
+Answer
+
+PREFIX dbr: http://dbpedia.org/resource
+PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+SELECT distinct ?Concept
+WHERE 
+{
+   dbr:Barack_Obama a ?Concept .
+   FILTER (regex(?Concept, "cit","i"))
+}
+   ORDER BY ?Concept
+   LIMIT 50
+
