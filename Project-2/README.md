@@ -242,18 +242,35 @@ So Animals is bisimilar to Plants.
 
 Ansewr: 
 Bob loves playing games, and he hopes there is a game that can be played with different results forever. 
-One day, his father gives him a game, called Color-card: there are a number of color cards in a box. Each card has a different color, but it is full colored on one side, while on the other side it is a blank sheet with the colored dot. Once a time, the player chooses any number of cards from the box, and then use any number of cards he chose to make combinations. For example, the first time, Bob chooses five color cards from the box, red, yellow, blue, green, brown, then he uses three cards, and put them in such a order: 1, red (front side), 2, blue (back side), 3, green (back side). That is one combination. The player continues playing until there is a combination that repeats. If the player cannot continue playing, he/she fails. 
-However, if the player fails at one time, he/she can choose more or/and different cards, then play the next time. The player wins if the cards he chooses can allow him to play forever. 
-Unfortunately, Bob cannot win the game, because no matter how many cards he chooses (the number of cards is not limitless), and how hard he tries, he cannot continue playing without a repeated combination occurs.  
-We say that the Color-card game has finite model property. 
-Finite model property is important because it can be used to design a decidable algorithm for the satisfiability of its concepts. 
+One day, his father gives him a game, called Color-card: there are a number of color cards in a box. Each card has a different color, but it is full
+colored on one side, while on the other side it is a blank sheet with the colored dot. Once a time, the player chooses any number of cards from the box, 
+and then use any number of cards he chose to make combinations. For example, the first time, Bob chooses five color cards from the box, red, yellow, blue,
+green, brown, then he uses three cards, and put them in such a order: 1, red (front side), 2, blue (back side), 3, green (back side). That is one 
+combination. The player continues playing until there is a combination that repeats. If the player cannot continue playing, he/she fails. 
+However, if the player fails at one time, he/she can choose more or/and different cards, then play the next time. The player wins if the cards he chooses 
+can allow him to play forever. 
+Unfortunately, Bob cannot win the game, because no matter how many cards he chooses (the number of cards is not limitless), and how hard he tries, he 
+cannot continue playing without a repeated combination occurs.  
+A concept mode has the finite model property if the concept can be modeled with a Tbox and the Tbox allows us to determine and define the size of the 
+finite model. Likewise, the Color-card game has the finite model property, since the rules and card number determine that the number of the distinct
+combinations is finite. You also can alway examine whether a given combinition (someone imagines) fits the rule and condition that the game gives, which
+means whether the combination is satisfied. 
+
 
 8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
 
 At another day, Bob's father gives him a different game, called Dot-and-Line. 
-There is a big board, a number of tacks and thread. The games can be played with two people. When it is your turn, the other player choose a number of tacks and tacks them on the board - he/she can choose any place to locate a tack. Then you use thread to connect the tacks (any one tack needs to be connected to at least one other tack) - have all tacks to be connected. The connection is such that from one tack to any other tack through the thread, there is only one way to go. If the other player finds there is more than two ways between any two tacks in your work, you lose. If you does not lose, then it is the other player's turn. You two play in turn until one loses. 
-We say that the Dot-and-Line game has the tree model property. 
-The tree model property is important to tableau-based algorithms for the consistency check of knowledge base and applied ontology. Most of applied ontologies, especially those BFO-based ones, have this property, allowing that their consistency can be checked by tableau reasonings.
+There is a big board, a number of tacks and thread. The games can be played with two people. When it is your turn, the other player choose a number of
+tacks and tacks them on the board - he/she can choose any place to locate a tack. Then you use thread to connect the tacks (any one tack needs to be 
+connected to at least one other tack) - have all tacks to be connected. The connection is such that from one tack to any other tack through the thread, 
+there is only one way to go. If the other player finds there is more than two ways between any two tacks in your work, you lose. If you does not lose, 
+then it is the other player's turn. You two play in turn until one loses. 
+Typically, if a language has the tree model property means that every satisfiable concept in the language has a tree model whose graph representation is a
+tree, a hierarchical nature of the structure with the "stem" at the top and the "leaves" at the bottom connected by the branches. In other words, from one 
+"leaf" to any other "leaf" or the "stem" there is only one way to go, through branches. We say that the Dot-and-Line game has the tree model property
+because there is only one way to arrive at one dot from any other dot through the thread.
+The tree model property is important to tableau-based algorithms for the consistency check of knowledge base and applied ontology. Most of applied 
+ontologies, especially those BFO-based ones, have this property, allowing that their consistency can be checked by tableau reasonings.
 
 9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
 
