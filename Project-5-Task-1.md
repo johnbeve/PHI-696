@@ -54,8 +54,10 @@ I suggest setting up 15 minute 'stand-up' meetings every other day, where team m
 
 ___
 
+To see our cumulative work thus far, please go to this link: https://docs.google.com/document/d/1miP3WUXwh3rG3AoBgrDXQrfRwlesV-7XlMhrtjQG2sc/edit#heading=h.qaiiyhng5r46
+
 ```
-**Objectives for Project Completion:**
+**Objectives for Project 5 Task 1 Completion:**
 
 1. Generate a knowledge graph based on BFO with instance data added that respect the semantics of the first order logic version of BFO.
 2. Construct a SHACL schema/file that parallels the BFO owl file but also constrains compatible knowledge graphs built on BFO to as much of the First-Order Logic representation of BFO, as possible.
@@ -80,6 +82,8 @@ Jaron: (1) Material Entity and (2) History
 Olivia: (1) Order
 Tim: (1) Universal Declaration
 ```
+
+___
 
 **BFO 2020 Continuant Mereology Axioms**
 
@@ -182,7 +186,10 @@ Continuant part of has weak supplementation [fyf-1]
 
 Continuant part of has a unique product at a time [gzr-1]
 ∀x,y,t(instanceOf(x,continuant,t)∧instanceOf(y,continuant,t)∧instanceOf(t,temporalRegion,t)→(∃overlap(instanceOf(overlap,continuant,t)∧continuantPartOf(overlap,x,t)∧continuantPartOf(overlap,y,t))→∃overlap(instanceOf(overlap,continuant,t)∧(∀w(instanceOf(w,continuant,t)→(continuantPartOf(w,overlap,t)↔continuantPartOf(w,x,t)∧continuantPartOf(w,y,t)))))))
-BFO 2020 Existence Instantiation Axioms
+
+___
+
+**BFO 2020 Existence Instantiation Axioms**
 
 Particulars exist at some time [nmq-1]
 ∀p(particular(p)→∃t existsAt(p,t))
@@ -218,7 +225,10 @@ If m is a material entity, then there is some one dimensional temporal region du
 
 If you exist you instatiate a universal and vice versa [bee-1]
 ∀a,t(∃u(universal(u)∧instanceOf(a,u,t)∧instanceOf(t,temporalRegion,t))↔particular(a)∧instanceOf(t,temporalRegion,t)∧existsAt(a,t))
-BFO 2020 Generic Dependence Axioms
+
+___
+
+**BFO 2020 Generic Dependence Axioms**
 
 Concretizes and is concretized by are inverse relations [zba-1]
 ∀t,a,b(concretizes(a,b,t)↔isConcretizedBy(b,a,t))
@@ -246,7 +256,10 @@ If a specifically dependent continuant concretizes a gdc then the gdc genericall
 
 If a generically dependent continuant participates in a process p then, if it is concretized as a process, that process is part of p, fand if concretized as an sdc then the bearer of that sdc participates in the process [fmm-1]
 ∀gdc,p,t(instanceOf(gdc,genericallyDependentContinuant,t)∧participatesIn(gdc,p,t)→∃tp,b(temporalPartOf(tp,t)∧concretizes(b,gdc,tp)∧((instanceOf(b,specificallyDependentContinuant,tp)∧(∃ic(specificallyDependsOn(b,ic)∧participatesIn(ic,p,tp))))∨(occurrentPartOf(b,p)∧existsAt(b,tp))))
-BFO 2020 History Axioms
+
+___
+
+**BFO 2020 History Axioms**
 
 History of and has history are inverse relations [abx-1]
 ∀a,b(historyOf(a,b)↔hasHistory(b,a))
@@ -271,7 +284,10 @@ Material entity and its history exist at exactly the same times [uzz-1]
 
 History of has domain history and range material entity [rph-1]
 ∀a,b(historyOf(a,b)→∃tinstanceOf(a,history,t)∧∃t instanceOf(b,materialEntity,t)
-BFO 2020 Material Entity Axioms
+
+___
+
+**BFO 2020 Material Entity Axioms**
 
 Member part of and has member part are inverse relations [jrm-1]
 ∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
@@ -306,15 +322,7 @@ If a material entity has a proper part, then at least one of its proper parts is
 An object aggregate has member parts only disjoint objects [evk-1]
 ∀b,c,t(memberPartOf(b,c,t)↔instanceOf(b,object,t)∧instanceOf(c,objectAggregate,t)∧properContinuantPartOf(b,c,t)∧(∀d(memberPartOf(d,c,t)→b=d∨¬(∃z(continuantPartOf(z,b,t)∧continuantPartOf(z,d,t))))))
 
-
-
-
-
-
-
-
-
-
+___
 
 **BFO 2020 Occurrent Mereology Axioms**
 
@@ -386,7 +394,10 @@ B temporal part c (both spatiotemporal regions) iff b temporal projection is par
 
 Two spatiotemporal regions are parts when they are temporal parts and their spatial projects are always parts [txf-1]
 ∀st1,st2(∃tinstanceOf(st1,spatiotemporalRegion,t)∧∃tinstanceOf(st2,spatiotemporalRegion,t)→(occurrentPartOf(st1,st2)↔(∃t1,t2(temporallyProjectsOnto(st1,t1)∧temporallyProjectsOnto(st2,t2)∧temporalPartOf(t1,t2)))∧(∀t(existsAt(st1,t)→∃s1,s2,tp(temporalPartOf(tp,t)∧spatiallyProjectsOnto(st1,s1,tp)∧spatiallyProjectsOnto(st2,s2,tp)∧continuantPartOf(s1,s2,tp))))))
-Olivia: BFO 2020 Order Axioms
+
+___
+
+**BFO 2020 Order Axioms**
 
 Precedes and preceded by are inverse relations [tib-1]
 ∀a,b(precedes(a,b)↔precededBy(b,a))
@@ -439,7 +450,10 @@ If you temporally occupy part of something that precedes something else, you als
 If two processes that occupy temporal intervals do not overlap, one of them precedes the other [duz-1]
 ∀o1,o2,t1,t2(occupiesTemporalRegion(o1,t1)∧occupiesTemporalRegion(o2,t2)
 ∧instanceOf(t1,temporalInterval,t1)∧instanceOf(t2,temporalInterval,t2)∧¬(∃part(temporalPartOf(part,t1)∧temporalPartOf(part,t2)))→precedes(o1,o2)∨precedes(o2,o1))
-BFO 2020 Participation Axioms
+
+___
+
+**BFO 2020 Participation Axioms**
 
 Participates in and has participant are inverse relations [xjr-1]
 ∀t,a,b(participatesIn(a,b,t) ↔hasParticipant(b,a,t))
@@ -458,7 +472,10 @@ At every time a specific dependent s participates in a process p there’s a par
 
 If a generically dependent continuant participates in a process p then, if it is concretized as a process, that process is part of p, fand if concretized as an sdc then the bearer of that sdc participates in the process [fmm-1]
 ∀gdc,p,t(instanceOf(gdc,genericallyDependentContinuant,t)∧participatesIn(gdc,p,t)→∃tp,b(temporalPartOf(tp,t)∧concretizes(b,gdc,tp)∧((instanceOf(b,specificallyDependentContinuant,tp)∧(∃ic(specificallyDependsOn(b,ic)∧participatesIn(ic,p,tp))))∨(occurrentPartOf(b,p)∧existsAt(b,tp))))
-BFO 2020 Spatial Axioms
+
+___
+
+**BFO 2020 Spatial Axioms**
 
 Occurs in and environs are inverse relations [uys-1]
 ∀a,b(occursIn(a,b)↔environs(b,a))
@@ -528,7 +545,10 @@ Located in is time indexed and has domain: independent continuant but not spatia
 
 At all times t, there’s a part of t when c occupies spatial region r iff every part of c occupies a part of r, and there isn’t a smaller part of r that c occupies. [grv-1]
 ∀c,r,t(instanceOf(c,independentContinuant,t)∧¬instanceOf(c,spatialRegion,t)∧instanceOf(r,spatialRegion,t)→∃t2(temporalPartOf(t2,t)∧(occupiesSpatialRegion(c,r,t2)↔(∀cp(continuantPartOf(cp,c,t2)→∀rp(occupiesSpatialRegion(cp,rp,t2)→continuantPartOf(rp,r,t2))))∧¬(∃r′(r′̸=r∧continuantPartOf(r′,r,t2)∧occupiesSpatialRegion(c,r′,t2))))))
-BFO 2020 Spatiotemporal Axioms
+
+___
+
+**BFO 2020 Spatiotemporal Axioms**
 
 If something occupies a temporal region, then it exists at that region [bmc-1]
 ∀a,t(occupiesTemporalRegion(a,t) →existsAt(a,t))
@@ -606,7 +626,10 @@ Process or process boundary p occupies temporal region t iff every part of p tem
 
 Process p (or boundary) occupies spatiotemporal region st iff every part of p occupies spatiotemporal region a part of st, and there isn’t a smaller part of st that p occupies. [dki-1]
 ∀o,st((∃t1instanceOf(o,process,t1)∨∃t1instanceOf(o,processBoundary,t1))∧∃t1instanceOf(st,spatiotemporalRegion,t1)→(occupiesSpatiotemporalRegion(o,st)↔(∀op(occurrentPartOf(op,o)→∀stp(occupiesSpatiotemporalRegion(op,stp)→occurrentPartOf(stp,st))))∧¬(∃st′(st′̸=st∧occurrentPartOf(st′,st)∧occupiesSpatiotemporalRegion(o,st′)))))
-BFO 2020 Specific Dependency Axioms
+
+___
+
+**BFO 2020 Specific Dependency Axioms**
 
 Inheres in and bearer of are inverse relations [dzz-1]
 ∀a,b(inheresIn(a,b) ↔bearerOf(b,a))
@@ -664,7 +687,10 @@ Specifically depends on has domain specifically dependent continuant and range s
 
 At every time a specific dependent s participates in a process p there’s a part of that time, during which there’s an independent continuant that s s depends on, and that participates in p at that time [cgn-1]
 ∀sdc,p,t(instanceOf(sdc,specificallyDependentContinuant,t)∧participatesIn(sdc,p,t)→∃tp,ic(instanceOf(tp,temporalRegion,tp)∧temporalPartOf(tp,t)∧instanceOf(ic,independentContinuant,tp)∧¬instanceOf(ic,spatialRegion,tp)∧specificallyDependsOn(sdc,ic)∧participatesIn(ic,p,tp)))
-BFO 2020 At T Temporalized Axioms
+
+__
+
+**BFO 2020 At T Temporalized Axioms**
 
 Located in at some time [asd-1]
 ∀p,q(locatedInAtSomeTime(p,q) ↔∃t(existsAt(p,t)∧existsAt(q,t)∧locatedIn(p,q,t)))
@@ -777,7 +803,10 @@ Proper continuant part of at all times [jiz-1]
 
 Has proper continuant part at all times [mxe-1]
 ∀p,q(hasProperContinuantPartAtAllTimes(p,q)↔(∃t(hasProperContinuantPart(p,q,t)∧existsAt(p,t)))∧(∀t(existsAt(p,t) →hasProperContinuantPart(p,q,t))))
-BFO 2020 Temporal Region Axioms
+
+___
+
+**BFO 2020 Temporal Region Axioms**
 
 Has last instant and last instant of are inverse relations [wal-1]
 ∀a,b(hasLastInstant(a,b)↔lastInstantOf(b,a))
@@ -920,7 +949,10 @@ An interval has no gaps [nui-1]
 
 Intervals have no gaps strong version every two instants without another in between bound an interval [cop-1]
 ∀i,start,end (instanceOf(i,temporalInterval,i)∧hasFirstInstant(i,start)∧hasLastInstant(i,end)→∀t1,t2(temporalPartOf(t1,i)∧temporalPartOf(t2,i)∧instanceOf(t1,temporalInstant,t1)∧instanceOf(t2,temporalInstant,t2)∧precedes(t1,t2)∧¬(∃t3(instanceOf(t3,temporalInstant,t3)∧precedes(t1,t3)∧precedes(t3,t2)))→∃fill(instanceOf(fill,temporalInterval,fill)∧hasFirstInstant(fill,t1)∧hasLastInstant(fill,t2)∧temporalPartOf(fill,i))))
-BFO 2020 Universal Declaration Axioms
+
+___
+
+**BFO 2020 Universal Declaration Axioms**
 
 Role is a universal [ewm-1]
 universal(role)
