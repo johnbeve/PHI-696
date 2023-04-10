@@ -15,7 +15,7 @@
 
 obo:BFO_0000016
   a owl:Class ;
-  a sh:NodeShape ;
+  a sh:NodeShape ; 	 # this is an implicit target class -- may need to use a separate DispositionShape that targets Disposition instead
   dc:identifier "062-BFO" ;
   rdfs:label "disposition"@en ;
   rdfs:subClassOf obo:BFO_0000017 ;
