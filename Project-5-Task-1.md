@@ -1147,7 +1147,7 @@ Material entity, immaterial entity are mutually disjoint [sij-1]
 ¬(∃x,t(instanceOf(x,materialEntity,t)∧instanceOf(x,immaterialEntity,t)))
 
 Generically dependent continuant is subclass of continuant [zyw-1]
-∀t,x(instanceOf(x,genericallyDependentContinuant,t)→instanceOf(x,continuant,t))
+∀t,x(instanceOf(x,genericallyDependentContinuant,t)→instanceOf(x,continuant,t)) 
 
 Specifically dependent continuant is subclass of continuant [dhv-1]
 ∀t,x(instanceOf(x,specificallyDependentContinuant,t)→instanceOf(x,continuant,t))
