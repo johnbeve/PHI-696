@@ -1,3 +1,5 @@
+# BFO SHACL Instances
+* Validated with https://shacl.org/playground/
 
 ```turtle
 @prefix dash: <http://datashapes.org/dash#> .
