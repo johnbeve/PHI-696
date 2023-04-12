@@ -67,20 +67,26 @@ To see our cumulative work thus far, please go to this link: https://docs.google
 ___
 
 
-**Part 1–Objective 1 GitHub Submission Draft:**
+**Part 1–Objective 1 & 2:**
 
-Generate a knowledge graph based on BFO with instance data added that respect the semantics of the first order logic version of BFO.
+1. Generate a knowledge graph based on BFO with instance data added that respect the semantics of the first order logic version of BFO.
+
+**BFO 2020 Knowledge Graph with Instance Data Added:** [BFO_2020_Knowledge Graph.ttl](https://github.com/JaronJCheung/PHI-696/blob/JaronJCheung-P-5/BFO_2020_Knowledge%20Graph.ttl)
+
+2. Construct a SHACL schema/file that parallels the BFO owl file but also constrains compatible knowledge graphs built on BFO to as much of the First-Order Logic representation of BFO, as possible.
+
+**Astrea SCHACL Schema File:** https://github.com/JaronJCheung/PHI-696/blob/JaronJCheung-P-5/BFO_SHACL_SCHEMA_3.0.ttl
 
 ```
 Work Distribution:
-Karl: (1) Continuant Mereology and (2) Occurrent Mereology
-Giacomo: (1) Specific-Dependency and (2) SpatioTemporal
-Ali: (1) Temporal Region and (2) Temporalized Relations
-Finn: (1) Generic Dependence and (2) Participation
-Matt: (1) Existence Instantiation and (2) Spatial
-Jaron: (1) Material Entity and (2) History
-Olivia: (1) Order
-Tim: (1) Universal Declaration
+Karl: Continuant Mereology 
+Finn: Generic Dependence
+Olivia: History
+Jaron: Material Entity
+Ali:  Occurrent Mereology
+Matt: Order
+Giacomo: Participation
+Tim: Spatial Axioms
 ```
 
 ___
@@ -1302,9 +1308,7 @@ Zero dimensional spatial region, one dimensional spatial region, two dimensional
 
 ___
 
-**Part 2–Objective 2 & 3 GitHub Submission Draft:**
-
-2. Construct a SHACL schema/file that parallels the BFO owl file but also constrains compatible knowledge graphs built on BFO to as much of the First-Order Logic representation of BFO, as possible.
+**Part 2–Objective 2:**
 
 3. Validate the SHACL schema/file for BFO by running the SHACL file against the knowledge graph based on BFO and generate a report absent errors or warnings
 
