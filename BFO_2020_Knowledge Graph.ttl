@@ -2127,8 +2127,8 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75#IAO_000000000000
-:IAO_000000000000 rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/tim's_sense_data_of_giacomo's_secret_diary's_content
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/tim's_sense_data_of_giacomo's_secret_diary's_content> rdf:type owl:NamedIndividual ,
                            <http://purl.obolibrary.org/obo/BFO_0000141> ;
                   <http://purl.obolibrary.org/obo/BFO_0000110> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/giacomo's_secret_diary's_content> ;
                   rdfs:label "tim's sense data of giacomo's secret diary's content"@en .
