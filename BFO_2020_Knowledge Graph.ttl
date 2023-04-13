@@ -2127,12 +2127,6 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75#IAO_000000000003
-:IAO_000000000003 rdf:type owl:NamedIndividual ,
-                           <http://purl.obolibrary.org/obo/BFO_0000031> ;
-                  rdfs:label "bad proposition"@en .
-
-
 ###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/a_copy_of_the_leviathan
 <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/a_copy_of_the_leviathan> rdf:type owl:NamedIndividual ,
                                                                                                            <http://purl.obolibrary.org/obo/BFO_0000001> ,
@@ -2166,6 +2160,13 @@
                                                                                                     <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                                                                            <http://purl.obolibrary.org/obo/BFO_0000210> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/cube_in_space_1> ;
                                                                                            <http://purl.obolibrary.org/obo/BFO_0000211> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/cube_in_space_1> .
+
+
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/bad_proposition
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/bad_proposition> rdf:type owl:NamedIndividual ,
+                                                                                                   <http://purl.obolibrary.org/obo/BFO_0000027> ,
+                                                                                                   <http://purl.obolibrary.org/obo/BFO_0000031> ;
+                                                                                          rdfs:label "bad proposition"@en .
 
 
 ###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/confused_function
