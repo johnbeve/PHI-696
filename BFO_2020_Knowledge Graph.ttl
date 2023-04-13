@@ -4,7 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75> .
+@base <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75#> .
 
 <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75> rdf:type owl:Ontology ;
                                                                                             <http://purl.org/dc/elements/1.1/contributor> "Alan Ruttenberg" ,
@@ -36,7 +36,7 @@
                                                                                                                                           "Yongqun \"Oliver\" He" ;
                                                                                             <http://purl.org/dc/elements/1.1/license> <https://creativecommons.org/licenses/by/4.0/> ;
                                                                                             rdfs:comment "The most recent version of this file will always be in the GitHub repository https://github.com/bfo-ontology/bfo-2020" ;
-                                                                                            rdfs:label "BFO 2020" .
+                                                                              rdfs:label "BFO 2020" .
 
 #################################################################
 #    Annotation properties
@@ -2126,6 +2126,14 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75#IAO_000000000000
+:IAO_000000000000 rdf:type owl:NamedIndividual ,
+                           <http://purl.obolibrary.org/obo/BFO_0000141> ;
+                  <http://purl.obolibrary.org/obo/BFO_0000110> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/giacomo's_secret_diary's_content> ;
+                  rdfs:label "tim's sense data of giacomo's secret diary's content"@en .
+
+
 
 ###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/a_copy_of_the_leviathan
 <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/a_copy_of_the_leviathan> rdf:type owl:NamedIndividual ,
