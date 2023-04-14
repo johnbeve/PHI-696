@@ -29,15 +29,16 @@
 bfo:uys-1-1 a sh:NodeShape ;
        sh:resultSeverity sh:Violation ;
        sh:message "Occurs in and environs are inverse relations" ;
+       rdfs:comment "∀a,b(occursIn(a,b)↔environs(b,a))"
        sh:targetSubjectsOf bfo:0000066 ;
        sh:or ( [ sh:not        [ sh:property [ sh:path bfo:0000066 ] ] ]
                [ sh:property   [ sh:path [ sh:inversePath bfo:0000183 ] ;
                                  sh:minCount 1 ] ] ) .
 
-
 bfo:uys-1-2 a sh:NodeShape ;
        sh:resultSeverity sh:Violation ;
        sh:message "Occurs in and environs are inverse relations" ;
+       rdfs:comment "∀a,b(occursIn(a,b)↔environs(b,a))"
        sh:targetSubjectsOf bfo:0000183 ;
        sh:or ( [ sh:not        [ sh:property [ sh:path bfo:0000183 ] ] ]
                [ sh:property   [ sh:path [ sh:inversePath bfo:0000066 ] ;
@@ -49,6 +50,7 @@ bfo:uys-1-2 a sh:NodeShape ;
 bfo:kaw-1-1 a sh:NodeShape ;
       sh:resultSeverity sh:Violation ;
       sh:message "Located in and location of are inverse relations" ;
+      rdfs:comment "∀t,a,b(locatedIn(a,b,t)↔locationOf(b,a,t))"
       sh:targetSubjectsOf bfo:0000171 ; # located IN at some time
       sh:or ( [ sh:not        [ sh:property [ sh:path bfo:0000171 ] ] ]
               [ sh:property   [ sh:path [ sh:inversePath bfo:0000124 ] ;
@@ -58,6 +60,7 @@ bfo:kaw-1-1 a sh:NodeShape ;
 bfo:kaw-1-2 a sh:NodeShape ;
       sh:resultSeverity sh:Violation ;
       sh:message "Located in and location of are inverse relations" ;
+      rdfs:comment "∀t,a,b(locatedIn(a,b,t)↔locationOf(b,a,t))"
       sh:targetSubjectsOf bfo:0000124 ; # location OF at some time
       sh:or ( [ sh:not        [ sh:property [ sh:path bfo:0000124 ] ] ]
               [ sh:property   [ sh:path [ sh:inversePath bfo:0000171 ] ;
@@ -88,11 +91,20 @@ bfo:kaw-1-2 a sh:NodeShape ;
 # If a process (or process boundary) occurs in a continuant, that continuant exists at least as long as the process does [dxv-1]
 # ∀p,c(occursIn(p,c)→∀t(existsAt(p,t)→existsAt(c,t)))
 
+
 # Located in is dissective on third argument, a temporal region [put-1]
 # ∀p,q,r,s(locatedIn(p,q,r)∧temporalPartOf(s,r)→locatedIn(p,q,s))
-
 # Step 1. First convert to ∀p,q,r,s(¬(locatedIn(p,q,r)∧temporalPartOf(s,r)) ∨ locatedIn(p,q,s)) ...
 
+bfo:put-1 a sh:NodeShape ;
+      sh:resultSeverity sh:Violation ;
+      sh:message "Located in is dissective on third argument, a temporal region" ;
+      rdfs:comment "∀p,q,r,s(locatedIn(p,q,r)∧temporalPartOf(s,r)→locatedIn(p,q,s))" ;
+      rdfs:comment "If Raleigh is located in NC at 1990, and 1990 is part of 20th century, then Raleigh is located in NC at 20th century" ;
+      sh:targetSubjectsOf bfo:0000171 ; # located in at some time
+      sh:or ( [ sh:not [ sh:and ( [ sh:property [ sh:path bfo:0000171 ] ]
+                                  [ sh:property [ sh:path bfo:0000139 ] ] ) ] ]
+              [ sh:property [ sh:path bfo:0000171 ] ] ) .
 
 # Located in is a lower bound on second argument [evu-1]
 # ∀p,q,r,s(locatedIn(p,q,r)∧continuantPartOf(q,s,r)→locatedIn(p,s,r))
