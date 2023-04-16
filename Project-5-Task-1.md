@@ -298,6 +298,17 @@ ___
 Member part of and has member part are inverse relations [jrm-1]
 ∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
 
+```
+#Member part of and has member part are inverse relations [jrm-1]
+#∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
+#Entity (bfo:0000001), Member part of at some time (bfo:0000129), has member part at some time (bfo:0000115)
+
+ex:jrm-1 a sh:NodeShape ;
+    sh:targetClass bfo:0000001 ;
+    sh:property [        a sh:PropertyShape ;        sh:path bfo:0000129 ;        sh:inversePath bfo:0000115 ;        sh:class bfo:0000001 ;        sh:minCount 0 ;    ] ;
+    sh:property [        a sh:PropertyShape ;        sh:path bfo:0000115 ;        sh:inversePath bfo:0000129;        sh:class bfo:0000001 ;        sh:minCount 0 ;    ] .
+```
+
 Member part of is dissective on third argument, a temporal region [yip-1]
 ∀p,q,r,s(memberPartOf(p,q,r)∧temporalPartOf(s,r)→memberPartOf(p,q,s))
 
