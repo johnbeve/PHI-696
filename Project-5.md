@@ -46,9 +46,468 @@ You may find the following resources useful:
 2. [DASH Library](https://datashapes.org/dash.html)
 
 
-## Assignment to Teams ##
+1.	Constraint for Asymmetry 
 
-The class will be divided evenly. Students are expected to determine allotment, but teams must be comprised of the same number of members (with a +1/-1 deviation allowed). This is an exercise in project management. I encourage you to identify a strategy early for dividing sub-tasks, setting deadlines, and addressing blockers to progress.  
+a.	Our constraint checks for asymmetric patterns in a graph.
 
-I suggest setting up 15 minute 'stand-up' meetings every other day, where team members are expected to join. zoom call or meet in person and (a) explain what progress they have made on their sub-task, (b) explain what they intend to achieve before the next stand-up, and (c) share any blockers that have to progress. This is an effective way to keep members focused on a team goal, as well as opportunities to overcome challenges. 
+b.	An example of when to use this constraint would be for tracking enrollment in courses at a university. Such that each node would represent a student of course and each relation represents the enrollment of a student in a course. Enrollment relations should only be allowed between students and courses that are in a department. If a violation of this constraint is detected it would mean that there is an enrollment relation that does not satisfy the requirement of a student enrolling in a course without the course being enrolled in a student. By changing ex:AsymmteryShape to ex:AsymmetryEnrollementShape and following our basic structure. 
 
+c.	aRb → ~bRa (equivalent as: ~aRb ∨ ~bRa)
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+ex:AsymmetryShape
+
+a sh:NodeShape ;
+sh:targetClass ex:relation ;
+sh:property [    
+sh:path rdf:value ;    
+sh:minCount 1 ;    
+sh:maxCount 2 ;    
+sh:datatype xsd:string ; 
+
+] .
+
+2.	Constraint for Symmetry 
+a.	Our constraint checks for symmetry patterns in a graph.
+
+b.	An example of when to use this constraint would be if we had an RDF graph that represented your 
+connections on LinkedIn. Such that if A is connected with B then B is connected with A. Wanting to ensure this relation is symmetric we would use a SHACL constraint like this. Easily substituting SymmteryShape for ConnectionSymmteryShape and then following our model below. Our model would alert the user if there were cases of connection not going both ways.
+
+c.	a -> b ^ b -> a
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:SymmetricRelationShape
+
+    a sh:NodeShape ;
+
+    sh:targetClass ex:Relation ;
+    sh:property [       
+ sh:path ex:hasSource ;    
+ ] ;
+    sh:property [        
+
+sh:path ex:hasTarget ;        
+
+sh:minCount 1 ;        
+
+sh:maxCount 1 ;        
+
+sh:message "A relation must have exactly one target"   
+
+] ;
+
+sh:property [        
+
+sh:path ex:hasInverseRelation ;       
+
+sh:minCount 0 ;        
+
+sh:maxCount 1 ;        
+
+sh:class ex:Relation ;        
+
+sh:node [           
+
+sh:property [                
+
+sh:path ex:hasSource ;            
+
+
+] ;
+
+sh:property [                
+
+sh:path ex:hasTarget ;                
+
+sh:minCount 1 ;                
+
+sh:maxCount 1 ;                
+
+sh:message "An inverse relation must have exactly one target"            
+
+] ;
+
+sh:property [                
+
+sh:path ex:hasInverseRelation ;                
+
+sh:minCount 0 ;                
+
+sh:maxCount 1 ;                
+
+sh:class ex:Relation ;                
+
+sh:node [                   
+
+sh:property [                        
+
+sh:path ex:hasSource ;                        
+
+sh:equals [ 
+
+sh:path [ 
+
+rdf:reverseProperty ex:hasTarget 
+]
+ ]
+] ;
+
+sh:property [                        
+
+sh:path ex:hasTarget ;                        
+
+sh:equals [ 
+
+sh:path [ 
+
+rdf:reverseProperty ex:hasSource 
+
+] 
+
+]
+                    ]
+                ]
+            ] ;
+
+sh:property [               
+
+sh:path ex:hasSource ;                
+
+sh:equals [
+
+sh:path [ 
+
+rdf:reverseProperty ex:hasTarget 
+
+] 
+
+]
+            ] ;
+
+sh:property [                
+
+sh:path ex:hasTarget ;                
+
+sh:equals [ 
+
+sh:path [ 
+
+rdf:reverseProperty ex:hasSource 
+
+] 
+
+]
+
+]
+        ]
+    ] .
+
+
+
+3.	Constraint Symmetry with a check thing not being symmetric. 
+a.	Our constraint is meant to check for symmetry in a graph and check for when things are not symetric.
+
+b.	An example of when to use this constraint would be if we had a graph that represented followers on Twitter. Our constraint would check for cases of when A follows B than B should follow A. This constraint would indeed produce the message “The relation does not have symmetric values" when this is not the case. 
+To use this constraint in this was one would start the constraint with something like 
+ex:TwitterFollowersSymmetryShape and follow the general format of this constraint. 
+
+c.	a -> b ^ b -> a
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:SymmetryShape
+
+a sh:NodeShape ;
+
+sh:targetclass ex:relation ;
+
+sh:property [    
+
+sh:path rdf:value ;    
+
+sh:minCount 2 ;   
+
+sh:maxCount 8 ;
+
+sh:datatype xsd:string ;    
+
+sh:nodeKind sh:Literal ;    
+
+sh:message "The relation does not have symmetric values"  
+
+] ;
+
+sh:property [    
+
+sh:path [ 
+
+sh:inversePath ex:property 
+
+] ;
+
+sh:minCount 2 ;
+
+sh:datatype xsd:string ;
+
+sh:nodeKind sh:Literal ;
+
+
+sh:message "The relation does not have symmetric values"
+
+] .
+
+Constraint for Reflexivity 
+a.	Our constraint checks for reflexivity in a graph.
+
+b.	An example of when one would use this constraint would be if we had a graph that represented published philosophers to check for when philosophers are self-referencing themselves in a novel piece. Such that when a philosopher published novel work that references that philosophers in a self-referential way this constraint would alert to the self-reference. One would change ex:ReflexivityShape to ex:PhilosopherReferenceReflexivityShape and follow the format of the constraint below. Importantly, when self-referring, the philosopher is referring to herself (rather than the body of work).  
+
+c.	a -> a
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+ex:ReflexiveShape
+
+a sh:NodeShape ;
+
+sh:targetClass ex:relation ;
+
+sh:property [    
+
+sh:path rdf:value ;    
+
+sh:minCount 1 ;    
+
+sh:maxCount 6 ;    
+
+sh:datatype xsd:string ; 
+
+] .
+
+5.	Constraint for Irreflexive 
+a.	Our constraint checks for irreflexively in a graph 
+
+b.	An example of when to use this constraint would be if you had a graph that represented a company’s organizational structure. Such that no employee should be their own manager. This constraint would ensure that is not possible. One would simply change ex:IrrelexiveShape to ex:CompanyIrrelexiveOrganizationShape and follow the formatting below. 
+
+c.	~(a -> a)
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:IrreflexiveShape
+
+a sh:NodeShape ;
+
+sh:targetClass ex:relation ;
+
+sh:property [    
+
+sh:path rdf:value ;    
+
+sh:minCount 1 ;    
+
+
+sh:maxCount 4 ;    
+
+sh:datatype xsd:string ; 
+] .
+
+6.	Constraint for Transitivity 
+a.	Our constraint checks for transitivity in a graph.
+
+b.	An example of when one would use this constraint would be to check a graph of clan, band, nation affiliation. Such that when one is a recognized citizen of the Cherokee Nation one is also a member of one of the 3 bands of Cherokee and a member of one of the 7 clans. This constraint would be used to check if one is a member of a clan, they are a member of a band and if you are member a band you are a member of the Nation and if you are a member of a clan, you are a member of the Nation. One would simply change ex:TransitiveShape to ex:CherokeeNationEnrollmentClanTransitiveShape.
+
+c.	c -> b. b -> a. ؞ c -> a
+  i.	a = nation
+  ii.	b = band
+  iii.	c = clan
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TransitiveShape
+
+a sh:NodeShape ;
+
+sh:targetClass ex:relation ;
+
+sh:property [    
+
+sh:path rdf:value ;    
+
+sh:minCount 1 ;    
+
+sh:maxCount 3 ;    
+
+sh:datatype xsd:string ; 
+
+] .
+
+7.	Constraint for Transitivity and Symmetry 
+a.	Our constraint checks for when a graph is both transitivity and symmetry in a graph. 
+b.	An example of when one would use this constraint would be to check a graph of clan, band, nation affiliation. Such that when one is a recognized citizen of the Cherokee Nation one is also a member of one of the 3 bands of Cherokee and a member of one of the 7 clans. This constraint would be used to check if one is a member of a clan they are a member of the a band and if you are a member of a band you are a member of the Nation and if you are a member of a clan you are a member of the Nation. Similarly, if you are a member of a clan you are a member of the Nation and if you are a member of the Nation you are a member of a clan.  
+c.	c -> b. b -> a. ؞ c -> a
+  i.	a = nation
+  ii.	b = band
+  iii.	c = clan
+d.	a -> c. c -> a
+  i.	a = nation
+  ii.	c = clan 
+
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TransSymmetryShape
+
+a sh:NodeShape ;
+
+sh:targetClass ex:relation ;
+sh:property [    
+sh:path ex:hasSource ;    
+sh:class ex:Node  
+] ;
+
+sh:property [    
+sh:path ex:hasTarget ;    
+sh:class ex:Node  ] ;
+sh:property [    
+sh:path ex:hasValue ;    
+sh:or (       [ sh:datatype xsd:string ; 
+sh:in ( "same, opposite" ) 
+]
+[ sh:datatype xsd:boolean ]
+)
+ ] ;
+ sh:property [    
+sh:path ex:hasType ;    
+sh:in ( "symmetric, transitive" )  
+] .
+
+
+
+
+8.	Constraint for disjoint of symmetry or asymmetry 
+a.	Our constraint checks for when a graph is either symmetric or asymmetric 
+
+b.	An example of when this constraint could be used to check a dataset of products represented as an RDF resource with various properties. This constraint will ensure a specific property (or multiple properties) is/are always present when a product is listed. To take this further, let’s say that our product type must have a review and a rating as the property, when the graph is checking the dataset it will check for symmetry of review existing and rating existing while also checking for an asymmetry such that there is a review but no rating or a rating and no review. One would change ex:symmetricalProperty to ex:hasReviewShape and then following this basic formatting!
+
+c.	[(a -> b) ^ (b -> a)] v [(a -> b) ^ ~(b -> a)]
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+ex:AsymReflexShape
+
+a sh:NodeShape ;
+sh:targetClass ex:relation ;
+sh:property [    
+sh:path ex:hasSource ;    
+sh:class ex:Node 
+] ;
+
+sh:property [    
+sh:path ex:hasTarget ;    
+sh:class ex:Node  
+] ;
+
+sh:property [    
+sh:path ex:hasValue ;    
+sh:datatype xsd:boolean ;    
+sh:in ( true )  ] ;
+sh:property [    
+sh:path ex:hasType ;    
+sh:in ( "asymmetric" )  
+] .
+
+
+9.	Constraint for PropertyIn for Asymmetrical or Irreflexive 
+a.	Our constraint checks for when a graph has a propertyIn that is both asymmetric and irreflexive. 
+
+b.	An example of a time when you could use this constraint would be when checking a flow chart type graph (I think they are called directed acyclic graphs). Such that in a flow chart there could be many outgoing relations with only one incoming relation. This means the ex:asymmetricalPropertySHape constraint could ensure that each arrow of the graph in directed in a consistent way. While is ex:IrreeflexivePropertyShape constraint on the other hand, could be used to ensure that there are no cycles in the graph by prohibiting self-reference. By combing these constraints with sh:or property type you can check the validity of a flow chart. 
+
+c.	[(a -> b) ^ ~(b -> a)] v [~(a -> a)]
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:asymmetricalPropertyShape
+
+a sh:PropertyShape ;
+sh:path ex:asymmetricalProperty ;
+sh:propertyConstraint [
+sh:asymmetrical true ;
+] .
+
+ex:irreflexivePropertyShape
+a sh:PropertyShape ;
+sh:path ex:irreflexiveProperty ;
+sh:propertyConstraint [
+sh:irreflexive true ;
+] .
+
+ex:MyClassShape
+a sh:NodeShape ;
+sh:property [
+sh:or ( ex:asymmetricalPropertyShape ex:irreflexivePropertyShape ) ;
+] .
+
+
+
+10.	Constraint for hasProperty
+a.	An example of when this constraint might be used is in a real estate application that manages multiple properties. Such that the three associated properties rdf:value (the monetary value of a given property), ex:b (the number of bedrooms on a given property) and ex:c (the number of bathrooms on a given property). The constraint can be applied to ensure that any of the data associated with ex:property class meets these requirements, preventing incomplete or incorrect data being entered into the system. 
+
+b.	Going to be perfectly honest. I am not sure how to translate this into symbolic logic. 
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:hasProperty
+a sh:NodeShape ;
+sh:targetClass ex:property ;
+sh:property [    
+sh:path rdf:value ;        
+sh:minCount 1 ;        
+sh:maxCount 8 ;      
+] ;
+
+sh:property [    
+sh:path ex:b ;    
+sh:minCount 1 ;    
+sh:maxCount 8 ;  
+] ;
+
+sh:property [    
+sh:path ex:c ;    
+sh:minCount 1 ;    
+sh:maxCount 8 ;  
+] .
