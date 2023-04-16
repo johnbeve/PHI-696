@@ -4,7 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75> .
+@base <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75#> .
 
 <http://www.semanticweb.org/AliHasanzadeh/BFO2020SHACLProject/2023/3/untitled-ontology-75> rdf:type owl:Ontology ;
                                                                                             <http://purl.org/dc/elements/1.1/contributor> "Alan Ruttenberg" ,
@@ -2162,6 +2162,21 @@
                                                                                            <http://purl.obolibrary.org/obo/BFO_0000211> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/cube_in_space_1> .
 
 
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/bad_proposition
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/bad_proposition> rdf:type owl:NamedIndividual ,
+                                                                                                   <http://purl.obolibrary.org/obo/BFO_0000027> ,
+                                                                                                   <http://purl.obolibrary.org/obo/BFO_0000031> ;
+                                                                                          rdfs:label "bad proposition"@en .
+
+
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/confused_function
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/confused_function> rdf:type owl:NamedIndividual ,
+                                                                                                     <http://purl.obolibrary.org/obo/BFO_0000031> ,
+                                                                                                     <http://purl.obolibrary.org/obo/BFO_0000034> ;
+                                                                                            rdfs:comment "This is intended to be an instance that is invalid according to the BFO SHACL schema" ;
+                                                                                            rdfs:label "confused function"@en .
+
+
 ###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/cube_in_space_1
 <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/cube_in_space_1> rdf:type owl:NamedIndividual ,
                                                                                                    <http://purl.obolibrary.org/obo/BFO_0000001> ,
@@ -2455,6 +2470,15 @@
                                                                                                                                                               <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/heloise's_wife_role> .
 
 
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/berkeley's_mind
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/berkeley's_mind> rdf:type owl:NamedIndividual ,
+                                                                                                   <http://purl.obolibrary.org/obo/BFO_0000141> ;
+                                                                                          <http://purl.obolibrary.org/obo/BFO_0000163> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/the_universe> ;
+                                                                                          rdfs:comment "This is intended to be an instance that contradicts the ontology" ;
+                                                                                          rdfs:label "berkeley's mind"@en ,
+                                                                                                     "George Berkeley's mind" .
+
+
 ###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/boundary_between_abelard's_1st_and_2nd_year
 <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/boundary_between_abelard's_1st_and_2nd_year> rdf:type owl:NamedIndividual ,
                                                                                                                                <http://purl.obolibrary.org/obo/BFO_0000001> ,
@@ -2555,6 +2579,14 @@
                                                                                                                     <http://purl.obolibrary.org/obo/BFO_0000034> ;
                                                                                                            <http://purl.obolibrary.org/obo/BFO_0000113> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/thor's_hammer> ;
                                                                                                            <http://purl.obolibrary.org/obo/BFO_0000218> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/thor's_hammer> .
+
+
+###  http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/tim's_sense_data_of_giacomo's_secret_diary
+<http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/tim's_sense_data_of_giacomo's_secret_diary> rdf:type owl:NamedIndividual ,
+                                                                                                                              <http://purl.obolibrary.org/obo/BFO_0000141> ;
+                                                                                                                     <http://purl.obolibrary.org/obo/BFO_0000110> <http://www.semanticweb.org/ahasa/ontologies/2023/3/untitled-ontology-67/giacomo's_secret_diary> ;
+                                                                                                                     rdfs:comment "This is intended to be an instance that contradicts the ontology" ;
+                                                                                                                     rdfs:label "tim's sense data of giacomo's secret diary"@en .
 
 
 #################################################################
