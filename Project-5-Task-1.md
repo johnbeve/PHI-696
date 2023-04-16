@@ -295,9 +295,6 @@ ___
 
 **BFO 2020 Material Entity Axioms**
 
-Member part of and has member part are inverse relations [jrm-1]
-∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
-
 ```
 #Member part of and has member part are inverse relations [jrm-1]
 #∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
@@ -308,6 +305,288 @@ ex:jrm-1 a sh:NodeShape ;
     sh:property [        a sh:PropertyShape ;        sh:path bfo:0000129 ;        sh:inversePath bfo:0000115 ;        sh:class bfo:0000001 ;        sh:minCount 0 ;    ] ;
     sh:property [        a sh:PropertyShape ;        sh:path bfo:0000115 ;        sh:inversePath bfo:0000129;        sh:class bfo:0000001 ;        sh:minCount 0 ;    ] .
 ```
+
+```
+#Member part of is dissective on third argument, a temporal region [yip-1]
+#∀p,q,r,s(memberPartOf(p,q,r)∧temporalPartOf(s,r)→memberPartOf(p,q,s))
+#Entity (bfo:0000001), member part of at some time (bfo:0000129), temporal part of (bfo:0000139), temporal region (bfo:0000008)
+ 
+ex:yip-1 a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000001 ;
+    sh:property [
+        sh:path bfo:0000129 ;
+        sh:nodeKind sh:IRI ;
+        sh:qualifiedMinCount 3 ;
+        sh:qualifiedMaxCount 3 ;
+        sh:property [
+            sh:path bfo:0000129 ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000001 ;
+        ] ;
+        sh:property [
+            sh:path bfo:0000129 ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000008 ;
+            sh:disjoint [
+                sh:path bfo:0000139 ;
+                sh:hasValue :yip-1 ;
+            ]
+        ]
+    ] .
+```
+
+```
+#An object aggregate always has at least one member [uhs-1]
+#∀ag,t(instanceOf(ag,objectAggregate,t)→∃o1(instanceOf(o1,object,t)∧membePartOf(o1,ag,t)))
+#Object aggregate (bfo:0000027), object (bfo:0000030), (Member part of at all times
+(bfo:0000173).
+ 
+ex:uhs-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000027 ;
+    sh:property [
+        sh:path bfo:0000027 ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path bfo:0000173 ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000027 ;
+        ] ;
+        sh:property [
+            sh:path bfo:0000030 ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000027 ;
+        ]
+    ] .
+```
+
+```
+#Member part of is time indexed and has domain: object and range: object aggregate [dvq-1]
+#∀a,b,t(memberPartOf(a,b,t)→instanceOf(a,object,t)∧instanceOf(b,objectAggregate,t)∧instanceOf(t,temporalRegion,t))
+#Entity (bfo:0000001), member part of at some time (bfo:0000129), object (bfo:0000030), objectAggregate (bfo:0000027), temporal region (bfo:0000008)
+ 
+ex:dvq-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000001 ;
+    sh:property [
+        sh:path bfo:0000129 ;
+        sh:nodeKind sh:IRI ;
+        sh:property [
+            sh:path rdf:type ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000030 ;
+        ] ;
+        sh:property [
+            sh:path rdf:type ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000027 ;
+        ] ;
+        sh:property [
+            sh:path rdf:type ;
+            sh:nodeKind sh:IRI ;
+            sh:in bfo:0000008 ;
+        ]
+    ] .
+```
+
+```
+#A fiat object part =def a proper part of an object [yir-1]
+#∀f,t(instanceOf(f,fiatObjectPart,t)↔∃o(instanceOf(o,object,t)∧properContinuantPartOf(f,o,t)∧¬instanceOf(f,immaterialEntity,t)))
+#Fiat object property (bfo:0000024), object (bfo:0000030), proper continuant part of at some time (bfo:0000175), immaterial entity (bfo:0000141)
+
+ex:yir-1
+  a sh:NodeShape ;
+  sh:targetClass bfo:0000024 ;
+  sh:property [
+    sh:path bfo:0000030 ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+      sh:path bfo:0000175 ;
+      sh:nodeKind sh:IRI ;
+      sh:hasValue bfo:0000024 ;
+    ] ;
+    sh:property [
+      sh:path rdf:type ;
+      sh:in (bfo:0000030) ;
+    ] ;
+    sh:property [
+      sh:path bfo:0000175 ;
+      sh:nodeKind sh:IRI ;
+      sh:maxCount 1 ;
+    ] ;
+    sh:property [
+      sh:path bfo:0000175 ;
+      sh:nodeKind sh:IRI ;
+      sh:not [        sh:path rdf:type ;        sh:in (bfo:0000141) ;      ] ;
+    ] ;
+  ] .
+```
+
+```
+#I is an immaterial entity = Def. i is an independent continuant that has no material entities as parts. [udu-1]
+#∀i,t(instanceOf(i,immaterialEntity,t)↔instanceOf(i,independentContinuant,t)∧¬(∃m(instanceOf(m,materialEntity,t)∧continuantPartOf(m,i,t))))
+#Immaterial entity (bfo:0000141), independent continuant (bfo:0000004), material entity (bfo:0000040), continuant part of at all times (bfo:0000177).
+ 
+ex:udu-1
+  a sh:NodeShape ;
+  sh:targetSubjectsOf bfo:0000141 ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (bfo:0000141) ;
+  ] ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:in (bfo:0000004) ;
+  ] ;
+  sh:property [
+    sh:path bfo:0000177 ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:or (
+      [
+        sh:path rdf:type ;
+        sh:in (bfo:0000040) ;
+      ] 
+      [        sh:path bfo:0000177 ;        sh:nodeKind sh:BlankNodeOrIRI ;        sh:maxCount 0 ;      ]
+    )
+  ] .
+```
+
+```
+#Any continuant that doesn’t s depend or g depend on something is an independant continuant [ilw-1]
+#∀c1(∃tinstanceOf(c1,independentContinuant,t)↔∃tinstanceOf(c1,continuant,t)∧¬(∃c2,t(specificallyDependsOn(c1,c2)∨genericallyDependsOn(c1,c2,t))))
+	#Independent continuant (bfo:0000004), continuant (bfo:0000002), specifically depends on (bfo:0000195), generically depends on at some time (bfo:0000084)
+
+ex:ilw-1
+    a sh:NodeShape ;
+    sh:targetSubjectsOf bfo:0000002 ;
+    sh:property [
+        sh:path bfo:0000195 ;
+        sh:severity sh:Violation ;
+        sh:message "Continuant should not have specific dependency relation"
+    ] ;
+    sh:property [
+        sh:path bfo:0000084 ;
+        sh:severity sh:Violation ;
+        sh:message "Continuant should not have generic dependency relation"
+    ] ;
+    sh:property [
+        sh:path (rdf:type) ;
+        sh:hasValue bfo:0000004 ;
+        sh:severity sh:Violation ;
+        sh:message "Continuant should be an instance of IndependentContinuant"
+    ] .
+```
+
+```
+#An object aggregate has more than one member at at least one time [ibd-1]
+#∀ag(∃tinstanceOf(ag,objectAggregate,t)→∃o1,o2,t(o1̸=o2∧instanceOf(o1,object,t)∧memberPartOf(o1,ag,t)∧instanceOf(o2,object,t)∧memberPartOf(o2,ag,t)))
+#ObjectAggregate (bfo:0000027), object (bfo:0000030), member part of at some time (bfo:0000129)
+
+ex:ibd-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000027 ;
+    sh:property [
+        sh:path bfo:0000129 ;
+        sh:minCount 2 ;
+        sh:class bfo:0000030 ;
+        sh:severity sh:Violation ;
+        sh:message "ObjectAggregate should have at least 2 distinct members"
+    ] .
+```
+
+```
+#All parts of an aggregate overlap some member [fsy-1]
+#∀t,b,x(properContinuantPartOf(x,b,t)∧instanceOf(b,objectAggregate,t)→∃o(memberPartOf(o,b,t)∧(∃z(continuantPartOf(z,x,t)∧continuantPartOf(z,o,t)))))
+#Proper continuant part of at all times (bfo:0000137), object aggregate (bfo:0000027), object (bfo:0000030) member part of at some time (bfo:0000129), continuant part of at some time (bfo:0000176)
+
+ex:fsy-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000137 ;
+    sh:property [
+        sh:path bfo:0000137 ;
+        sh:in (bfo:0000027) ;
+        sh:severity sh:Violation ;
+        sh:message "ProperContinuant should be part of an ObjectAggregate"
+    ] ;
+    sh:property [
+        sh:path (bfo:0000137 bfo:0000129) ;
+        sh:in (bfo:0000030) ;
+        sh:severity sh:Violation ;
+        sh:message "All parts of an ObjectAggregate should overlap with at least one member"
+    ] ;
+    sh:property [
+        sh:path ((bfo:0000137 bfo:0000176) bfo:0000129) ;
+        sh:in (bfo:0000030) ;
+        sh:severity sh:Violation ;
+        sh:message "All proper continuant parts of an ObjectAggregate should overlap with at least one member"
+    ] . 
+```
+
+```
+#If a material entity has a proper part, then at least one of its proper parts is not an immaterial entity [adm-1]
+#∀m,t(instanceOf(m,materialEntity,t)∧(∃mp(continuantPartOf(mp,m,t)∧mp̸=m))→∃mp(mp̸=m∧continuantPartOf(mp,m,t)∧¬instanceOf(mp,immaterialEntity,t)))
+#Material entity (bfo:0000040), continuant part of at some time (bfo:0000176), immaterial entity (bfo:0000141)
+
+ex:adm-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000040 ;
+    sh:property [
+        sh:path (bfo:0000176) ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Material entity should have at most one proper part"
+    ] ;
+    sh:property [
+        sh:path (bfo:0000176) ;
+        sh:or ([
+            sh:path (bfo:0000176) ;
+            sh:not (sh:class bfo:0000141) ;
+            sh:severity sh:Violation ;
+            sh:message "Material entity should not have immaterial proper part"
+        ]) ;
+        sh:severity sh:Violation ;
+        sh:message "Material entity should have at least one proper part that is not an immaterial entity"
+    ] .  
+```
+
+```
+#An object aggregate has member parts only disjoint objects [evk-1]
+#∀b,c,t(memberPartOf(b,c,t)↔instanceOf(b,object,t)∧instanceOf(c,objectAggregate,t)∧properContinuantPartOf(b,c,t)∧(∀d(memberPartOf(d,c,t)→b=d∨¬(∃z(continuantPartOf(z,b,t)∧continuantPartOf(z,d,t))))))
+#Member part of at all times (bfo:0000173), object (bfo:0000030), object aggregate (bfo:0000027), Proper continuant part of at all times (bfo:0000137), continuant part of at some time (bfo:0000176)
+
+ex:evk-1
+    a sh:NodeShape ;
+    sh:targetObjectsOf bfo:0000173 ;
+    sh:property [
+        sh:path bfo:0000173 ;
+        sh:in (bfo:0000030) ;
+        sh:severity sh:Violation ;
+        sh:message "Member part of an object aggregate should be an object"
+    ] ;
+    sh:property [
+        sh:path (bfo:0000137 bfo:0000176) ;
+        sh:in (bfo:0000027) ;
+        sh:severity sh:Violation ;
+        sh:message "Proper continuant part should be part of an object aggregate"
+    ] ;
+    sh:property [
+        sh:path (bfo:0000173 bfo:0000176) ;
+        sh:or ([
+            sh:path (bfo:0000173 bfo:0000176) ;
+            sh:equals sh:this ;
+            sh:severity sh:Violation ;
+            sh:message "Member part should not overlap with another member part"
+        ]) ;
+        sh:severity sh:Violation ;
+        sh:message "Member part of an object aggregate should be disjoint from all other member parts"
+    ] . 
+```
+
+Member part of and has member part are inverse relations [jrm-1]
+∀t,a,b(memberPartOf(a,b,t)↔hasMemberPart(b,a,t))
 
 Member part of is dissective on third argument, a temporal region [yip-1]
 ∀p,q,r,s(memberPartOf(p,q,r)∧temporalPartOf(s,r)→memberPartOf(p,q,s))
