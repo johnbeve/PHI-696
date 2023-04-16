@@ -511,3 +511,36 @@ sh:path ex:c ;
 sh:minCount 1 ;    
 sh:maxCount 8 ;  
 ] .
+
+11. Bonus constraint for disjoint of extension of two properties
+
+disjointEx; it is used by combining another constraint “or”.
+
+description: the constraint disjointEx is used to check whether different extensions of two properties disjoint or overlap, in particular, whether a node has only one property of the checked two properties.
+
+An application: a law firm has a database, which lists all cases each lawyer has done. There are two classes, one lists the cases a given lawyer wins, and the other lists the cases that the lawyer loses. The law firm doesn’t want a case being listed in both classes – it would be an error. So the constraint disjointEx can check whether such an error would occur.
+
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://example.com/> .
+@prefix schema: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:disjointEx
+  a sh:NodeShape ;
+  sh:targetClass ex:property ;
+  sh:or ([
+    sh:property [
+      sh:path schema:caseWon ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ]
+  ]
+  [
+    sh:property [
+      sh:path schema:caseLose ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ]
+  ]) .
