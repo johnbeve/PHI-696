@@ -45,3 +45,77 @@ You're probably thinking, "why would I submit a level 8 kata if they're not wort
 It is your responsibility and the responsibility of your peers reviewing your submission in PR to determine whether your submission is ranked appropriately. In the event that consensus is reached that your kata is ranked inappropriately, you must work with your peers to revise the submission so that it is either more or less challenging, accordingly. You are not permitted to submit new problems with different strengths after PRs are open, but must instead revise your PRs. So, think hard about how challenging your submission is. 
 
 There is one other option for those desiring a different sort of challenge. If you provide alongside your SPARQL submission a translation of the same problem into SQL, complete with documentations, solution, etc. then you may receive half points extra at that kata level (rounded up). For example, if you submit a SPARQL problem that is kata rank 1 and also submit a SQL version of that same problem, you  will receive 35+18=53 points. 
+
+1) Write a query that returns all object properties in dbpedia. 
+
+Reference solution:
+select ?p
+
+where{
+?s ?p ?o
+}
+
+2) Write a SPARQL quiery that retrieves the name, birthplace, birth date, genre, latitude, longitude, label, and abstract of actors born after 1950, along with information about their birthplaces.
+
+Hint:
+This question uses four query forms:
+
+Triple patterns to retrieve the actor's name and birthplace, as well as the birth date of each actor.
+A property path to retrieve the genres of the movies each actor appeared in.
+A set of triple patterns to retrieve the coordinates, label, and abstract of each birthplace.
+Filter expressions to restrict the birth date to after 1950 and the birthplace label to English.
+
+The query also uses a combination of operators and functions, including:
+
+The LANGMATCHES function to match English-language labels.
+The STRDT function to convert the birth date string to a date datatype for comparison.
+The ORDER BY clause to sort the results by actor name.
+Triple patterns to retrieve the actor's name and birthplace, as well as the birth date of each actor.
+A property path to retrieve the genres of the movies each actor appeared in.
+A set of triple patterns to retrieve the coordinates, label, and abstract of each birthplace.
+Filter expressions to restrict the birth date to after 1950 and the birthplace label to English.
+
+The query also uses a combination of operators and functions, including:
+
+The LANGMATCHES function to match English-language labels.
+The STRDT function to convert the birth date string to a date datatype for comparison.
+The ORDER BY clause to sort the results by actor name.
+
+Reference solution:
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT DISTINCT ?actor ?actorName ?birthPlace ?birthDate ?genre ?latitude ?longitude ?label ?abstract
+WHERE {
+  # Query 1: Retrieve actors and their birthplaces
+  ?actor a dbo:Actor ;
+         foaf:name ?actorName ;
+         dbo:birthPlace ?birthPlace .
+  
+  # Query 2: Retrieve the birth date of each actor
+  ?actor dbo:birthDate ?birthDate .
+  
+  # Query 3: Retrieve the genres of the movies each actor appeared in
+  ?actor dbo:starring ?movie .
+  ?movie dbo:genre ?genre .
+  
+  # Query 4: Retrieve the coordinates, label, and abstract of each birthplace
+  ?birthPlace geo:lat ?latitude ;
+              geo:long ?longitude ;
+              rdfs:label ?label ;
+              dbo:abstract ?abstract .
+  
+  # Filter actors born after 1950
+  FILTER(STRDT(?birthDate, xsd:date) > "1950-01-01"^^xsd:date)
+  
+  # Filter birthplaces with a label in English
+  FILTER(LANGMATCHES(LANG(?label), "en"))
+  
+} ORDER BY ?actorName
+
+
+
+
+
+
