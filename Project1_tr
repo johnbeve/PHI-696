@@ -111,7 +111,7 @@ T     T      T      T                           T
 
 (c)  C(x,y) that says that x and y are cousins   
   
-  Def.  ∃v∃w∃x∃y∃z(P(v,w)^P(v,z)^P(w,x)^P(z,y)^¬(w=z)^¬(x=y))
+  C(x,y) ≡ ∃u ∃v (P(u,x) ∧ P(v,y) ∧ ¬(u = x) ∧ ¬(v = y) ∧ ∃w ∃t (P(w,u) ∧ P(w,v) ∧ P(t,w) ∧ P(t,t) ∧ ¬P(t,u) ∧ ¬P(t,v)))
 
 (d)  O(x) that says that x is an only child  
   
