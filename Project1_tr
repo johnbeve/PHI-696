@@ -103,11 +103,11 @@ T     T      T      T                           T
 
 (a)  B(x,y) that says that x is a brother of y 
   
-  Def.   ∃x∃y∃z(P(z,y)^P(z,x)^¬Fx^¬(y=x))
+  B(x,y) ≡ ∀z (P(z,x) ∧ P(z,y) ∧ (Fx → ¬F(y)) ∧ (Fy → ¬F(x)) ∧ ¬(x=y))
 
 (b)  A(x,y) that says that x is an aunt of y  
   
-  Def.   ∃w∃x∃y∃z(P(w,z)^P(w,x)^P(z,y)^¬(z=x)^F(x))
+  A(x,y) ≡ ∃z∃w∃v ((P(z,x) ∧ ∃u(P(z,u) ∧ P(u,w) ∧ F(w))) ∨ (P(v,x) ∧ ∃u(P(v,u) ∧ P(u,w) ∧ P(w,y) ∧ F(w) ∧ ¬P(z,v))) ∧ ¬F(x))
 
 (c)  C(x,y) that says that x and y are cousins   
   
@@ -128,6 +128,8 @@ explain why:
 
 (a)  B that says that x is a brother of y
 
+***ALC is not expressive enough, so this is not interpretable in ALC; however, here's an attempt in ALCIN:
+
 Person ≡ M ⊔ ¬M
 p2 (parent of at least 2 children) ≡ ∃parent_of.Person≥2
 [n.b., The inverse of p2 means, I take it, that 2 children have a parent; not sure how to specify that it is the same parent.]
@@ -136,9 +138,13 @@ B ≡ M ⊓ ∃p2¯.Person
 
 (b)  A that says that x is an aunt of y
 
+***ALC is not expressive enough, so this is not interpretable in ALC; however, here's an attempt in ALCIN:
+
 A ≡ ¬M ⊓ (∃p2¯.(parent_of≥ 2. (∃parent_of. Person)) ⊔ ¬∃parent_of.Person)
 
 (c)  C that says that x and y are cousins
+
+***ALC is not expressive enough, so this is not interpretable in ALC; however, here's an attempt in ALCIN:
 
 gp2 (Grandparent with at least two children-parents) ≡ parentof≥2. (∃parentof.Person)
   
@@ -146,11 +152,15 @@ C ≡ gp2¯.Person
   
 (d)  O that says that x is an only child  
 
+***ALC is not expressive enough, so this is not interpretable in ALC; however, here's an attempt in ALCIN:
+
 parent_only (parent of exactly one child) ≡ (parent_of.Person≥1 ) ⊓ (parent_of.Person≤1)
 
 O ≡ ∃parent_only¯.Person
 
 (e)  T that says that x has exactly two brothers
+
+***ALC is not expressive enough, so this is not interpretable in ALC; however, here's an attempt in ALCIN:
 
 p3m (parent of exactly three male children) ≡ (parent_of≥3.Male) ⊓ (parent_of≥3. Male) 
 
@@ -345,6 +355,11 @@ Premisses	      Line	          Proposition	                     Rule
 
 10. Compare and contrast the proofs provided for (a) in your answers to questions 8 and 9. Explain the different assumptions, strategies, etc. exhibited in tree proofs vs natural deduction proofs.
 
-The main difference or contrast between the tree-proofs in question 9 and the natural deduction proofs in question 10 is that the tree proofs omit the rules/justifications that signal each step of the proof. The natural deductions, by contrast, do not. In fact, the proof generator I used for question 10 annotated rather heavily.
+In a tableau proof like the one given in 8(a), each formula is represented as a node in a tree-like structure, with branches representing different ways of decomposing the formula. The goal is to determine whether a given formula is a logical consequence of a set of premises by constructing a tableau in which every branch closes, meaning that it leads to a contradiction. The program's algorithm follows a set of rules for decomposing formulas, constructing branches, and determining when a branch can be closed. It then generates a proof tree that can be used to verify the validity of an argument or to find counterexamples. Natural deduction proofs like that in 9(a), on the other hand, are a system of inference rules for constructing proofs directly from premises, without the need for a graphical representation. In a natural deduction proof like this one, each step of the proof is justified by applying a rule of inference to one or more formulas in the proof so far. The goal is to derive the conclusion from the premises using a sequence of valid inference rules. One advantage of natural deduction proofs is that they are more intuitive and closely resemble the way humans reason about logical arguments. Natural deduction proofs can also provide more insight into the structure of a proof and the underlying assumptions being made. 
+
+There are some key differences between the two proof systems as seen respectively in 8(a) and 9(a). One of the main differences is that 8(a) uses a strategy of proof by refutation, where the goal is to show that a formula is false or contradictory. The natural deduction proof in 9(a), on the other hand, use a strategy of proof by derivation, where the goal is to show that a formula can be derived from a set of premises. Another difference is the way in which the two proof systems handle quantifiers. In tableau proofs, quantifiers are typically handled using a method called "instantiation," where the formula is decomposed into all possible instantiations of the quantifier. In natural deduction proofs, quantifiers are typically handled using rules of inference such as universal generalization or existential instantiation.
+
+***Importantly, there are differences in the structures of tableau proofs and natural deduction proofs, as seen in 8(a) and 9(a) respectively. Tableau proofs are represented as trees, with each node representing a formula and each branch representing a possible path of decomposition of the formula. In a tableau proof, the goal is to show that a contradiction can be derived by expanding the tree until all branches are closed. If all branches can be closed, then the proof is successful and the formula is shown to be a logical consequence of the premises. Natural deduction proofs, on the other hand, are represented as a sequence of formulas, with each formula being justified by applying a rule of inference to the previous formulas in the sequence. In a natural deduction proof, the goal is to show that the conclusion can be derived from the premises by applying a sequence of valid inference rules. The structures of the proofs generated by these respective two systems can, therefore, look quite different, even when they are proving the same argument. Tableau proofs tend to be more visual and can provide a more intuitive understanding of the argument, while natural deduction proofs tend to be more concise and provide a step-by-step explanation of how the argument is constructed.
+
 
 
