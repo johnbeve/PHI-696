@@ -37,8 +37,9 @@ PREFIX ontopol: <https://politicalontology.org/schema/ontopol.ttl>
 
 SELECT ?subject
 WHERE {
-      ?subject ro:has_role ?PresidentialRole ;
-      ?PresidentialRole ontopol:authority_in ontopol:UnitedStates .
+      ?PresidentialRole ro:has_bearer ?subject ;
+		a ontopol:PresidentialRole ;
+		ontopol:authority_in ontopol:UnitedStates .
       ORDER BY ASC(?PresidentialRole)
     }
 ```
@@ -56,6 +57,7 @@ PREFIX furnont: <https://fillingbetterhomes.org/oit/furnitureontology.owl>
 SELECT ?commonName ?safetyStatus
 WHERE {
       ?furniture rdfs:label ?commonName ;
+      		rdf:type ?furnont:Furniture ;
             furnont:has_safety_status "Recalled" ;
             furnont:recalled_reason "Child Safety" .
 	ORDER BY ASC(?commonName)
@@ -72,9 +74,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?person ?mbox
 WHERE {
-      ?ontopol:Person foaf:age ?age ;
-            foaf:gender “male” ;
-            foaf:mbox ?mbox .
+      ?person a ontopol:Person ;
+		foaf:age ?age ;
+		foaf:gender “male” ;
+		foaf:mbox ?mbox .
       FILTER (?age > "15")
 }
 ```
@@ -100,16 +103,22 @@ WHERE {
 - The National Park and Recreation Department is concerned about recent adverse changes in natural habitat for the ruby-throated thrush. Find all parks that may be affected by these conservation efforts. Group the results by state, and then display them in alphabetical order by county.
 - Return all parks that are the natural habits of ruby-throated thrush.
 ```
+PREFIX bfo: <http://purl.obolibrary.org/obo/bfo.owl>
 PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 PREFIX touronto: <https://americathebeautiful.com/tours/ontology/>
 
 SELECT ?park ?county ?state
 WHERE {
-	?park ro:located_in ?site ;
+	?park a touronto:GeographicalPark ;
+		ro:located_in ?site ;
 		ro:located_in ?county ;
 		ro:located_in ?state .
-	?site touronto:contains_habitat ?naturalHabitat .
-	?naturalHabitat touronto:habitat_of zoo:rubyThroatedThrush .
+	?site a bfo:site ;
+		touronto:contains_habitat ?naturalHabitat .
+	?naturalHabitat a touronto:NaturalHabitat ;
+		touronto:habitat_of zoo:rubyThroatedThrush .
+	?county a touronto:County .
+	?state a touronto:State .
 	GROUP BY ?state
 	ORDER BY ASC(?county)
 }
@@ -124,10 +133,12 @@ PREFIX ro: <http://purl.obolibrary.org/obo/ro.owl>
 
 SELECT ?productName ?modelValue ?releaseDate
 WHERE {
-	?device ontocam:manufactured_by ontocam:Fujifilm ;
-	      rdfs:type ontocam:Camera ;
-	      ontocam:released_in_year "2020" ;
-	      ro:has_function ontocam:Bluetooth .
+	?device a ontocam:Photocamera
+		ontocam:manufactured_by ontocam:Fujifilm ;
+		ontocam:released_in_year "2020" ;
+		ro:has_function ?Bluetooth .
+	?Bluetooth a ontocam:BluetoothConnectionCapability .
+	?productname rdfs:label ?label
 	LIMIT 25
 }
 ```
