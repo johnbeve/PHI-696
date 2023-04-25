@@ -48,38 +48,36 @@ There is one other option for those desiring a different sort of challenge. If y
 
 Query 1. (Kata 8)
 
-Description (and problem):
+Titile: retrieve the founded date of a club
 
-There is a dispute about when Buffalo_Bills was founded. Using a SPARQL query, to retrieve the date when Buffalo_Bills was founded. 
-
+Description: There is a dispute about when Buffalo_Bills was founded. Using a SPARQL query, to retrieve the date when Buffalo_Bills was founded. 
 
 Reference Solution (and answer):
 
-PREFIX dbo: <http://dbpedia.org/ontology/>
-PREFIX dbr: <http://dbpedia.org/resource/>
 PREFIX dbp: <http://dbpedia.org/property/>
 
-SELECT ?date
+SELECT ?foundedDate
 WHERE {
-  dbr:Buffalo_Bills dbp:founded ?date.
-}
+    <https://dbpedia.org/page/Buffalo_Bills> dbp:founded ?foundDate.
+    }
 
-Query 2. (Kata 4 - 10 points)
+Query 2. (Kata 6 - 3 points)
 
-Mike learns that air companies offer mile-tickets for some lines, which can be purchased by their member accumulated mileage. In peak season, the 
+Title: Credit card offer with high initial bonus
+
+Mike learns that air companies offer mile-tickets, which can be purchased by their member accumulated mileage. In peak season, the 
 "prices" of mile-tickets are much lower than the typical prices, given 100 member mileages is worth 1 dollar. Mike also learns that some credit card 
-companies offer initial bonus, which typically are credit card points for people who intially apply for their credit cards and are approved. Also some 
-credit cards have such a benefit that the credit card points can be transferred to mileages of some air companie, and the ratio is 1:1, which means one 
-point can be transferred as one mileage. Some of the initial bonus can be more than 60,000 points (100 points is generally worth 1 dollar. So Mike thinks
+companies offer initial bonus, which typically are credit card points. Beside, some credit cards have such a benefit that the credit card points can be
+transferred to mileages of some air companies, and the ratio is 1:1, which means one point can be transferred as one mileage. So Mike thinks
 that applying for a specific credit card is a way to save money to buy flight tickets. There is already an ever-updating dataset of credit cards offers 
-(http://creditcardoffers.org/), so he wants to use the dataset and makes a Sparql query, called "credit card offer" to look for relevant credit card 
+(http://creditcardoffers.org/), so he wants to use the dataset and makes a SPARQL query, called "credit card offer" to look for relevant credit card 
 offers. 
 
 Description of the offers (no more than 5 offers):
 1) The credit card points can be transfer to one of UA, Delta, AA.
 2) The initial bonus is more than 60,000 points.
 3) The annual fee is less than 250 dollars.  
-4) The spending requirement for the initial bonus is no more than 3000 dollars in the first three month of the account openning. 
+4) The spending requirement for the initial bonus is no more than 4000 dollars in the first three month of the account openning. 
 
 ``` 
 PREFIX cdt: < http://creditcardoffers.org/type/ >
@@ -102,10 +100,11 @@ LIMIT 5
 
 
 ```
-Query 3. (Kata 2 -25 points)
+Query 3. (Kata 4 -10 points)
 
+Title: the politicians from politician families in China.
 
-Description: the politicians from politician families in China.
+Description: 
 
 A politician P from politician family is defined as below:
 1) One of P's biological parent is or was a politician; or
@@ -165,6 +164,8 @@ WHERE {
 ```
 
 Query 4. (Kata 2 - 25 points)
+
+Title: Law firms in the US
 
 Description:
 
