@@ -106,6 +106,10 @@ Title: the politicians from politician families in China.
 
 Description: 
 
+A research team, studying Chinese electoral system, wants to know how many Chinese politician are from politician families. Based on their initial 
+investigation, Chinese electoral system is not as stated in the Chinese constitution, where the government leaders at all levels are elected by the
+people. 
+
 A politician P from politician family is defined as below:
 1) One of P's biological parent is or was a politician; or
 2) One of P's legal parent is or was a politician; or
