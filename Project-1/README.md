@@ -77,37 +77,33 @@ It is Contignet.
   
   (b) (A→(B∨C))∨(C→¬A)
   
-  This is a tautology, so no CNF form is possible. p∨~p
+  This is a tautology. p∨~p
   
   (c) (¬A∧¬B∧C)∨(¬A∧¬C)∨(B∧C)∨A 
   
-  This is a tautology, so no CNF form is possible. p∨~p
+  This is a tautology. p∨~p
 ```
 
 3. Let V be the vocabulary of first-order logic consisting of a binary relation P and a unary relation F. Interpret P(x,y) as “x is a parent of y” and F(x) as “x is female.” Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B(x,y) that says that x is a brother of y
-  	∃x∃y∃z(P(z,y)∧P(z,x)∧¬Fx∧x≠y∧x≠z∧z≠y)
+  	∀x∀y(B(x,y)↔∃z(P(z,y)∧P(z,x)∧¬Fx∧x≠y∧x≠z∧z≠y))
   (b)  A(x,y) that says that x is an aunt of y
-  	∃w∃x∃y∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧y≠z)
+  	∀x∀y(A(x,y)↔∃w∃z(P(z,y)∧P(w,z)∧P(w,x)∧Fx∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧y≠z))
+	-I think to account for aunt-by-marriage cases, I'd need some sort of marriage relation.
   (c)  C(x,y) that says that x and y are cousins 
-  	∃v∃w∃x∃y∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)∧x≠v∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧w≠v∧y≠z∧y≠v∧v≠z)
+  	∀x∀y(C(x,y)↔∃v∃w∃z(P(v,w)∧P(v,z)∧P(w,x)∧P(z,y)∧x≠v∧x≠y∧x≠z∧x≠w∧w≠y∧w≠z∧w≠v∧y≠z∧y≠v∧v≠z))
+	-I have no idea how to account for second cousins, especially since it can then balloon out to third, fourth, etc.
   (d)  O(x) that says that x is an only child
-  	∃x∃y∀z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x)
+  	∀x(O(x)↔∃y∃z((P(y,z)∧P(y,x)→z=x)∧y≠z∧y≠x))
   (e)  T(x) that says that x has exactly two brothers 
-  	∃v∃w∃x∃y(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z)
+  	∀x(T(x)↔∃v∃w∃y(P(v,x)∧P(v,w)∧¬Fw∧P(v,y)∧¬Fy∧∀z((P(v,z)∧¬Fz)→((z=x)∨(z=w)∨(z=y)))∧v≠w∧v≠x∧v≠y∧v≠z∧w≠y))
 ```
 
 4. Let V be a vocabulary of the attribute (concept) language with complements (ALC) consisting of a role name "parent_of" and a concept name "Male". Interpret parent_of as "x is a parent of y" and M as "x is male". Where possible define the following formulas in this vocabulary; where not possible, explain why: 
   ```
   (a)  B that says that x is a brother of y
-  
-  B = M∩∃parent_of¯.(≥2∃parent_of)
-  
-  or
-  
-  p2 (parent of at least 2) = ≥2 ∃parent_of
-  B = M ⊓ ∃p2¯
+-I don't think this is possible without a number restriction (to say x and y are distinct individuals), but this is an extension of ALC
   
   (b)  A that says that x is an aunt of y
   
@@ -129,6 +125,7 @@ It is Contignet.
   
   C = gp2¯
   But this doesn't make clear that these 2 are cousins as opposed to siblings. Either that, or it's only talking about a single person, rather than 2 cousins.
+  This answer also uses number restrictions, which is an expansion of ALC
   
   (d)  O that says that x is an only child
   
@@ -137,12 +134,12 @@ It is Contignet.
    or
    
    O ≡ ¬∃p2¯
-   I'm not a fan of this, since it's also true of rocks.
+   I'm not a fan of this, since it's also true of rocks. This answer also uses number restrictions, which is an expansion of ALC
   
   (e)  T that says that x has exactly two brothers 
   
   T = ∃parent_of¯.(≥3∃parent_of ⊓ ≥2∃parent_of.Male ⊓ ≤2∃parent_of.Male)
-  This doesn't quite work, since it says there's no more than 2 brothers out of the three, not that the one sibling I'm talking about has exactly 2 brothers.
+  This doesn't quite work, since it says there's no more than 2 brothers out of the three, not that the one sibling I'm talking about has exactly 2 brothers. This answer also uses number restrictions, which is an expansion of ALC
   
   or
   
@@ -203,6 +200,7 @@ Parent_of = {(z,w), (z,x)}
        |_|      |_|
        
        -I'm not sure how to draw a graph in this program. I'm trying to show object 0 being in a relation with itself and with 1, but 1 only being in the relation with itself.
+       -I'm also still unable to get images to show up in github
        U: {0, 1}
        R: {(0,0), (0,1), (1,1)}
 	-This fits with the second statement, since there is an object that Rs everything (0), there is an object that Rs something (both 0 and 1), and it's true that everything Rs something (both 0 and 1 do, and they're the only objects)
@@ -225,6 +223,7 @@ Parent_of = {(z,w), (z,x)}
   	9.Pa(6)
   10.¬Pa(4) 11.¬Qa(4)
       x         x
+      -I don't know what justifies the move from a negated universal in line 1 to a negated universal in line 2. In natural deduction I'm not able to do that, since I would have to push in the negation and switch the outer universal to existential. But all the online tableau proof generators make it this way.
 
   (b) ∀x∀y(¬(Px ∨ Qx) → (¬Px ∧ ¬Qx))
   
