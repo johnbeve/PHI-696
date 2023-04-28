@@ -81,8 +81,17 @@ For any question involving the use of Protege, please be sure to import:
            Tuesday is instance_of one-dimensional temporal region 
            Wednesday is an instance of one-dimensional temporal region 
            Arm is an instance of fiat object part
-           “Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
-           “Sally participates in having no arms on Wednesday” is an instance of occurrent
+           having at least on arm is instance_of process
+           having no arms is instance_of process
+           “Sally participates in having at least one arm” is 
+           “Sally participates in having at least one arm on Tuesday” is an relation connecting Sally, as an instance_of object, to having at least one
+           harm, an instance_of occurrent, and “Sally participates in having at least one arm on Tuesday” is an relation connecting “Sally participates in
+           having at least one arm” to Tuesday, an instance of one-dimensional temporal region.  
+           
+           “Sally participates in having no arms” is an relation connecting Sally, as an instance_of object, to having no harms, an instance 
+           of occurrent, and “Sally participates in having no arms on Wednesday” is an relation connecting “Sally participates in having no arms” to
+           Wednesday, an instance of one-dimensional temporal region.
+           
            We don't know whether Tuesday precedes Wednesday. 
    
   (b) Every liver has some cell as part at all times it exists.
