@@ -115,19 +115,36 @@ For any question involving the use of Protege, please be sure to import:
   
   (d) Goofus and Gallant are married at each point in a three year span. 
   
-  Answer: Goofus participates in marriage at t1  and  Galland participates in marriage at t1.
+  Answer: 
+  Model 1, Goofus and Gallant are married with each other at each point in a three year span. 
+  Goofus participates_in this Marriage at t1  and  Galland participates_in this Marriage at t1, where t1 part_of this Three-year
   
    Goofus is an instance_of object
    Gallant is an instance_of object
-   Marriage is an instance_of occurrent
-   “Three years span 1” is an instance_of one-dimensional temporal region.
-   Goofus and Gallant may be not married to each other.
+   this Marriage is an instance_of occurrent
+   this Three-year is an instance_of one-dimensional temporal region
+   t1 is instance_of zero-dimensional temporal region
+   
+   Model 2, Goofus and Gallant are married but may not married with each other at each point in a three year span.
+   Goofus participates_in this Marriage_1 at t1  and  Galland participates_in this Marriage_2 at t1, where t1 part_of this Three-year
+   
+   Goofus is an instance_of object
+   Gallant is an instance_of object
+   this Marriage_1 is an instance_of occurrent
+   this Marriage_2 is an instance_of occurrent
+   this Three-year is an instance_of one-dimensional temporal region
+   t1 is instance_of zero-dimensional temporal region.
+   
+   
+   t part_of this Three-year so that: Goofus (individual) participates_in this Marriage (process) at all t, and Gallant also participates_in this Marriage (process) at all t.
+   
+   
 
 4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-   ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+   ∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ∃y(~Hsy∧Ay))
     T: Tuesday
     H: has
     A: arm
