@@ -83,8 +83,8 @@ For any question involving the use of Protege, please be sure to import:
            Arm is an instance of fiat object part
            having at least on arm is instance_of process
            having no arms is instance_of process
-           “Sally participates in having at least one arm” is 
-           “Sally participates in having at least one arm on Tuesday” is an relation connecting Sally, as an instance_of object, to having at least one
+            
+           “Sally participates in having at least one arm” is an relation connecting Sally, as an instance_of object, to having at least one
            harm, an instance_of occurrent, and “Sally participates in having at least one arm on Tuesday” is an relation connecting “Sally participates in
            having at least one arm” to Tuesday, an instance of one-dimensional temporal region.  
            
