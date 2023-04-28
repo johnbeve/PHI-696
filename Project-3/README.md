@@ -75,7 +75,7 @@ For any question involving the use of Protege, please be sure to import:
 
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
   
-   Answer:  "Sally participates in having at least one arm on Tuesday" and "Sally participates in having no arms on Wednesday"
+   Answer:  "Sally participates_in having at least one arm on Tuesday" and "Sally participates_in having no arms on Wednesday"
    
            Sally is instance_of object
            Tuesday is instance_of one-dimensional temporal region 
@@ -98,17 +98,20 @@ For any question involving the use of Protege, please be sure to import:
   
    Answer: Liver has_part_at_all_times Cell
    
-   Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
-   We have already had Cell in the Ontology. 
+   Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. Cell is also a subclass of material entity. has_part_at_all_time 
+   is a temporal qualified relation, which connect two continuants, meaning that the latter is a spatial part of the former at all time when the former
+   exists. 
   
   (c) John was a child, then an adult, then a senior. 
   
-  Answer:  John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood
+  Answer:  John participates_in john's childhood precedes John participates_in John's adulthood which precedes John participates_in John's seniorhood
   
      John is an instance_of object
      John's childhood is an instance_of occurrent.
      John's adulthood is an instance_of occurrent.
      John's seniorhood is an instance_of occurrent.
+     precedes is a relation connecting two occurrents, in which the former precedes the latter. 
+     
   
   (d) Goofus and Gallant are married at each point in a three year span. 
   
