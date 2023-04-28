@@ -153,10 +153,12 @@ For any question involving the use of Protege, please be sure to import:
  
   (b) Every liver has some cell as part at all times it exists.
    
-   ∀x∃y(Lx→Cy∧Pyx)
+   ∀y∃x(Ly→Cx∧Pyx)
      L: liver
      C: cell
-     P: part of
+     P: has_part_at_all_time
+     
+    
   
   (c) John was a child, then an adult, then a senior. 
   
