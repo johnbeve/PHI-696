@@ -134,28 +134,16 @@ WHERE {
   ?item wdt:P31 wd:Q5.          #instance of human.
   ?item wdt:P27 wd:Q148.        # a citizen of PR of China.  
   ?item wdt:P106 wd:Q82955.      # politician.
-  {?item wdt:P22 ?father.       
-         ?father wdt:P106 wd:Q82955.}         #item's father is a politician
-  UNION {?item wdt:P25 ?mother.
-               ?mother wdt:P106 wd:Q82955.}   # or item's mother is a politician
-  UNION {?item wdt:P8810 ?parent.
-               ?parent wdt:P106 wd:Q82955.}     #or item's one of parents(other than father and mother defined by P22 and P25).
-  UNION {?item wdt:P3448 ?stepparent.
-               ?stepparent wdt:P106 wd:Q82955.}.  #or item's one of stepparents is a politician. Noting that the content of P25, P8810, P3448 and P106 may overlap. 
+  
+  {?item ?predicate ?family.
+         ?family wdt:P106 wd:Q82955.}
   UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P106 wd:Q82955.}     #or item's spouse is a politician.     
-  UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P22 ?sFather.
-               ?sFather wdt:P106 wd:Q82955.}      #or item's spouse' father is a politician.
-  UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P25 ?sMother.
-               ?sMother wdt:P106 wd:Q82955.}      #or item's spouse' mothe is a politician.
-  UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P8810 ?sParent.
-               ?sParent wdt:P106 wd:Q82955.}      #or one of the item's spouse' parent is a politician.
-  UNION {?item wdt:P26 ?spouse.
-               ?spouse wdt:P3448 ?sStepparent.
-               ?sStepparent wdt:P106 wd:Q82955.}. #or one of the item's spouse's stepparent is a politician. 
+               ?spouse ?predicate ?sFamily.
+               ?sFamily wdt:P106  wd:Q82955.}
+  
+  VALUES (?predicate) {
+         (wdt:P25)(wdt:P22)(wdt:P8810)(wdt:P3448)(wdt:P26)
+         }
   
   ?item wdt:P569 ?dob.
   FILTER (?dob >= "1949-10-01"^^xsd:dateTime).   # item is borned later than Jan.1, 1949. 
