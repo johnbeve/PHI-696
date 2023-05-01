@@ -149,7 +149,7 @@ WHERE {
   FILTER (?dob >= "1949-10-01"^^xsd:dateTime).   # item is borned later than Jan.1, 1949. 
   
   
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE], zh". } # Helps get the label in your language, if not, then zh language
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE], zh-Hans". } # Helps get the label in your language, if not, then zh language
 } 
 
 
@@ -185,7 +185,7 @@ WHERE {
   ?item wdt:P31 wd:Q613142.   #item is an instance of law firm.                      
   ?item wdt:P17 wd:Q30.       #item is a US company. 
   
-  FILTER (!{?item wdt:P31 wd:Q163740.} UNION {?item wdt:P31 wd:Q613142}). #exclude an institute which is both a law firm and a nonprofit orginzation.
+  FILTER NOT EXISTS {?item wdt:P31 wd:Q613142}. #exclude an institute which is both a law firm and a nonprofit orginzation.
   
   OPTIONAL {
     ?item wdt:P159 ?city.     #city is the law firm's headquarter location.
