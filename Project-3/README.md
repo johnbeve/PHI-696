@@ -64,8 +64,12 @@ If it is possible for a thing to be “characteristic of” multiple objects, wi
 
 3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
 ```
+Tuesday is instance_of one-dimensional temporal region
+Wednesday is an instance of one-dimensional temporal region
+Arm is an instance of fiat object part
+
   (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
-  Sally participates in having at least one arm on Tuesday precedes Sally participates in having no arms on Wednesday.
+  Sally participates in having_at_least_one_arm on Tuesday precedes Sally participates in having_no_arms on Wednesday.
   
   (b) Every liver has some cell as part at all times it exists.
   Liver has_part_at_all_times some Cell
@@ -169,7 +173,7 @@ There seems to be something missing in this graph such that the Turtle and XML a
       
       
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-      False 
+      False.  An entity that is essentially immaterial can find no material ground, but stands in relation to material entities (in BFO).  This is interesting because an example used (as an immaterial entity) is the boundary of Whales.  This feels "grounded" (materially) to me, but maybe that is just the character of the relation between the immaterial and material?
       
   (c) An organization may have another organization as part.
       True. For example, a political committee can have a subcommittee as a part. 
