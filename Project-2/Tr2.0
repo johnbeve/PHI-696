@@ -1,0 +1,243 @@
+Project 2
+
+Your second project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
+
+```
+Tip #1: Carefully study the Baader, et. al. selections assigned on bisimulation; it is deceptively subtle, and quite powerful. 
+Tip #2: Google is still your friend. So is stackexchange...
+Tip #3: Work together to solve these problems, even for initial submissions and when you do, document this in github. 
+Tip #4: Work together as a team. 
+```
+
+Symbols: ∀ ∃ ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡ ¬ → ∨ ∧ ¯
+
+1. Let V be a vocabulary of ALCI consisting of a role name "P". Interpret part_of as "x is a part of y". Using this role name, define the following formulas in this language:
+
+  (a)  PP that says that x is a proper part of y
+
+  PP ≡ P⊓~P¯
+
+  (b)  iPP that says that y is a proper part of x
+
+  iPP ≡ PP¯
+
+  (c)  iP that says that y has x as part 
+
+  iP ≡ P¯
+
+  (d)  O that says that x overlaps y
+
+  O ≡ ∃P¯.(∃P)
+
+  (e)  D that says that x and y are disjoint 
+
+  D ≡ ~O
+
+
+
+2. Use your axioms from question 1 as the basis of an ALCI T-Box. Supplement this T-box with whatever other axioms you like, as well as an A-box, so that you ultimately construct a knowledge base K = (T,A). Provide a _model_ of K. This may be graphical or symbolic or both. 
+
+
+  Tbx = {PP = ∃P.~P         (Tbx. 1)
+
+        iPP = PP¯            (Tbx. 2)
+
+        iP = P¯              (Tbx. 3)
+
+        O = ∃P¯.(∃P)        (Tbx. 4)
+
+        D = ~O               (Tbx. 5)
+
+
+  Abx = {(Philosophy-department, UB): part_of           (Abx. 1)
+
+        (UB, City-of-Buffalo): part_of                  (Abx. 2)
+
+        (City-of-Buffalo, UB): inverse_part_of          (Abx. 3)
+
+        (UB, Philosophy-department): inverse_part_of    (Abx. 4)
+
+        (UB, City-of-Buffalo): overlap                  (Abx. 5)
+
+        (UB, Wegman's): disjoint                        (Abx. 6)
+
+
+ΔI = {w, x, y, z},
+
+  UB = w
+
+  City-of-Buffalo = x
+
+  Philosophy-department = y
+
+  Wegman's = z
+
+
+  Part_of = {(w,x),(y,w),(z,x)}
+  
+  Inverse_Part_of = {(x,w),(y,w),(x,z)}
+  
+  Overlap = {(w,x),(y,w),(z,x)}
+  
+  Disjoint = {(w,z),(y,z)}
+
+
+
+3. Translate the following first-order logic axioms into ALCI: 
+
+(a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+X ⊑ ∃R.(∀R.(∀R.⊤))
+
+
+(b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
+
+∃R¯.(∃R.⊤) ⊓ ∃R.⊤  
+
+Alternatively:
+
+X ⊑ ∃R.Y ⊓ ∃R.Z ⊓ Y ⊑ ∃R.Z
+
+[[n.b., this is the closest answers/translations I could get in ALCI, but these don't fully capture the FOL expressiveness because it doesn't capture the relationship expressed by the quantifiers.]]
+
+
+(c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
+
+∀R.∃R.∀R.A
+
+X ⊑ (∀R.(∃R.((∀R.A) ⊓ Y)))
+
+(d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
+
+X ⊑ (∀R.A ⊓ ∃R.B)
+
+
+4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+ΔI1 = {John Beverley, PHI 697, PHI 329, Tuesday Workshop}
+
+Named IndividualsI:
+  John BeverleyI = B
+  PHI 697I = 697
+  PHI 329I = 329
+  Tuesday WorkshopI = W
+
+Role Assignments:
+  t = {(B, 697), (B, 329), (B, W)}
+  ΔI2 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+  John BeverleyI2 = B2
+  PHI2 697I = 697-2
+  PHI 329I = 329-2
+
+Role Assignments:
+  t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+  ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+Thus, B is bisimilar to B2. B and B2 can be distinguished in ALCN by defining the role t as follows:
+
+≥3 ∃t.⊤ in I1
+
+≥2 ∃t2.⊤ in I2
+
+https://mermaid.live/edit#pako:eNqNkEELgkAQhf_KMpcMLNCg0EOHsGMQ1K3tMLhjK6kr41pE9d9bi6DokHN6DN8Hj3eF1CiCGLLCnFONbMU2kZVwlwS7hMcLOhEXdNmL0Wh-s4SppuYmloFX63wazYZ94LCDJ2HUC554tqVmfDZ8bLSp307444gPaRB4668-f_Cww7tG4ENJXGKu3AjXTpZgNZUkIXZRIR8lyOruOGyt2VyqFGLLLfnQ1gotJTkeGEuIMywa9yWVW8Or16rPce8PHBhyRw
+
+
+5. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that _does not_ demonstrate ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
+
+ΔI1 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+  John BeverleyI = B
+  PHI 697I = 697
+  PHI 329I = 329
+
+Role Assignments:
+  t = {(B, 697), (B, 329)}
+  ΔI2 = {John Beverley, PHI 697, PHI 329}
+
+Named IndividualsI:
+  John BeverleyI2 = B2
+  PHI2 697I = 697-2
+  PHI 329I = 329-2
+
+Role Assignments:
+  t2 = {(B2, 697-2),  (B, 329-2)}
+
+Bisimulation:
+  ρ = {(B, B2), (697, 697-2), (329, 329-2)}
+
+Thus, B is bisimilar to B2, with the following ALCN definitions:
+
+≥2 ∃m.⊤ in I1
+
+≥2 ∃m2.⊤ in I2
+
+https://mermaid.live/edit#pako:eNqN0MEKgkAQBuBXWeaSgQYaFO6hQ9gxCOrWdhjcMSV1ZV0LUd-9tQiKDjWnYfhmYP4OYiUJOCS5usUpasMOkSiZrcg_Rnq2pivpnNoT87xVbwjjlOqebXynSrNFuJz-g4MRz4PwhYMvzN70xHd2H7d_8GDk43VwoSBdYCbtQ924LMCkVJAAbluJ-iJAlIN12Bi1b8sYuNENudBUEg1FGZ41FsATzGs7JZkZpbfPhB5BDXcJf2DM
+
+
+
+6. Explain the difference - using natural language - between the description logic expressions:
+
+  (a) ∃r.C and ∀r.C
+
+The first expression says that any-thing (X or first-relata) that is in r-relation to some-thing (y or second-relata) instantiates concept-c; and the second expression says that any-thing (X or first-relata) that is in r-relation to every-thing else (y or second-relata) instantiates concept-c.
+
+  (b) ∃r-.C and ∀r-.C
+
+The first expression says that every-thing (x) is r-relation to some-thing (y) that precedes it, which instantiates concept-c; and the second expression says that every-thing (x) is r-relation to any-thing (y) that precedes it, which instantiates concept-c.
+
+  (c) <=nr and <=nr.C
+
+The first expression says that role-r connects x to no more than elements-n. The second expression says that role-r connects x to no more than elements-n, which instantiates concept-c.
+
+  (d) ∃r-.C and ∃r-.{a} 
+
+The first expression says that any-thing (x) is related to something-else (y) that precedes it, which instantiates concept-c. The second expression says that for any-thing (x) there is element-a which precedes it, thereby instantiating concept-c.
+
+
+
+7. There is a delightfully helpful subreddit called "ELI5" which stands for something like "explain it like I'm 5" where users post conceptually challenging questions and other users attempt to provide explanations in simple, jargon-free, terms that presumably a 5 year-old could understand. Using this as a model, explain the _finite model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+
+An ELI5 type of answer: The Finite Model Property (fmp) means that in order to explain or do something you don't need to resort to an infinite number of explanations or proofs; a finite number--say, one or two explanations or proofs--would be sufficient, even if there are more. So, for example, if you want to get from your home to the airport, you don't need to work out all possible routes on a map and on your GPS, you can just figure out what it takes to get from point-A (home) to point-B (airport), and be done. You can still say that you know how to get to the airport from your home, even if you don't know all possible ways to get to the airport (e.g., all possible route configurations of all the streets in your city connecting your home [point-A] to the airport [point-B]. FMP simplifies the burden of proof/justification, and averts problems of infinite regress. 
+
+This property (fmp) might be particularly important when dealing with practical and pragmatic matters, wherein knowing how to do XYZ this or that way might be sufficient; by contrast, this property might not be so important in matters having a higher epistemic or theoretical burden, wherein knowing some thing (object-A) means knowing it in relation to both all of its constitutive parts, how they relate to each other (and to other things), and how object-A relates to a large number of other objects.  
+
+
+
+8. Following up on the preceding , explain the _tree model property_. Be sure to provide a simple example and explain when the property might be important, and when it is not so important. 
+
+Another ELI5 type of answer: a logic has the tree model property (TMP) if every satisfiable formula within that logic is satisfied in a tree model. In other words, if there is a formula which has a model within a given logic, then that model is a tree model (if it has TMP). If a formula or concept can be modeled as a tree model, then you have the Tree Model Property. ALC has it. The tree model unravels from a root (or 'parent-node') into its branches or conceptual nodes, which each have a predecessor node. Tree model Properties can be finite or infinite. Abstractions aside, imagine a slinky. (If you don't know the slinky -> https://en.wikipedia.org/wiki/Slinky) The slinky is going down the stair steps. The first movement of the slinky is its 'root' (or parent-movement), which gets the slinky's movement-tree going downstairs. The slinky then continues to go down the steps, one by one, replicating the movement first started in its 'root' movement in its subsequent 'unravelling' nodes or 'branching down.' Mapping out or modeling any discrete number of movements of the slinky going down the stair steps would give you something like an unravelling tree model according to the tree model property.  
+
+
+
+9. Open the Protege editor and create object properties for each of the role names that you constructed in question 1. You should have at least 6 object properties. Assert in the editor that P is a sub-property of O, that P is transitive, and that O is symmetric. Next, add individuals - a, b, c - to the file and assert that c is part of a and that c overlaps b. Running the reasoner should reveal - highlighted in yellow if you select the individual c - that c overlaps a. Using the discussion in the selections from chapter 4 of the Baader, et. al. text as a guide, explain how the tableau algorithm is generating this inference. Also, provide a screenshot of the results of your reasoner run with c highlighted. 
+
+The tableau algorithm makes inferences about the relations between the object properties and individuals on the basis of (a) the information asserted that is entered into Protege and (b) the logical entailments/consequences of some of those properties when applicable. The former (a) comprises the Knowledge Base from which the algorigthm then (b) draws connections or 'reasons' when you run the reasoner. By doing this, the reasoner makes explicit connections implicit in the information entered; it thus extends possible interpretations of the data/rules. It brings out information that is implicit in the knowledge that is initially asserted into the system.
+
+Here's the screenshot of the results from my Protege's reasoner, with c highlighted:
+
+<img src="blob:chrome-untrusted://media-app/3a6e49d5-dd3e-45e9-8dac-c574701ff7d4" alt="EMP29i.png"/>
+
+Here's the justification page from Protege:
+<img src="blob:chrome-untrusted://media-app/b8b8ac3e-f52f-4fec-af24-d57d90bdc352" alt="EMP29iusti.png"/>
+
+
+
+10. Following up on your work in question 9, adjust/add/remove/etc. object properties and individuals in your Protege file so that when you run a reasoner in Protege, you return the following consequences: 
+
+  (a) a is a proper part of b and disjoint from e
+  
+  <img src="blob:chrome-untrusted://media-app/d643943e-0823-4864-8c7c-621868a19b1a" alt="EMP210a.png"/>
+  
+  
+  (b) a overlaps c  
+  (c) a is part of b, b is part of f, and a is part of f
+  (e) There are no parts between a and g in common
+
+Rather than showing a screenshot for each, the following shows the consequences for (b)-(e) in a single screenshot:
+
+<img src="blob:chrome-untrusted://media-app/1596b148-08f2-4e44-9acc-e552245fec18" alt="EMP210be.png"/>
