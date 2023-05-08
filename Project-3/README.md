@@ -15,6 +15,11 @@ For any question involving the use of Protege, please be sure to import:
   Object property: has_quality
   I think this object property could be reflexive.  Protege states that "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence."  If "is the same height as" is a reflexive relation (as presented in David Braun's Modal Logic textbook), this seems consistent with the definition provided in Protege.  Consider, for example, the quality "is 5'8" tall."  This is a reflexive relation - if Katie has_quality 5'8" tall, i.e. Katie is 5'8", she bears this relation to herself (and all others who are 5'8" tall, but this is not required).  If there is no entity (or person, or instance, maybe?) that has the quality of being 5'8" tall, this relation/quality 1) does not exist and 2) is not reflexive. 
   
+ Alternative (per Josh's comments): 
+ Object property: overlaps_with 
+  The object property, “overlaps”, should have the reflexive characteristic listed.  It’s definition states: x overlaps y if and only if there exists some z such that   x has part z and z part of y.  Reflexivity is the characteristic that expresses the relation that an entity be related to itself. The object property “overlaps”     
+  should have reflexive as a listed characteristic since an object shares itself (and parts of itself) with itself. 
+  
   (b)  Transitive 
   Object property: derives from
   Because this object property defines a relation in which a "significant" portion of the original entity is inherited by the entity that begins to exist as the original goes out of existence, this is (maybe) a transitive relation.  For example, if Cell B is derived from Cell A (the original cell), Cell B inherits a significant portion of Cell A. Later, when Cell C is derived from Cell B, Cell C inherits a significant portion of Cell B (which includes a significant portion of Cell A by definition).  Therefore, Cell C contains a significant portion (or at least some portion at this point of derivation) of Cell A, making this relation transitive.  If it is not the case that Cell C contains at least some portion of Cell A (the original Cell), then this relation is not transitive.
@@ -173,7 +178,7 @@ There seems to be something missing in this graph such that the Turtle and XML a
       
       
   (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
-      False.  An entity that is essentially immaterial can find no material ground, but stands in relation to material entities (in BFO).  This is interesting because an example used (as an immaterial entity) is the boundary of Whales.  This feels "grounded" (materially) to me, but maybe that is just the character of the relation between the immaterial and material?
+       False.  An entity that is essentially immaterial can find no material ground, but stands in relation to material entities (in BFO).  This is interesting because an example used (as an immaterial entity) is the boundary of Wales.  This feels "grounded" (materially) to me, but maybe that is just the character of the relation between the immaterial and material?
       
   (c) An organization may have another organization as part.
       True. For example, a political committee can have a subcommittee as a part. 
@@ -208,6 +213,8 @@ There seems to be something missing in this graph such that the Turtle and XML a
 
 Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower.
 In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+
+Per Josh's suggestion, I'd like to mention why we may not want to use the Pellet reasoner.  My concern is that by building from an unchanging foundation, there may be inconsistencies or errors "baked in" the Ontology.  Or, alternatively, perhaps the "end" of the Ontology will have abstracted too far away from the "beginning."
 
 
 10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoenr is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
