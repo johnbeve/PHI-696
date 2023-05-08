@@ -88,22 +88,29 @@ Symbols: ∀ ∃ ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡ ¬ → ∨ ∧ ¯
 
 (a) ∀x∃y∀z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-∃R.(∀R.T) ⊓ ∀R.T
+X ⊑ ∃R.(∀R.(∀R.⊤))
 
 
 (b) ∃x∀y∃z(R(x,y) ∧ R(x,z) ∧ R(y,z))
 
-∃R¯.(∃R.⊤) ⊓ ∃R.⊤
+∃R¯.(∃R.⊤) ⊓ ∃R.⊤  
+
+Alternatively:
+
+X ⊑ ∃R.Y ⊓ ∃R.Z ⊓ Y ⊑ ∃R.Z
+
+[[n.b., this is the closest answers/translations I could get in ALCI, but these don't fully capture the FOL expressiveness because it doesn't capture the relationship expressed by the quantifiers.]]
 
 
 (c) ∀y(R(x, y) → ∃x(R(y, x) ∧ ∀y(R(x, y) → A(y))))
 
 ∀R.∃R.∀R.A
 
+X ⊑ (∀R.(∃R.((∀R.A) ⊓ Y)))
 
 (d) (∀y)(R(x, y) → A(y)) ∧ (∃y)(R(x, y) ∧ B(y))
 
-∀R.A ⊓ ∃R.B
+X ⊑ (∀R.A ⊓ ∃R.B)
 
 
 4. Provide an interpretation I<sub>1</sub> for ALC and an interpretation I<sub>2</sub> for ALCN - each distinct from any interpretation covered in class so far - and construct a bisimulation that demonstrates ALCN is more expressive than ALC. Use the [mermaid syntax](https://github.com/mermaid-js/mermaid) of markdown to provide a graphical representation of your work. Feel free to use the [mermaid live editor](https://mermaid.live/) when diagramming. 
