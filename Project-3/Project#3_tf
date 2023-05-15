@@ -1,0 +1,292 @@
+Your third project will require you to answer each of the 10 questions below.  You will be expected to open a pull request with your initial answers by the second class meeting, giving you one week to work on these problems. You and your peers will then have one week to work together to refine your respective initial answers, so they are ready for final submission. Once your pull requests have been reviewed and merged to the development branch, I will review them, then merge to the master branch. 
+
+For any question involving the use of Protege, please be sure to import Basic Formal Ontology (https://raw.githubusercontent.com/BFO-ontology/BFO/v2019-08-26/bfo_classes_only.owl) and the Relations Ontology (https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl)
+
+Other symbols: ∀∃ ⊔ ⊓ ⊧ ⊭ ⊦ ⊬ ⊏ ⊐ ⊑ ⊒ ≡ ¬ → ∨ ∧ ¯ ⊤ ≥ ≤
+
+1. In BFO and RO identify at least one object property for each of a-e that _should have the listed property, but which does not_; argue for your case, using examples. 
+
+  (a)  Reflexive
+    
+OVerlaps. The object property “overlaps” should have 'reflexive' listed as one of its properties, since every entity overlaps with itself, either whole-to-whole or part-to-whole. The 'Reflexive' property asserts that a property is 'reflexive' if it causes an individual entity to be related to itself. The definition of the object property "overlaps," in turn, states that 'x overlaps y if and only if there exists some z such that x has part z and z part of y.' Every entity is related to itself in an overlapping manner, either because it is identical to itself or because any of its parts overlaps with some part of the whole entity by virtue of being a part of it-qua-whole. Therefore, the object property "Overlaps" should also list the property 'reflexive' as one of its listed characteristics.
+
+  
+  (b)  Transitive 
+  
+Produces. The definition of 'produces' states that 'x produces y if some process that occurs_in has_output y, where x and y are material entities.' The object property "produces" is not listed as transitive, but should be. The object property of 'transitive' connects two classes or individuals when one of the linked classes or individuals has a connection with another class or individual. So, for example: if individual x is related to individual y, and individual y is related to individual z, then individual x is related to individual z. We can know that this relation holds because the relation is transitive: the relationship is implied from individual x to z, via individual y whom both x and z have in common, thereby ensuring transitivity in the relation. So, if x if a necessary condition for producing y, and y a necessary condition for producing z, then x is related to z via the object property of transitivity. For without x there is no y, and without y there is no z. This means that x is, in some sense, connected transitively to z in this 'producing' capacity, albeit indirectly... for inasmuch as without y there would be no z, since y produces z directly, but without x producing y, then there is no z either. So, by the definition of 'produces' one could extend the definition as follows, to account for transitivity: 'x produces y if some process that occurs_in has_output b, where x and y are material entities; and therefore, x produces z, if x produces y and y produces z, so that the original iteration of the definition is repeated and extended from x to y and y to z. (n.b., For the sake of accuracy, it might make sense to draw a distinction between 'produces' in either a (i) direct or (ii) indirect capacity, but I do think that transitivity as a property in some sense holds in the extended relation by virtue of the output requirement between two material entities.)
+
+
+  (c)  Symmetric
+
+Reciprocal_of. The definition of 'reciprocal of' states that "x reciprocal_of y if and only if: x and y are relational qualities and a phenotype e x e2 mutually implies a phenotype e2 y e." The symmetric object property states, intuitively, that the property has itself as an inverse, so if individual x is related to individual y then individual y must also be related to individual x along the same property. This definition seems applicable to reciprocal_of, where the relational qualities of one entity mutually imply another entity, which by virtue of the mutually-implying entails the symmetric object property in the implication. Therefore, the object property 'reciprocal_of' should have symmetric listed as one of its properties.
+
+ 
+  (d)  Functional 
+  
+regulates_transport_of. The definition of "regulates_transport_of" is defined as, "a relationship that holds between a process that regulates a transport process and the entity transported by that process." The 'functional' object property, in turn, states intuitively that "for any given individual, the property can have at most one value. In other words, there can be at most one out going relationship along the property for that individual. Note that, if multiple individuals are specified as values for the property then these values will be inferred to denote the same object." The property 'regulates_transport_of' indicates the functional relation between the process that regulates the transport of the entity and the entity transported. Therefore, the property 'regulates_transport_of' should have 'functional' listed as its property.
+
+  
+  (e)  Symmetric and Reflexive.
+
+Occurs_in. The definition of this property is (paraphrased) as, "a relation between a process and an independent continuant, in which the process takes place entirely within the independent continuant." The object properties 'symmetric' states that,"the property has itself as an inverse, so if individual x is related to individual y then individual y must also be related to individual x along the same property"; and the object property 'reflexive' states "a property is 'reflexive' if it causes an individual entity to be related to itself." Both the independent continuant and the process related in occur_in take place entirely in a symmetric and reflexive relation where the process and identity of the continuant are defined interdependently in relation to the other, and reciprocally i in this way in relation to themselves, individually. The object property 'occurs_in' should, therefore, have symmetric and reflexive listed as properties.
+
+
+
+2. In BFO and RO identify at least one object property for each of a-e that _should not have the listed property, but which does_; argue for your case, using examples. 
+
+  (a)  Irreflexive
+  
+has_substance_added. This property has 'irreflexive' listed as one of its properties, but should not. Its definition is, "a relation existing between a physical entity and a substance in which the entity has had the substance added to it at some point in time." The definition for irreflexive states, "that the selected property is Irreflexive means that an individual cannot be related to itself via that property." So, it would follow that if the physical entity in question is a person or individual and the individual in question relates to itself via the property has_substance_added, then the object property of irreflexive doesn't apply here. A person who eats or drinks something would seem to be a clear example where the individual has a substance added to its internal makeup (e.g., water), and this is an instance in which reflexivity applies to the object property. Even putting persons aside, one can think of a robot that re-fuels itself by adding a substance to its body; and the robot is a physical entity that has a body, and which then has a substance added to it by itself. (I wanted to use a Roomba vacuum as an example, since it recharges itself at the end of a vacuuming cycle, but electricity doesn't seem to me like something that would qualify as a 'substance.' That said, during the vacuuming process, the Roomba has all sorts of substances added to it by virtue of the vaccuming/suctioning on dirty surfaces, so there's that possibility as a counterexample too.) For these reasons, has_substance_added should not have irreflexive listed.
+
+  
+  (b)  Transitive 
+
+located_in. This property has 'transitive' listed, but should not. Its definition is that of "a relation between two independent continuants, the target and the location, in which the target is entirely within the location." The definition of 'transitive' states that "if individual x is related to individual y, and individual y is related to individual z, then individual x will be related to individual z. In other words, a single 'hop' is implied over a chain of two along a given property if that property is transitive." That definition doesn't seem to be always satisfiable in 'located_in.' The idea here seems to be that the property of 'located_in' is a relation between two independent continuants, and one of these is the target that is located_in location-x, and the other is the location itself. In simpler terms, if you find something then the thing in question is located-in the place that you found it. Nevertheless, there does not seem to be transivity at play here. Instead, one seems to find a reiteration of a previous term in more technical form, without the transitive property playing a role. To say that something, the target, is located_in the location seems to simply, redundantly, repeat that the target was located (in the location where it was located.) I am all for using repetition as a way to emphasize something in some case, and in some instances it can even carry some pragmatic inmport whereby the context adds a semantic layer to what is being reiterated. Still, repetition of the same term (location) in slightly modified language doesn't seem to entail transitivity. One can, for example, think of the military having a plan to intercept a package or weapon from the enemy, and thus plans in advance what location-x will be on a map. Location-x is where the target will be intercepted and thus located_in at the time of the interception. Then the military intercepts the package at the specified location and time: in this case, the location and the target align/overlap in spatio-temporal terms. But the target was located_in somewhere at every point, at some place/location at every step. There seems to be no real transitive property here, for to say that something is found in the place that you found it seems both redundant and more of a form of reflexivity than transitivity. The same applies to saying that something is where it is--yes, it is true that the target is at the location where the target is (located_in) at any given time... but that doesn't add any real information, it just repeats a spatially-oriented version of 'it is what it is.' One should have a hard time asserting, if willing to do so at all, that the second 'it is' in the platitude/truism carries its meaning via the transitive property from the first 'it is.' It should be the same for located_in, which should not have transitive listed.
+ 
+Further, the transitivity property seems to be implied by the definition by defining the location and the target as aligned_with each other. Thus, if it can be shown that aligned_with should not have transitive listed as one of its properties, then the case for transitive not being listed as a property of located_in is further strenghtened. So, I add to my argument the case made against aligned_with by the group and discussed during group review. Now, one could argue that just because a property object like aligned_with is termed obsolete doesn't invalidate that it should have transitive listed as its property; if it weren't obsolete, it could have it listed without problem. Saying that a term is no longer used doesn't mean that it wasn't properly listed with transitive as one of its properties. To this objection, my response is the following. We may replace aligned_With with overlaps, which would seem to be its non-obsolete replacement/successor. This still does not give us good enough reasons to think that 'transitive' should be listed as a property for located_in. Simply because (a) target and (b) location overlap does not mean that the property located-in is transitive. The target will always be located-in the location that it is, but this just doubly asserts the same location fact. 
+
+
+   (c)  Asymmetric*
+
+has_role_in_modeling. The object property “has role in modeling” should not have the asymmetric property listed. Its definition states that “a relation between a biological, experimental, or computational artifact and an entity it is used to study, in virtue of its replicating or approximating features of the studied entity.” BFO defines an artifact as “something that is deliberately designed (or, in certain borderline cases, selected) by human beings to address a particular purpose." It is further observed that “While not all representational artifacts are ontologies, all ontologies are representational artifacts, and thus everything that holds of representational artifacts in general holds also of ontologies.” The upshot of this is that if artifact-x has a role in modeling entity-y, then artifact x’s relation with entity-y is subject to the same BFO domain rules as everything else. That is, if the declared characteristic of an artifact-x is universally declared to be asymmetric to an entity-y, then it follows that there are no such cases where the relationship between artifact-x and entity-y is symmetric. It is plausible that artifact-x’s possible relations to entity-y may in some cases be asymmetric (e.g., healthy cell line [artifact] → inducing disease [entity]), in others they may be symmetric (e.g., diseased model organism [artifact] → same diseased model organism over time [entity]). Further, for these reasons, it might prove be best to remain agnostic a priori about the asymmetric/symmetric status of such relations. This suggest that leaving neither asymmetric or symmetric listed is appropiate, for the choice of whether to list one or the other would be determined on a case by case basis as well as on the determinative basis of context and end-goals in mind for the particular model and inferences desired. For these reasons, while has_role_in_modeling can at times have asymmetric listed as one of its properties, it isn't always the case that asymmetry is one of its properties universally. This seems to be a sufficient justification for not having the asymmetric property listed as its default.
+
+*There weren't (m)any options to choose from here for this question. (With thanks to Jaron and the group review session.)
+
+  (d)  Functional* 
+
+characteristic_of. Its definition states that there is “a relation between a specifically dependent continuant (characteristic) and any other entity (bearer) in which the characteristic depends on the bearer for its existence.” This property means that for any given individual the property can have at most one value. So, there can be at most one out going relationship along the property for that individual. So, one might says that roses are red, with red being the characteristic of the rose (bearer); alternatively, one may say that 'smelling good' is another characteristic of the rose (bearer). But roses can have other colors, and don't always smell good. Roses can even have different colors at once, as their petals fade; and similarly have complex smells simultaneously, which seems to give more than one value to this property. Red is not the only value of a rose, even if it is present as one of its colors at any given time; neither is a good smell, if some parts of the rose are decaying and have a poor or bad smell. There are cases, then, in whch something which would seem a functional characteristic of something turns out not to be functional. Roses are red, but not all the time; and most times you may want to stop, pause, and smell the flowers, but you may be surprised at what the outcome is in terms of smells and odors that you encounter at any given time. Thus, while it makes sense to generally think of characteristic_of in terms of a functional property, it may not always be the case that functionality ought to be constrained to one output, in a one-to-one relation. This suggest that there ought to be room in one's ontology for thinking of the object property characteristic_of in terms of one-to-many and many-to-one relations, which would require unlisting 'functional' as one of its properties. For these reasons, the object property "characteristic of" should not have the functional property listed.
+
+  (e)  Inverse Functional*
+
+has_characteristic. This property is defined as the inverse of 'characteristic of,' which is in turn defined as "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence.” By virtue of being defined in relation to the 'functional' property as its inverse, this property entails that for any given individual the inverse-functional property can have at most one value. At most, there can be one out going relationship along the property for that individual. So, for example, one may say that a rose “has characteristic” of the color red. However, it's not always the case that a bearer necessarily corresponds with only one characteristic value. Roses (bearers) can change into other colors, and there are such things as multi-color entities (like chameleons or color-changing lights). The color red can be reproduced independent of the bearer that is the rose, even into the exact same hue. Thus, we can see that a bearer can have a one-to-one relationship to a characteristic, which would be correctly listed as functional or inversely functional accordingly, but bearers also may stand in one-to-many, many-to-many, and many-to-one relationships to a characteristic or set thereof, which wouldn't qualify the 'functional' property. One can see the value of approaching characteristics in an applied ontology in functional terms, and thereby on a one-to-one basis in the relationship between the bearer and the characteristic, but this pragmatic fact need not require that all discussion of relations between characteristics and their respective bearers be exclusively in terms of a one-to-one functional relation. For these reasons, and by extension of the same logic in my answer to (d) above, the object property “has characteristic” should not have the inverse functional property listed.
+
+
+3. Model the following natural language expressions using terms from BFO and RO; you are welcome to introduce new terms where needed:  
+
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday. 
+  
+The first thing to note is that there is a great degree of ambiguity in how this expression ought to be interpreted, with interpreting being a pre-requisite for modeling it. (One could write a story or novel with this much ambiguity...) 
+
+'Sally' could be a person, or a robot, or a computer program (or something else). When dealing with such ambiguous expressions in natural language, we should, I think, consider at least three levels of semantic determinacy (as well as their respective associated risks): (1) natural language writ-large, (2) ordinary-use language, and (3) common sense use. An example/definition of (1) is natural human language that is definable in relation to all forms of human language, so this level entails the most inherent ambiguity and interpretative risks. With the main risk here being that we'll be told the expression means something else than we thought.
+
+Assume that Sally is a person, and she could be an arms dealer; assume that she is a robot, and it might have as one its functions trying on prosthetic arms; or assume that Sally is a computer program or game, and the subsequent terms in the expression would be defined relative to the rules of the program or game, and could end up being defined and meaning almost anything. All seem plausible interpretations of this natural language expression, which would lead to different modeling possibilities. (I put aside considerations of interpreting this expression in terms of level (3), common sense, because that seems like a cop-out by fiat, with the expression meaning what one wants it to mean, or what one thinks the relevant culture or epistemic community would want it to mean.)
+
+So, we may move down to (2) the level of ordinary language use, which would be largely (and opaquely) defined in terms of how this expression would be ordinarily interpreted by people. The expression would most likely be interpreted as a person named Sally, who happens to have a physical arm on Tuesday, and to not have a physical arm on Wednesday. A second interpretative option here would be that Sally is in fact an arms-dealer (surprise!), and she had an arm Tuesday because she was selling it to someone, and did not have one on Wednesday because there was no sale to be made that day. This second interpretation, however, seems less likely, even if not implausible. The most simple ordinary interpretation is thus the one where Sally is a person who is missing an arm.
+
+Here, then, we may return to paying attention to the logical ambiguity inherent in the expression. For if Sally only has an arm on Tuesday, she may also only have an arm on Wednesday; which means that she is missing an arm on Tuesday, and missing an arm on Wednesday. The expression could be logically saying the same thing, but differently by emphasizing on one day that she still has an arm, and on the other day that she is missing an arm. For the sake of simplicity, we may here assume a linear conception of time, with Tuesday and wednesday being sequentially ordered in any given week of the year, but we probably cannot assume that this particular Tuesday is the one immediately preceding this particular Wednesday. Absent this last assumption, the expression could make more sense: in reference to one Tuesday, it emphasizes that she has an arm, and in reference to a non-sequential Wednesday, it emphasizes the lack of an arm. There would be no change whatsoever in the facts conveyed, but only in the emphasis place on her condition as someone missing an arm. 
+
+Ordinarily, that would seem fine. We could put aside whether Tuesday and Wednesday are references to days of the week, but even in ordinary uses of languages Tuesday and Wednesday could be proper names. (Think, e.g., Wednesday Addams. Maybe she has a cousin named Tuesday...?) Tuesday and Wednesday could also be the names of Sally's dogs. Under an open-world assumption, none of this possibilities could be ruled out right away. The dog names possibility, however, doesn't quite work without the preposition 'on.' So, we are back to Sally having an arm on one day, but not on the other. (Notice, interestingly, that the preposition 'on' could be in this expression even if we are referring to days of the week, but isn't.) Back to the logical ambiguity at play in the expression, one may note that Sally could be a person that only has one arm; the cause doesn't much matter. It would be true that Sally is an one-arm person in both instances asserted in the expression: Sally would have an arm on Tuesday, because Sally doesn't have two arms; and, by the same logic, it would be true that Sally does not have an arm on Wednesday if she only has one arm (and doesn't have two arms), because the expression is referring to the arm that Sally is missing on Wednesday, and referring to the arm that she is not missing on Tuesday.
+
+Even with ordinary language use, there is still another ambiguity inherent in the expression. Namely, how one goes about defining 'has.' There are at least three relevant layers of meaning possible here. Sally the arms-dealer *has* arms that she sells for profit. Sally the person who is missing an arm *has* one arm that came attached with her phsyical body. This same Sally might have a prosthetic arm that she puts on and takes off at will, so perhaps the expression could be interpreted to be referring to her taking on the prosthetic arm from one day to the next. (She could also be missing both arms, and the expression refers to the one prosthetic arm she got from her insurance.) She would still own the prosthetic arm, but not 'have' it with her or on her, when she takes the arm off, on Wednesdays, for whatever reason. Sally could also be a mannequin at the local retail store... (again, one could write a novel with so much ambiguity...)
+ 
+So, to modeling the expression:
+
+Sally is instance_of object (person, robot, mannequin...)
+Tuesday is instance_of one-dimensional temporal region 
+Wednesday is an instance of one-dimensional temporal region 
+Arm is an instance of fiat object part or an instance_of object (applies equally as well to person, robot, mannequin...)
+“Sally participates in having at least one arm on Tuesday” is an instance of occurrent 
+“Sally participates in having no arms on Wednesday” is an instance of occurrent
+“Sally participates in having at most one arm on Wednesday” is an instance of occurrent
+
+Putting aside the above remarks, my answer is:
+
+“Sally participates in having at least one arm on Tuesday and Sally participates in having at most one arm on Wednesday”***
+
+***I think this rendering captures best the logical ambiguity discussed at length in the first part of my answer. I am not sure which day precedes which, since we do not know that both days belong to the same week.
+
+
+  (b) Every liver has some cell as part at all times it exists.
+
+Liver is a class in Uberon (UBERON_0002107), which is a subclass of material entity. 
+https://ontobee.org/ontology/UBERON?iri=http://purl.obolibrary.org/obo/UBERON_0002107
+
+Argument according to authority BS for the object property has_part_at_all_times: https://youtu.be/fkkWkTIxrNQ
+
+Liver has_part_at_all_times Cell
+
+
+  (c) John was a child, then an adult, then a senior. 
+
+John is an instance_of object (person, etc)
+childhood is an instance_of occurrent.
+adulthood is an instance_of occurrent.
+seniorhood is an instance_of occurrent.
+
+“John participates in childhood precedes John participates in adulthood which precedes John participates in seniorhood.”
+
+n.b., it isn't clear that adulthood and seniorhood are mutually exclusive instances, and there may be some overlap between the two. 
+
+
+  (d) Goofus and Gallant are married at each point in a three year span. 
+
+Goofus is an instance_of object
+Gallant is an instance_of object
+Marriage is an instance_of occurrent
+“Three years span 1” is an instance_of one-dimensional temporal region.
+T1 is an instance_of zero-dimensional temporal region.
+If zero-dimensional temporal region t1 is part_of the one-dimensional temporal region “three years span 1”, then Goofus participates in marriage at t1 and Galland participates in marriage at t1.
+
+n.b., This expression doesn’t say anything about Goofus and Gallant being married to each other, so this is not represented.
+
+
+4. Using the language of First-Order Logic, represent the following natural language expressions; you are welcome to introduce new terms where needed: 
+
+  (a) Sally has an arm Tuesday but does not have an arm Wednesday.
+
+∃x (Tx ∧ ∃y (Hsy∧Ay)) ∧ ∃x (Wx ∧ ~∃y(Hsy∧Ay))
+  T: Tuesday
+  H: has
+  A: arm
+  W: Wednesday
+  s: Sally
+  
+
+  (b) Every liver has some cell as part at all times it exists.
+
+  ∀x∃y(Lx→Cy∧Pyx)
+    L: liver
+    C: cell
+    P: part_of
+
+
+  (c) John was a child, then an adult, then a senior. 
+
+∃t1∃t2∃t3 (C (j, t1) ∧ A (J, t2) ∧ S(J, t3) ∧ E (t1, t2) ∧ E (t2, t3))
+  j = John
+  E (x,y) = being earlier than
+  C (x,t) = being a child at t
+  A (x,t) = being an adult at t
+  S (x,t) = being a senior at t
+
+  (d) Goofus and Gallant have been married for three years; for each day of that span, it is true to assert they are married. 
+
+
+∀t(D(t) ∧ Y(t)→(M(g1,t) ∧ M(g2,t)))
+  M(x, t) = being married at t
+  Y(t) = belongs to 3 year span 1
+  g1 = Goofus
+  g2 = Gallant
+  D(t) = t is a day
+
+
+5. Using BFO and RO, model the following scenario: the content of an rdf file is represented in two serializations - one in Turtle, one in XML - which are sent from one computer to two distinct computers on the same network.   
+
+Content is an instance_of generic dependent continuant
+File is an instance_of generic dependent continuant
+File 1 Turtle implements content 1
+File 2 XML implements content 1
+Computer 1 is bearer of File 1 and File 2
+Computer 1 is an instance_of material entity 
+Computer 2 is an instance_of material entity
+Computer 3 is an instance_of material entity
+Computer 1 2 and 3 are part of Network 1
+Network 1 is an instance_of Network
+Network is_a object aggregate
+
+
+– RDF File Content, Turtle and XML are all generically dependent continuants. RDF File Content has_model in Turtle and XML. And they are all carried by Computer.
+– Computer 1 enables the process of Data Transmission, which ends_with another process, Data Reception, which has computers 2 and 3 as participants. So this part is intended to show that there is some data (Turtle and XML) which are sent from Computers 1 to Computer 2 and 3.
+– Finally, computers 1, 2, and 3 are all parts_of network I, which is instance_of Object Aggregate.)
+
+Note: In RDF, we have a triple like (s, p, o), meaning that the subject S is P-related (“p” as a predicate) to the object O. In Mermaid, this triple can be expressed as  “A(class/individual name of s) -->|p| B(class/individual name of O)”. So a Mermaid graph can be written in the following way:
+
+```mermaid
+graph LR
+A(John) -->|instance_of|B(Object)
+C(Running) -->|is_a|D(Process)
+```
+
+When we assign “graph” as LR, it will unfold from left to right; when we assign it as TD, it will unfold from top to down. “A”, “B” and other capital letters can be used to define nodes in a Mermaid graph.
+
+6. Using Protege, place these in the BFO hierarchy where you think they fit best:
+
+  (a) Bach's Well-Tempered Clavier
+  
+Generically dependent continuant (e.g.  computer files), object (e.g. music sheet), or process (occurrent, e.g. playing the song)
+
+  
+  (b) Chair of the UB Philosophy Department
+
+Role
+
+  (c) SARS-CoV-2
+
+Object/Material entity (e.g. virus) 
+
+n.b., for symptoms to exist (i.e., disposition) another body would be needed to be infected and display symptoms.
+
+  (d) Mexico City
+
+Site or 3D spatial region or Instance
+
+  (e) The trunk of a minivan
+
+Site or fiat object part
+
+  (f) Occupation
+
+Role
+
+  (g) Ocean
+
+Site or 3D spatial region
+
+  (h) Lake
+
+Site or 3D spatial region
+
+
+7. True or False; explain your answers:
+
+  (a) An instance of Material Entity can have an instance of Immaterial Entity as part.
+  
+True. “Immaterial entities listed under 1 (boundaries and sites) are in some cases continuant parts of their material.” (Smith 108)
+  
+  (b) An instance of Immaterial Entity can have an instance of Material Entity as part.
+  
+False. You can have, as seen in (a), an instance of a ME that has an instance of an IE as part, but not the other way around. Concepts explain things, but things don't explain concepts--I think something along these lines grounds the direction of the relationship.
+  
+  (c) An organization may have another organization as part.
+  
+True. For example, the Federal Goverment has State governments as parts; or NATO has other Nation-States as a parts. (n.b., The relevancy or fit of the examples hinges, to some extent, on how on defines organization.) 
+  
+  (d) An organization may have no members as part. 
+  
+True and False. Again, this answer hinges on how on defines 'organization.' The 'perspectivalism' we read about a few weeks back seems to be useful here. So, for example, take the debate team of a college. The debate team is an organization. If (a) one defines organization relative to the entity being recognized by another entity/organization for its role, the debate club will exist even if it has no members as part provided that it continues to be recognized by the college according to its role. If, however, (b) one defines organization relative to the performance of some activity then it might make sense to view the debate team as an object aggregate, then without members as part the debate team there would be no activity performed, for it would have no performers, and therefore the object aggregate would not exist. So, according to (a) the debate team, grounded in institutional recognition of its role, may exist even while having no members as part. The answer according to (a) is, therefore, true. According to (b), however, the answer is false. If the debate club is viewed as an object aggregate because as object aggregate is the sum of its parts, it loses its necessary parts to being an object aggregate by virtue of having no members as pars.
+  
+  (e) Any site is partially bounded by some instance of Material Entity.
+  
+False. One can identify a specified space that is still surrounded by space without touching any Material Entity.
+  
+  (f) A book placed under the leg of a wobbly table has acquired a new function. 
+
+False. The elucidation excludes this, by saying that the function is due to the physical make-up of the object. Since nothing about the make-up of the object changed, the book did not gain any new function. If the book has the function of supporting the table, this is a function it has always had, even if it wasn’t intended to support the table. The book qua flat-surfaced object that can support a wobbly table did not, therefore, acquire a new function.
+  
+  (g) A glass vase cushioned with packing tape for all time has the disposition to break. 
+  
+True. Dispositions exist in virtue of the bearer’s physical make-up, not its environment.
+  
+  (h) Spacetime is a class in BFO.
+  
+False. This is covered by spatiotemporal region.
+  
+  (i) The continuant fiat boundary class of BFO is closed, meaning, there are no subclasses beyond those identified presently in BFO. 
+
+False. "Continuant fiat boundary doesn't have a closure axiom because the subclasses don't necessarily exhaust all possibilities. An example would be the mereological sum of two-dimensional continuant fiat boundary and a one dimensional continuant fiat boundary that doesn't overlap it" (BFO file in Protege). 
+
+
+8. Model the following scenario in BFO, introducing whatever terms are needed to do so: John runs for 3 hours, starting slowly, speeding up during the middle, then ending the run at a slower pace.  
+
+
+
+
+9. The Pellet reasoner in Protege can be used in an incremental reasoning strategy. ELI5 when and why one should use Pellet for incremental reasoning. 
+
+ 
+ELI5 (from Chat-GPT): Imagine you are playing with some building blocks to build a tower. Every time you add a block to the tower, you don't need to start building the tower from the beginning. You just need to add the new block on top of the tower. In the same way, when we use Pellet to reason about an ontology, we don't need to start reasoning from the beginning every time we add new information to the ontology. Instead, Pellet remembers what it has already figured out and uses that knowledge to figure out what the new information means. This is kind of like adding a new block to the tower without starting from the beginning. Thus, Pellet is especially important for large, complex ontologies where re-computing all the results every time new information is added would take a long time. 
+
+
+
+10. Protege reasoners will not allow you to combine certain properties, e.g. reflexivity and transitivity. If you attempt to assert such pairs of the same object property, then run the reasoner, nothing will happen. If you combine such properties while a reasoner is running, then ask to synchronize the reasoner, an error will be thrown. Provide a table or series of tables illustrating which pairs of properties cannot be combined in Protege, either because nothing happens when the reasoner is run or because an error is thrown when synchronizing a reasoner after making such changes. Review the github docs on [creating tables in markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables).
+
