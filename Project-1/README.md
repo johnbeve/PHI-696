@@ -15,6 +15,7 @@ Note: The standard interpretation of the logical symbols - "∨", "∧", "→", 
   ```
   (a) (¬A→B)∨((A∧¬C)→B) 
   (b) (A→B)∧(A→¬B)
+pijwpewporekw
   (c) (A→(B∨C))∨(C→¬A) 
   (d) ((A→B)∧C)∨(A∧D) 
   ```
